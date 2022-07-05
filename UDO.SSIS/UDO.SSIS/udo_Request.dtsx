@@ -1,0 +1,2725 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/2/2019 6:38:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VHACDWDWHETL15"
+  DTS:CreatorName="VHAMASTER\VHAJITBROWNT"
+  DTS:DTSID="{B5CD256B-5EEE-4C78-9944-BC74CD133DD2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="udo_Request"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="165"
+  DTS:VersionGUID="{9CE48735-6A09-4337-A45D-2EB31A4C84C2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DACB68B2-1528-45D5-82FF-DAD6FC055924}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dtMaxDateTime">
+      <DTS:VariableValue
+        DTS:DataType="8">2019-09-09 00:00:00.000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7FF7AFCB-470C-424A-BD9B-3116C13D9D73}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intAuditID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A2468EDB-7756-45F1-BAF7-82671F0D33D9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intCompletedRowCount">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{445A1EE6-E641-4579-905B-9CB7141F06D6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intErrorCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A1A37B1-BE19-4640-9791-A0AC9DD0D5A5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInitialRowCount">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0FF4F3A9-B805-48DF-9545-306448ECFEE8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intPackageRunStatus">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8139120C-C8A6-4DB1-931A-AF70B03F89D0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intRowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{69378B55-6164-458A-BFB7-FC42A4E356D7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intRowsUpdated">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4C75CDA-2B26-4BE9-8108-A78C7CF9A92A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBaseTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">udo_request</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD4116B2-3B3B-4551-B683-8CE4A65F2751}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strODSPKColumn1">
+      <DTS:VariableValue
+        DTS:DataType="8">udo_requestId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71229EC0-D492-4AD1-AE54-60367BE22E0C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strODSPKColumn2">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71B328A5-3CF3-4ED2-A0AF-C972EC9C9068}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strODSPKColumn3">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8AE3CC80-D3F1-4E52-AD9E-224979DFAD73}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT COUNT(1) FROM &quot; +  @[User::strODSTableName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strODSSQLRowCount">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT COUNT(1) FROM ods.udo_request</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C651B7B2-B403-4B87-B7F9-E42383BAB7DC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strODSTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">ods.udo_request</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C728A96E-16E1-4BF3-8F64-A4866B212F9B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSQLModifiedColumnName">
+      <DTS:VariableValue
+        DTS:DataType="8">modifiedon</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8ADDBB2-B141-4AD7-9D89-48F4BF278E78}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;TRUNCATE TABLE &quot; + @[User::strStgTableName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSQLTruncate">
+      <DTS:VariableValue
+        DTS:DataType="8">TRUNCATE TABLE stg.udo_request</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0BA13061-144D-4922-ABA7-5429A2B46C0B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;SELECT COUNT(*) &#xA;from &quot; +    @[User::strODSTableName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strStgSQLRowCount">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT COUNT(*) 
+from ods.udo_request</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DED5CA1F-FC75-4297-A804-3960649E4BC6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strStgTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.udo_request</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B154BD75-78E4-420C-B544-A52E939B8ECA}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\DFT - Load Stage Table"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{CDFDC4DF-D29A-459A-B7D8-A2F2B396F52E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT - Load Stage Table"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2018 KingswaySoft Inc."
+                  description="Extract data from Microsoft Dynamics 365 CE/CRM."
+                  name="D365_Source"
+                  usesDispositions="true"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of source data from Microsoft Dynamics CRM."
+                      expressionType="Notify"
+                      name="SourceType"
+                      typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">1</property>
+                    <property
+                      dataType="System.String"
+                      description="Dynamics CRM entity to retrieve data from."
+                      expressionType="Notify"
+                      name="SourceEntity"></property>
+                    <property
+                      dataType="System.String"
+                      description="FetchXML statement."
+                      expressionType="Notify"
+                      name="FetchXML">&lt;fetch mapping="logical" no-lock="true" version="1.0"&gt;
+  &lt;entity name="udo_request"&gt;
+    &lt;all-attributes /&gt;
+    &lt;filter&gt;
+      &lt;condition attribute="@[User::strSQLModifiedColumnName]" operator="gt" value="@[User::dtMaxDateTime]" /&gt;
+    &lt;/filter&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the batch size of the query."
+                      expressionType="Notify"
+                      name="BatchSize">2000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                      expressionType="Notify"
+                      name="MaxRowsReturned">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="The caller to be used for CRM impersonation when reading from CRM server."
+                      expressionType="Notify"
+                      name="ImpersonateAs" />
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the output timezone for CRM datetime fields."
+                      expressionType="Notify"
+                      name="OutputTimezone"
+                      typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Connections[DynamicsCRM]"
+                      connectionManagerID="{0EBD2750-692D-4AA5-B0E9-86AC9EE0CACD}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Source]"
+                      description="Dynamics CRM Connection Manager"
+                      name="DynamicsCRM" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output]"
+                      name="Primary Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdby]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdby]"
+                          name="createdby"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdbyname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdbyname]"
+                          name="createdbyname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdbyyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdbyyominame]"
+                          name="createdbyyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdon]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdon]"
+                          name="createdon"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfby]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfby]"
+                          name="createdonbehalfby"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfbyname]"
+                          name="createdonbehalfbyname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]"
+                          name="createdonbehalfbyyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[importsequencenumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[importsequencenumber]"
+                          name="importsequencenumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedby]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedby]"
+                          name="modifiedby"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedbyname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedbyname]"
+                          name="modifiedbyname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedbyyominame]"
+                          name="modifiedbyyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedon]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedon]"
+                          name="modifiedon"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfby]"
+                          name="modifiedonbehalfby"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]"
+                          name="modifiedonbehalfbyname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]"
+                          name="modifiedonbehalfbyyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[overriddencreatedon]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[overriddencreatedon]"
+                          name="overriddencreatedon"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[ownerid]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[ownerid]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[ownerid]"
+                          name="ownerid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owneridname]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridname]"
+                          name="owneridname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridtype]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owneridtype]"
+                          length="64"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridtype]"
+                          name="owneridtype"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owneridyominame]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridyominame]"
+                          name="owneridyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owningbusinessunit]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owningbusinessunit]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owningbusinessunit]"
+                          name="owningbusinessunit"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owningteam]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owningteam]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owningteam]"
+                          name="owningteam"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owninguser]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owninguser]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owninguser]"
+                          name="owninguser"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statecode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statecode]"
+                          name="statecode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statecodename]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                          length="255"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statecodename]"
+                          name="statecodename"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statuscode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statuscode]"
+                          name="statuscode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statuscodename]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                          length="255"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statuscodename]"
+                          name="statuscodename"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]"
+                          name="timezoneruleversionnumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]"
+                          name="utcconversiontimezonecode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[versionnumber]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[versionnumber]"
+                          name="versionnumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_duration]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_duration]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_duration]"
+                          name="udo_duration"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_endtime]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_endtime]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_endtime]"
+                          name="udo_endtime"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_ismigrated]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_ismigrated]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_ismigrated]"
+                          name="udo_ismigrated"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_ismigratedname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_ismigratedname]"
+                          length="255"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_ismigratedname]"
+                          name="udo_ismigratedname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_title]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_title]"
+                          length="100"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_title]"
+                          name="udo_title"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedby]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_udcreatedby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedby]"
+                          name="udo_udcreatedby"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedbyname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_udcreatedbyname]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedbyname]"
+                          name="udo_udcreatedbyname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedbyyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_udcreatedbyyominame]"
+                          length="200"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedbyyominame]"
+                          name="udo_udcreatedbyyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_idproof]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_idproof]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_idproof]"
+                          name="udo_idproof"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_idproofname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_idproofname]"
+                          length="100"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_idproofname]"
+                          name="udo_idproofname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_interaction]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_interaction]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_interaction]"
+                          name="udo_interaction"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_interactionname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_interactionname]"
+                          length="100"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_interactionname]"
+                          name="udo_interactionname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_isrepeatcall]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_isrepeatcall]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_isrepeatcall]"
+                          name="udo_isrepeatcall"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_isrepeatcallname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_isrepeatcallname]"
+                          length="255"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_isrepeatcallname]"
+                          name="udo_isrepeatcallname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regarding]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_regarding]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regarding]"
+                          name="udo_regarding"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regardingname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_regardingname]"
+                          length="160"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regardingname]"
+                          name="udo_regardingname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regardingyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_regardingyominame]"
+                          length="160"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regardingyominame]"
+                          name="udo_regardingyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_requestid]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_requestid]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_requestid]"
+                          name="udo_requestid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_subtype]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_subtype]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_subtype]"
+                          name="udo_subtype"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_subtypename]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_subtypename]"
+                          length="100"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_subtypename]"
+                          name="udo_subtypename"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_type]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_type]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_type]"
+                          name="udo_type"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_typename]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_typename]"
+                          length="100"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_typename]"
+                          name="udo_typename"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteran]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_veteran]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteran]"
+                          name="udo_veteran"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteranname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_veteranname]"
+                          length="160"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteranname]"
+                          name="udo_veteranname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteranyominame]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_veteranyominame]"
+                          length="160"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteranyominame]"
+                          name="udo_veteranyominame"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_walkin]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_walkin]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_walkin]"
+                          name="udo_walkin"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_walkinname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_walkinname]"
+                          length="100"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_walkinname]"
+                          name="udo_walkinname"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                          dataType="guid"
+                          name="createdby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                          dataType="dbTimeStamp"
+                          name="createdon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                          dataType="guid"
+                          name="createdonbehalfby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdonbehalfbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdonbehalfbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                          dataType="i4"
+                          name="importsequencenumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                          dataType="guid"
+                          name="modifiedby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                          dataType="dbTimeStamp"
+                          name="modifiedon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                          dataType="guid"
+                          name="modifiedonbehalfby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedonbehalfbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedonbehalfbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                          dataType="dbTimeStamp"
+                          name="overriddencreatedon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[ownerid]"
+                          dataType="guid"
+                          name="ownerid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owneridname]"
+                          dataType="wstr"
+                          length="200"
+                          name="owneridname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owneridtype]"
+                          dataType="wstr"
+                          length="64"
+                          name="owneridtype" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owneridyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="owneridyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owningbusinessunit]"
+                          dataType="guid"
+                          name="owningbusinessunit" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owningteam]"
+                          dataType="guid"
+                          name="owningteam" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[owninguser]"
+                          dataType="guid"
+                          name="owninguser" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                          dataType="i4"
+                          name="statecode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="statecodename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                          dataType="i4"
+                          name="statuscode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="statuscodename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                          dataType="i4"
+                          name="timezoneruleversionnumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                          dataType="i4"
+                          name="utcconversiontimezonecode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                          dataType="i8"
+                          name="versionnumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_duration]"
+                          dataType="r8"
+                          name="udo_duration" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_endtime]"
+                          dataType="dbTimeStamp"
+                          name="udo_endtime" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_ismigrated]"
+                          dataType="bool"
+                          name="udo_ismigrated" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_ismigratedname]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_ismigratedname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_title]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_udcreatedby]"
+                          dataType="guid"
+                          name="udo_udcreatedby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_udcreatedbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="udo_udcreatedbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_udcreatedbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="udo_udcreatedbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_idproof]"
+                          dataType="guid"
+                          name="udo_idproof" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_idproofname]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_idproofname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_interaction]"
+                          dataType="guid"
+                          name="udo_interaction" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_interactionname]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_interactionname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_isrepeatcall]"
+                          dataType="bool"
+                          name="udo_isrepeatcall" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_isrepeatcallname]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_isrepeatcallname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_regarding]"
+                          dataType="guid"
+                          name="udo_regarding" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_regardingname]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_regardingname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_regardingyominame]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_regardingyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_requestid]"
+                          dataType="guid"
+                          name="udo_requestid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_subtype]"
+                          dataType="guid"
+                          name="udo_subtype" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_subtypename]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_subtypename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_type]"
+                          dataType="guid"
+                          name="udo_type" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_typename]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_typename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_veteran]"
+                          dataType="guid"
+                          name="udo_veteran" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_veteranname]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_veteranname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_veteranyominame]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_veteranyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_walkin]"
+                          dataType="guid"
+                          name="udo_walkin" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].ExternalColumns[udo_walkinname]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_walkinname" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[AuditID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[AuditID]"
+                          name="AuditID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intAuditID]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intAuditID]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[msCreateDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[msCreateDate]"
+                          name="msCreateDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[msUpdateDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[msUpdateDate]"
+                          name="msUpdateDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Dest"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable">User::strStgTableName</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">4</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Connections[OleDbConnection]"
+                      connectionManagerID="{0358257A-7DAC-4894-9918-01B8FD21B9BC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Destination]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdby]"
+                          cachedDataType="guid"
+                          cachedName="createdby"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdby]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdbyname]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="createdbyname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdbyname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdbyname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdbyyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="createdbyyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdbyyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdbyyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdon]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="createdon"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdon]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdon]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdonbehalfby]"
+                          cachedDataType="guid"
+                          cachedName="createdonbehalfby"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfby]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdonbehalfbyname]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="createdonbehalfbyname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfbyname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[createdonbehalfbyyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="createdonbehalfbyyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[createdonbehalfbyyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[importsequencenumber]"
+                          cachedDataType="i4"
+                          cachedName="importsequencenumber"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[importsequencenumber]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[importsequencenumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedby]"
+                          cachedDataType="guid"
+                          cachedName="modifiedby"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedby]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedbyname]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="modifiedbyname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedbyname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedbyyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="modifiedbyyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedbyyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedon]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="modifiedon"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedon]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedon]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedonbehalfby]"
+                          cachedDataType="guid"
+                          cachedName="modifiedonbehalfby"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfby]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedonbehalfbyname]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="modifiedonbehalfbyname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfbyname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[modifiedonbehalfbyyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="modifiedonbehalfbyyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[modifiedonbehalfbyyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[overriddencreatedon]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="overriddencreatedon"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[overriddencreatedon]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[overriddencreatedon]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[ownerid]"
+                          cachedDataType="guid"
+                          cachedName="ownerid"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[ownerid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[owneridname]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="owneridname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owneridname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[owneridtype]"
+                          cachedDataType="wstr"
+                          cachedLength="64"
+                          cachedName="owneridtype"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridtype]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[owneridyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="owneridyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owneridyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owneridyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[owningbusinessunit]"
+                          cachedDataType="guid"
+                          cachedName="owningbusinessunit"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owningbusinessunit]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[owningteam]"
+                          cachedDataType="guid"
+                          cachedName="owningteam"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owningteam]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[owninguser]"
+                          cachedDataType="guid"
+                          cachedName="owninguser"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owninguser]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[owninguser]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[statecode]"
+                          cachedDataType="i4"
+                          cachedName="statecode"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statecode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[statecodename]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="statecodename"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statecodename]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statecodename]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[statuscode]"
+                          cachedDataType="i4"
+                          cachedName="statuscode"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statuscode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[statuscodename]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="statuscodename"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[statuscodename]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[timezoneruleversionnumber]"
+                          cachedDataType="i4"
+                          cachedName="timezoneruleversionnumber"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[timezoneruleversionnumber]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[timezoneruleversionnumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[utcconversiontimezonecode]"
+                          cachedDataType="i4"
+                          cachedName="utcconversiontimezonecode"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[utcconversiontimezonecode]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[utcconversiontimezonecode]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[versionnumber]"
+                          cachedDataType="i8"
+                          cachedName="versionnumber"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[versionnumber]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[versionnumber]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_duration]"
+                          cachedDataType="r8"
+                          cachedName="udo_duration"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_duration]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_duration]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_endtime]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="udo_endtime"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_endtime]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_endtime]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_ismigrated]"
+                          cachedDataType="bool"
+                          cachedName="udo_ismigrated"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_ismigrated]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_ismigrated]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_ismigratedname]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="udo_ismigratedname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_ismigratedname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_ismigratedname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_title]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="udo_title"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_title]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_title]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_udcreatedby]"
+                          cachedDataType="guid"
+                          cachedName="udo_udcreatedby"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_udcreatedby]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedby]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_udcreatedbyname]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="udo_udcreatedbyname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_udcreatedbyname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedbyname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_udcreatedbyyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="udo_udcreatedbyyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_udcreatedbyyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_udcreatedbyyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_idproof]"
+                          cachedDataType="guid"
+                          cachedName="udo_idproof"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_idproof]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_idproof]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_idproofname]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="udo_idproofname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_idproofname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_idproofname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_interaction]"
+                          cachedDataType="guid"
+                          cachedName="udo_interaction"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_interaction]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_interaction]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_interactionname]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="udo_interactionname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_interactionname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_interactionname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_isrepeatcall]"
+                          cachedDataType="bool"
+                          cachedName="udo_isrepeatcall"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_isrepeatcall]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_isrepeatcall]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_isrepeatcallname]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="udo_isrepeatcallname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_isrepeatcallname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_isrepeatcallname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_regarding]"
+                          cachedDataType="guid"
+                          cachedName="udo_regarding"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_regarding]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regarding]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_regardingname]"
+                          cachedDataType="wstr"
+                          cachedLength="160"
+                          cachedName="udo_regardingname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_regardingname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regardingname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_regardingyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="160"
+                          cachedName="udo_regardingyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_regardingyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_regardingyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_requestid]"
+                          cachedDataType="guid"
+                          cachedName="udo_requestid"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_requestid]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_requestid]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_subtype]"
+                          cachedDataType="guid"
+                          cachedName="udo_subtype"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_subtype]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_subtype]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_subtypename]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="udo_subtypename"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_subtypename]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_subtypename]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_type]"
+                          cachedDataType="guid"
+                          cachedName="udo_type"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_type]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_type]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_typename]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="udo_typename"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_typename]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_typename]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_veteran]"
+                          cachedDataType="guid"
+                          cachedName="udo_veteran"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_veteran]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteran]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_veteranname]"
+                          cachedDataType="wstr"
+                          cachedLength="160"
+                          cachedName="udo_veteranname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_veteranname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteranname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_veteranyominame]"
+                          cachedDataType="wstr"
+                          cachedLength="160"
+                          cachedName="udo_veteranyominame"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_veteranyominame]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_veteranyominame]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_walkin]"
+                          cachedDataType="guid"
+                          cachedName="udo_walkin"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_walkin]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_walkin]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[udo_walkinname]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="udo_walkinname"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_walkinname]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output].Columns[udo_walkinname]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[AuditID]"
+                          cachedDataType="i4"
+                          cachedName="AuditID"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[AuditID]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[AuditID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[msCreateDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="msCreateDate"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[msCreateDate]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[msCreateDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].Columns[msUpdateDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="msUpdateDate"
+                          externalMetadataColumnId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[msUpdateDate]"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output].Columns[msUpdateDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdby]"
+                          dataType="guid"
+                          name="createdby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdon]"
+                          dataType="dbTimeStamp"
+                          name="createdon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfby]"
+                          dataType="guid"
+                          name="createdonbehalfby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdonbehalfbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[createdonbehalfbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdonbehalfbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[importsequencenumber]"
+                          dataType="i4"
+                          name="importsequencenumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedby]"
+                          dataType="guid"
+                          name="modifiedby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedon]"
+                          dataType="dbTimeStamp"
+                          name="modifiedon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfby]"
+                          dataType="guid"
+                          name="modifiedonbehalfby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedonbehalfbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[modifiedonbehalfbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedonbehalfbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[overriddencreatedon]"
+                          dataType="dbTimeStamp"
+                          name="overriddencreatedon" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[ownerid]"
+                          dataType="guid"
+                          name="ownerid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owneridname]"
+                          dataType="wstr"
+                          length="200"
+                          name="owneridname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owneridtype]"
+                          dataType="wstr"
+                          length="64"
+                          name="owneridtype" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owneridyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="owneridyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owningbusinessunit]"
+                          dataType="guid"
+                          name="owningbusinessunit" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owningteam]"
+                          dataType="guid"
+                          name="owningteam" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[owninguser]"
+                          dataType="guid"
+                          name="owninguser" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                          dataType="i4"
+                          name="statecode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statecodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="statecodename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                          dataType="i4"
+                          name="statuscode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="statuscodename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[timezoneruleversionnumber]"
+                          dataType="i4"
+                          name="timezoneruleversionnumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[utcconversiontimezonecode]"
+                          dataType="i4"
+                          name="utcconversiontimezonecode" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[versionnumber]"
+                          dataType="i8"
+                          name="versionnumber" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_duration]"
+                          dataType="r8"
+                          name="udo_duration" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_endtime]"
+                          dataType="dbTimeStamp"
+                          name="udo_endtime" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_ismigrated]"
+                          dataType="bool"
+                          name="udo_ismigrated" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_ismigratedname]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_ismigratedname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_title]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_title" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_udcreatedby]"
+                          dataType="guid"
+                          name="udo_udcreatedby" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_udcreatedbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="udo_udcreatedbyname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_udcreatedbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="udo_udcreatedbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_idproof]"
+                          dataType="guid"
+                          name="udo_idproof" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_idproofname]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_idproofname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_interaction]"
+                          dataType="guid"
+                          name="udo_interaction" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_interactionname]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_interactionname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_isrepeatcall]"
+                          dataType="bool"
+                          name="udo_isrepeatcall" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_isrepeatcallname]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_isrepeatcallname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_regarding]"
+                          dataType="guid"
+                          name="udo_regarding" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_regardingname]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_regardingname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_regardingyominame]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_regardingyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_requestid]"
+                          dataType="guid"
+                          name="udo_requestid" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_subtype]"
+                          dataType="guid"
+                          name="udo_subtype" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_subtypename]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_subtypename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_type]"
+                          dataType="guid"
+                          name="udo_type" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_typename]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_typename" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_veteran]"
+                          dataType="guid"
+                          name="udo_veteran" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_veteranname]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_veteranname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_veteranyominame]"
+                          dataType="wstr"
+                          length="160"
+                          name="udo_veteranyominame" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_walkin]"
+                          dataType="guid"
+                          name="udo_walkin" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[udo_walkinname]"
+                          dataType="wstr"
+                          length="100"
+                          name="udo_walkinname" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[AuditID]"
+                          dataType="i4"
+                          name="AuditID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[msCreateDate]"
+                          dataType="dbTimeStamp"
+                          name="msCreateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input].ExternalColumns[msUpdateDate]"
+                          dataType="dbTimeStamp"
+                          name="msUpdateDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="RC - Transfered">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intRowsInserted</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\DFT - Load Stage Table.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Sequence Container\DFT - Load Stage Table.Paths[Primary Output]"
+                  endId="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered.Inputs[Row Count Input 1]"
+                  name="Primary Output"
+                  startId="Package\Sequence Container\DFT - Load Stage Table\D365_Source.Outputs[Primary Output]" />
+                <path
+                  refId="Package\Sequence Container\DFT - Load Stage Table.Paths[Row Count Output 1]"
+                  endId="Package\Sequence Container\DFT - Load Stage Table\Derived Column.Inputs[Derived Column Input]"
+                  name="Row Count Output 1"
+                  startId="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - Get Initial Stg Row Count"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0B1ED4A1-9FC0-4201-B051-E6864C81D4A9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Get Initial Stg Row Count"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0358257A-7DAC-4894-9918-01B8FD21B9BC}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::strStgSQLRowCount"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::intInitialRowCount" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - Get ODSMaxDate"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{DC02AB4A-3732-4D85-880B-BDB8E657B992}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Get ODSMaxDate"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0358257A-7DAC-4894-9918-01B8FD21B9BC}"
+              SQLTask:SqlStatementSource="EXEC ods.sp_FindMaxModifiedDate ?,?,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::strODSTableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::strSQLModifiedColumnName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::dtMaxDateTime"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - Load ODS Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8072C657-A94A-4081-8877-3759D76AED32}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Load ODS Table"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0358257A-7DAC-4894-9918-01B8FD21B9BC}"
+              SQLTask:SqlStatementSource="execute [ods].[sp_MergeChangedRecords] &#xA;?, ?,  ?, ?, ?,? OUTPUT,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::strStgTableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::strODSTableName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::strODSPKColumn1"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::strODSPKColumn2"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="4"
+                SQLTask:DtsVariableName="User::strODSPKColumn3"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="5"
+                SQLTask:DtsVariableName="User::intRowsInserted"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="6"
+                SQLTask:DtsVariableName="User::intRowsUpdated"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\SQL - TRUNCATE Stage table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3A692806-2E85-4AA3-891D-D3B92B9620D3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - TRUNCATE Stage table"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{0358257A-7DAC-4894-9918-01B8FD21B9BC}"
+              SQLTask:SqlStmtSourceType="Variable"
+              SQLTask:SqlStatementSource="User::strSQLTruncate" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{22441CE2-E0BC-414A-B085-9724D407D070}"
+          DTS:From="Package\Sequence Container\SQL - Get Initial Stg Row Count"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\SQL - Get ODSMaxDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{F13AA08F-4A59-46A3-B42A-616A3A4BB58E}"
+          DTS:From="Package\Sequence Container\SQL - TRUNCATE Stage table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\SQL - Get ODSMaxDate" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{7E36610D-3939-4F03-B2DA-36F7BCB17FDD}"
+          DTS:From="Package\Sequence Container\DFT - Load Stage Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\SQL - Load ODS Table" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{632B1D51-8BF0-4BFC-AC4D-83FB1FAC0538}"
+          DTS:From="Package\Sequence Container\SQL - Get ODSMaxDate"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container\DFT - Load Stage Table" />
+      </DTS:PrecedenceConstraints>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Sequence Container.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{8523F783-DEC3-412B-B1EA-60CF34D1E4B7}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{549C70E6-9004-4630-A264-5E1496E191B1}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Sequence Container.EventHandlers[OnError]\Expression Task Set error code"
+              DTS:CreationName="Microsoft.ExpressionTask"
+              DTS:Description="Expression Task"
+              DTS:DTSID="{6F448F09-E72F-4B8C-9BFA-978A5C6FBDCC}"
+              DTS:ExecutableType="Microsoft.ExpressionTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Expression Task Set error code">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExpressionTask
+                  Expression="@[User::intPackageRunStatus] =  -1" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Begin Audit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7E7C5EB0-32CE-4099-9E3A-182B075A6556}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Begin Audit"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0BE6A3F-10AE-466E-A0DF-288E1B8FA76F}"
+          SQLTask:SqlStatementSource="EXECUTE [audit].[spAuditBegin] &#xA;   ?  ,? ,? ,? OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::strStgTableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="0" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::intInitialRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="0" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="0" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::intAuditID"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="0" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Audit End Success"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7AA73279-4355-4149-A9EF-62E80397E4E9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Audit End Success"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B0BE6A3F-10AE-466E-A0DF-288E1B8FA76F}"
+          SQLTask:SqlStatementSource="EXECUTE [audit].[spAuditEnd] ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::dtMaxDateTime"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="129"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::intRowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::intRowsUpdated"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::intAuditID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4C889016-7310-403A-B1BC-DE64721D3D9F}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::intPackageRunStatus] &gt;=0"
+      DTS:From="Package\Sequence Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL Audit End Success" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{61681B3D-7A40-4746-BB3E-0EB8E1323DD1}"
+      DTS:From="Package\SQL - Begin Audit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Sequence Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{092A236B-8909-4D83-A6C5-0A62574D4EB4}"
+      DTS:EventID="3"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{7CB48E91-C736-4419-B10C-B2A2F28A5320}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL - Log Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{E41C4941-1A78-4567-B95D-8F406A0C1D56}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - Log Error">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B0BE6A3F-10AE-466E-A0DF-288E1B8FA76F}"
+              SQLTask:SqlStatementSource="EXECUTE [audit].[spAuditError] ?, ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::intErrorCount"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::TaskName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="User::intAuditID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="0" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Sequence Container\DFT - Load Stage Table"
+          TopLeft="168.5,167" />
+        <NodeLayout
+          Size="228,41.6"
+          Id="Package\Sequence Container\SQL - Get Initial Stg Row Count"
+          TopLeft="1.5,16.0000000000001" />
+        <NodeLayout
+          Size="190.4,41.6"
+          Id="Package\Sequence Container\SQL - Get ODSMaxDate"
+          TopLeft="169.5,93" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Sequence Container\SQL - Load ODS Table"
+          TopLeft="177,254" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Sequence Container\SQL - TRUNCATE Stage table"
+          TopLeft="311.5,20" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="115.5,58.0000000000001">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="149,34.9999999999999"
+              Start="0,0"
+              End="149,27.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="145,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="145,17.5"
+                    Point2="149,17.5"
+                    Point3="149,21.5" />
+                  <mssgle:LineSegment
+                    End="149,27.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="420,62">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.166666666667,31"
+              Start="0,0"
+              End="-125.166666666667,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.4446764091858" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.4446764091858"
+                    Point2="0,18.4446764091858"
+                    Point3="-4,18.4446764091858" />
+                  <mssgle:LineSegment
+                    End="-121.166666666667,18.4446764091858" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.166666666667,18.4446764091858"
+                    Point2="-125.166666666667,18.4446764091858"
+                    Point3="-125.166666666667,22.4446764091858" />
+                  <mssgle:LineSegment
+                    End="-125.166666666667,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="266.25,209">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="264,135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="540,341.6"
+          Size="540,384"
+          Id="Package\Sequence Container"
+          TopLeft="497.5,192" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\SQL - Begin Audit"
+          TopLeft="683,83" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\SQL Audit End Success"
+          TopLeft="675,628" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="768,576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,14.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="765.75,125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="1. @strStgTableName  w/schema - Used to truncate and load stage&#xA;2. @strODSTableName  w/schema - Used for to dynamically load data&#xA;3. @strModifiedColumnName - used to filter from source (optional)&#xA;4. @strODSPKColumnName1 - Primary Key column name&#xA;    @strODSPKColumnName2 - Primary Key column name&#xA;    @strODSPKColumnName3 - Primary Key column name&#xA;5. Refresh metadata"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="400,136"
+          Id="4c8a485f-e3ad-4a63-833f-0602aefeba6b"
+          TopLeft="61.25,211" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42"
+          Id="Package.EventHandlers[OnError]\SQL - Log Error"
+          TopLeft="184.888888888889,84.2222222222222" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\Sequence Container.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Sequence Container.EventHandlers[OnError]\Expression Task Set error code"
+          TopLeft="440,240" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Sequence Container\DFT - Load Stage Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Sequence Container\DFT - Load Stage Table\RC - Transfered"
+          TopLeft="201,172" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest"
+          TopLeft="204,345" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Sequence Container\DFT - Load Stage Table\D365_Source"
+          TopLeft="201,60" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Sequence Container\DFT - Load Stage Table\Derived Column"
+          TopLeft="203,261" />
+        <EdgeLayout
+          Id="Package\Sequence Container\DFT - Load Stage Table.Paths[Row Count Output 1]"
+          TopLeft="278.75,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DFT - Load Stage Table.Paths[Primary Output]"
+          TopLeft="274.6,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.4"
+              Start="0,0"
+              End="0,62.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\DFT - Load Stage Table.Paths[Derived Column Output]"
+          TopLeft="276.75,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\DFT - Load Stage Table\OLE DB Dest">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

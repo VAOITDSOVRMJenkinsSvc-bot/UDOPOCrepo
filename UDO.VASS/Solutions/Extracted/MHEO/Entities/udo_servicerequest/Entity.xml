@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Service Request" OriginalName="Service Request - UDO">udo_servicerequest</Name>
+  <EntityInfo>
+    <entity Name="udo_servicerequest" unmodified="1">
+      <attributes />
+    </entity>
+  </EntityInfo>
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

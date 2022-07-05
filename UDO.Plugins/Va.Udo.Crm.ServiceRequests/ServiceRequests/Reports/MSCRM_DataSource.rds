@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MSCRM_DataSource">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=VRMDECRMO15SQL1.dev.vrmcloud.local;Initial Catalog=UDODEV_MSCRM;Min Pool Size=2;Connect Timeout=150;Workstation ID=VRMDECRMO15FE01.mmc</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+  </ConnectionProperties>
+  <DataSourceID>11515779-340d-4c58-8d72-394717d121a6</DataSourceID>
+</RptDataSource>

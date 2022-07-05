@@ -1,0 +1,446 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<style type="text/css">
+	body
+	{
+		text-align:center;
+		height: 600px;
+		width:800px;
+		background-color:#F7FBFF
+	}
+	#load
+	{
+		font-size:11px;
+		font-family:Segoe UI, Tahoma, Arial;
+		border-style:none;        
+		font-weight:normal;
+		text-align:center;
+	}
+	#step
+	{
+		font-family:Segoe UI, Tahoma, Arial;
+		font-weight:bold;
+		font-size:14px;
+		color: #0000FF;
+		border-style:none;
+		text-align:center;
+	}
+</style>
+<title>Call Scripts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="expires" content="-1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<link rel="stylesheet" type="text/css" href="css/template.css" />
+</head>
+<body onload="LoadAll()" >
+	<script type="text/javascript">
+	    _xrm = parent.opener.parent;
+
+	    function LoadAll() {
+	        LoadVALinks();
+	        LoadCallScripts();
+	    }
+
+	    function LoadVALinks() {
+	        var cols = ["va_name", "va_Description"];
+	        var extLink = '953850000';
+
+	        var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="va_systemsettings"><attribute name="va_name"/><attribute name="va_description"/><order attribute="va_description" descending="false"/><filter type="and"><condition attribute="va_type" operator="eq" value="' +
+    extLink +
+    '"/></filter></entity></fetch>';
+
+	        var _oService;
+	        var _sOrgName = "";
+	        var _sServerUrl = _xrm.Xrm.Page.context.getServerUrl();
+	        _oService = new FetchUtil(_sOrgName, _sServerUrl);
+	        _oService.Fetch(sFetch, finishLoadVALinks);
+	    }
+
+	    function finishLoadVALinks(links) {
+	        if (!links || links.length == 0) {
+	            alert('System Settings lookup data does not contain any External Links settings.');
+	            return;
+	        }
+	        var s = '';
+	        for (var i = 0; i < links.length; i++) {
+	            if (!links[i].attributes["va_name"] || !links[i].attributes["va_name"].value) continue;
+	            var desc = links[i].attributes["va_description"] && links[i].attributes["va_description"].value ? links[i].attributes["va_description"].value : null;
+	            if (!desc) desc = links[i].attributes["va_name"].value;
+
+	            s = s + '<a id="relLink' + i.toString() + '" style="text-decoration: underline; cursor: pointer;" href="' +
+			links[i].attributes["va_name"].value + '" target="_blank" title="Click to Open ' + desc + '">' + desc + '</a><br/>';
+	        }
+
+	        if (s.length == 0) s = 'No VA Links Found';
+
+	        var elem3 = document.getElementById('step'); if (elem3) { elem3.innerHTML = s; }
+	    }
+
+	    function LoadCallScripts() {
+	        var sFetch = '<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false"><entity name="va_callscript"><attribute name="va_name"/><attribute name="va_issue"/><attribute name="va_subissue"/><attribute name="va_defaultsraction"/><order attribute="va_issue" descending="false"/><order attribute="va_subissue" descending="false"/></entity></fetch>';
+
+	        var _oService;
+	        var _sOrgName = "";
+	        var _sServerUrl = _xrm.Xrm.Page.context.getServerUrl();
+	        _oService = new FetchUtil(_sOrgName, _sServerUrl);
+	        _oService.Fetch(sFetch, finishLoadCallScripts);
+	    }
+	    function finishLoadCallScripts(links) {
+	        var issue = ''; var subissue = ''; var sFile = ''; var priorIssue = '';
+
+	        if (!links || links.length == 0) {
+	            //alert('System Settings lookup data does not contain any External Links settings.');
+	            return;
+	        }
+	        var s = '';
+	        var issues_Files = new Array();
+	        var issues_Sub = new Array();
+	        var fileNames = new Array();
+	        var subissues = new Array();
+
+	        for (var i = 0; i < links.length; i++) {
+	            if (!links[i].attributes["va_name"] || !links[i].attributes["va_name"].value) continue; // no link specced
+
+	            issue = links[i].attributes["va_issue"].formattedValue;
+	            if (i == 0) { priorIssue = issue; }
+
+	            // if issue changed, add new set
+	            if (issue != priorIssue && i > 0) {
+	                issues_Files[priorIssue] = fileNames;
+	                issues_Sub[priorIssue] = subissues;
+	                fileNames = new Array();
+	                subissues = new Array();
+
+	                priorIssue = issue;
+	            }
+
+	            sFile = links[i].attributes["va_name"].value;
+	            fileNames.push(sFile);
+	            subissue = links[i].attributes["va_subissue"] && links[i].attributes["va_subissue"].formattedValue ? links[i].attributes["va_subissue"].formattedValue : null;
+	            if (!subissue || subissue.lengtn == 0) subissue = issue;
+	            subissues.push(subissue);
+	        }
+	        // last one
+	        issues_Files[issue] = fileNames;
+	        issues_Sub[issue] = subissues;
+
+	        var s = '<table width="100%" align="left" border="1" style="border: thin solid #C0C0C0">';
+	        var apo = "'";
+	        var linkStyle = 'style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold"';
+	        var scriptRoot = '/ISV/scripts_VIP/';  //To change to /WebResources/va_
+
+	        for (issue in issues_Sub) {
+	            // each issue will create a new div
+	            var divTag = 'div_' + issue;
+	            //_divs.push(divTag);
+
+	            // to use divs s += '<a  href="javascript:;" onmousedown="toggleDiv(' + apo + divTag + apo + ');" ' + linkStyle + '>' + issue + '</a><div id="' + divTag + '';
+	            s += '<tr align="left" valign="top" ><td style="font-weight:bold; font-size: 13px">' + issue + '</td><td>';
+
+	            // for each subissue, insert links to scripts
+	            for (i = 0; i < issues_Sub[issue].length; i++) {
+	                subissue = issues_Sub[issue][i];
+	                sFile = issues_Files[issue][i];
+
+	                // add link to current div
+	                s = s + (i > 0 ? '<br/>' : '') +
+                        '<a id="relsLink_' + issue + i.toString() + '" style="text-decoration: underline; cursor: pointer;" href="' +
+			            scriptRoot + sFile + '" target="_blank" title="Click to Open ' + subissue + '">' + subissue + '</a>';
+	            }
+
+	            // close tag for issue div
+	            //s += '</div>';
+	            s += '</td></tr>';
+	        }
+	        s += '</table>';
+
+	        var elem = document.getElementById('callscripts'); if (elem) { elem.innerHTML = s; }
+	    }
+
+	    function toggleDiv(divid) {
+	        if (document.getElementById(divid).style.display == 'none') {
+	            document.getElementById(divid).style.display = 'block';
+	        } else {
+	            document.getElementById(divid).style.display = 'none';
+	        }
+
+	        var _divs = ['step', 'callscripts'];
+
+	        for (var i in _divs) {
+	            if (_divs[i] != divid) {
+	                var curDiv = document.getElementById(_divs[i]);
+	                if (curDiv.style.display != 'none') { curDiv.style.display = 'none'; }
+	            }
+	        }
+	    }
+
+	    function E(val) { return (!val || val == undefined || val.length == 0); }
+
+	    function CCallWrapper(aObjectReference, aDelay, aMethodName, aArgument0, aArgument1, aArgument2, aArgument3, aArgument4, aArgument5, aArgument6, aArgument7, aArgument8, aArgument9) {
+	        this.mId = 'CCallWrapper_' + (CCallWrapper.mCounter++);
+	        this.mObjectReference = aObjectReference;
+	        this.mDelay = aDelay;
+	        this.mTimerId = 0;
+	        this.mMethodName = aMethodName;
+	        this.mArgument0 = aArgument0; this.mArgument1 = aArgument1; this.mArgument2 = aArgument2;
+	        this.mArgument3 = aArgument3; this.mArgument4 = aArgument4; this.mArgument5 = aArgument5;
+	        this.mArgument6 = aArgument6; this.mArgument7 = aArgument7; this.mArgument8 = aArgument8;
+	        this.mArgument9 = aArgument9;
+	        CCallWrapper.mPendingCalls[this.mId] = this;
+	    }
+
+	    CCallWrapper.prototype.execute = function () {
+	        this.mObjectReference[this.mMethodName](this.mArgument0, this.mArgument1, this.mArgument2, this.mArgument3,
+		 this.mArgument4, this.mArgument5, this.mArgument6, this.mArgument7, this.mArgument8, this.mArgument9);
+	        delete CCallWrapper.mPendingCalls[this.mId];
+	    };
+
+	    CCallWrapper.prototype.cancel = function () {
+	        clearTimeout(this.mTimerId);
+	        delete CCallWrapper.mPendingCalls[this.mId];
+	    };
+
+	    CCallWrapper.asyncExecute = function (/* CCallWrapper */callwrapper) {
+	        CCallWrapper.mPendingCalls[callwrapper.mId].mTimerId = setTimeout('CCallWrapper.mPendingCalls["' + callwrapper.mId + '"].execute()', callwrapper.mDelay);
+	    };
+
+	    CCallWrapper.mCounter = 0;
+	    CCallWrapper.mPendingCalls = {};
+
+	    function PostLoadOps(par) {
+	        this.par = par;
+	    }
+
+	    PostLoadOps.prototype.get =
+function (doAlert, claim) {
+    var res = ''; // LastCallFromSameVet(claim);
+    if (doAlert && !E(res)) alert(res);
+
+    return 0;
+};
+
+	    // FetchUtil **************
+
+	    var XMLHTTPSUCCESS = 200;
+	    var XMLHTTPREADY = 4;
+
+	    function FetchUtil(sOrg, sServer) {
+	        this.org = sOrg;
+	        this.server = sServer;
+
+	        if (sOrg == null) {
+	            if (typeof (ORG_UNIQUE_NAME) != "undefined") {
+	                this.org = ORG_UNIQUE_NAME;
+	            }
+	        }
+
+	        if (sServer == null) {
+	            this.server = window.location.protocol + "//" + window.location.host;
+	        }
+	    }
+
+	    FetchUtil.prototype._ExecuteRequest = function (sXml, sMessage, fInternalCallback, fUserCallback) {
+	        var xmlhttp = new XMLHttpRequest();
+
+	        xmlhttp.open("POST", this.server + "/XRMServices/2011/Organization.svc/web", (fUserCallback != null));
+	        xmlhttp.setRequestHeader("Accept", "application/xml, text/xml, */*");
+	        xmlhttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+	        xmlhttp.setRequestHeader("SOAPAction", "http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Execute");
+
+	        if (fUserCallback != null) {
+	            //asynchronous: register callback function, then send the request.
+	            var crmServiceObject = this;
+	            xmlhttp.onreadystatechange = function () {
+	                fInternalCallback.call(crmServiceObject, xmlhttp, fUserCallback)
+	            };
+	            xmlhttp.send(sXml);
+	        } else {
+	            //synchronous: send request, then call the callback function directly
+	            xmlhttp.send(sXml);
+	            return fInternalCallback.call(this, xmlhttp, null);
+	        }
+	    }
+
+	    FetchUtil.prototype._HandleErrors = function (xmlhttp) {
+	        /// <summary>(private) Handles xmlhttp errors</summary>
+	        if (xmlhttp.status != XMLHTTPSUCCESS) {
+	            var sError = "Error: " + xmlhttp.responseText + " " + xmlhttp.statusText;
+	            alert(sError);
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }
+
+	    FetchUtil.prototype.Fetch = function (sFetchXml, fCallback) {
+	        /// <summary>Execute a FetchXml request. (result is the response XML)</summary>
+	        /// <param name="sFetchXml">fetchxml string</param>
+	        /// <param name="fCallback" optional="true" type="function">(Optional) Async callback function if specified. If left null, function is synchronous </param>
+
+	        var request = "<s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\">";
+	        request += "<s:Body>";
+
+	        request += '<Execute xmlns="http://schemas.microsoft.com/xrm/2011/Contracts/Services">' + '<request i:type="b:RetrieveMultipleRequest" ' + ' xmlns:b="http://schemas.microsoft.com/xrm/2011/Contracts" ' + ' xmlns:i="http://www.w3.org/2001/XMLSchema-instance">' + '<b:Parameters xmlns:c="http://schemas.datacontract.org/2004/07/System.Collections.Generic">' + '<b:KeyValuePairOfstringanyType>' + '<c:key>Query</c:key>' + '<c:value i:type="b:FetchExpression">' + '<b:Query>';
+
+	        request += _xrm.CrmEncodeDecode.CrmXmlEncode(sFetchXml);
+
+	        request += '</b:Query>' + '</c:value>' + '</b:KeyValuePairOfstringanyType>' + '</b:Parameters>' + '<b:RequestId i:nil="true"/>' + '<b:RequestName>RetrieveMultiple</b:RequestName>' + '</request>' + '</Execute>';
+
+	        request += '</s:Body></s:Envelope>';
+
+	        return this._ExecuteRequest(request, "Fetch", this._FetchCallback, fCallback);
+	    }
+
+	    FetchUtil.prototype._FetchCallback = function (xmlhttp, callback) {
+	        ///<summary>(private) Fetch message callback.</summary>
+	        //xmlhttp must be completed
+	        if (xmlhttp.readyState != XMLHTTPREADY) {
+	            return;
+	        }
+
+	        //check for server errors
+	        if (this._HandleErrors(xmlhttp)) {
+	            return;
+	        }
+
+	        var sFetchResult = xmlhttp.responseXML.selectSingleNode("//a:Entities").xml;
+
+	        var resultDoc = new ActiveXObject("Microsoft.XMLDOM");
+	        resultDoc.async = false;
+	        resultDoc.loadXML(sFetchResult);
+
+	        //parse result xml into array of jsDynamicEntity objects
+	        var results = new Array(resultDoc.firstChild.childNodes.length);
+	        for (var i = 0; i < resultDoc.firstChild.childNodes.length; i++) {
+	            var oResultNode = resultDoc.firstChild.childNodes[i];
+	            var jDE = new jsDynamicEntity();
+	            var obj = new Object();
+
+	            for (var j = 0; j < oResultNode.childNodes.length; j++) {
+	                switch (oResultNode.childNodes[j].baseName) {
+	                    case "Attributes":
+	                        var attr = oResultNode.childNodes[j];
+
+	                        for (var k = 0; k < attr.childNodes.length; k++) {
+
+	                            // Establish the Key for the Attribute
+	                            var sKey = attr.childNodes[k].firstChild.text;
+	                            var sType = '';
+
+	                            // Determine the Type of Attribute value we should expect
+	                            for (var l = 0; l < attr.childNodes[k].childNodes[1].attributes.length; l++) {
+	                                if (attr.childNodes[k].childNodes[1].attributes[l].baseName == 'type') {
+	                                    sType = attr.childNodes[k].childNodes[1].attributes[l].text;
+	                                }
+	                            }
+
+	                            switch (sType) {
+	                                case "a:OptionSetValue":
+	                                    var entOSV = new jsOptionSetValue();
+	                                    entOSV.type = sType;
+	                                    entOSV.value = attr.childNodes[k].childNodes[1].text;
+	                                    obj[sKey] = entOSV;
+	                                    break;
+
+	                                case "a:EntityReference":
+	                                    var entRef = new jsEntityReference();
+	                                    entRef.type = sType;
+	                                    entRef.guid = attr.childNodes[k].childNodes[1].childNodes[0].text;
+	                                    entRef.logicalName = attr.childNodes[k].childNodes[1].childNodes[1].text;
+	                                    entRef.name = attr.childNodes[k].childNodes[1].childNodes[2].text;
+	                                    obj[sKey] = entRef;
+	                                    break;
+
+	                                default:
+	                                    var entCV = new jsCrmValue();
+	                                    entCV.type = sType;
+	                                    entCV.value = attr.childNodes[k].childNodes[1].text;
+	                                    obj[sKey] = entCV;
+
+	                                    break;
+	                            }
+
+	                        }
+
+	                        jDE.attributes = obj;
+	                        break;
+
+	                    case "Id":
+	                        jDE.guid = oResultNode.childNodes[j].text;
+	                        break;
+
+	                    case "LogicalName":
+	                        jDE.logicalName = oResultNode.childNodes[j].text;
+	                        break;
+
+	                    case "FormattedValues":
+	                        var foVal = oResultNode.childNodes[j];
+
+	                        for (var k = 0; k < foVal.childNodes.length; k++) {
+	                            // Establish the Key, we are going to fill in the formatted value of the already found attribute
+	                            var sKey = foVal.childNodes[k].firstChild.text;
+
+	                            jDE.attributes[sKey].formattedValue = foVal.childNodes[k].childNodes[1].text;
+
+	                        }
+	                        break;
+	                }
+
+	            }
+
+	            results[i] = jDE;
+	        }
+
+	        //return entities
+	        if (callback != null) callback(results);
+	        else return results;
+
+	    }
+
+	    function jsDynamicEntity(gID, sLogicalName) {
+	        this.guid = gID;
+	        this.logicalName = sLogicalName;
+	        this.attributes = new Object();
+	    }
+
+	    function jsCrmValue(sType, sValue) {
+	        this.type = sType;
+	        this.value = sValue;
+	    }
+
+	    function jsEntityReference(gID, sLogicalName, sName) {
+	        this.guid = gID;
+	        this.logicalName = sLogicalName;
+	        this.name = sName;
+	        this.type = 'EntityReference';
+	    }
+
+	    function jsOptionSetValue(iValue, sFormattedValue) {
+	        this.value = iValue;
+	        this.formattedValue = sFormattedValue;
+	        this.type = 'OptionSetValue';
+	    }
+	</script>
+<div id="main">
+	<div id="header" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; margin-top: 5px; margin-bottom: 5px" align="center">
+	<a  href="javascript:;" onmousedown="toggleDiv('step');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold">VRM Links (click to view)</a>
+    </div>
+	<div id="step">VRM Links List</div>
+	<hr />
+	<div id="general" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; margin-top: 5px; margin-bottom: 5px" align="center"><a  href="javascript:;" onmousedown="toggleDiv('callscripts');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold">Available Call Scripts by Issue Type (click to view)</a>
+    </div>
+	<div id="callscripts" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; display:none">
+        List of call scripts
+	</div>
+</div>
+</body>
+<head>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="expires" content="-1"/>
+</head>
+</html>

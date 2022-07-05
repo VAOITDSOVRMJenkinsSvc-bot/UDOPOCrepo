@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f17e4a98-afba-4261-a219-af7210543f9a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://beplinktest.vba.va.gov:80/VnpPtcpntPhoneWebServiceBean/VnpPtcpntPhoneService?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="VnpPtcpntPhoneService.xsd" MetadataType="Schema" ID="55bb50a8-c338-4938-925a-e140f96e20dc" SourceId="1" SourceUrl="http://beplinktest.vba.va.gov/VnpPtcpntPhoneWebServiceBean/VnpPtcpntPhoneService?xsd=1" />
+    <MetadataFile FileName="VnpPtcpntPhoneService.wsdl" MetadataType="Wsdl" ID="11521046-2dd1-418b-8658-7a401725d1c1" SourceId="1" SourceUrl="http://beplinktest.vba.va.gov/VnpPtcpntPhoneWebServiceBean/VnpPtcpntPhoneService?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

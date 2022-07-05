@@ -1,0 +1,181 @@
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>Notes</title>
+    <script src="udo_Xrm.min.js" type="text/jscript"></script>
+    <script src="udo_CrmRestKit2011.js" type="text/jscript"></script>
+    <script src="udo_notes_ui.js" type="text/jscript"></script>
+    <script src="crme_JQuery1.7.1_min" type="text/jscript"></script>
+    <style type="text/css">
+        body {
+            font-family: 'Segoe UI',Tahoma,Arial;
+        }
+
+        table {
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Segoe UI',Tahoma,Arial;
+            font-weight: 100;
+            color: #262626;
+            font-size: 36px;
+            line-height: 24px;
+        }
+
+        label {
+            margin-left: 5px;
+            font-size: 15px;
+            width: 90px;
+        }
+
+        p {
+            margin-left: 5px;
+            font-size: 15px;
+        }
+
+        select {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 80px;
+        }
+
+        option {
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-size: 11px;
+            height: 28px;
+            overflow: hidden;
+            padding-bottom: 0;
+            padding-left: 10px;
+            padding-top: 0;
+        }
+
+            option:hover {
+                background-color: #b1d6f0;
+            }
+
+        button {
+            height: 25px;
+            width: 140px;
+            margin-right: 10px;
+            font-family: Calibri;
+            font-size: 12pt;
+            font-weight: 200;
+            background-color: ghostwhite;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(0,32,80);
+            border-color: rgb(255,255,255);
+            border-style: none;
+            border-width: 0px;
+            color: rgb(255,255,255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+            font-size: 14.06px;
+            height: 30px;
+            line-height: 20px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 5px;
+        }
+
+            input:disabled {
+                background-color: gray;
+                color: rgb(255, 255, 255);
+            }
+
+        div#tmpDialog {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 50px;
+            margin: -101px 0 0 -251px;
+            background: rgb(255, 255, 255);
+            border: 1px solid black;
+        }
+
+            div#tmpDialog img {
+                float: left;
+                height: 45px;
+                width: 45px;
+                padding: 5px 10px 5px 5px;
+                text-align: left;
+            }
+
+            div#tmpDialog p {
+                padding: 5px;
+                margin: 15px 5px 5px 5px;
+                text-align: left;
+                font-size: 11px;
+            }
+    </style>
+    <script type="text/jscript">
+        $(document).ready(function () {
+            Va.Udo.Crm.Scripts.Notes.UI.initiatlize();
+            Va.Udo.Crm.Scripts.Notes.UI.onPersonSelect();
+
+            $('#relatedList').load(function () {
+                $('div#tmpDialog').hide();
+                $('#relatedList').css('display', 'inline');
+
+                $("#nameDropDown option:selected").each(function (index, element) {
+                    if (element.value != "0") {
+                        $("#statusMessage").text("Loading notes completed, you may select another Name.");
+                    }
+                    else {
+                        $("#statusMessage").text("Select a Name.");
+                    }
+                });
+                setTimeout(function () { $('#nameDropDown').focus() }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <table width="100%" height="100%">
+        <tbody>
+            <tr height="30">
+                <td style="width: 75px;">
+                    <label id="lblName">Name:</label>
+                </td>
+                <td style="width: 225px;">
+                    <select title="Name (Listbox)" disabled="" id="nameDropDown" aria-labelledby="lblName statusMessage" style="width: 300px; margin-top: 12px;" onchange="Va.Udo.Crm.Scripts.Notes.UI.onPersonSelect()">
+                    </select>
+                </td>
+
+                <td align="left">
+                    <div id="statusMessage"></div>
+                    <!--  <button id="NotesButton" onclick="Va.Udo.Crm.Scripts.Notes.UI.displayAllNotes()" type="button" value="Notes Summary" disabled>Notes Summary</button>
+					<button id="AddNote" onclick="Va.Udo.Crm.Scripts.Notes.UI.createNewNote()" type="button" value="New Note" disabled>New Note</button>
+					-->
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <iframe width="100%" height="350" id="relatedList"></iframe>
+                    <!--                    <div id="loadingMessage">
+                        <table width="100%" height="100%">
+                            <tr>
+                                <td align="center">
+                                    <img id="imgLoading" align="middle" src="./WebResources/udo_loadingGif.gif" alt="loading" style="height: 200px; width: 200px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="tmpDialog">
+        <img alt="Loading Image" src="udo_/images/search/loading.gif">
+        <p>Working on it. Please wait...</p>
+    </div>
+
+
+</body></html>

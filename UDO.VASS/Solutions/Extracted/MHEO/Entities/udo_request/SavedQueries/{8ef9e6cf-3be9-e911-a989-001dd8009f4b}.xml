@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{8ef9e6cf-3be9-e911-a989-001dd8009f4b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_title" select="1" preview="1" icon="1">
+      <row name="result" id="udo_requestid">
+        <cell name="udo_title" width="150" />
+        <cell name="udo_veteran" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="udo_request">
+        <attribute name="udo_title" />
+        <order attribute="udo_title" descending="false" />
+        <filter type="and">
+          <condition attribute="createdon" operator="on-or-after" value="2019-10-07" />
+        </filter>
+        <attribute name="udo_veteran" />
+        <attribute name="udo_requestid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Test - rranjit" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

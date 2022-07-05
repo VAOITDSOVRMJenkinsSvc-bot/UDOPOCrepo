@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <savedqueryid>{45a2503f-56e7-4d96-a4c4-d2ddb1da2699}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" icon="1" preview="1">
+      <row name="result" id="udo_lgystagingid">
+        <cell name="udo_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="udo_lgystaging">
+        <attribute name="udo_lgystagingid" />
+        <attribute name="udo_name" />
+        <attribute name="createdon" />
+        <order attribute="udo_name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="LGY Staging Advanced Find View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<findGeneralInformationByPtcpntIdsResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+			<return>
+				<additionalServiceIndicator>Y</additionalServiceIndicator>
+				<authznChangeClmantAddrsInd>
+				</authznChangeClmantAddrsInd>
+				<authznPoaAccessInd>
+				</authznPoaAccessInd>
+				<awardTypeCode/>
+				<benefitTypeCode/>
+				<benefitTypeName/>
+				<clothingAllowanceTypeCode>TR</clothingAllowanceTypeCode>
+				<clothingAllowanceTypeName>Terminated-Renouncement</clothingAllowanceTypeName>
+				<cnsldtPymtCd>
+				</cnsldtPymtCd>
+				<cnsldtPymtNm>
+				</cnsldtPymtNm>
+				<competencyDecisionTypeCode>C</competencyDecisionTypeCode>
+				<competencyDecisionTypeName>Competent</competencyDecisionTypeName>
+				<convertedCaseIndicator>N</convertedCaseIndicator>
+				<currentMonthlyRate/>
+				<desertShieldIndicator>N</desertShieldIndicator>
+				<directDepositAccountID/>
+				<enteredOnDutyDate>07251989</enteredOnDutyDate>
+				<fiduciaryDecisionTypeCode>PD</fiduciaryDecisionTypeCode>
+				<fiduciaryDecisionTypeName>Pay Direct</fiduciaryDecisionTypeName>
+				<fundsDueIncompetentBalance/>
+				<guardianFolderLocation>328 - Chicago</guardianFolderLocation>
+				<gulfWarRegistryIndicator/>
+				<mailingAddressID/>
+				<militaryBranch>Army</militaryBranch>
+				<numberOfAwardBenes>1</numberOfAwardBenes>
+				<numberOfDiaries>0</numberOfDiaries>
+				<numberOfEvrs>1</numberOfEvrs>
+				<numberOfFlashes>14</numberOfFlashes>
+				<nursingHomeIndicator>N</nursingHomeIndicator>
+				<nursingHomeName/>
+				<paidThroughDate/>
+				<paraplegicHousingNumber/>
+				<payStatusTypeCode/>
+				<payStatusTypeName/>
+				<payeeBirthDate>06021940</payeeBirthDate>
+				<payeeName>CAT                           FELIX</payeeName>
+				<payeeSSN>545654456</payeeSSN>
+				<payeeSex>F</payeeSex>
+				<payeeTypeCode/>
+				<payeeTypeIndicator>P</payeeTypeIndicator>
+				<payeeTypeName/>
+				<paymentAddressID/>
+				<personalFundsOfPatientBalance/>
+				<powerOfAttorney/>
+				<ptcpntBeneID>12903672</ptcpntBeneID>
+				<ptcpntRecipID>12903672</ptcpntRecipID>
+				<ptcpntVetID>12903672</ptcpntVetID>
+				<releasedActiveDutyDate>04151990</releasedActiveDutyDate>
+				<returnCode>SHAR 9999</returnCode>
+				<returnMessage>Records found.</returnMessage>
+				<stationOfJurisdiction/>
+				<statusReasonDate/>
+				<statusReasonTypeCode/>
+				<statusReasonTypeName/>
+				<vetBirthDate>06021940</vetBirthDate>
+				<vetDeathDate>11282012</vetDeathDate>
+				<vetFirstName>FELIX</vetFirstName>
+				<vetLastName>CAT</vetLastName>
+				<vetMiddleName/>
+				<vetSSN>545654456</vetSSN>
+				<vetSex>F</vetSex>
+				<evr>
+					<evrs>
+						<control>
+						</control>
+						<exempt>
+						</exempt>
+						<lastReported>
+						</lastReported>
+						<status>
+						</status>
+						<type>
+						</type>
+					</evrs>
+				</evr>
+				<flash>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>$250K Retro Review                                </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>AO/Hypertension                                   </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Blind                                             </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Claim Must be Processed with Folder               </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Clear and Unmistakable Error                      </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Converted - Automobile Adaptive Equipment Paid    </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Fraud                                             </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Non - Nehmer Agent Orange 2010                    </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>OIG Case                                          </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>PLCP                                              </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Potentially Dangerous                             </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>POW                                               </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Seriously Injured/Very Seriously Injured          </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>VACO Special Status 1                             </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+				</flash>
+				<diary/>
+			</return>
+		</findGeneralInformationByPtcpntIdsResponse>
+	</Body>
+</Envelope>

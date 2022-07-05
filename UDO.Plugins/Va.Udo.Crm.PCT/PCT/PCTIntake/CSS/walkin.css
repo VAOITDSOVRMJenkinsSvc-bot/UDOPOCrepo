@@ -1,0 +1,269 @@
+/* CSS Document */
+a.panel-button-close,
+a.panel-button-close:active,
+a.panel-button-close:visited {
+    cursor: pointer;
+    text-decoration: none;
+    color: red;
+}
+
+    a.panel-button-close:hover {
+        cursor: pointer;
+        text-decoration: none;
+        color: #7AD2FF;
+    }
+
+div#search_results {
+    text-align: center;
+}
+
+table.SearchResults {
+    border-color: rgb(44, 62, 80);
+}
+
+    table.SearchResults > thead > tr > th {
+        color: #2c3e50;
+        background-color: #ecf0f1;
+        border-color: rgb(44, 62, 80);
+        text-align: left;
+        font-size: 0.9em;
+    }
+
+    table.SearchResults > tbody > tr > td {
+        text-align: left;
+        font-size: 0.75em;
+    }
+
+    table.SearchResults > tfoot > tr > td {
+        padding: 3px;
+        text-align: left;
+        font-size: 0.9em;
+    }
+
+tr.specialsituation:not(.ui-selected):not(.ui-state-highlight):not(:hover), 
+tr.specialsituation:not(.ui-selected):not(.ui-state-highlight):not(:hover) > td:not(.ui-selected):not(.ui-state-highlight):not(.btn):not(:hover)
+{
+    background-color: #FFCFC7;
+}
+
+tr.specialsituation:hover,
+tr.specialsituation > td:hover:not(.btn) {
+    background-color: #7AD2FF;
+    color: #2c3e50;
+}
+
+/* This should override specialsituation */
+.ui-selected > td:not(.btn),
+.ui-state-highlight {
+    background-color: #CDFFCA;
+    border-color: #CDFFCA;
+    color: #2c3e50;
+}
+
+
+.list-group-item-active:focus,
+.ui-state-highlight:focus,
+table.table-focusoncell > tbody > tr > td:focus,
+table.table-focusoncell > thead > tr > th:focus,
+table.table-focusoncell > tbody > tr:focus > td,
+table.table-focusoncell > thead > tr:focus > th,
+.ui-selected:focus > td:not(.btn),
+.ui-selected > td:focus:not(.btn) {
+    background-color: #4765ff !important;
+}
+
+li.list-group-item:hover:before,
+li.kb-hover:before,
+table.table-focusoncell > tbody > tr:hover > td.selector:before,
+table.table-focusoncell > tbody > tr.kb-hover > td.selector:before
+{
+  color: black;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding-right: 3px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e157"; /*unchecked*/
+}
+
+li.list-group-item-active:before,
+li.list-group-item-active:hover:before,
+table.table-focusoncell > tbody > tr.ui-selected.kb-hover > td.selector:before,
+.ui-selected.kb-hover > td.selector:before,
+.ui-selected:hover > td.selector:not(.btn):before,
+.ui-selected > td:hover.selector:not(.btn):before,
+.ui-selected > td.selector:not(.btn):before {
+    color: black;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding-right: 3px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    content: "\e067"; /*check*/
+}
+
+.ui-selected:hover > td.selector:not(.btn):before,
+.ui-selected:focus > td.selector:not(.btn):before {
+}
+
+/*
+.alert {
+    color: #FF0000;
+}
+*/
+
+.form-control-error {
+    background-color: #FFD9D9;
+    color: #FF0000;
+    border: 1px solid #FF0000;
+}
+
+div#tmpDialog {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 50px;
+    margin: -101px 0 0 -251px;
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+
+div#tmpDialog img {
+        float: left;
+        height: 45px;
+        width: 45px;
+        padding: 5px 10px 5px 5px;
+        text-align: left;
+}
+
+div#tmpDialog p {
+        padding: 5px;
+        margin: 15px 5px 5px 5px;
+        text-align: left;
+}
+
+div.search {
+    color: rgb(0,0,0);
+    direction: ltr;
+    float: left;
+    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;
+    font-size: 12.06px;
+    /*line-height: 17px;*/
+    padding-bottom: 4px;
+    padding-top: 0;
+    text-align: left;
+}
+
+span#panel_walkin_title_label {
+    margin-left: 20px;
+}
+
+div.aspace20 > a:not(:first-of-type) {
+    margin-left: 20px;
+}
+
+div.aspace20 > div {
+    margin-left: 20px;
+}
+
+label.required:after {
+    content:'*';
+    color:red;
+}
+
+label.recommended:after {
+    content:'+';
+    color:blue;
+}
+
+.scronly {
+    position:absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow:hidden;
+    top:auto;
+    width: 1px;
+    height: 1px;
+    left: -10000px;
+}
+
+div.tagtitle {
+    float: left;
+    padding: 0 5px;
+    border-radius: 3px;
+    margin: 1px 5px 1px 0px;
+    line-height: 23px;
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+div.tag {
+    background-color: #3498db;
+    color: #fff;
+    float: left;
+    font-size: 13px;
+    padding: 0 5px;
+    border-radius: 3px;
+    border: 1px solid #DDD;
+    margin: 1px 5px 1px 0px;
+    line-height: 23px;
+}
+
+.crmLookup {
+    display: inline-block;
+    float: left;
+    padding:2px 5px;
+    border: 1px solid #b7b7b7;
+    font: normal 12px/normal segoe ui;
+}
+.lookupImg {
+    display: inline-block;
+    float: left;
+    padding-top:2px;
+    border: 1px solid #b7b7b7;
+}
+.lookupAlignment {
+    text-align:left; 
+    vertical-align:middle;
+}
+
+/*
+.navbtn-toggle-on {
+  color: #ffffff;
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+.navbtn-toggle-on:hover,
+.navbtn-toggle-on:focus {
+  color: #ffffff;
+  background-color: #1c9954;
+  border-color: #3498db;
+}
+
+.navbtn-toggle-off {
+  color: #ffffff;
+  background-color: #3a3a3a;
+  border-color: #3498db;
+}
+
+.navbtn-toggle-off:hover,
+.navbtn-toggle-off:focus {
+  color: #ffffff;
+  background-color: #752323;
+  border-color: #3498db;
+}
+*/

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Launcher</title>
+    </head>
+    <script type="text/javascript">
+        var windowHandel = null,
+            _emergencyOptions = null;
+
+            addEvent('load', window, function () {
+                var emergency = document.getElementById("emergency"),
+                    cancelEmergecy = document.getElementById("cancelEmergency"),
+                    options = "resizeable=yes,status=no,scrollbars=yes,toolbars=no,menubar=yes,location=no,width=480,height=600";
+
+                addEvent('click', emergency, function () {
+                    _emergencyOptions = {
+                        'recipients': ['garo9@va.gov'],
+                        'newRecipients': '',
+                        'message': '',
+                        'isCancel': false,
+                        'type': 'radEmergency'
+                    };
+                    
+                    var url = "va_Emergency.html"
+                    windowHandel = window.open(url, '', options);
+                    windowHandel.focus();
+                });
+
+                addEvent('click', cancelEmergecy, function () {
+                    if (_emergencyOptions && _emergencyOptions.isCancel) {
+                        var url = "va_Emergency.html"
+                        windowHandel = window.open(url, "", options);
+                        windowHandel.focus();
+                    } else {
+                        alert('No emergency was triggered.');
+                    }
+                    
+                });
+            });
+
+        function addEvent(evnt, elem, func) {
+            if (elem.addEventListener)
+                elem.addEventListener(evnt, func, false);
+            else if (elem.attachEvent) {
+                elem.attachEvent("on" + evnt, func);
+            }
+            else {
+                elem[evnt] = func;
+            }
+        }
+    </script>
+<body>
+    <input type="button" id="emergency" value="Emergency"/>&nbsp;
+    <input type="button" id="cancelEmergency" value="Cancel Emergency"/>&nbsp;
+</body>
+</html>

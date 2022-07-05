@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{4773f541-fbc8-e911-a98f-001dd800b582}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_title" select="1" preview="1" icon="1">
+      <row name="result" id="udo_interactionid">
+        <cell name="udo_title" width="150" />
+        <cell name="udo_veteranfirstname" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="udo_veterandob" width="100" />
+        <cell name="udo_veteranlastname" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="modifiedon" width="100" />
+        <cell name="udo_veteranssn" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="udo_interaction">
+        <attribute name="udo_title" />
+        <order attribute="modifiedon" descending="true" />
+        <filter type="and">
+          <condition attribute="udo_channel" operator="eq" value="752280004" />
+          <condition attribute="ownerid" operator="eq-userid" />
+          <condition attribute="statecode" operator="eq" value="1" />
+        </filter>
+        <attribute name="udo_veteranssn" />
+        <attribute name="udo_veteranlastname" />
+        <attribute name="udo_veteranfirstname" />
+        <attribute name="udo_veterandob" />
+        <attribute name="modifiedon" />
+        <attribute name="udo_interactionid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="My Closed Interactions" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

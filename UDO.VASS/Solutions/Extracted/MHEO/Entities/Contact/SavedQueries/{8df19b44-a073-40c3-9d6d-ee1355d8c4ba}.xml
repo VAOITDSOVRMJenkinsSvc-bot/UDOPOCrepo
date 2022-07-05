@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <isquickfindquery>1</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <savedqueryid>{8df19b44-a073-40c3-9d6d-ee1355d8c4ba}</savedqueryid>
+  <queryapi></queryapi>
+  <layoutxml>
+    <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="contactid">
+        <cell name="fullname" width="300" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="address1_line1" width="100" />
+        <cell name="address1_city" width="100" />
+        <cell name="address1_stateorprovince" width="100" />
+        <cell name="udo_phonenumber1" width="100" />
+        <cell name="udo_phonenumber2" width="100" />
+        <cell name="emailaddress1" width="100" />
+        <cell name="udo_ssn" width="100" />
+        <cell name="udo_filenumber" width="100" />
+        <cell name="udo_participantid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>4</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="contact">
+        <attribute name="fullname" />
+        <order attribute="fullname" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="udo_phonenumber2" />
+        <attribute name="udo_phonenumber1" />
+        <attribute name="address1_city" />
+        <attribute name="address1_line1" />
+        <attribute name="address1_stateorprovince" />
+        <filter type="or" isquickfindfields="1">
+          <condition attribute="udo_ssn" operator="like" value="{0}" />
+          <condition attribute="udo_participantid" operator="like" value="{0}" />
+          <condition attribute="middlename" operator="like" value="{0}" />
+          <condition attribute="lastname" operator="like" value="{0}" />
+          <condition attribute="fullname" operator="like" value="{0}" />
+          <condition attribute="firstname" operator="like" value="{0}" />
+          <condition attribute="udo_filenumber" operator="like" value="{0}" />
+          <condition attribute="emailaddress1" operator="like" value="{0}" />
+          <condition attribute="address1_city" operator="like" value="{0}" />
+        </filter>
+        <attribute name="udo_ssn" />
+        <attribute name="udo_participantid" />
+        <attribute name="udo_filenumber" />
+        <attribute name="emailaddress1" />
+        <attribute name="contactid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Quick Find Veterans/Contacts" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

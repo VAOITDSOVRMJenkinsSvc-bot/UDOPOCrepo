@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://standarddata.services.vetsnet.vba.va.gov/" name="StandardDataWebService" targetNamespace="http://standarddata.services.vetsnet.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/StandardDataWebServiceBean/StandardDataWebService?xsd=1" namespace="http://standarddata.services.vetsnet.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="findAllBddIntakeSites">
+    <part name="parameters" element="tns:findAllBddIntakeSites" />
+  </message>
+  <message name="findAllBddIntakeSitesResponse">
+    <part name="parameters" element="tns:findAllBddIntakeSitesResponse" />
+  </message>
+  <message name="MessageException">
+    <part name="fault" element="tns:MessageException" />
+  </message>
+  <message name="findSpecialIssues">
+    <part name="parameters" element="tns:findSpecialIssues" />
+  </message>
+  <message name="findSpecialIssuesResponse">
+    <part name="parameters" element="tns:findSpecialIssuesResponse" />
+  </message>
+  <message name="findBenefitClaimTypes">
+    <part name="parameters" element="tns:findBenefitClaimTypes" />
+  </message>
+  <message name="findBenefitClaimTypesResponse">
+    <part name="parameters" element="tns:findBenefitClaimTypesResponse" />
+  </message>
+  <message name="findEndProductTypes">
+    <part name="parameters" element="tns:findEndProductTypes" />
+  </message>
+  <message name="findEndProductTypesResponse">
+    <part name="parameters" element="tns:findEndProductTypesResponse" />
+  </message>
+  <message name="findPayeeTypes">
+    <part name="parameters" element="tns:findPayeeTypes" />
+  </message>
+  <message name="findPayeeTypesResponse">
+    <part name="parameters" element="tns:findPayeeTypesResponse" />
+  </message>
+  <message name="findRegionalOffices">
+    <part name="parameters" element="tns:findRegionalOffices" />
+  </message>
+  <message name="findRegionalOfficesResponse">
+    <part name="parameters" element="tns:findRegionalOfficesResponse" />
+  </message>
+  <message name="findStations">
+    <part name="parameters" element="tns:findStations" />
+  </message>
+  <message name="findStationsResponse">
+    <part name="parameters" element="tns:findStationsResponse" />
+  </message>
+  <message name="findFlashes">
+    <part name="parameters" element="tns:findFlashes" />
+  </message>
+  <message name="findFlashesResponse">
+    <part name="parameters" element="tns:findFlashesResponse" />
+  </message>
+  <message name="findStates">
+    <part name="parameters" element="tns:findStates" />
+  </message>
+  <message name="findStatesResponse">
+    <part name="parameters" element="tns:findStatesResponse" />
+  </message>
+  <message name="findCountries">
+    <part name="parameters" element="tns:findCountries" />
+  </message>
+  <message name="findCountriesResponse">
+    <part name="parameters" element="tns:findCountriesResponse" />
+  </message>
+  <message name="findMilitaryBranches">
+    <part name="parameters" element="tns:findMilitaryBranches" />
+  </message>
+  <message name="findMilitaryBranchesResponse">
+    <part name="parameters" element="tns:findMilitaryBranchesResponse" />
+  </message>
+  <message name="findOrganizationTypes">
+    <part name="parameters" element="tns:findOrganizationTypes" />
+  </message>
+  <message name="findOrganizationTypesResponse">
+    <part name="parameters" element="tns:findOrganizationTypesResponse" />
+  </message>
+  <message name="findForeignStates">
+    <part name="parameters" element="tns:findForeignStates" />
+  </message>
+  <message name="findForeignStatesResponse">
+    <part name="parameters" element="tns:findForeignStatesResponse" />
+  </message>
+  <message name="findUSStates">
+    <part name="parameters" element="tns:findUSStates" />
+  </message>
+  <message name="findUSStatesResponse">
+    <part name="parameters" element="tns:findUSStatesResponse" />
+  </message>
+  <message name="findPOAs">
+    <part name="parameters" element="tns:findPOAs" />
+  </message>
+  <message name="findPOAsResponse">
+    <part name="parameters" element="tns:findPOAsResponse" />
+  </message>
+  <message name="findPrefByPtcpntId">
+    <part name="parameters" element="tns:findPrefByPtcpntId" />
+  </message>
+  <message name="findPrefByPtcpntIdResponse">
+    <part name="parameters" element="tns:findPrefByPtcpntIdResponse" />
+  </message>
+  <message name="findPrefByPoaCd">
+    <part name="parameters" element="tns:findPrefByPoaCd" />
+  </message>
+  <message name="findPrefByPoaCdResponse">
+    <part name="parameters" element="tns:findPrefByPoaCdResponse" />
+  </message>
+  <message name="updatePref">
+    <part name="parameters" element="tns:updatePref" />
+  </message>
+  <message name="updatePrefResponse">
+    <part name="parameters" element="tns:updatePrefResponse" />
+  </message>
+  <message name="findCemeteries">
+    <part name="parameters" element="tns:findCemeteries" />
+  </message>
+  <message name="findCemeteriesResponse">
+    <part name="parameters" element="tns:findCemeteriesResponse" />
+  </message>
+  <message name="findBenefitClaimTypeIncrements">
+    <part name="parameters" element="tns:findBenefitClaimTypeIncrements" />
+  </message>
+  <message name="findBenefitClaimTypeIncrementsResponse">
+    <part name="parameters" element="tns:findBenefitClaimTypeIncrementsResponse" />
+  </message>
+  <message name="findBenefitClaimTypeIncrement">
+    <part name="parameters" element="tns:findBenefitClaimTypeIncrement" />
+  </message>
+  <message name="findBenefitClaimTypeIncrementResponse">
+    <part name="parameters" element="tns:findBenefitClaimTypeIncrementResponse" />
+  </message>
+  <message name="findAllBenefitClaimTypes">
+    <part name="parameters" element="tns:findAllBenefitClaimTypes" />
+  </message>
+  <message name="findAllBenefitClaimTypesResponse">
+    <part name="parameters" element="tns:findAllBenefitClaimTypesResponse" />
+  </message>
+  <message name="findOtherMilitaryBranches">
+    <part name="parameters" element="tns:findOtherMilitaryBranches" />
+  </message>
+  <message name="findOtherMilitaryBranchesResponse">
+    <part name="parameters" element="tns:findOtherMilitaryBranchesResponse" />
+  </message>
+  <message name="findClaimSuspnsReasons">
+    <part name="parameters" element="tns:findClaimSuspnsReasons" />
+  </message>
+  <message name="findClaimSuspnsReasonsResponse">
+    <part name="parameters" element="tns:findClaimSuspnsReasonsResponse" />
+  </message>
+  <message name="findSignaturesByStationNumber">
+    <part name="parameters" element="tns:findSignaturesByStationNumber" />
+  </message>
+  <message name="findSignaturesByStationNumberResponse">
+    <part name="parameters" element="tns:findSignaturesByStationNumberResponse" />
+  </message>
+  <message name="findBenefitClaimLifeCycleStatuses">
+    <part name="parameters" element="tns:findBenefitClaimLifeCycleStatuses" />
+  </message>
+  <message name="findBenefitClaimLifeCycleStatusesResponse">
+    <part name="parameters" element="tns:findBenefitClaimLifeCycleStatusesResponse" />
+  </message>
+  <message name="findItfCanctnReasonTypes">
+    <part name="parameters" element="tns:findItfCanctnReasonTypes" />
+  </message>
+  <message name="findItfCanctnReasonTypesResponse">
+    <part name="parameters" element="tns:findItfCanctnReasonTypesResponse" />
+  </message>
+  <message name="findPhoneTypes">
+    <part name="parameters" element="tns:findPhoneTypes" />
+  </message>
+  <message name="findPhoneTypesResponse">
+    <part name="parameters" element="tns:findPhoneTypesResponse" />
+  </message>
+  <message name="findSubmtrApplcnTypes">
+    <part name="parameters" element="tns:findSubmtrApplcnTypes" />
+  </message>
+  <message name="findSubmtrApplcnTypesResponse">
+    <part name="parameters" element="tns:findSubmtrApplcnTypesResponse" />
+  </message>
+  <message name="findSubmtrRoleTypes">
+    <part name="parameters" element="tns:findSubmtrRoleTypes" />
+  </message>
+  <message name="findSubmtrRoleTypesResponse">
+    <part name="parameters" element="tns:findSubmtrRoleTypesResponse" />
+  </message>
+  <message name="findPreDischargeType">
+    <part name="parameters" element="tns:findPreDischargeType" />
+  </message>
+  <message name="findPreDischargeTypeResponse">
+    <part name="parameters" element="tns:findPreDischargeTypeResponse" />
+  </message>
+  <message name="findVreFormTypes">
+    <part name="parameters" element="tns:findVreFormTypes" />
+  </message>
+  <message name="findVreFormTypesResponse">
+    <part name="parameters" element="tns:findVreFormTypesResponse" />
+  </message>
+  <message name="findPayeeCdsByBnftClaimTypeCd">
+    <part name="parameters" element="tns:findPayeeCdsByBnftClaimTypeCd" />
+  </message>
+  <message name="findPayeeCdsByBnftClaimTypeCdResponse">
+    <part name="parameters" element="tns:findPayeeCdsByBnftClaimTypeCdResponse" />
+  </message>
+  <message name="findPayeeCdByPgmTypeCd">
+    <part name="parameters" element="tns:findPayeeCdByPgmTypeCd" />
+  </message>
+  <message name="findPayeeCdByPgmTypeCdResponse">
+    <part name="parameters" element="tns:findPayeeCdByPgmTypeCdResponse" />
+  </message>
+  <portType name="StandardDataWebService">
+    <operation name="findAllBddIntakeSites">
+      <input message="tns:findAllBddIntakeSites" />
+      <output message="tns:findAllBddIntakeSitesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findSpecialIssues">
+      <input message="tns:findSpecialIssues" />
+      <output message="tns:findSpecialIssuesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findBenefitClaimTypes">
+      <input message="tns:findBenefitClaimTypes" />
+      <output message="tns:findBenefitClaimTypesResponse" />
+    </operation>
+    <operation name="findEndProductTypes">
+      <input message="tns:findEndProductTypes" />
+      <output message="tns:findEndProductTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPayeeTypes">
+      <input message="tns:findPayeeTypes" />
+      <output message="tns:findPayeeTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findRegionalOffices">
+      <input message="tns:findRegionalOffices" />
+      <output message="tns:findRegionalOfficesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findStations">
+      <input message="tns:findStations" />
+      <output message="tns:findStationsResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findFlashes">
+      <input message="tns:findFlashes" />
+      <output message="tns:findFlashesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findStates">
+      <input message="tns:findStates" />
+      <output message="tns:findStatesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findCountries">
+      <input message="tns:findCountries" />
+      <output message="tns:findCountriesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findMilitaryBranches">
+      <input message="tns:findMilitaryBranches" />
+      <output message="tns:findMilitaryBranchesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findOrganizationTypes">
+      <input message="tns:findOrganizationTypes" />
+      <output message="tns:findOrganizationTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findForeignStates">
+      <input message="tns:findForeignStates" />
+      <output message="tns:findForeignStatesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findUSStates">
+      <input message="tns:findUSStates" />
+      <output message="tns:findUSStatesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPOAs">
+      <input message="tns:findPOAs" />
+      <output message="tns:findPOAsResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPrefByPtcpntId">
+      <input message="tns:findPrefByPtcpntId" />
+      <output message="tns:findPrefByPtcpntIdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPrefByPoaCd">
+      <input message="tns:findPrefByPoaCd" />
+      <output message="tns:findPrefByPoaCdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="updatePref">
+      <input message="tns:updatePref" />
+      <output message="tns:updatePrefResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findCemeteries">
+      <input message="tns:findCemeteries" />
+      <output message="tns:findCemeteriesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findBenefitClaimTypeIncrements">
+      <input message="tns:findBenefitClaimTypeIncrements" />
+      <output message="tns:findBenefitClaimTypeIncrementsResponse" />
+    </operation>
+    <operation name="findBenefitClaimTypeIncrement">
+      <input message="tns:findBenefitClaimTypeIncrement" />
+      <output message="tns:findBenefitClaimTypeIncrementResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findAllBenefitClaimTypes">
+      <input message="tns:findAllBenefitClaimTypes" />
+      <output message="tns:findAllBenefitClaimTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findOtherMilitaryBranches">
+      <input message="tns:findOtherMilitaryBranches" />
+      <output message="tns:findOtherMilitaryBranchesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findClaimSuspnsReasons">
+      <input message="tns:findClaimSuspnsReasons" />
+      <output message="tns:findClaimSuspnsReasonsResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findSignaturesByStationNumber">
+      <input message="tns:findSignaturesByStationNumber" />
+      <output message="tns:findSignaturesByStationNumberResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findBenefitClaimLifeCycleStatuses">
+      <input message="tns:findBenefitClaimLifeCycleStatuses" />
+      <output message="tns:findBenefitClaimLifeCycleStatusesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findItfCanctnReasonTypes">
+      <input message="tns:findItfCanctnReasonTypes" />
+      <output message="tns:findItfCanctnReasonTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPhoneTypes">
+      <input message="tns:findPhoneTypes" />
+      <output message="tns:findPhoneTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findSubmtrApplcnTypes">
+      <input message="tns:findSubmtrApplcnTypes" />
+      <output message="tns:findSubmtrApplcnTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findSubmtrRoleTypes">
+      <input message="tns:findSubmtrRoleTypes" />
+      <output message="tns:findSubmtrRoleTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPreDischargeType">
+      <input message="tns:findPreDischargeType" />
+      <output message="tns:findPreDischargeTypeResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findVreFormTypes">
+      <input message="tns:findVreFormTypes" />
+      <output message="tns:findVreFormTypesResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPayeeCdsByBnftClaimTypeCd">
+      <input message="tns:findPayeeCdsByBnftClaimTypeCd" />
+      <output message="tns:findPayeeCdsByBnftClaimTypeCdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findPayeeCdByPgmTypeCd">
+      <input message="tns:findPayeeCdByPgmTypeCd" />
+      <output message="tns:findPayeeCdByPgmTypeCdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+  </portType>
+  <binding name="StandardDataWebServicePortBinding" type="tns:StandardDataWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findAllBddIntakeSites">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findSpecialIssues">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findBenefitClaimTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findEndProductTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPayeeTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findRegionalOffices">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findStations">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findFlashes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findStates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCountries">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findMilitaryBranches">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findOrganizationTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findForeignStates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findUSStates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPOAs">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPrefByPtcpntId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPrefByPoaCd">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updatePref">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCemeteries">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findBenefitClaimTypeIncrements">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findBenefitClaimTypeIncrement">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllBenefitClaimTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findOtherMilitaryBranches">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findClaimSuspnsReasons">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findSignaturesByStationNumber">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findBenefitClaimLifeCycleStatuses">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findItfCanctnReasonTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPhoneTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findSubmtrApplcnTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findSubmtrRoleTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPreDischargeType">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVreFormTypes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPayeeCdsByBnftClaimTypeCd">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPayeeCdByPgmTypeCd">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="StandardDataWebService">
+    <port name="StandardDataWebServicePort" binding="tns:StandardDataWebServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/StandardDataWebServiceBean/StandardDataWebService" />
+    </port>
+  </service>
+</definitions>

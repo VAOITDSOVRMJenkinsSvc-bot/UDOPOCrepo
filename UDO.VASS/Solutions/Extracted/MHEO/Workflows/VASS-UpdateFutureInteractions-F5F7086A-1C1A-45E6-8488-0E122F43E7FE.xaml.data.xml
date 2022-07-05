@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{f5f7086a-1c1a-45e6-8488-0e122f43e7fe}" Name="VASS - Update Future Interactions">
+  <XamlFileName>/Workflows/VASS-UpdateFutureInteractions-F5F7086A-1C1A-45E6-8488-0E122F43E7FE.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnUpdateAttributeList>udo_veteranemail,udo_phonenumber2,udo_phonenumber</TriggerOnUpdateAttributeList>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <UpdateStage>40</UpdateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>2.10.108.2</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>udo_interaction</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="VASS - Update Future Interactions" />
+  </LocalizedNames>
+</Workflow>

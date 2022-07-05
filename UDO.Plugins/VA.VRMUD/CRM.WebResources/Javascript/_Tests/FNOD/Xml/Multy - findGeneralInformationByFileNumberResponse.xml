@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<findGeneralInformationByFileNumberResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+			<return>
+				<awardBenes>
+					<awardBenePK>
+						<awardTypeCd>CA</awardTypeCd>
+						<ptcpntBeneId>12903672</ptcpntBeneId>
+						<ptcpntRecipId>12903672</ptcpntRecipId>
+						<ptcpntVetId>12903672</ptcpntVetId>
+					</awardBenePK>
+					<awardBeneTypeCd>PB</awardBeneTypeCd>
+					<awardBeneTypeName>Primary Beneficiary</awardBeneTypeName>
+					<awardTypeCd>CA</awardTypeCd>
+					<awardTypeName>Clothing Allowance</awardTypeName>
+					<beneName>CAT                           FELIX</beneName>
+					<payeeCd>00</payeeCd>
+					<ptcpntBeneId>12903672</ptcpntBeneId>
+					<ptcpntRecipId>12903672</ptcpntRecipId>
+					<ptcpntVetId>12903672</ptcpntVetId>
+					<recipName>CAT                           FELIX</recipName>
+					<vetName>CAT                           FELIX</vetName>
+				</awardBenes>
+				<awardBenes>
+					<awardBenePK>
+						<awardTypeCd>CPL</awardTypeCd>
+						<ptcpntBeneId>12903672</ptcpntBeneId>
+						<ptcpntRecipId>12903672</ptcpntRecipId>
+						<ptcpntVetId>12903672</ptcpntVetId>
+					</awardBenePK>
+					<awardBeneTypeCd>PB</awardBeneTypeCd>
+					<awardBeneTypeName>Primary Beneficiary</awardBeneTypeName>
+					<awardTypeCd>CPL</awardTypeCd>
+					<awardTypeName>Compensation/Pension Live</awardTypeName>
+					<beneName>CAT                           FELIX</beneName>
+					<payeeCd>00</payeeCd>
+					<ptcpntBeneId>12903672</ptcpntBeneId>
+					<ptcpntRecipId>12903672</ptcpntRecipId>
+					<ptcpntVetId>12903672</ptcpntVetId>
+					<recipName>CAT                           FELIX</recipName>
+					<vetName>CAT                           FELIX</vetName>
+				</awardBenes>
+				<awardBenes>
+					<awardBenePK>
+						<awardTypeCd>CPL</awardTypeCd>
+						<ptcpntBeneId>12903672</ptcpntBeneId>
+						<ptcpntRecipId>12967163</ptcpntRecipId>
+						<ptcpntVetId>12903672</ptcpntVetId>
+					</awardBenePK>
+					<awardBeneTypeCd>A</awardBeneTypeCd>
+					<awardBeneTypeName>Apportionee</awardBeneTypeName>
+					<awardTypeCd>CPL</awardTypeCd>
+					<awardTypeName>Compensation/Pension Live</awardTypeName>
+					<beneName>CAT                           FELIX</beneName>
+					<payeeCd>31</payeeCd>
+					<ptcpntBeneId>12903672</ptcpntBeneId>
+					<ptcpntRecipId>12967163</ptcpntRecipId>
+					<ptcpntVetId>12903672</ptcpntVetId>
+					<recipName>CAT                           FORENZA</recipName>
+					<vetName>CAT                           FELIX</vetName>
+				</awardBenes>
+				<awardBenes>
+					<awardBenePK>
+						<awardTypeCd>CPL</awardTypeCd>
+						<ptcpntBeneId>12903672</ptcpntBeneId>
+						<ptcpntRecipId>12974671</ptcpntRecipId>
+						<ptcpntVetId>12903672</ptcpntVetId>
+					</awardBenePK>
+					<awardBeneTypeCd>A</awardBeneTypeCd>
+					<awardBeneTypeName>Apportionee</awardBeneTypeName>
+					<awardTypeCd>CPL</awardTypeCd>
+					<awardTypeName>Compensation/Pension Live</awardTypeName>
+					<beneName>CAT                           FELIX</beneName>
+					<payeeCd>18</payeeCd>
+					<ptcpntBeneId>12903672</ptcpntBeneId>
+					<ptcpntRecipId>12974671</ptcpntRecipId>
+					<ptcpntVetId>12903672</ptcpntVetId>
+					<recipName>KAT                           EIGHTH                        KID</recipName>
+					<vetName>CAT                           FELIX</vetName>
+				</awardBenes>
+				<numberOfAwardBenes>4</numberOfAwardBenes>
+				<returnCode>SHAR 9999</returnCode>
+				<returnMessage>Records found.</returnMessage>
+			</return>
+		</findGeneralInformationByFileNumberResponse>
+	</Body>
+</Envelope>

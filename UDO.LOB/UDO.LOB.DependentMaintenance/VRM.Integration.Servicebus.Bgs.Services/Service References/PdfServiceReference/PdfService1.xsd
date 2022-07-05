@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vac20appeis804.va.gov:81/PdfService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/VRM.CRME.DocGen.PDFConversion.Service" />
+  <xs:element name="ConvertWordToPdf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="wordBytes" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConvertWordToPdfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VRM.CRME.DocGen.PDFConversion.Service" minOccurs="0" name="ConvertWordToPdfResult" nillable="true" type="q1:PdfServiceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,46 @@
+<html><head>
+    <script src="udo_Xrm.min.js" type="text/javascript"></script>
+    <style type="”text/css”">
+        html,
+        body {
+            border: none;
+        }
+    </style>
+<meta></head>
+
+<body style="overflow-wrap: break-word;" onfocusout="parent.setEmailRange();">
+    <p style="font-family:calibri">
+        Power BI Reports
+        <br>
+        </p><p id="powerbilinks"></p>
+
+        <script>
+            var filter = "?$select=udo_name,udo_position,udo_url&$filter=statecode eq 0&$orderby=udo_position asc";
+            Xrm.WebApi.retrieveMultipleRecords("udo_udopowerbiconfiguration", filter).then(
+                function (data) {
+                    debugger;
+                    if (data !== null && data.value !== null && data.value.length > 0) {
+                        var links = "";
+                        for (var i = 0; i < data.value.length; i++) {
+                            var name = data.value[i].udo_name;
+                            var url = data.value[i].udo_url;
+
+                            if (name != null && url != null) {
+                                    links = links + "<a href='" + url + "' target='_blank'>" + name + "</a><br>";
+                            }
+                        }
+                        if (links !== null) {
+                            document.getElementById("powerbilinks").innerHTML = links;
+                        }
+                    } else {
+                        document.getElementById("powerbilinks").innerHTML = "There are no UDO Power BI Configurations.";
+                    }
+                },
+                function(error) {
+                    alert("An error has occurred retrieving Power BI Configurations.");
+                });
+        </script>
+    <p></p>
+
+
+</body></html>

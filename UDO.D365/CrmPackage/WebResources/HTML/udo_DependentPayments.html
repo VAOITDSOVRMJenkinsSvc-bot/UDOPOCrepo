@@ -1,0 +1,152 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>Dependent Payments</title>
+    <script src="udo_Xrm.min.js" type="text/jscript"></script>
+    <script src="udo_jquery_1.9.1.min.js" type="text/jscript"></script>
+    <script src="udo_SDK.JQuery.js" type="text/jscript"></script>
+    <script src="udo_DependentPayments.js" type="text/jscript"></script>
+    <script src="udo_json2.js" type="text/jscript"></script>
+    <script src="udo_utility.js" type="text/jscript"></script>
+    <style type="text/css">
+        body {
+            font-family: 'Segoe UI',Tahoma,Arial;
+        }
+
+        table {
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Segoe UI',Tahoma,Arial;
+            font-weight: 100;
+            color: #262626;
+            font-size: 36px;
+            line-height: 24px;
+        }
+
+        label {
+            margin-left: 5px;
+            font-size: 15px;
+            width: 90px;
+        }
+
+        select {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 80px;
+        }
+
+        option {
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-size: 11px;
+            height: 28px;
+            overflow: hidden;
+            padding-bottom: 0;
+            padding-left: 10px;
+            padding-top: 0;
+        }
+
+            option:hover {
+                background-color: #b1d6f0;
+            }
+
+        input {
+            background-color: rgb(0,32,80);
+            border-color: rgb(255,255,255);
+            border-style: none;
+            border-width: 0px;
+            color: rgb(255,255,255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+            font-size: 14.06px;
+            height: 30px;
+            line-height: 20px;
+            min-width: 84.4px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 5px;
+        }
+
+            input:disabled {
+                background-color: gray;
+                color: rgb(255, 255, 255);
+            }
+
+        div#tmpDialog {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 50px;
+            margin: -151px 0 0 -251px;
+            background: rgb(255, 255, 255);
+            border: 1px solid black;
+        }
+
+            div#tmpDialog img {
+                float: left;
+                height: 45px;
+                width: 45px;
+                padding: 5px 10px 5px 5px;
+                text-align: left;
+            }
+
+            div#tmpDialog p {
+                padding: 5px;
+                margin: 15px 5px 5px 5px;
+                text-align: left;
+                font-size: 11px;
+            }
+    </style>
+    <script type="text/jscript">
+        $(document).ready(function () {
+
+            Va.Udo.Crm.Scripts.DependentPayments.UI.initialize();
+
+            $('#paymentList').load(function () {
+                $('div#tmpDialog').hide();
+                $('#paymentList').css('display', 'inline');
+
+                $("#payeeCodeList option:selected").each(function (index, element) {
+                    if (element.value != "0") {
+                        Va.Udo.Crm.Scripts.DependentPayments.Controller.updateStatus("Loading payments completed, you may select another Payee Code.", false);
+                    }
+                    else {
+                        Va.Udo.Crm.Scripts.DependentPayments.Controller.updateStatus("Select a Payee Code.", false);
+                    }
+                });
+                setTimeout(function () { $('#payeeCodeList').focus() }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <table width="100%" height="100%">
+        <tr height="30px">
+            <td style="width: 110px">
+                <label id="lblpaycode" for="payeeCodeList">Payee Code:</label>
+            </td>
+            <td style="width: 110px">
+                <select style="margin-top: 12px; width: 200px" id="payeeCodeList" aria-labelledby="lblpaycode statusLabel" role="select">
+                </select>
+            </td>
+            <td>
+                <label id="statusLabel" style="width: 200px; font-size: 12px; font-family: 'Segoe UI',Tahoma,Arial">Loading payee codes...</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <iframe id="paymentList" width="100%" height="350px" title="Payment List" style="display: none"></iframe>
+            </td>
+        </tr>
+    </table>
+    <div id="tmpDialog">
+        <img alt="Loading Image" src="udo_/images/search/loading.gif">
+        <p>Working on it. Please wait...</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{6870e7ee-b5c5-e911-a983-001dd80081ad}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" icon="1" preview="1" select="1" jump="udo_title">
+      <row id="udo_interactionid" name="result">
+        <cell name="udo_title" width="150" />
+        <cell name="udo_veteranfirstname" width="100" />
+        <cell name="udo_veteranlastname" width="100" />
+        <cell name="udo_veteranssn" width="100" />
+        <cell name="a_62c85dd693c5e911a983001dd80081ad.address1_city" width="100" disableSorting="1" />
+        <cell name="udo_phonenumber" width="100" />
+        <cell name="a_62c85dd693c5e911a983001dd80081ad.address1_stateorprovince" width="100" disableSorting="1" />
+        <cell name="udo_intervalstart" width="100" />
+        <cell name="udo_releasedfromactivedutydate" width="100" />
+        <cell name="udo_interactionmheointerval" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="udo_interaction">
+        <attribute name="udo_title" />
+        <attribute name="udo_veteranlastname" />
+        <attribute name="udo_veteranfirstname" />
+        <attribute name="ownerid" />
+        <attribute name="udo_interactionmheointerval" />
+        <attribute name="udo_intervalstart" />
+        <attribute name="udo_phonenumber" />
+        <attribute name="udo_veteranssn" />
+        <order descending="false" attribute="udo_veteranlastname" />
+        <order descending="false" attribute="udo_veteranssn" />
+        <filter type="and">
+          <condition value="752280004" attribute="udo_channel" operator="eq" />
+          <condition value="0" attribute="statecode" operator="eq" />
+        </filter>
+        <link-entity name="team" from="teamid" to="owningteam" alias="aa">
+          <filter type="and">
+            <condition value="VASS National" attribute="name" operator="eq" />
+          </filter>
+        </link-entity>
+        <link-entity name="contact" from="contactid" to="udo_contactid" alias="a_62c85dd693c5e911a983001dd80081ad" visible="false" link-type="outer">
+          <attribute name="address1_stateorprovince" />
+          <attribute name="address1_city" />
+        </link-entity>
+        <attribute name="udo_releasedfromactivedutydate" />
+        <attribute name="udo_interactionid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS National View - Interactions Not Yet Routed" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

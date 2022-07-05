@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Apportionments</title>
+<link rel="stylesheet" type="text/css" href="css/template.css" />
+<script type="text/javascript" language="javascript" src="js/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" language="javascript" src="js/pcrScripts.js"></script> 
+<script type="text/javascript" language="javascript" src="js/va_CrmRestKit_2011.js"></script> 
+</head>
+
+<body onload="GetSOJ()">
+<script type="text/javascript">
+
+    //Declare VIP and CRM from a page level
+    var VIP = null;
+    var CRM = null;
+    var Xrm = null;
+
+    if (parent.opener.Xrm) {
+        CRM = parent.opener;
+        Xrm = parent.opener.Xrm;
+    }
+    else if (parent.opener.parent.Xrm) {
+        CRM = parent.opener.parent;
+        VIP = parent.opener;
+        Xrm = parent.opener.parent.Xrm;
+    }
+
+    function GetSOJ() {
+        // get address from BIRLS Folder Location
+        try {
+            var xml = CRM.Xrm.Page.getAttribute("va_findbirlsresponse").getValue();
+            var xmlObj = null;
+            if (xml && xml.length > 0) {
+                xmlObj = CRM._XML_UTIL.parseXmlObject(xml);
+                if (xmlObj && xmlObj.selectSingleNode('//CLAIM_FOLDER_LOCATION') && xmlObj.selectSingleNode('//CLAIM_FOLDER_LOCATION').text) {
+                    var soj = xmlObj.selectSingleNode('//CLAIM_FOLDER_LOCATION').text;
+                    document.getElementById('soj').value = soj;
+                    if (soj && soj.length > 0) {UpdateSOJAddress(); }
+                }
+            }
+        }
+        catch (xpe) { }
+    }
+    function UpdateSOJAddress() {
+        var soj = document.getElementById('soj').value;
+        if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+        if (!parent || !parent.opener ) {
+            alert('Phone Call screen is not available. SOJ Address cannot be retrieved.');
+            return;
+        }
+
+        var columns = ['va_name', 'va_Alias', 'va_Address1', 'va_Address2', 'va_Address3', 'va_City', 'va_State', 'va_ZipCode', 'va_FaxNumber',
+				'va_SpecialIssueJurisdiction'];
+        var sojCode = soj;
+        if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+        CrmRestKit2011.ByQueryAll('va_regionaloffice', columns, "va_Code eq '" + sojCode + "'")
+       .fail(
+           function (err) {
+               UTIL.restKitError(err, 'Failed to retrieve SOJ information from table:');
+           })
+           .done(function (data) {
+               // if there's more than one result, try to find one that has claim type for current claim
+               if ((data) && (data.length > 0)) {
+                   var res = data[0];
+                   var addr = '<br/>';
+
+                   if (res.va_Alias && res.va_Alias.length > 0) addr += res.va_Alias + '<br/>';
+                   if (res.va_Address1 && res.va_Address1.length > 0) addr += res.va_Address1 + '<br/>';
+                   if (res.va_Address2 && res.va_Address2.length > 0) addr += ' ' + res.va_Address2 + '<br/>';
+                   if (res.va_Address3 && res.va_Address3.length > 0) addr += ' ' + res.va_Address3 + '<br/>';
+                   if (res.va_City && res.va_City.length > 0) addr += res.va_City;
+                   if (res.va_State && res.va_State.length > 0) addr += ', ' + res.va_State;
+                   if (res.va_ZipCode && res.va_ZipCode.length > 0) addr += ' ' + res.va_ZipCode;
+                   if (res.va_FaxNumber && res.va_FaxNumber.length > 0) addr += '<br/>Fax: ' + res.va_FaxNumber;
+                   if (res.va_SpecialIssueJurisdiction && res.va_SpecialIssueJurisdiction.length > 0) addr += '<br/>Special Issue Jurisdiction: ' + res.va_SpecialIssueJurisdiction;
+
+                   document.getElementById('sojaddress').innerHTML = addr;
+               }
+               else {
+                   alert('SOJ lookup table does not have an entry for ROJ Code ' + soj);
+               }
+           });           
+    }
+</script>
+<div class="container">
+
+	<div id="sidenav">
+    	<img src="images/logo.bmp" alt="VRM Logo" align="center"; style="padding-left:25px; padding-top:10px" />
+        <h1 align="center">Reference</h1>
+ 		<ul>
+   			<li><a href="https://vaww.ppd.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000009749">Ready Reference Sheet</a></li>
+            <li><a href="https://vaww.ppd.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000003165">Due Process Ready Reference Sheet</a></li>
+            <li><a href="http://www.va.gov/vaforms/va/pdf/VA5655blank.pdf">How to apply (VA Form 5655)</a></li>
+        </ul>
+
+    </div>
+
+    <div id="content">
+    <!--- script> insertModDate()</script -->
+  	<h1>Apportionments</h1>
+		<h2>Apportionments (Call from claimant/claimant's POA)</h2>
+			<ul class="one"><li><b>If the veteran/beneficiary is in receipt of VA benefits:</b><br>An apportionment is part of a VA benefit that can be paid to eligible dependents not living in the veteran's/beneficiary's household, or if the veteran/beneficiary is incarcerated.  Apportionments are need based and must be submitted in writing.  You may either send a letter, or I can mail you VA Form 21-4138, Statement in Support of Claim, to make your request.  You can also access the form at www.va.gov.  Be sure to put the veteran's full name, Social Security or file number along with your full name, address, and phone number on your request.  The Regional Office will contact you for any additional information needed to support your claim (provide ROJ address to send the claim.)<br />
+            ROJ: &nbsp;<input id="soj" type="text" style="width: 40px" /> &nbsp;<a id="acpt" onclick="UpdateSOJAddress()" 
+			style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF;" title="Click to Update SOJ Address">Update Address</a><br />
+            <label id="sojaddress"></label>
+            </li></ul>
+			<ul><b><i>Reminder:</i></b>Do not provide any of the veteran's/beneficiary's personal information to the claimant/claimant's POA.  </ul>
+	        <ul><b>Note:</b>An apportionment can be made from any beneficiary's award (i.e., veteran or surviving spouse).  The claimant does not have to be on the veteran's award at the time of the apportionment request.</ul>
+			<ul class="one"><li><b>If the veteran/beneficiary is <u>NOT</u> in receipt of VA benefits:</b><br>At this time our records show the veteran is not receiving VA benefits; therefore, no apportionment can be paid.</ul>
+		<h2>Apportionments (Call from veteran/beneficiary/veteran's POA)</h2>
+			<ul>The law allows VA benefits to be apportioned as long as the claimant shows financial need and it does not create a financial hardship for you.  Both you and the claimant will receive (may have already received) a letter requesting specific information.  You should read the letter completely and return VA Form 21-0788, Information Regarding Apportionment of Beneficiary's Award, with any additional evidence to support your contentions.  Your letter will explain the date and proposed amount we are withholding.  After we receive responses from you and the claimant, we will review the information and make our final decision.  If either you or the claimant does not respond, we will make our decision based on the evidence of record.  If the claimant's request is denied, the money we previously withheld will be returned to you.</ul>
+			<ul><b><i>Reminder:</i></b>Do not disclose any of the claimant's information to the veteran/beneficiary/veteran's POA.    </ul>
+	        <ul><b>Note:</b>An apportionment can be made from any beneficiary's award (i.e., veteran or surviving spouse).  </ul>
+    </div>
+</div>
+</body>
+</html>

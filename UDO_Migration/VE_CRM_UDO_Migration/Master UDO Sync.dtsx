@@ -1,0 +1,2703 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/9/2019 7:33:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VHACDWDWHETL15"
+  DTS:CreatorName="VHAMASTER\VHAJITBROWNT"
+  DTS:DTSID="{9761A4CA-CC61-46F2-915A-502D1B62E1F8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:MaxConcurrentExecutables="4"
+  DTS:ObjectName="Master UDO Sync"
+  DTS:PackageType="5"
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{5981950F-3E9D-4F40-AFCE-9BCF353040BB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SEQ - Load Sequence 1"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{EB75C696-C948-4FEA-9820-D5277F487E92}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Load Sequence 1">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{532e5bf6-dcc6-43b3-8e53-81760e619c0b}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT - Cache System Users"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform"
+                  componentClassID="Microsoft.Cache"
+                  contactInfo="Cache Transform;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Writes data to a cache (a .caw file) with the Cache Connection Manager. Reuse the cache between multiple Lookup transforms to reduce database load. Share the cache to reduce memory usage. Note: cache data is stored in clear text and not recommended for sensitive data."
+                  name="Cache Transform"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Connections[CacheConnection]"
+                      connectionManagerID="{CA7F2F3B-4903-473E-B50C-8B42534B56E5}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[Cache Connection Manager]"
+                      description="The connection used to access the cache."
+                      name="CacheConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input]"
+                      hasSideEffects="true"
+                      name="Cache Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input].Columns[domainname]"
+                          cachedDataType="wstr"
+                          cachedLength="1024"
+                          cachedName="domainname"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[domainname]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">domainname</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input].Columns[systemuserid]"
+                          cachedDataType="guid"
+                          cachedName="systemuserid"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[systemuserid]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">systemuserid</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input].Columns[isdisabled]"
+                          cachedDataType="bool"
+                          cachedName="isdisabled"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[isdisabled]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">isdisabled</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input].Columns[firstname]"
+                          cachedDataType="wstr"
+                          cachedLength="64"
+                          cachedName="firstname"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[firstname]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">firstname</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input].Columns[lastname]"
+                          cachedDataType="wstr"
+                          cachedLength="64"
+                          cachedName="lastname"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[lastname]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="The cache column associated with the input column."
+                              name="CacheColumnName">lastname</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Outputs[Cache Output]"
+                      name="Cache Output"
+                      synchronousInputId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2018 KingswaySoft Inc."
+                  description="Extract data from Microsoft Dynamics 365 CE/CRM."
+                  name="Dynamics CRM Source"
+                  usesDispositions="true"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of source data from Microsoft Dynamics CRM."
+                      expressionType="Notify"
+                      name="SourceType"
+                      typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceType">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Dynamics CRM entity to retrieve data from."
+                      expressionType="Notify"
+                      name="SourceEntity">systemuser</property>
+                    <property
+                      dataType="System.String"
+                      description="FetchXML statement."
+                      expressionType="Notify"
+                      name="FetchXML"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the batch size of the query."
+                      expressionType="Notify"
+                      name="BatchSize">2000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                      expressionType="Notify"
+                      name="MaxRowsReturned">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="The caller to be used for CRM impersonation when reading from CRM server."
+                      expressionType="Notify"
+                      name="ImpersonateAs" />
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the output timezone for CRM datetime fields."
+                      expressionType="Notify"
+                      name="OutputTimezone"
+                      typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceOutputTimezone" />
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Connections[DynamicsCRM]"
+                      connectionManagerID="{30BA67D8-51BD-461F-AF59-ABE00145D2AB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[D365 UDO]"
+                      description="Dynamics CRM Connection Manager"
+                      name="DynamicsCRM" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output]"
+                      name="Primary Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[systemuserid]"
+                          dataType="guid"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[systemuserid]"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[systemuserid]"
+                          name="systemuserid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[domainname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[domainname]"
+                          length="1024"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[domainname]"
+                          name="domainname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[isdisabled]"
+                          dataType="bool"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isdisabled]"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[isdisabled]"
+                          name="isdisabled"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[firstname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[firstname]"
+                          length="64"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[firstname]"
+                          name="firstname"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[lastname]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[lastname]"
+                          length="64"
+                          lineageId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].Columns[lastname]"
+                          name="lastname"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[accessmode]"
+                          dataType="i4"
+                          name="accessmode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[accessmodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="accessmodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_addressid]"
+                          dataType="guid"
+                          name="address1_addressid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_addresstypecode]"
+                          dataType="i4"
+                          name="address1_addresstypecode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_addresstypecodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="address1_addresstypecodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_city]"
+                          dataType="wstr"
+                          length="128"
+                          name="address1_city" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_composite]"
+                          dataType="nText"
+                          name="address1_composite" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_country]"
+                          dataType="wstr"
+                          length="128"
+                          name="address1_country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_county]"
+                          dataType="wstr"
+                          length="128"
+                          name="address1_county" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_fax]"
+                          dataType="wstr"
+                          length="64"
+                          name="address1_fax" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_latitude]"
+                          dataType="r8"
+                          name="address1_latitude" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_line1]"
+                          dataType="wstr"
+                          length="1024"
+                          name="address1_line1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_line2]"
+                          dataType="wstr"
+                          length="1024"
+                          name="address1_line2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_line3]"
+                          dataType="wstr"
+                          length="1024"
+                          name="address1_line3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_longitude]"
+                          dataType="r8"
+                          name="address1_longitude" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="address1_name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_postalcode]"
+                          dataType="wstr"
+                          length="40"
+                          name="address1_postalcode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_postofficebox]"
+                          dataType="wstr"
+                          length="40"
+                          name="address1_postofficebox" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_shippingmethodcode]"
+                          dataType="i4"
+                          name="address1_shippingmethodcode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_shippingmethodcodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="address1_shippingmethodcodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_stateorprovince]"
+                          dataType="wstr"
+                          length="128"
+                          name="address1_stateorprovince" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_telephone1]"
+                          dataType="wstr"
+                          length="64"
+                          name="address1_telephone1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_telephone2]"
+                          dataType="wstr"
+                          length="50"
+                          name="address1_telephone2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_telephone3]"
+                          dataType="wstr"
+                          length="50"
+                          name="address1_telephone3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_upszone]"
+                          dataType="wstr"
+                          length="4"
+                          name="address1_upszone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address1_utcoffset]"
+                          dataType="i4"
+                          name="address1_utcoffset" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_addressid]"
+                          dataType="guid"
+                          name="address2_addressid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_addresstypecode]"
+                          dataType="i4"
+                          name="address2_addresstypecode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_addresstypecodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="address2_addresstypecodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_city]"
+                          dataType="wstr"
+                          length="128"
+                          name="address2_city" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_composite]"
+                          dataType="nText"
+                          name="address2_composite" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_country]"
+                          dataType="wstr"
+                          length="128"
+                          name="address2_country" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_county]"
+                          dataType="wstr"
+                          length="128"
+                          name="address2_county" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_fax]"
+                          dataType="wstr"
+                          length="50"
+                          name="address2_fax" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_latitude]"
+                          dataType="r8"
+                          name="address2_latitude" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_line1]"
+                          dataType="wstr"
+                          length="1024"
+                          name="address2_line1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_line2]"
+                          dataType="wstr"
+                          length="1024"
+                          name="address2_line2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_line3]"
+                          dataType="wstr"
+                          length="1024"
+                          name="address2_line3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_longitude]"
+                          dataType="r8"
+                          name="address2_longitude" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_name]"
+                          dataType="wstr"
+                          length="100"
+                          name="address2_name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_postalcode]"
+                          dataType="wstr"
+                          length="40"
+                          name="address2_postalcode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_postofficebox]"
+                          dataType="wstr"
+                          length="40"
+                          name="address2_postofficebox" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_shippingmethodcode]"
+                          dataType="i4"
+                          name="address2_shippingmethodcode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_shippingmethodcodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="address2_shippingmethodcodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_stateorprovince]"
+                          dataType="wstr"
+                          length="128"
+                          name="address2_stateorprovince" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_telephone1]"
+                          dataType="wstr"
+                          length="50"
+                          name="address2_telephone1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_telephone2]"
+                          dataType="wstr"
+                          length="50"
+                          name="address2_telephone2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_telephone3]"
+                          dataType="wstr"
+                          length="50"
+                          name="address2_telephone3" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_upszone]"
+                          dataType="wstr"
+                          length="4"
+                          name="address2_upszone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[address2_utcoffset]"
+                          dataType="i4"
+                          name="address2_utcoffset" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[applicationid]"
+                          dataType="guid"
+                          name="applicationid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[applicationiduri]"
+                          dataType="wstr"
+                          length="1024"
+                          name="applicationiduri" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[azureactivedirectoryobjectid]"
+                          dataType="guid"
+                          name="azureactivedirectoryobjectid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[businessunitid]"
+                          dataType="guid"
+                          name="businessunitid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[businessunitidname]"
+                          dataType="wstr"
+                          length="160"
+                          name="businessunitidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[calendarid]"
+                          dataType="guid"
+                          name="calendarid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[caltype]"
+                          dataType="i4"
+                          name="caltype" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[caltypename]"
+                          dataType="wstr"
+                          length="255"
+                          name="caltypename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdby]"
+                          dataType="guid"
+                          name="createdby" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdbyname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdon]"
+                          dataType="dbTimeStamp"
+                          name="createdon" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfby]"
+                          dataType="guid"
+                          name="createdonbehalfby" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdonbehalfbyname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[createdonbehalfbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="createdonbehalfbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[crme_ihfrom]"
+                          dataType="dbTimeStamp"
+                          name="crme_ihfrom" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[crme_ihsource]"
+                          dataType="wstr"
+                          length="100"
+                          name="crme_ihsource" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[crme_ihto]"
+                          dataType="dbTimeStamp"
+                          name="crme_ihto" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[defaultfilterspopulated]"
+                          dataType="bool"
+                          name="defaultfilterspopulated" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[defaultmailbox]"
+                          dataType="guid"
+                          name="defaultmailbox" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[defaultmailboxname]"
+                          dataType="wstr"
+                          length="200"
+                          name="defaultmailboxname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[defaultodbfoldername]"
+                          dataType="wstr"
+                          length="200"
+                          name="defaultodbfoldername" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[disabledreason]"
+                          dataType="wstr"
+                          length="500"
+                          name="disabledreason" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[displayinserviceviews]"
+                          dataType="bool"
+                          name="displayinserviceviews" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[displayinserviceviewsname]"
+                          dataType="wstr"
+                          length="255"
+                          name="displayinserviceviewsname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[domainname]"
+                          dataType="wstr"
+                          length="1024"
+                          name="domainname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[emailrouteraccessapproval]"
+                          dataType="i4"
+                          name="emailrouteraccessapproval" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[emailrouteraccessapprovalname]"
+                          dataType="wstr"
+                          length="255"
+                          name="emailrouteraccessapprovalname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[employeeid]"
+                          dataType="wstr"
+                          length="100"
+                          name="employeeid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[entityimage]"
+                          dataType="image"
+                          name="entityimage" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[entityimage_timestamp]"
+                          dataType="i8"
+                          name="entityimage_timestamp" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[entityimage_url]"
+                          dataType="wstr"
+                          length="200"
+                          name="entityimage_url" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[entityimageid]"
+                          dataType="guid"
+                          name="entityimageid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[exchangerate]"
+                          dataType="numeric"
+                          name="exchangerate"
+                          precision="38"
+                          scale="10" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[firstname]"
+                          dataType="wstr"
+                          length="64"
+                          name="firstname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[fullname]"
+                          dataType="wstr"
+                          length="200"
+                          name="fullname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[governmentid]"
+                          dataType="wstr"
+                          length="100"
+                          name="governmentid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[homephone]"
+                          dataType="wstr"
+                          length="50"
+                          name="homephone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[identityid]"
+                          dataType="i4"
+                          name="identityid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[importsequencenumber]"
+                          dataType="i4"
+                          name="importsequencenumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[incomingemaildeliverymethod]"
+                          dataType="i4"
+                          name="incomingemaildeliverymethod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[incomingemaildeliverymethodname]"
+                          dataType="wstr"
+                          length="255"
+                          name="incomingemaildeliverymethodname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[internalemailaddress]"
+                          dataType="wstr"
+                          length="100"
+                          name="internalemailaddress" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[invitestatuscode]"
+                          dataType="i4"
+                          name="invitestatuscode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[invitestatuscodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="invitestatuscodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isdisabled]"
+                          dataType="bool"
+                          name="isdisabled" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isdisabledname]"
+                          dataType="wstr"
+                          length="255"
+                          name="isdisabledname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isemailaddressapprovedbyo365admin]"
+                          dataType="bool"
+                          name="isemailaddressapprovedbyo365admin" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isintegrationuser]"
+                          dataType="bool"
+                          name="isintegrationuser" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[isintegrationusername]"
+                          dataType="wstr"
+                          length="255"
+                          name="isintegrationusername" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[islicensed]"
+                          dataType="bool"
+                          name="islicensed" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[islicensedname]"
+                          dataType="wstr"
+                          length="255"
+                          name="islicensedname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[issyncwithdirectory]"
+                          dataType="bool"
+                          name="issyncwithdirectory" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[jobtitle]"
+                          dataType="wstr"
+                          length="100"
+                          name="jobtitle" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[lastname]"
+                          dataType="wstr"
+                          length="64"
+                          name="lastname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[middlename]"
+                          dataType="wstr"
+                          length="50"
+                          name="middlename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[mobilealertemail]"
+                          dataType="wstr"
+                          length="100"
+                          name="mobilealertemail" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileid]"
+                          dataType="guid"
+                          name="mobileofflineprofileid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[mobileofflineprofileidname]"
+                          dataType="wstr"
+                          length="255"
+                          name="mobileofflineprofileidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[mobilephone]"
+                          dataType="wstr"
+                          length="64"
+                          name="mobilephone" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedby]"
+                          dataType="guid"
+                          name="modifiedby" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedbyname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedon]"
+                          dataType="dbTimeStamp"
+                          name="modifiedon" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfby]"
+                          dataType="guid"
+                          name="modifiedonbehalfby" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyname]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedonbehalfbyname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[modifiedonbehalfbyyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="modifiedonbehalfbyyominame" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_gdproptout]"
+                          dataType="bool"
+                          name="msdyn_gdproptout" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyn_gdproptoutname]"
+                          dataType="wstr"
+                          length="255"
+                          name="msdyn_gdproptoutname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyusd_usdconfigurationid]"
+                          dataType="guid"
+                          name="msdyusd_usdconfigurationid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[msdyusd_usdconfigurationidname]"
+                          dataType="wstr"
+                          length="100"
+                          name="msdyusd_usdconfigurationidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[nickname]"
+                          dataType="wstr"
+                          length="50"
+                          name="nickname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[organizationid]"
+                          dataType="guid"
+                          name="organizationid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[organizationidname]"
+                          dataType="wstr"
+                          length="100"
+                          name="organizationidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[outgoingemaildeliverymethod]"
+                          dataType="i4"
+                          name="outgoingemaildeliverymethod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[outgoingemaildeliverymethodname]"
+                          dataType="wstr"
+                          length="255"
+                          name="outgoingemaildeliverymethodname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[overriddencreatedon]"
+                          dataType="dbTimeStamp"
+                          name="overriddencreatedon" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[parentsystemuserid]"
+                          dataType="guid"
+                          name="parentsystemuserid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[parentsystemuseridname]"
+                          dataType="wstr"
+                          length="200"
+                          name="parentsystemuseridname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[parentsystemuseridyominame]"
+                          dataType="wstr"
+                          length="200"
+                          name="parentsystemuseridyominame" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[passporthi]"
+                          dataType="i4"
+                          name="passporthi" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[passportlo]"
+                          dataType="i4"
+                          name="passportlo" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[personalemailaddress]"
+                          dataType="wstr"
+                          length="100"
+                          name="personalemailaddress" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[photourl]"
+                          dataType="wstr"
+                          length="200"
+                          name="photourl" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[positionid]"
+                          dataType="guid"
+                          name="positionid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[positionidname]"
+                          dataType="wstr"
+                          length="100"
+                          name="positionidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[preferredaddresscode]"
+                          dataType="i4"
+                          name="preferredaddresscode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[preferredaddresscodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="preferredaddresscodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[preferredemailcode]"
+                          dataType="i4"
+                          name="preferredemailcode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[preferredemailcodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="preferredemailcodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[preferredphonecode]"
+                          dataType="i4"
+                          name="preferredphonecode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[preferredphonecodename]"
+                          dataType="wstr"
+                          length="255"
+                          name="preferredphonecodename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[processid]"
+                          dataType="guid"
+                          name="processid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[queueid]"
+                          dataType="guid"
+                          name="queueid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[queueidname]"
+                          dataType="wstr"
+                          length="400"
+                          name="queueidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[salutation]"
+                          dataType="wstr"
+                          length="20"
+                          name="salutation" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[setupuser]"
+                          dataType="bool"
+                          name="setupuser" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[setupusername]"
+                          dataType="wstr"
+                          length="255"
+                          name="setupusername" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sharepointemailaddress]"
+                          dataType="wstr"
+                          length="1024"
+                          name="sharepointemailaddress" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[siteid]"
+                          dataType="guid"
+                          name="siteid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[siteidname]"
+                          dataType="wstr"
+                          length="160"
+                          name="siteidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[skills]"
+                          dataType="wstr"
+                          length="100"
+                          name="skills" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[stageid]"
+                          dataType="guid"
+                          name="stageid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[systemuserid]"
+                          dataType="guid"
+                          name="systemuserid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[territoryid]"
+                          dataType="guid"
+                          name="territoryid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[territoryidname]"
+                          dataType="wstr"
+                          length="200"
+                          name="territoryidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[timezoneruleversionnumber]"
+                          dataType="i4"
+                          name="timezoneruleversionnumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[title]"
+                          dataType="wstr"
+                          length="128"
+                          name="title" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyid]"
+                          dataType="guid"
+                          name="transactioncurrencyid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[transactioncurrencyidname]"
+                          dataType="wstr"
+                          length="100"
+                          name="transactioncurrencyidname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[traversedpath]"
+                          dataType="wstr"
+                          length="1250"
+                          name="traversedpath" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_accesslevel]"
+                          dataType="i4"
+                          name="udo_accesslevel" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_isudochatuser]"
+                          dataType="bool"
+                          name="udo_isudochatuser" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_isudochatusername]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_isudochatusername" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_udoaccessgroup]"
+                          dataType="i4"
+                          name="udo_udoaccessgroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_udoaccessgroupname]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_udoaccessgroupname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_vbmsuploadrole]"
+                          dataType="i4"
+                          name="udo_vbmsuploadrole" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[udo_vbmsuploadrolename]"
+                          dataType="wstr"
+                          length="255"
+                          name="udo_vbmsuploadrolename" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[userlicensetype]"
+                          dataType="i4"
+                          name="userlicensetype" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[userpuid]"
+                          dataType="wstr"
+                          length="100"
+                          name="userpuid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[utcconversiontimezonecode]"
+                          dataType="i4"
+                          name="utcconversiontimezonecode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_applicationname]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_applicationname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_filenumber]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_filenumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_gslevel]"
+                          dataType="i4"
+                          name="va_gslevel" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_gslevelname]"
+                          dataType="wstr"
+                          length="255"
+                          name="va_gslevelname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_ipaddress]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_ipaddress" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_pcrsensitivitylevel]"
+                          dataType="i4"
+                          name="va_pcrsensitivitylevel" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_pcrsensitivitylevelname]"
+                          dataType="wstr"
+                          length="255"
+                          name="va_pcrsensitivitylevelname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_pcrssn]"
+                          dataType="wstr"
+                          length="11"
+                          name="va_pcrssn" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_processname]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_processname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_replyreferto]"
+                          dataType="wstr"
+                          length="11"
+                          name="va_replyreferto" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_stationnumber]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_stationnumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_step]"
+                          dataType="i4"
+                          name="va_step" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_stepname]"
+                          dataType="wstr"
+                          length="255"
+                          name="va_stepname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_vetsnetid]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_vetsnetid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[va_wsloginname]"
+                          dataType="wstr"
+                          length="100"
+                          name="va_wsloginname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[versionnumber]"
+                          dataType="i8"
+                          name="versionnumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[windowsliveid]"
+                          dataType="wstr"
+                          length="1024"
+                          name="windowsliveid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[yammeremailaddress]"
+                          dataType="wstr"
+                          length="200"
+                          name="yammeremailaddress" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[yammeruserid]"
+                          dataType="wstr"
+                          length="128"
+                          name="yammeruserid" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[yomifirstname]"
+                          dataType="wstr"
+                          length="64"
+                          name="yomifirstname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[yomifullname]"
+                          dataType="wstr"
+                          length="200"
+                          name="yomifullname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[yomilastname]"
+                          dataType="wstr"
+                          length="64"
+                          name="yomilastname" />
+                        <externalMetadataColumn
+                          refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[yomimiddlename]"
+                          dataType="wstr"
+                          length="50"
+                          name="yomimiddlename" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQ - Load Sequence 1\DFT - Cache System Users.Paths[Primary Output]"
+                  endId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform.Inputs[Cache Input]"
+                  name="Primary Output"
+                  startId="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source.Outputs[Primary Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - Activity Pointer"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{cda963ac-f446-4d48-b8d6-f22bbec614f0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - Activity Pointer"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>ActivityPointer.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - contact"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{92292eef-07ae-4373-9297-30549460c4e4}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - contact"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>contact.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - Task"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{51a7ce68-9d45-42b6-a0df-cec4c5af1f13}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - Task"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Task.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - udo_dependant"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{ba6a7247-6e6b-4c44-aed4-fe9dbbdad113}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_dependant"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_dependant.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - udo_idproof"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{491a0862-df42-4ea5-b284-2787b848a050}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_idproof"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_idproof.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - udo_interaction"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{c6e8cc86-1402-4638-92fa-df6032463a5d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_interaction"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_interaction.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - udo_Person"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{8237c0b8-17ae-4bc0-bbb2-0c6e502a045f}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_Person"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_person.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - udo_servicerequest"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{7ba23b9d-5544-4c09-b718-c1948d6a7113}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_servicerequest"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_servicerequest.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 1\EPT - udo_veteransnapshot"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{c3a359d2-5167-4005-b98f-2d137d45eec2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_veteransnapshot"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_veteransnapshot.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A8D3DCAA-E861-41A2-AC9C-BC446578F3C9}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - udo_idproof"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - udo_veteransnapshot" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B5412C91-4811-4D52-ABDC-FA987AAF183E}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - contact"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - Task" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{D6B8B1B7-B86E-44D6-A7C4-ED3F859A5692}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - udo_servicerequest"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - Activity Pointer" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{8BD2BD1B-17CA-4600-9BC5-DB88801A1146}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - udo_interaction"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - udo_idproof" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{29CC5767-0C85-4F9C-BAF9-90916A4B67A8}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - udo_Person"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - udo_servicerequest" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{65CA26F5-DEB3-4CB1-95D1-26690D012240}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - udo_veteransnapshot"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - udo_dependant" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{C12B6CFC-CF12-4652-A078-32391F999AB1}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - Task"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - udo_interaction" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{1A4C9E74-13B8-4C2E-8CD9-18C9BB8A1099}"
+          DTS:From="Package\SEQ - Load Sequence 1\EPT - udo_dependant"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - udo_Person" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 9]"
+          DTS:CreationName=""
+          DTS:DTSID="{EB424FFB-399C-4E76-B4D7-DBD8AD52AE4F}"
+          DTS:From="Package\SEQ - Load Sequence 1\DFT - Cache System Users"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 9"
+          DTS:To="Package\SEQ - Load Sequence 1\EPT - contact" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ - Load Sequence 2"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3fa4e888-ab5b-47aa-b16f-50971327db9d}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Load Sequence 2">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - crme_dependent"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{2edf872f-d303-4c02-924f-71bf0805fea6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - crme_dependent"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>crme_dependent.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - crme_maritalhistory"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{f388ce42-4d88-4597-989f-b871b86605b3}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - crme_maritalhistory"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>crme_maritalhistory.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - crme_spousemaritalhistory"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{c89a2e74-3484-4fd6-ac50-5114ce62c3c9}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - crme_spousemaritalhistory"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>crme_spousemaritalhistory.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - crme_vbmsdocumentinfo"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{81c977ad-3afc-4b04-bfb1-4ed4f3627344}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - crme_vbmsdocumentinfo"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>crme_vbmsdocumentinfo.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_address"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{f59fb43c-a7f6-493e-85c6-14ee7215d016}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_address"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_address.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_alternatename"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{3bf3ecd8-dc85-412f-b66b-7abe9499b755}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_alternatename"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_alternatename.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_claimestablishment"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{ca01f541-4df1-4c49-8b05-6f3895a97781}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_claimestablishment"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_claimestablishment.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_claimestablishmentpayeecode"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{23b602c1-d233-4479-9da0-d4d21ee77e99}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_claimestablishmentpayeecode"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_claimestablishmentpayeecode.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_claimestablishmenttypecode"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{437afe26-7b71-4b25-8028-0a75edbd4da5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_claimestablishmenttypecode"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_claimestablishmenttypecode.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_contactownershipchange"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{a59c3106-ca18-42ad-b0c7-17cec00ba903}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_contactownershipchange"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_contactownershipchange.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_emisranks"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{dc8d4e58-ac4a-49c8-b4f8-e02ef72514b5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_emisranks"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_emisranks.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_flash"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{d1136d52-1b7a-4a18-afc4-3b625d300b32}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_flash"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_flash.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_form0820payments"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{13e43184-3271-4b1e-8853-29ab379bf341}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_form0820payments"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_form0820payments.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_inquirycorrespondence"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{f1456600-4fce-4f80-813c-b524f5249be5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_inquirycorrespondence"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_inquirycorrespondence.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_lettergeneration"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{4c4af36e-f607-4ad0-8743-b7c77bbe5223}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_lettergeneration"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_lettergeneration.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_pastfiduciary"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{64c86b95-00ea-464b-ac36-3706f5f91a91}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_pastfiduciary"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_pastfiduciary.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_pastpoa"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{b0c6c9de-4eaf-4bb4-b7f4-6dda5a7b3092}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_pastpoa"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_pastpoa.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_queuehistorylineitem"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{3330885e-05fc-478f-989b-4e350a62d9ed}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_queuehistorylineitem"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_queuehistorylineitem.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_relationships"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{29b15287-62e7-4f8e-a89b-c14eb4458227}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_relationships"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_relationships.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_udo_lettergeneration_va_externaldocument"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{219b539a-b890-4bbe-ae12-4a89b29efa94}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_udo_lettergeneration_va_externaldocument"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_udo_lettergeneration_va_externaldocumen.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_udo_servicerequest_va_externaldocument"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{4c7b1d5d-bcf7-4e8f-b623-f22b33863d00}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_udo_servicerequest_va_externaldocument"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_udo_servicerequest_va_externaldocument.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - udo_vbmsdocument"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{6d92973c-10ad-4da3-9ec2-9fd00b764cb6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_vbmsdocument"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_vbmsdocument.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_bankaccount"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{6a8dde26-b612-49d0-9307-43bf7b05542b}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_bankaccount"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_bankaccount.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_bankandroutingnolookup"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{b2fc147e-6b73-49ec-a859-ad1ff977f695}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_bankandroutingnolookup"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_bankandroutingnolookup.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_emergencycall"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{281d2f2b-722a-4b97-b1ea-aaed6514c82e}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_emergencycall"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_emergencycall.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_externaldocument"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{aac0edb9-f427-4800-9bf8-dd218b50d458}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_externaldocument"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_externaldocument.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_fnod"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{b9947342-0889-4eae-8e6e-859d5adedad6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_fnod"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_fnod.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_intenttofile"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{a3aea403-97e9-435b-b222-49cdf9791eb1}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_intenttofile"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_intenttofile.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Load Sequence 2\EPT - va_querylog"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{d22f472f-3ab8-45da-8074-1cb63102a939}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - va_querylog"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>va_querylog.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 2.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{1EBF1F49-7F73-4A4F-B57A-8EEEC25961B1}"
+          DTS:From="Package\SEQ - Load Sequence 2\EPT - udo_lettergeneration"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ - Load Sequence 2\EPT - udo_udo_lettergeneration_va_externaldocument" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 2.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{F1DFC19F-5209-4E17-A1D9-063B24D390B2}"
+          DTS:From="Package\SEQ - Load Sequence 2\EPT - va_externaldocument"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQ - Load Sequence 2\EPT - udo_udo_lettergeneration_va_externaldocument" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Load Sequence 2.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{A2A03B82-056E-49D3-B739-F5C5913CBC0E}"
+          DTS:From="Package\SEQ - Load Sequence 2\EPT - va_externaldocument"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQ - Load Sequence 2\EPT - udo_udo_servicerequest_va_externaldocument" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ - Sequence 3"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{E0F72684-73F2-4CF0-B38D-B721DA2AFAE4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Sequence 3">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - crme_chatcobrowsesessionlog"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{7876E4E2-2105-4465-8B31-9B810E9EE3A4}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - crme_chatcobrowsesessionlog"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>crme_chatcobrowsesessionlog.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - crme_dependentmaintenance"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{88491f83-4e32-42cf-8b19-08c6db827c21}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - crme_dependentmaintenance"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>crme_dependentmaintenance.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - udo_interactiondisposition"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{644d8e4a-e084-4f24-9909-23d00604edb1}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_interactiondisposition"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_interactiondisposition.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - udo_interactionspecialsituation"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{7d86ca71-37c7-4007-92a0-34633ca55a09}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_interactionspecialsituation"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_interactionspecialsituation.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - udo_lettergenerationdisability"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{be842d4a-ebf6-49d1-b5a8-68574fb6ca71}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_lettergenerationdisability"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_lettergenerationdisability.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - udo_queuehistory"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{5231bc9b-9609-4606-b78f-c05f23d6313a}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_queuehistory"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_queuehistory.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Sequence 3\EPT - udo_request"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{660488bc-1284-428d-b075-2adf2f42b1d0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT - udo_request"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>udo_request.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F4885DAF-5E90-45D3-A6A0-F55A9DD1371B}"
+      DTS:From="Package\SEQ - Load Sequence 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQ - Load Sequence 2"
+      DTS:Value="2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7EAF2B49-020C-43AA-B068-58FCE04F4D1B}"
+      DTS:From="Package\SEQ - Load Sequence 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SEQ - Sequence 3"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\SEQ - Load Sequence 1\DFT - Cache System Users"
+          TopLeft="5.5,36.75" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - Activity Pointer"
+          TopLeft="233.004818594104,642.555555555556" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - contact"
+          TopLeft="246.426587301587,32.0238095238095" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - Task"
+          TopLeft="259,104.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - udo_dependant"
+          TopLeft="235,420.833333333333" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - udo_idproof"
+          TopLeft="246.647675736961,247.075396825397" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - udo_interaction"
+          TopLeft="240.754818594104,177.583333333334" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - udo_Person"
+          TopLeft="237.004818594104,493.972222222222" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - udo_servicerequest"
+          TopLeft="221.754818594104,570.420634920635" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\SEQ - Load Sequence 1\EPT - udo_veteransnapshot"
+          TopLeft="218.004818594104,325.194444444444" />
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint]"
+          TopLeft="325.576247165532,289.075396825397">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.119047619047"
+              Start="0,0"
+              End="0,28.619047619047">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.619047619047" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 1]"
+          TopLeft="320.713293650794,74.0238095238095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.4761904761905"
+              Start="0,0"
+              End="0,22.9761904761905">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.9761904761905" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 2]"
+          TopLeft="321.629818594104,612.420634920635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.1349206349209"
+              Start="0,0"
+              End="0,22.6349206349209">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6349206349209" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 3]"
+          TopLeft="329.951247165533,219.583333333334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.492063492063"
+              Start="0,0"
+              End="0,19.992063492063">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.992063492063" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 4]"
+          TopLeft="319.879818594104,535.972222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.448412698413"
+              Start="0,0"
+              End="0,26.948412698413">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.948412698413" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 5]"
+          TopLeft="324.002409297052,367.194444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.638888888889"
+              Start="0,0"
+              End="0,46.138888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.138888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 6]"
+          TopLeft="327.627409297052,146.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.083333333334"
+              Start="0,0"
+              End="0,23.583333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.583333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 8]"
+          TopLeft="322.002409297052,462.833333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.1388888888889"
+              Start="0,0"
+              End="0,23.6388888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6388888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1.PrecedenceConstraints[Constraint 9]"
+          TopLeft="209.5,55.3869047619048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.926587301587,0"
+              Start="0,0"
+              End="29.426587301587,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.426587301587,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="864,890"
+          Size="864,933"
+          Id="Package\SEQ - Load Sequence 1"
+          TopLeft="247.789682539683,553.388888888889" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - crme_dependent"
+          TopLeft="33,27" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - crme_maritalhistory"
+          TopLeft="34.4444444444445,99.1111111111111" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - crme_spousemaritalhistory"
+          TopLeft="33.4444444444445,163.111111111111" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - crme_vbmsdocumentinfo"
+          TopLeft="41.4444444444445,222.111111111111" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_address"
+          TopLeft="40.4444444444445,291.111111111111" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_alternatename"
+          TopLeft="44.4444444444445,348.111111111111" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_claimestablishment"
+          TopLeft="46.4444444444445,408.111111111111" />
+        <NodeLayout
+          Size="271,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_claimestablishmentpayeecode"
+          TopLeft="50.4444444444445,466.111111111111" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_claimestablishmenttypecode"
+          TopLeft="50.7777777777778,532.555555555555" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_contactownershipchange"
+          TopLeft="56.6666666666668,596.777777777777" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_emisranks"
+          TopLeft="348.333333333333,39.1111111111107" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_flash"
+          TopLeft="340.777777777778,106.333333333333" />
+        <NodeLayout
+          Size="222,53"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_form0820payments"
+          TopLeft="674.754818594104,545.865079365079" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_inquirycorrespondence"
+          TopLeft="346.222222222222,168.777777777778" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_lettergeneration"
+          TopLeft="701.111111111111,344.111111111111" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_pastfiduciary"
+          TopLeft="358.888888888888,311.777777777778" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_pastpoa"
+          TopLeft="364.888888888889,375.777777777778" />
+        <NodeLayout
+          Size="229,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_queuehistorylineitem"
+          TopLeft="383.222222222223,449" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_relationships"
+          TopLeft="378.222222222223,513.000000000001" />
+        <NodeLayout
+          Size="337,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_udo_lettergeneration_va_externaldocument"
+          TopLeft="636.888888888889,427.111111111111" />
+        <NodeLayout
+          Size="337,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_udo_servicerequest_va_externaldocument"
+          TopLeft="907.888888888889,486.111111111111" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - udo_vbmsdocument"
+          TopLeft="377.777777777778,584.666666666667" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_bankaccount"
+          TopLeft="636.222222222222,24.6666666666666" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_bankandroutingnolookup"
+          TopLeft="636.222222222222,85.6666666666666" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_emergencycall"
+          TopLeft="636.222222222222,152.666666666667" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_fnod"
+          TopLeft="642.222222222222,220.666666666667" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_intenttofile"
+          TopLeft="646.222222222222,282.666666666667" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_querylog"
+          TopLeft="382.222222222222,235.666666666667" />
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 2.PrecedenceConstraints[Constraint]"
+          TopLeft="804.75,386.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.0000000000001"
+              Start="0,0"
+              End="0,33.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SEQ - Load Sequence 2\EPT - va_externaldocument"
+          TopLeft="946,341.777777777777" />
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 2.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1016,383.777777777777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-155.777777777778,43.3333333333341"
+              Start="0,0"
+              End="-155.777777777778,35.8333333333341">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7471776252344" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.7471776252344"
+                    Point2="0,21.7471776252344"
+                    Point3="-4,21.7471776252344" />
+                  <mssgle:LineSegment
+                    End="-151.777777777778,21.7471776252344" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-151.777777777778,21.7471776252344"
+                    Point2="-155.777777777778,21.7471776252344"
+                    Point3="-155.777777777778,25.7471776252344" />
+                  <mssgle:LineSegment
+                    End="-155.777777777778,35.8333333333341" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 2.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1079.19444444444,383.777777777777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,102.333333333334"
+              Start="0,0"
+              End="0,94.8333333333339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,94.8333333333339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="1250,807"
+          Size="1250,850"
+          Id="Package\SEQ - Load Sequence 2"
+          TopLeft="190.583333333333,1612.60317460317" />
+        <NodeLayout
+          Size="250,42"
+          Id="Package\SEQ - Sequence 3\EPT - crme_chatcobrowsesessionlog"
+          TopLeft="296,241" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SEQ - Sequence 3\EPT - crme_dependentmaintenance"
+          TopLeft="25.5555555555555,28.8888888888889" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\SEQ - Sequence 3\EPT - udo_interactiondisposition"
+          TopLeft="33.1111111111111,100.888888888889" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\SEQ - Sequence 3\EPT - udo_interactionspecialsituation"
+          TopLeft="31.1111111111111,164.888888888889" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SEQ - Sequence 3\EPT - udo_lettergenerationdisability"
+          TopLeft="306.666666666667,27.7777777777778" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\SEQ - Sequence 3\EPT - udo_queuehistory"
+          TopLeft="327.777777777778,103.111111111111" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\SEQ - Sequence 3\EPT - udo_request"
+          TopLeft="342.222222222222,177.333333333333" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="560,440"
+          Size="560,483"
+          Id="Package\SEQ - Sequence 3"
+          TopLeft="400.222222222222,2509.21428571428" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="679.789682539683,1486.38888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="135.79365079365,126.214285714281"
+              Start="0,0"
+              End="135.79365079365,118.714285714281">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.1071428571404" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,59.1071428571404"
+                    Point2="0,63.1071428571404"
+                    Point3="4,63.1071428571404" />
+                  <mssgle:LineSegment
+                    End="131.79365079365,63.1071428571404" />
+                  <mssgle:CubicBezierSegment
+                    Point1="131.79365079365,63.1071428571404"
+                    Point2="135.79365079365,63.1071428571404"
+                    Point3="135.79365079365,67.1071428571404" />
+                  <mssgle:LineSegment
+                    End="135.79365079365,118.714285714281" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="42.592372271825,68.1071428571404,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="815.583333333333,2462.60317460317">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-135.361111111111,46.6111111111099"
+              Start="0,0"
+              End="-135.361111111111,39.1111111111099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.305555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.305555555555"
+                    Point2="0,23.305555555555"
+                    Point3="-4,23.305555555555" />
+                  <mssgle:LineSegment
+                    End="-131.361111111111,23.305555555555" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-131.361111111111,23.305555555555"
+                    Point2="-135.361111111111,23.305555555555"
+                    Point3="-135.361111111111,27.305555555555" />
+                  <mssgle:LineSegment
+                    End="-135.361111111111,39.1111111111099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-92.9850086805556,28.305555555555,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SEQ - Load Sequence 1\DFT - Cache System Users">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Dynamics CRM Source"
+          TopLeft="61,44" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SEQ - Load Sequence 1\DFT - Cache System Users\Cache Transform"
+          TopLeft="71,154" />
+        <EdgeLayout
+          Id="Package\SEQ - Load Sequence 1\DFT - Cache System Users.Paths[Primary Output]"
+          TopLeft="151.75,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

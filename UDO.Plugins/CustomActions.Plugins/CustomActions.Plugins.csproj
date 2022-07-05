@@ -1,0 +1,702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{12B11BA9-CB18-48E2-A18E-77EE9C230254}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomActions.Plugins</RootNamespace>
+    <AssemblyName>UDO.CustomActions.Plugins</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CustomActions.Plugins.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.32\lib\net462\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.32\lib\net462\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Interfaces\ILegacyHeaderInfo.cs">
+      <Link>Interfaces\ILegacyHeaderInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Interfaces\IUDOException.cs">
+      <Link>Messages\PersonSearch\IUDOException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Interfaces\IUDORequest.cs">
+      <Link>Messages\PersonSearch\IUDORequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Models\MessageBase.cs">
+      <Link>Model\MessageBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Models\UDORelatedEntity.cs">
+      <Link>Model\UDORelatedEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Models\UDORequestBase.cs">
+      <Link>Model\UDORequestBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.Crm.LOB.Core\Models\UDOResponseBase.cs">
+      <Link>Model\UDOResponseBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Appeals\UDO.LOB.Appeals.Messages\UDOcreateUDOAppealDetailsRequest.cs">
+      <Link>Messages\Appeals\UDOcreateUDOAppealDetailsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Appeals\UDO.LOB.Appeals.Messages\UDOcreateUDOAppealDetailsResponse.cs">
+      <Link>Messages\Appeals\UDOcreateUDOAppealDetailsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Appeals\UDO.LOB.Appeals.Messages\UDOcreateUDOAppealsRequest.cs">
+      <Link>Messages\Appeals\UDOcreateUDOAppealsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Appeals\UDO.LOB.Appeals.Messages\UDOcreateUDOAppealsResponse.cs">
+      <Link>Messages\Appeals\UDOcreateUDOAppealsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateAwardLinesRequest.cs">
+      <Link>Messages\Award Lines\UDOcreateAwardLinesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateAwardLinesResponse.cs">
+      <Link>Messages\Award Lines\UDOcreateAwardLinesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateAwardsRequest.cs">
+      <Link>Messages\Awards\UDOcreateAwardsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateAwardsResponse.cs">
+      <Link>Messages\Awards\UDOcreateAwardsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateAwardsSyncRequest.cs">
+      <Link>Messages\Awards\UDOcreateAwardsSyncRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateClothingAllowanceRequest.cs">
+      <Link>Messages\ClothingAllowance\UDOcreateClothingAllowanceRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateClothingAllowanceResponse.cs">
+      <Link>Messages\ClothingAllowance\UDOcreateClothingAllowanceResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateDeductionRequest.cs">
+      <Link>Messages\Deductions\UDOcreateDeductionRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateDeductionResponse.cs">
+      <Link>Messages\Deductions\UDOcreateDeductionResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateDiariesRequest.cs">
+      <Link>Messages\Diaries\UDOcreateDiariesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateDiariesResponse.cs">
+      <Link>Messages\Diaries\UDOcreateDiariesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateEVRsRequest.cs">
+      <Link>Messages\Awards\UDOcreateEVRsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateEVRsResponse.cs">
+      <Link>Messages\Awards\UDOcreateEVRsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateIncomeSummaryRequest.cs">
+      <Link>Messages\IncomeSummary\UDOcreateIncomeSummaryRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateIncomeSummaryResponse.cs">
+      <Link>Messages\IncomeSummary\UDOcreateIncomeSummaryResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateProceedsRequest.cs">
+      <Link>Messages\Proceeds\UDOcreateProceedsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateProceedsResponse.cs">
+      <Link>Messages\Proceeds\UDOcreateProceedsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateReceiveablesRequest.cs">
+      <Link>Messages\Receivables\UDOcreateReceiveablesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOcreateReceiveablesResponse.cs">
+      <Link>Messages\Receivables\UDOcreateReceiveablesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOretrieveAwardRequest.cs">
+      <Link>Messages\Awards\UDOretrieveAwardRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Awards\UDO.LOB.Awards.Messages\UDOretrieveAwardResponse.cs">
+      <Link>Messages\Awards\UDOretrieveAwardResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.BIRLS\UDO.LOB.BIRLS.Messages\UDOgetBIRLSDataRequest.cs">
+      <Link>Messages\BIRLS\UDOgetBIRLSDataRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.BIRLS\UDO.LOB.BIRLS.Messages\UDOgetBIRLSDataResponse.cs">
+      <Link>Messages\BIRLS\UDOgetBIRLSDataResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.CADD\UDO.LOB.CADD.Messages\UDOInitiateCADDRequest.cs">
+      <Link>Messages\CADD\UDOInitiateCADDRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.CADD\UDO.LOB.CADD.Messages\UDOInitiateCADDResponse.cs">
+      <Link>Messages\CADD\UDOInitiateCADDResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimDocuments\UDO.LOB.ClaimDocuments.Messages\getUDOClaimDocumentsRequest.cs">
+      <Link>Messages\ClaimDoc\getUDOClaimDocumentsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimDocuments\UDO.LOB.ClaimDocuments.Messages\getUDOClaimDocumentsResponse.cs">
+      <Link>Messages\ClaimDoc\getUDOClaimDocumentsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDObenefitClaimRecord1BCS2.cs">
+      <Link>Messages\ClaimEstablishment\UDObenefitClaimRecord1BCS2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDObenefitClaimRecordBCS2.cs">
+      <Link>Messages\ClaimEstablishment\UDObenefitClaimRecordBCS2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOClearClaimEstablishmentRequest.cs">
+      <Link>Messages\ClaimEstablishment\UDOClearClaimEstablishmentRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOClearClaimEstablishmentResponse.cs">
+      <Link>Messages\ClaimEstablishment\UDOClearClaimEstablishmentResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOInitiateClaimEstablishmentRequest.cs">
+      <Link>Messages\ClaimEstablishment\UDOInitiateClaimEstablishmentRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOInitiateClaimEstablishmentResponse.cs">
+      <Link>Messages\ClaimEstablishment\UDOInitiateClaimEstablishmentResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOInsertClaimEstablishmentRequest.cs">
+      <Link>Messages\ClaimEstablishment\UDOInsertClaimEstablishmentRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOInsertClaimEstablishmentResponse.cs">
+      <Link>Messages\ClaimEstablishment\UDOInsertClaimEstablishmentResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOlifeCycleRecordBCS2.cs">
+      <Link>Messages\ClaimEstablishment\UDOlifeCycleRecordBCS2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOlifeCycleRecordsBCS2MultipleResponse.cs">
+      <Link>Messages\ClaimEstablishment\UDOlifeCycleRecordsBCS2MultipleResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOparticipantRecordBCS2.cs">
+      <Link>Messages\ClaimEstablishment\UDOparticipantRecordBCS2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOselectionBCS2MultipleResponse.cs">
+      <Link>Messages\ClaimEstablishment\UDOselectionBCS2MultipleResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOsuspenceRecordBCS2.cs">
+      <Link>Messages\ClaimEstablishment\UDOsuspenceRecordBCS2.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ClaimEstablishment\UDO.LOB.ClaimEstablishment.Messages\UDOsuspenceRecordsBCS2MultipleResponse.cs">
+      <Link>Messages\ClaimEstablishment\UDOsuspenceRecordsBCS2MultipleResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Claims\createUDOClaimsRequest.cs">
+      <Link>Messages\Claims\createUDOClaimsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Claims\createUDOClaimsResponse.cs">
+      <Link>Messages\Claims\createUDOClaimsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Claims\createUDOClaimsSyncOrchRequest.cs">
+      <Link>Messages\Claims\createUDOClaimsSyncOrchRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Claims\createUDOClaimsSyncRequest.cs">
+      <Link>Messages\Claims\createUDOClaimsSyncRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Claims\UpdateUDOClaimsRequest.cs">
+      <Link>Messages\Claims\UpdateUDOClaimsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Claims\UpdateUDOClaimsResponse.cs">
+      <Link>Messages\Claims\UpdateUDOClaimsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Contentions\UDOcreateUdoContentionsRequest.cs">
+      <Link>Messages\Contentions\UDOcreateUdoContentionsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Contentions\UDOcreateUdoContentionsResponse.cs">
+      <Link>Messages\Contentions\UDOcreateUdoContentionsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Evidence\createUDOEvidenceRequest.cs">
+      <Link>Messages\Evidence\createUDOEvidenceRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Evidence\createUDOEvidenceResponse.cs">
+      <Link>Messages\Evidence\createUDOEvidenceResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Lifecycles\createUDOLifecyclesRequest.cs">
+      <Link>Messages\Claims\LifeCycles\createUDOLifecyclesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Lifecycles\createUDOLifecyclesResponse.cs">
+      <Link>Messages\Claims\LifeCycles\createUDOLifecyclesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Status\UDOcreateUDOStatusRequest.cs">
+      <Link>Messages\Claims\Status\UDOcreateUDOStatusRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Status\UDOcreateUDOStatusResponse.cs">
+      <Link>Messages\Claims\Status\UDOcreateUDOStatusResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Suspense\createUDOSuspenseRequest.cs">
+      <Link>Messages\ClaimSuspense\createUDOSuspenseRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Suspense\createUDOSuspenseResponse.cs">
+      <Link>Messages\ClaimSuspense\createUDOSuspenseResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Tracked Items\createUDOTrackedItemsRequest.cs">
+      <Link>Messages\Claims\TrackedItems\createUDOTrackedItemsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Claims\UDO.LOB.Claims.Messages\Tracked Items\createUDOTrackedItemsResponse.cs">
+      <Link>Messages\Claims\TrackedItems\createUDOTrackedItemsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Address\UDOcreateAddressRecordsRequest.cs">
+      <Link>Messages\Address\UDOcreateAddressRecordsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Address\UDOcreateAddressRecordsResponse.cs">
+      <Link>Messages\Address\UDOcreateAddressRecordsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Address\UDOValidateAddressRequest.cs">
+      <Link>Messages\Contact\Address\UDOValidateAddressRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Address\UDOValidateAddressResponse.cs">
+      <Link>Messages\Contact\Address\UDOValidateAddressResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreateDependentsRequest.cs">
+      <Link>Messages\Contact\UDOcreateDependentsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreateDependentsResponse.cs">
+      <Link>Messages\Contact\UDOcreateDependentsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreatePastFiduciariesRequest.cs">
+      <Link>Messages\Contact\Veteran\UDOcreatePastFiduciariesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreatePastFiduciariesResponse.cs">
+      <Link>Messages\Contact\Veteran\UDOcreatePastFiduciariesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreatePastPOARequest.cs">
+      <Link>Messages\Contact\UDOcreatePastPOARequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreatePastPOAResponse.cs">
+      <Link>Messages\Contact\UDOcreatePastPOAResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreateRelationshipsRequest.cs">
+      <Link>Messages\Contact\UDOcreateRelationshipsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOcreateRelationshipsResponse.cs">
+      <Link>Messages\Contact\UDOcreateRelationshipsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOgetContactRecordsRequest.cs">
+      <Link>Messages\Contact\UDOgetContactRecordsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Contact\UDO.LOB.Contact.Messages\Veteran\UDOgetContactRecordsResponse.cs">
+      <Link>Messages\Contact\UDOgetContactRecordsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Denials\UDO.LOB.Denials.Messages\UDOcreateDenialsRequest.cs">
+      <Link>Messages\Denials\UDOcreateDenialsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Denials\UDO.LOB.Denials.Messages\UDOcreateDenialsResponse.cs">
+      <Link>Messages\Denials\UDOcreateDenialsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ExamsAppointments\UDO.LOB.ExamsAppointments.Messages\UDOcreateUDOAppointmentsRequest.cs">
+      <Link>Messages\ExamAndAppointments\UDOcreateUDOAppointmentsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ExamsAppointments\UDO.LOB.ExamsAppointments.Messages\UDOcreateUDOAppointmentsResponse.cs">
+      <Link>Messages\ExamAndAppointments\UDOcreateUDOAppointmentsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ExamsAppointments\UDO.LOB.ExamsAppointments.Messages\UDOcreateUDOExamRequest.cs">
+      <Link>Messages\ExamAndAppointments\UDOcreateUDOExamRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ExamsAppointments\UDO.LOB.ExamsAppointments.Messages\UDOcreateUDOExamRequestRequest.cs">
+      <Link>Messages\ExamAndAppointments\UDOcreateUDOExamRequestRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ExamsAppointments\UDO.LOB.ExamsAppointments.Messages\UDOcreateUDOExamRequestResponse.cs">
+      <Link>Messages\ExamAndAppointments\UDOcreateUDOExamRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Flashes\UDO.LOB.Flashes.Messages\UDOgetFlashesRequest.cs">
+      <Link>Messages\Flashes\UDOgetFlashesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Flashes\UDO.LOB.Flashes.Messages\UDOgetFlashesResponse.cs">
+      <Link>Messages\Flashes\UDOgetFlashesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.FNOD\UDO.LOB.FNOD.Messages\UDOInitiateFNODRequest.cs">
+      <Link>Messages\FNOD\UDOInitiateFNODRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.FNOD\UDO.LOB.FNOD.Messages\UDOInitiateFNODResponse.cs">
+      <Link>Messages\FNOD\UDOInitiateFNODResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.IntentToFile\UDO.LOB.IntentToFile.Messages\UDOcreateIntentToFileRequest.cs">
+      <Link>Messages\ITF\UDOcreateIntentToFileRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.IntentToFile\UDO.LOB.IntentToFile.Messages\UDOcreateIntentToFileResponse.cs">
+      <Link>Messages\ITF\UDOcreateIntentToFileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.IntentToFile\UDO.LOB.IntentToFile.Messages\UDOInitiateITFRequest.cs">
+      <Link>Messages\ITF\UDOInitiateITFRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.IntentToFile\UDO.LOB.IntentToFile.Messages\UDOInitiateITFResponse.cs">
+      <Link>Messages\ITF\UDOInitiateITFResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.IntentToFile\UDO.LOB.IntentToFile.Messages\UDOSubmitITFRequest.cs">
+      <Link>Messages\ITF\UDOSubmitITFRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.IntentToFile\UDO.LOB.IntentToFile.Messages\UDOSubmitITFResponse.cs">
+      <Link>Messages\ITF\UDOSubmitITFResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.LegacyPayments\UDO.LOB.LegacyPayments.Messages\UDOcreateLegacyPaymentsDetailsRequest.cs">
+      <Link>Messages\LegacyPayments\UDOcreateLegacyPaymentsDetailsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.LegacyPayments\UDO.LOB.LegacyPayments.Messages\UDOcreateLegacyPaymentsDetailsResponse.cs">
+      <Link>Messages\LegacyPayments\UDOcreateLegacyPaymentsDetailsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.LegacyPayments\UDO.LOB.LegacyPayments.Messages\UDOcreateLegacyPaymentsRequest.cs">
+      <Link>Messages\LegacyPayments\UDOcreateLegacyPaymentsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.LegacyPayments\UDO.LOB.LegacyPayments.Messages\UDOcreateLegacyPaymentsResponse.cs">
+      <Link>Messages\LegacyPayments\UDOcreateLegacyPaymentsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Letters\UDO.LOB.Letters.Messages\UDOInitiateLettersRequest.cs">
+      <Link>Messages\Letters\UDOInitiateLettersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Letters\UDO.LOB.Letters.Messages\UDOInitiateLettersResponse.cs">
+      <Link>Messages\Letters\UDOInitiateLettersResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.MilitaryService\UDO.LOB.MilitaryService.Messages\MilitaryService Requests\UDOfindMilitaryServiceRequest.cs">
+      <Link>Messages\MilitaryService\UDOfindMilitaryServiceRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.MilitaryService\UDO.LOB.MilitaryService.Messages\MilitaryService Requests\UDOfindMilitaryServiceResponse.cs">
+      <Link>Messages\MilitaryService\UDOfindMilitaryServiceResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Notes\UDO.LOB.Notes.Messages\UDORetrieveNotesRequest.cs">
+      <Link>Messages\Notes\UDORetrieveNotesRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Notes\UDO.LOB.Notes.Messages\UDORetrieveNotesResponse.cs">
+      <Link>Messages\Notes\UDORetrieveNotesResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Payments\UDO.LOB.Payments.Messages\UDOcreatePaymentsRequest.cs">
+      <Link>Messages\Payments\UDOcreatePaymentsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Payments\UDO.LOB.Payments.Messages\UDOcreatePaymentsResponse.cs">
+      <Link>Messages\Payments\UDOcreatePaymentsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Payments\UDO.LOB.Payments.Messages\UDOgetPaymentDetailsRequest.cs">
+      <Link>Messages\Payments\UDOgetPaymentDetailsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Payments\UDO.LOB.Payments.Messages\UDOgetPaymentDetailsResponse.cs">
+      <Link>Messages\Payments\UDOgetPaymentDetailsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PeoplelistPayeeCode\UDO.LOB.PeoplelistPayeeCode.Messages\UDOFiduciaryExistsRequest.cs">
+      <Link>Messages\PeopleListPayeeCode\UDOFiduciaryExistsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PeoplelistPayeeCode\UDO.LOB.PeoplelistPayeeCode.Messages\UDOFiduciaryExistsResponse.cs">
+      <Link>Messages\PeopleListPayeeCode\UDOFiduciaryExistsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\Interfaces\IPersonSearchRequest.cs">
+      <Link>Messages\PersonSearch\IPersonSearchRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\Interfaces\IPersonSearchResponse.cs">
+      <Link>Messages\PersonSearch\IPersonSearchResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\Models\CorrespondingIDs.cs">
+      <Link>Messages\PersonSearch\CorrespondingIDs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\Models\Name.cs">
+      <Link>Messages\PersonSearch\Name.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\Models\PatientAddress.cs">
+      <Link>Messages\PersonSearch\PatientAddress.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\Models\PatientPerson.cs">
+      <Link>Messages\PersonSearch\PatientPerson.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.PersonSearch\UDO.LOB.PersonSearch.Messages\UDOpsFindPersonRequest.cs">
+      <Link>Messages\PersonSearch\UDOpsFindPersonRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Ratings\UDO.LOB.Ratings.Messages\UDOfindRatingsRequest.cs">
+      <Link>Messages\Ratings\UDOfindRatingsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.Ratings\UDO.LOB.Ratings.Messages\UDOfindRatingsResponse.cs">
+      <Link>Messages\Ratings\UDOfindRatingsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ServiceRequest\UDO.LOB.ServiceRequest.Messages\UDOInitiateSRRequest.cs">
+      <Link>Messages\ServiceRequests\UDOInitiateSRRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.ServiceRequest\UDO.LOB.ServiceRequest.Messages\UDOInitiateSRResponse.cs">
+      <Link>Messages\ServiceRequests\UDOInitiateSRResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.VBMSeFolder\UDO.LOB.VBMSeFolder.Messages\UDOCreateVBMSeFolderRequest.cs">
+      <Link>Messages\VBMSeFolder\UDOCreateVBMSeFolderRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.VBMSeFolder\UDO.LOB.VBMSeFolder.Messages\UDOCreateVBMSeFolderResponse.cs">
+      <Link>Messages\VBMSeFolder\UDOCreateVBMSeFolderResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.VBMSeFolder\UDO.LOB.VBMSeFolder.Messages\UDOgetVBMSDocumentContentRequest.cs">
+      <Link>Messages\VBMSeFolder\UDOgetVBMSDocumentContentRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.VBMSeFolder\UDO.LOB.VBMSeFolder.Messages\UDOgetVBMSDocumentContentResponse.cs">
+      <Link>Messages\VBMSeFolder\UDOgetVBMSDocumentContentResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.VirtualVA\UDO.LOB.VirtualVA.Messages\UDOcreateUDOVirtualVARequest.cs">
+      <Link>Messages\VirtualVA\UDOcreateUDOVirtualVARequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\UDO.LOB.VirtualVA\UDO.LOB.VirtualVA.Messages\UDOcreateUDOVirtualVAResponse.cs">
+      <Link>Messages\VirtualVA\UDOcreateUDOVirtualVAResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\Core\EcMessageBase.cs">
+      <Link>Messages\VEIS\Core\EcMessageBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\Core\IMessageBase.cs">
+      <Link>Messages\VEIS\Core\IMessageBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\Core\MessageBase.cs">
+      <Link>Messages\VEIS\Core\MessageBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\Core\VEISMessageBase.cs">
+      <Link>Messages\VEIS\Core\VEISMessageBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimDetailRequest.cs">
+      <Link>Messages\VEIS\findBenefitClaimDetailRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimDetailResponse.cs">
+      <Link>Messages\VEIS\findBenefitClaimDetailResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimRequest.cs">
+      <Link>Messages\VEIS\findBenefitClaimRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimResponse.cs">
+      <Link>Messages\VEIS\findBenefitClaimResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findPresidentialMemorialCertificateRequest.cs">
+      <Link>Messages\VEIS\findPresidentialMemorialCertificateRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findPresidentialMemorialCertificateResponse.cs">
+      <Link>Messages\VEIS\findPresidentialMemorialCertificateResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findGeneralInformationByFileNumberResponse.cs">
+      <Link>Messages\VEIS\findGeneralInformationByFileNumberResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.IntentToFileWebService\VEIS.IntentToFileWebService.Api\Messages\insertIntentToFileRequest.cs">
+      <Link>Messages\VEIS\insertIntentToFileRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.IntentToFileWebService\VEIS.IntentToFileWebService.Api\Messages\insertIntentToFileResponse.cs">
+      <Link>Messages\VEIS\insertIntentToFileResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\UDO.LOB\VEIS.Messages\VEIS.MVIWebService\VEIS.MVIService\Messages\UnattendedSearchRequest.cs">
+      <Link>Messages\PersonSearch\UnattendedSearchRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\AIMessages.cs">
+      <Link>Helpers\AIMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\AppInsightsLogData.cs">
+      <Link>Helpers\AppInsightsLogData.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\AppInsightsLogger.cs">
+      <Link>Helpers\AppInsightsLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\AuthExtensions.cs">
+      <Link>Helpers\AuthExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\AzureAccessToken.cs">
+      <Link>Helpers\AzureAccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\CRMAuthTokenConfiguration.cs">
+      <Link>Helpers\CRMAuthTokenConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\ExceptionHelper.cs">
+      <Link>Helpers\ExceptionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\HttpHelper.cs">
+      <Link>Helpers\HttpHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\ILogging.cs">
+      <Link>Helpers\ILogging.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\JsonHelper.cs">
+      <Link>Helpers\JsonHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\LOBAPIDictionary.cs">
+      <Link>Helpers\LOBAPIDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\LogLevel.cs">
+      <Link>Helpers\LogLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\MCSHelper.cs">
+      <Link>Helpers\MCSHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\MCSLogger.cs">
+      <Link>Helpers\MCSLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\MCSSettings.cs">
+      <Link>Helpers\MCSSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\PluginRunner.cs">
+      <Link>Helpers\PluginRunner.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\SerializationHelper.cs">
+      <Link>Helpers\SerializationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\UDODataModel.cs">
+      <Link>Helpers\UDODataModel.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\Utility.cs">
+      <Link>Helpers\Utility.cs</Link>
+    </Compile>
+    <Compile Include="..\Helpers\UtilityFunctions.cs">
+      <Link>Helpers\UtilityFunctions.cs</Link>
+    </Compile>
+    <Compile Include="Entities\Address\GetAddressesRunner.cs" />
+    <Compile Include="Entities\Address\GetAddresses.cs" />
+    <Compile Include="Entities\Address\ValidateAddress.cs" />
+    <Compile Include="Entities\Address\ValidateAddressRunnercs.cs" />
+    <Compile Include="Entities\Appeals\UDOGetAppeals.cs" />
+    <Compile Include="Entities\Appeals\UDOGetAppealsRunner.cs" />
+    <Compile Include="Entities\AwardLines\UDOGetAwardLines.cs" />
+    <Compile Include="Entities\AwardLines\UDOGetAwardLinesRunner.cs" />
+    <Compile Include="Entities\Awards\UDOGetAwards.cs" />
+    <Compile Include="Entities\Awards\UDOGetAwardsRunner.cs" />
+    <Compile Include="Entities\BIRLS\BIRLSCARunner.cs" />
+    <Compile Include="Entities\BIRLS\BIRLSCustomAction.cs" />
+    <Compile Include="Entities\CADD\UDOInitiateCADD.cs" />
+    <Compile Include="Entities\CADD\UDOInitiateCADDRunner.cs" />
+    <Compile Include="Entities\ClaimDocs\UDOGetClaimDocuments.cs" />
+    <Compile Include="Entities\ClaimDocs\UDOGetClaimDocumentsRunner.cs" />
+    <Compile Include="Entities\ClaimEstablishment\UDOClearClaimEstablishmentRunner.cs" />
+    <Compile Include="Entities\ClaimEstablishment\UDOClearClaimEstablishment.cs" />
+    <Compile Include="Entities\ClaimEstablishment\UDOInitiateClaimEstablishment.cs" />
+    <Compile Include="Entities\ClaimEstablishment\UDOInitiateClaimEstablishmentRunner.cs" />
+    <Compile Include="Entities\ClaimEstablishment\UDOInsertClaimEstablishment.cs" />
+    <Compile Include="Entities\ClaimEstablishment\UDOInsertClaimEstablishmentRunner.cs" />
+    <Compile Include="Entities\ClaimStatus\UDOGetClaimStatus.cs" />
+    <Compile Include="Entities\ClaimStatus\UDOGetClaimStatusRunner.cs" />
+    <Compile Include="Entities\ClaimTrackedItems\UDOGetClaimTrackedItems.cs" />
+    <Compile Include="Entities\ClaimTrackedItems\UDOGetClaimTrackedItemsRunner.cs" />
+    <Compile Include="Entities\ClaimSuspense\UDOGetClaimSuspense.cs" />
+    <Compile Include="Entities\ClaimSuspense\UDOGetClaimSuspenseRunner.cs" />
+    <Compile Include="Entities\Claims\UDOGetClaims.cs" />
+    <Compile Include="Entities\Claims\UDOGetClaimsRunner.cs" />
+    <Compile Include="Entities\ClothingAllowance\UDOGetClothingAllowance.cs" />
+    <Compile Include="Entities\ClothingAllowance\UDOGetClothingAllowanceRunner.cs" />
+    <Compile Include="Entities\Contact\UDOGetContactUpdates.cs" />
+    <Compile Include="Entities\Contact\UDOGetContactUpdatesRunner.cs" />
+    <Compile Include="Entities\Contentions\UDOGetContentions.cs" />
+    <Compile Include="Entities\Contentions\UDOGetContentionsRunner.cs" />
+    <Compile Include="Entities\Fiduciaries\GetFiduciaryExists.cs" />
+    <Compile Include="Entities\Fiduciaries\GetFiduciaryExistsRunner.cs" />
+    <Compile Include="Entities\ITF\UDOGetITFRunner.cs" />
+    <Compile Include="Entities\ITF\UDOGetITFS.cs" />
+    <Compile Include="Entities\ITF\UDOInitiateITF.cs" />
+    <Compile Include="Entities\ITF\UDOInitiateITFRunner.cs" />
+    <Compile Include="Entities\ITF\UDOSubmitITF.cs" />
+    <Compile Include="Entities\ITF\UDOSubmitITFRunner.cs" />
+    <Compile Include="Entities\PersonSearch\UDOPersonSearch.cs" />
+    <Compile Include="Entities\PersonSearch\UDOPersonSearchRunner.cs" />
+    <Compile Include="Entities\ServiceRequests\UDOInitiateSR.cs" />
+    <Compile Include="Entities\ServiceRequests\UDOInitiateSRRunner.cs" />
+    <Compile Include="Entities\Letters\UDOInitiateLetter.cs" />
+    <Compile Include="Entities\Letters\UDOInitiateLetterRunner.cs" />
+    <Compile Include="Entities\FNOD\UDOInitiateFNOD.cs" />
+    <Compile Include="Entities\FNOD\UDOInitiateFNODRunner.cs" />
+    <Compile Include="Entities\Deductions\UDOGetDeductions.cs" />
+    <Compile Include="Entities\Deductions\UDOGetDeductionsRunner.cs" />
+    <Compile Include="Entities\Denials\UDOGetDenials.cs" />
+    <Compile Include="Entities\Denials\UDOGetDenialsRunner.cs" />
+    <Compile Include="Entities\Dependents\UDOGetDependentAwards.cs" />
+    <Compile Include="Entities\Dependents\UDOGetDependentAwardsRunner.cs" />
+    <Compile Include="Entities\Dependents\UDOGetDependent.cs" />
+    <Compile Include="Entities\Dependents\UDOGetDependentRunner.cs" />
+    <Compile Include="Entities\Dependents\UDOGetDependentUpdates.cs" />
+    <Compile Include="Entities\Dependents\UDOGetDependentUpdatesRunner.cs" />
+    <Compile Include="Entities\Diaries\UDOGetDiaries.cs" />
+    <Compile Include="Entities\Diaries\UDOGetDiariesRunner.cs" />
+    <Compile Include="Entities\Evidence\UDOGetEvidence.cs" />
+    <Compile Include="Entities\Evidence\UDOGetEvidenceRunner.cs" />
+    <Compile Include="Entities\EVRs\UDOGetEVR.cs" />
+    <Compile Include="Entities\EVRs\UDOGetEVRRunner.cs" />
+    <Compile Include="Entities\ExamAndAppointments\UDOGetAppointments.cs" />
+    <Compile Include="Entities\ExamAndAppointments\UDOGetAppointmentsRunner.cs" />
+    <Compile Include="Entities\ExamAndAppointments\UDOGetExamAndAppointments.cs" />
+    <Compile Include="Entities\ExamAndAppointments\UDOGetExamAndAppointmentsRunner.cs" />
+    <Compile Include="Entities\Fiduciaries\GetFiduciaries.cs" />
+    <Compile Include="Entities\Fiduciaries\GetFiduciariesRunner.cs" />
+    <Compile Include="Entities\Flashes\GetFlashes.cs" />
+    <Compile Include="Entities\Flashes\GetFlashesRunner.cs" />
+    <Compile Include="Entities\IncomeSummary\UDOGetIncomeSummary.cs" />
+    <Compile Include="Entities\IncomeSummary\UDOGetIncomeSummaryRunner.cs" />
+    <Compile Include="Entities\LegacyPayments\UDOGetLegacyPayments.cs" />
+    <Compile Include="Entities\LegacyPayments\UDOGetLegacyPaymentsRunner.cs" />
+    <Compile Include="Entities\LifeCycles\UDOGetLifeCycles.cs" />
+    <Compile Include="Entities\LifeCycles\UDOGetLifeCyclesRunner.cs" />
+    <Compile Include="Entities\MilitaryService\UDOGetMilitaryService.cs" />
+    <Compile Include="Entities\MilitaryService\UDOGetMilitaryServiceRunner.cs" />
+    <Compile Include="Entities\Notes\UDOInitiateNotes.cs" />
+    <Compile Include="Entities\Notes\UDOInitiateNotesRunner.cs" />
+    <Compile Include="Entities\Payments\UDOGetPayments.cs" />
+    <Compile Include="Entities\Payments\UDOGetPaymentsRunner.cs" />
+    <Compile Include="Entities\Proceeds\UDOGetProceeds.cs" />
+    <Compile Include="Entities\Proceeds\UDOGetProceedsRunner.cs" />
+    <Compile Include="Entities\Ratings\UDOGetRatings.cs" />
+    <Compile Include="Entities\Ratings\UDOGetRatingsRunner.cs" />
+    <Compile Include="Entities\Receivables\UDOGetReceivables.cs" />
+    <Compile Include="Entities\Receivables\UDOGetReceivablesRunner.cs" />
+    <Compile Include="Entities\Relationships\GetRelationships.cs" />
+    <Compile Include="Entities\Relationships\GetRelationshipsRunner.cs" />
+    <Compile Include="Entities\VBMSeFolder\UDOGetVBMSeFolder.cs" />
+    <Compile Include="Entities\VBMSeFolder\UDOGetVBMSeFolderRunner.cs" />
+    <Compile Include="Entities\VBMSeFolder\UDOGetVBMSeFolderDocuments.cs" />
+    <Compile Include="Entities\VBMSeFolder\UDOGetVBMSeFolderDocumentsRunner.cs" />
+    <Compile Include="Entities\VeteranSnapshot\UDOGetVeteranSnapshot.cs" />
+    <Compile Include="Entities\VeteranSnapshot\UDOGetVeteranSnapshotRunner.cs" />
+    <Compile Include="Entities\VirtualVA\UDOGetVirtualVA.cs" />
+    <Compile Include="Entities\VirtualVA\UDOGetVirtualVARunner.cs" />
+    <Compile Include="Helpers\UDOActionRunner.cs" />
+    <Compile Include="Messages\ExamAndAppointments\UDOcreateUDOExamResponse.cs" />
+    <Compile Include="Messages\HeaderInfo.cs" />
+    <Compile Include="Messages\LifeCycles\UDOcreateUDOLifecyclesRequest.cs" />
+    <Compile Include="Messages\LifeCycles\UDOcreateUDOLifecyclesResponse.cs" />
+    <Compile Include="Messages\PersonSearch\UDOpsFindPersonResponse.cs" />
+    <Compile Include="Messages\UDOException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CustomActions.Plugins.snk" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

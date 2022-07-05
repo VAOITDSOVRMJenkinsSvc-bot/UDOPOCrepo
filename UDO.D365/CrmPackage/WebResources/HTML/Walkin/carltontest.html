@@ -1,0 +1,606 @@
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>Intake Process</title>
+    <link href="css/bootstrap_Flatly.css" rel="stylesheet">
+    <link href="jquery_ui/jquery_ui.css" rel="stylesheet">
+    <link href="jquery_ui/jquery_ui.theme.css" rel="stylesheet">
+    <!--<link href="css/bootstrap2_toggle.css" rel="stylesheet">-->
+    <link href="css/bootstrap_more.css" rel="stylesheet">
+    <link href="css/magicsuggest.css" rel="stylesheet">
+    <link href="css/walkin.css" rel="stylesheet">
+    <script src="../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.sortElements.js"></script>
+    <script src="js/jquery.toXml.js"></script>
+    <script src="js/jquery.aria.js"></script>
+    <script src="js/jquery.magicsuggest.js"></script>
+    <script src="jquery_ui/jquery_ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap2_toggle.js"></script>-->
+    <script src="js/Sdk.Soap.js"></script>
+    <script src="js/Sdk.AddToQueue.js"></script>
+    <script src="js/Sdk.RouteTo.js"></script>
+    <script src="js/Sdk.ReleaseToQueue.js"></script>
+    <script src="js/Sdk.PickFromQueue.js"></script>
+    <script src="js/Sdk.WhoAmI.js"></script>
+    <script src="js/Sdk.RetrieveAttribute.js"></script>
+    <script src="js/Sdk.Create.js"></script>
+    <script src="js/Sdk.Retrieve.js"></script>
+    <script src="js/Sdk.SetState.js"></script>
+    <script src="js/Sdk.ExecuteMultiple.js"></script>
+    <script src="js/Sdk.Delete.js"></script>
+    <script src="js/queues.js"></script>
+    <script src="js/XrmTable.Constants.js"></script>
+    <script src="js/XrmTable.Column.js"></script>
+    <script src="js/XrmTable.PagingInfo.js"></script>
+    <script src="js/XrmTable.Columns.js"></script>
+    <script src="js/XrmTable.Table.js"></script>
+    <script src="js/vetsearch.js"></script>
+    <script src="js/carltontest.js"></script>
+    <script type="text/javascript">
+        //CRM Ctrl Key Fix for toString Error
+        if (typeof window.LOCID_JUMP_TO_RIBBON == "undefined") window.LOCID_JUMP_TO_RIBBON = "[";
+        if (typeof window.LOCID_JUMP_TO_RIBBON_CONTROL == "undefined") window.top.LOCID_JUMP_TO_RIBBON_CONTROL = "]";
+
+        jQuery.fn.forceNumeric = function () {
+
+            return this.each(function () {
+                $(this).keydown(function (e) {
+                    var key = e.which || e.keyCode;
+
+                    if (!e.shiftKey && !e.altKey && !e.ctrlKey &&
+                        // numbers   
+                        key >= 48 && key <= 57 ||
+                        // Numeric keypad
+                        key >= 96 && key <= 105 ||
+                        // comma, period and minus, . on keypad
+                       key == 190 || key == 188 || key == 109 || key == 110 ||
+                        // Backspace and Tab and Enter
+                       key == 8 || key == 9 || key == 13 ||
+                        // Home and End
+                       key == 35 || key == 36 ||
+                        // left and right arrows
+                       key == 37 || key == 39 ||
+                        // Del and Ins
+                       key == 46 || key == 45) {
+
+
+                        return true;
+                    }
+
+                    return false;
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <header role="banner">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" aria-expanded="false" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand">Intake</span>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" id="nav_main_toolbar">
+                        <li><a id="action_newwalkin" role="button" href="#">New Intake Process</a></li>
+                        <li><a id="action_newcorrespondence" role="button" href="#">New Correspondence</a></li>
+                        <li><a id="action_open" role="button" href="#">Open</a></li>
+                        <li>
+                            <a class="dropdown-toggle" id="action_route" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Route <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="action_route_items">
+                            </ul>
+                        </li>
+                        <li><a id="action_pick" href="#">Pick</a></li>
+                        <li><a id="action_release" href="#">Release</a></li>
+                        <li><a id="action_walkout" href="#">Walked Out</a></li>
+                        <li>
+                            <a class="dropdown-toggle" id="action_complete" role="button" aria-expanded="false" aria-haspopup="true" href="#" data-toggle="dropdown">Quick Resolution <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="action_complete_items">
+                            </ul>
+                        </li>
+                        <!--<li><a id="action_complete" href="#">Mark Complete</a></li>-->
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li>
+                            <!--<input id="autorefresh" type="checkbox" checked data-toggle="toggle" data-off="Manually Refresh" data-on="Auto-Refresh" data-onstyle="success" data-offstyle="danger">-->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-primary" id="panel_walkin" role="form">
+                    <div class="panel-heading">
+                        <span class="panel-title" id="panel_walkin_title">New Intake</span>
+                        <a class="panel-button-close pull-right" alt="Close Intake"></a>
+                    </div>
+                    <div class="panel-body" id="walkin">
+                        <form class="form-horizontal" id="panel_walkin_form">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <h3><span class="sectionheader sectionheader-success">Visitor Information</span></h3>
+                                        <div id="additional_data"></div>
+                                        <div id="visitor_firstname_control">
+                                            <label class="col-md-2 control-label" for="visitor_firstname">
+                                                First Name
+                                            <span class="scronly errorlabel" id="visitor_firstname_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="visitor_firstname" required="required" type="text" placeholder="visitor's first name">
+                                            </div>
+                                        </div>
+                                        <div id="visitor_middlename_control">
+                                            <label class="col-md-2 control-label" for="visitor_middlename">Middle Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="visitor_middlename" type="text" placeholder="visitor's middle name">
+                                            </div>
+                                        </div>
+                                        <div id="visitor_lastname_control">
+                                            <label class="col-md-2 control-label" for="visitor_lastname">
+                                                Last Name
+                                            <span class="scronly errorlabel" id="visitor_lastname_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="visitor_lastname" type="text" placeholder="visitor's last name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="visitor_purpose_control">
+                                            <label class="col-md-2 control-label" for="visitor_purpose">Purpose for Visit</label>
+                                            <div class="col-md-6">
+                                                <select name="visitor_purpose" class="form-control" id="visitor_purpose">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="visitor_isvet_control">
+                                            <label class="col-md-2 control-label" id="visitor_isvet_label" for="visitor_isvet">Is Veteran</label>
+                                            <div class="col-md-2" role="radiogroup" aria-labelledby="visitor_isvet_label">
+                                                <div class="radio radio-inline" role="presentation">
+                                                    <input name="visitor_isvet" id="visitor_isvet_yes" role="radio" type="radio" checked="">
+                                                    <label for="visitor_isvet_yes"><span class="sr-only">Is Veteran: </span>Yes</label>
+                                                </div>
+                                                <div class="radio radio-inline" role="presentation">
+                                                    <input name="visitor_isvet" id="visitor_isvet_no" role="radio" type="radio">
+                                                    <label for="visitor_isvet_no"><span class="sr-only">Is Veteran: </span>No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="visitor_relation_control">
+                                            <label class="col-md-2 control-label" for="visitor_relation">Relationship to Veteran</label>
+                                            <div class="col-md-2">
+                                                <select name="visitor_relation" class="form-control" id="visitor_relation">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="specialsituations">Special Situations</label>
+                                        <div class="col-md-10">
+                                            <div class="form-control" id="specialsituations">
+                                            </div>
+                                        </div>
+                                        <!--<div id="visitor_idpresented_control">
+			<label class="col-md-2 control-label" for="visitor_idpresented">Identification Presented</label>
+    			<div class="col-md-2">
+    			<select class="form-control" id="visitor_idpresented">
+    				<option value="01" selected="selected">Not Checked</option>
+    				<option value="02" selected="selected">Drivers License</option>
+    				<option value="03" selected="selected">Military ID</option>
+    				<option value="04" selected="selected">Passport</option>
+    				<option value="05" selected="selected">Other</option>
+    			</select>
+				</div>
+			</div>-->
+
+                                    </div>
+
+
+                                    <div class="form-group" id="veteran_name_area">
+                                        <h3><span class="sectionheader sectionheader-success">Veteran Information</span></h3>
+                                        <div id="veteran_firstname_control">
+                                            <label class="col-md-2 control-label" for="veteran_firstname">First Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="veteran_firstname" type="text" placeholder="veteran's first name">
+                                            </div>
+                                        </div>
+                                        <div id="veteran_middlename_control">
+                                            <label class="col-md-2 control-label" for="veteran_middlename">Middle Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="veteran_middlename" type="text" placeholder="veteran's middle name">
+                                            </div>
+                                        </div>
+                                        <div id="veteran_lastname_control">
+                                            <label class="col-md-2 control-label" for="veteran_lastname">Last Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="veteran_lastname" type="text" placeholder="veteran's last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="veteran_ssid_control">
+                                            <label class="col-md-2 control-label" for="veteran_ssid">
+                                                SSN
+                                                <span class="scronly errorlabel" id="veteran_ssid_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input title="#########" class="form-control bfh-phone" id="veteran_ssid" required="" type="text" placeholder="veteran's ssn" pattern="^d{9}$">
+                                            </div>
+                                        </div>
+                                        <!--                                        <div id="veteran_claimnumber_control">
+                                             <label class="col-md-2 control-label" for="veteran_claimnumber">Claim #</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control bfh-phone" id="veteran_claimnumber" type="text" placeholder="veteran's claim #">
+                                            </div>
+                                        </div>-->
+                                        <div id="veteran_dob_control">
+                                            <label class="col-md-2 control-label" for="veteran_dob">
+                                                Date of Birth
+                                                <span class="scronly errorlabel" id="veteran_dob_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2 date" id="veteran_dob_div">
+                                                <input class="form-control datepicker" id="veteran_dob" type="text" placeholder="veteran's dob">
+                                            </div>
+                                        </div>
+
+                                        <div id="find_veteran_control">
+                                        </div>
+                                    </div>
+                                    <div class="text-center" id="walkin_form_error_container">
+                                    </div>
+                                    <div class="hide-on-reset" id="search_results">
+                                    </div>
+                                    <div class="text-center aspace20" id="form_action_area">
+                                        <!--<a id="action_searchforvet" href="#" class="btn btn-primary" role="button">Search for Veteran</a>
+			  	<a href="#" class="btn btn-primary" role="button">Queue in Walkins</a>&nbsp;
+			    <a href="#" class="btn btn-primary" role="button">Rout to Interview Queue</a>&nbsp;
+			    <a href="#" class="btn btn-primary" role="button">Mark Walkin as Closed</a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="panel panel-primary" id="panel_correspondence" role="form">
+                    <div class="panel-heading">
+                        <span class="panel-title" id="panel_correspondence_title">New Correspondence</span>
+                        <a class="panel-button-close pull-right" alt="Close Correspondence"></a>
+                    </div>
+                    <div class="panel-body" id="correspondence">
+                        <form class="form-horizontal" id="panel_correspondence_form">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <h3><span class="sectionheader sectionheader-success">Request Information</span></h3>
+                                        <div id="corr_requestor_isvet_control">
+                                            <label class="col-md-2 control-label" id="corr_requestor_isvet_label" for="corr_requestor_isvet">Is Veteran</label>
+                                            <div class="col-md-2" role="radiogroup" aria-labelledby="corr_requestor_isvet_label">
+                                                <div class="radio radio-inline" role="presentation">
+                                                    <input name="corr_requestor_isvet" id="corr_requestor_isvet_yes" role="radio" type="radio" checked="">
+                                                    <label for="corr_requestor_isvet_yes">Yes</label>
+                                                </div>
+                                                <div class="radio radio-inline" role="presentation">
+                                                    <input name="corr_requestor_isvet" id="corr_requestor_isvet_no" role="radio" type="radio">
+                                                    <label for="corr_requestor_isvet_no">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_relation_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_relation">Relationship to Veteran</label>
+                                            <div class="col-md-2">
+                                                <select name="corr_requestor_relation" class="form-control" id="corr_requestor_relation">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <!-- Existing Request really needs to be a CRM Lookup control and not a dropdown -->
+                                        <div id="corr_existing_request_control">
+                                            <label class="col-md-2 control-label" for="corr_existing_request">Existing Request</label>
+                                            <div class="col-md-2">
+                                                <select name="corr_existing_request" class="form-control" id="corr_existing_request">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="corr_channel_control">
+                                            <label class="col-md-2 control-label" for="corr_channel">Channel</label>
+                                            <div class="col-md-2">
+                                                <select name="corr_channel" class="form-control" id="corr_channel">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_type_control">
+                                            <label class="col-md-2 control-label" for="corr_type">Determine Correspondence</label>
+                                            <div class="col-md-2">
+                                                <select name="corr_type" class="form-control" id="corr_type">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="corr_controlled_type_control">
+                                            <label class="col-md-2 control-label" for="corr_controlled_type">Controlled Correspondence Type</label>
+                                            <div class="col-md-2">
+                                                <select name="corr_controlled_type" class="form-control" id="corr_controlled_type">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="corr_due_date_control">
+                                            <label class="col-md-2 control-label" for="corr_due_date">
+                                                Due Date
+                                                <span class="scronly errorlabel" id="corr_due_date_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2 date" id="corr_due_date_div">
+                                                <input class="form-control datepicker" id="corr_due_date" type="text" placeholder="due date">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_determine_purpose_control">
+                                            <label class="col-md-2 control-label" for="corr_determine_purpose">Determine Purpose</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" id="corr_determine_purpose" type="text" placeholder="details of correspondence">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_interim_action_control">
+                                            <label class="col-md-2 control-label" id="corr_interim_action_label" for="corr_interim_action">5 Day Interim Action</label>
+                                            <div class="col-md-2" role="radiogroup" aria-labelledby="corr_interim_action_label">
+                                                <div class="radio radio-inline" role="presentation">
+                                                    <input name="corr_interim_action" id="corr_interim_action_yes" role="radio" type="radio" checked="">
+                                                    <label for="corr_interim_action_yes">Yes</label>
+                                                </div>
+                                                <div class="radio radio-inline" role="presentation">
+                                                    <input name="corr_interim_action" id="corr_interim_action_no" role="radio" type="radio">
+                                                    <label for="corr_interim_action_no">No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="corr_interim_letter_control">
+                                            <label class="col-md-2 control-label" for="corr_interim_letter">5 Day Interim Letter</label>
+                                            <div class="col-md-4">
+                                                <select name="corr_interim_letter" class="form-control" id="corr_interim_letter">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" id="corr_requestor_name_area">
+                                        <h3><span class="sectionheader sectionheader-success">Requestor Information</span></h3>
+                                        <div id="corr_additional_data"></div>
+                                        <div id="corr_requestor_firstname_control">
+                                            <label class="col-md-2 control-label" for="requestor_firstname">
+                                                First Name
+                                            <span class="scronly errorlabel" id="corr_requestor_firstname_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_firstname" required="required" type="text" placeholder="requestor's first name">
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_lastname_control">
+                                            <label class="col-md-2 control-label" for="requestor_lastname">
+                                                Last Name
+                                            <span class="scronly errorlabel" id="corr_requestor_lastname_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_lastname" type="text" placeholder="requestor's last name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_requestor_phone_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_phone">
+                                                Phone
+                                                <span class="scronly errorlabel" id="corr_requestor_phone_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control bfh-phone" id="corr_requestor_phone" type="text" placeholder="requestor's phone">
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_email_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_email">
+                                                Email Address
+                                                <span class="scronly errorlabel" id="corr_requestor_email_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_email" type="text" placeholder="requestor's email address">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_requestor_address1_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_address1">Address 1</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_address1" type="text" placeholder="requestor's address line 1">
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_address2_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_address2">Address 2</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_address2" type="text" placeholder="requestor's address line 2">
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_address3_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_address3">Address 3</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_address3" type="text" placeholder="requestor's address line 3">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_requestor_city_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_city">City</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_city" type="text" placeholder="requestor's city">
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_state_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_state">State</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_state" type="text" placeholder="requestor's state">
+                                            </div>
+                                        </div>
+                                        <div id="corr_requestor_zip_control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_zip">Zip Code</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_requestor_zip" type="text" placeholder="requestor's zip code">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" id="corr_veteran_name_area">
+                                        <h3><span class="sectionheader sectionheader-success">Veteran Information</span></h3>
+                                        <div id="corr_veteran_firstname_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_firstname">First Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_veteran_firstname" type="text" placeholder="veteran's first name">
+                                            </div>
+                                        </div>
+                                        <div id="corr_veteran_middlename_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_middlename">Middle Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_veteran_middlename" type="text" placeholder="veteran's middle name">
+                                            </div>
+                                        </div>
+                                        <div id="corr_veteran_lastname_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_lastname">Last Name</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_veteran_lastname" type="text" placeholder="veteran's last name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="corr_veteran_ssid_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_ssid">
+                                                SSN
+                                                <span class="scronly errorlabel" id="corr_veteran_ssid_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input title="#########" class="form-control bfh-phone" id="corr_veteran_ssid" required="" type="text" placeholder="veteran's ssn" pattern="^d{9}$">
+                                            </div>
+                                        </div>
+                                        <div id="corr_veteran_dob_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_dob">
+                                                Date of Birth
+                                                <span class="scronly errorlabel" id="corr_veteran_dob_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2 date" id="corr_veteran_dob_div">
+                                                <input class="form-control datepicker" id="corr_veteran_dob" type="text" placeholder="veteran's dob">
+                                            </div>
+                                        </div>
+                                        <div id="corr_veteran_email_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_email">
+                                                Email Address
+                                                <span class="scronly errorlabel" id="corr_veteran_email_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" id="corr_veteran_email" type="text" placeholder="veteran's email address">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_veteran_phone_control">
+                                            <label class="col-md-2 control-label" for="corr_veteran_phone">
+                                                Phone
+                                                <span class="scronly errorlabel" id="corr_veteran_phone_error" aria-hidden="false"></span>
+                                            </label>
+                                            <div class="col-md-2">
+                                                <input class="form-control bfh-phone" id="corr_veteran_phone" type="text" placeholder="veteran's phone">
+                                            </div>
+                                        </div>
+                                        <div id="corr_find_veteran_control">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="corr_requestor-purpose-control">
+                                            <label class="col-md-2 control-label" for="corr_requestor_purpose">Purpose of Request</label>
+                                            <div class="col-md-6">
+                                                <select name="corr_requestor_purpose" class="form-control" id="corr_requestor_purpose">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="corr_specialsituations">Special Situations</label>
+                                        <div class="col-md-10">
+                                            <div class="form-control" id="corr_specialsituations">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center" id="correspondence_form_error_container">
+                                    </div>
+                                    <div class="hide-on-reset" id="corr_search_results">
+                                    </div>
+                                    <div class="text-center aspace20" id="corr_form_action_area">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search" id="tmpDialog">
+            <img alt="Loading Image" src="../../udo_/images/search/loading.gif">
+            <p>Working on it. Please wait...</p>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-3">
+                <div class="panel panel-default" id="panel_queues" role="complementary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="panel_queues_title">Queues</h3>
+                    </div>
+
+                    <ul class="list-group" id="panel_queues_area" role="main">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-9">
+                <div class="panel panel-default" id="panel_queueitems_div">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <p id="scralerts" role="alert" style="left: -10000px; width: 1px; height: 1px; overflow: hidden; position: absolute; clip: rect(1px, 1px, 1px, 1px);">
+    </p>
+
+    <div style="display: none;">
+        <p>AAAAAAAAAAAAAAAAAAAAAAAAAAA Lorem ipsum dolor. Sit amet pretium. Lorem etiam ornare. Convallis eu dui egestas morbi condimentum sodales faucibus sed. Arcu morbi vel potenti velit tellus erat consequat justo nulla rutrum urna.</p>
+        <p>A interdum semper dignissim proin vel libero porttitor in lectus adipiscing at. Lobortis penatibus in ante lobortis taciti. Elit id morbi eu vitae vitae duis elit pulvinar rhoncus lectus quis labore velit nibh. Massa cursus proin est at nisl. Cursus nullam turpis. Eget mollis nulla quis viverra praesent nec pellentesque posuere at eros maecenas. Aliquam ut velit tristique eu orci. Montes scelerisque arcu. Magna mattis nulla. Suspendisse tempus penatibus. Phasellus donec lacus libero fringilla ut. Mauris imperdiet lacus. Varius tortor voluptatibus dui phasellus est ac vitae lorem. Sed sodales in velit wisi non nisl condimentum in lectus eleifend facilisis quam euismod viverra. Morbi felis libero. Ut nunc vel. Dolor eros massa. Sed vestibulum vitae nulla enim est turpis nec tellus libero diam neque. Morbi sodales ut arcu risus integer dui vehicula urna. Mauris tellus a semper elit nisl eu pretium faucibus. Eu ante dis. Tempor libero amet. In non ante. Id et vel. Ac curabitur dui. Ipsum mauris nec. Sollicitudin cursus sit erat dolor consequatur. Cursus augue dolor. Et nibh phasellus. Vehicula amet augue con ultricies vel at duis nulla.</p>
+        <p>Morbi eu nam. Tortor massa dui non eros vulputate facilisis neque curabitur nonummy eget tristique mauris suscipit consequat lorem bibendum posuere dignissim potenti sapien leo aliquet consequuntur eu non mattis. Illo massa integer. Gravida quisque sed. Suspendisse anim dui. Non ac donec. Metus ac sit. Sollicitudin ullamcorper erat. Posuere luctus nisl. Amet vestibulum ut metus mi placerat. Faucibus lorem sunt. Commodo interdum quisque. Consectetuer erat nibh nulla imperdiet phasellus. Nisl ullamcorper nulla nec cras varius. Pede arcu aliquam sit dolor vitae odio vestibulum velit feugiat vehicula arcu lobortis eu id.</p>
+    </div>
+    <script>
+        $("#veteran_dob").datepicker({ dateFormat: 'm/d/yy', minDate: new Date(1776, 6, 4), maxDate: Date.now() });
+    </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report>
+  <name>VASS Unsuccessful Call Report</name>
+  <defaultfilter>
+    <ReportFilter>
+      <ReportEntity paramname="CRM_Filteredudo_outboundcallattempt" donotconvert="1">
+        <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+          <entity name="udo_outboundcallattempt">
+            <all-attributes />
+            <filter type="and">
+              <condition attribute="udo_disposition" operator="ne" value="752280000" />
+            </filter>
+          </entity>
+        </fetch>
+      </ReportEntity>
+    </ReportFilter>
+  </defaultfilter>
+  <iscustomreport>1</iscustomreport>
+  <filename>VASSP Unsuccessful Call Report.rdl</filename>
+  <languagecode>1033</languagecode>
+  <reportid>{e3d7ed25-abd8-e911-a987-001dd8009f4b}</reportid>
+  <reporttypecode>1</reporttypecode>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <createdinmajorversion>9</createdinmajorversion>
+  <iscustomizable>1</iscustomizable>
+  <ExportedFileName>/Reports/VASSPUnsuccessfulCallReportrdle3d7ed25-abd8-e911-a987-001dd8009f4b.wdl</ExportedFileName>
+  <ReportCategories>
+    <ReportCategory name="Administrative Reports">4</ReportCategory>
+  </ReportCategories>
+  <ReportVisibilities>
+    <ReportVisbility>2</ReportVisbility>
+    <ReportVisbility>3</ReportVisbility>
+    <ReportVisbility>1</ReportVisbility>
+  </ReportVisibilities>
+  <ReportEntities>
+    <ReportEntity>udo_outboundcallattempt</ReportEntity>
+  </ReportEntities>
+</Report>

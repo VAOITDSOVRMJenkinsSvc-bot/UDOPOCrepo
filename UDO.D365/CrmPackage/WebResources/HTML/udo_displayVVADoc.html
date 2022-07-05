@@ -1,0 +1,87 @@
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>Display VVA Doc</title>    
+</head>
+<body>
+    <script src="udo_Xrm.min.js" type="text/javascript"></script>
+    <script src="crme_jquery1.4.1.min.js" type="text/javascript"></script>
+    <script src="crme_SDK.REST.js" type="text/javascript"></script>
+    <script src="crme_json2.js" type="text/javascript"></script>
+    <script src="udo_getVVAURL.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            function openVVAURL() {
+                //getDataParam();
+                //var docGuid = getParamValue("vvaGuid");
+                docGuid = "8F86CF39-E7A4-E511-9418-00155D14F3D0";
+                //var retVal = openVVADocument(docGuid);
+                openVVADocument(docGuid);
+                //if (retVal.Error)
+                //    alert(retVal.Error);
+                //else {
+                //    alert(retVal.Url);
+                //    window.open(retVal.Url);
+                //}
+            }
+
+            openVVAURL();
+
+            function getDataParam() {
+                //Get the any query string parameters and load them
+                //into the vals array
+
+                var vals = new Array();
+                if (location.search != "") {
+                    vals = location.search.substr(1).split("&");
+                    for (var i in vals) {
+                        vals[i] = vals[i].replace(/\+/g, " ").split("=");
+                    }
+                    //look for the parameter named 'data'
+                    var found = false;
+                    for (var i in vals) {
+                        if (vals[i][0].toLowerCase() == "data") {
+                            parseDataValue(vals[i][1]);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found)
+                    { noParams(); }
+                }
+                else {
+                    noParams();
+                }
+            }
+
+            function parseDataValue(datavalue) {
+                if (datavalue != "") {
+                    vals = new Array();
+
+                    //var message = document.createElement("p");
+                    //setText(message, "These are the data parameters values that were passed to this page:");
+                    //document.body.appendChild(message);
+
+                    vals = decodeURIComponent(datavalue).split("&");
+                    for (var i in vals) {
+                        vals[i] = vals[i].replace(/\+/g, " ").split("=");
+                    }
+                }
+            }
+
+            function getParamValue(key) {
+                if (vals != null) {
+                    for (var i in vals) {
+                        if (vals[i][0] == key)
+                            return vals[i][1];
+                    }
+                }
+                return null;
+            }
+
+        });
+        </script>
+
+
+</body></html>

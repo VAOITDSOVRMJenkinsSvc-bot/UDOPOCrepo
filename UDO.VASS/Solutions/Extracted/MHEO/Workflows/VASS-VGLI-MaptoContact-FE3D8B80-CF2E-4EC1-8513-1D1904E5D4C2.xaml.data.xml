@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{fe3d8b80-cf2e-4ec1-8513-1d1904e5d4c2}" Name="VASS - VGLI - Map to Contact">
+  <XamlFileName>/Workflows/VASS-VGLI-MaptoContact-FE3D8B80-CF2E-4EC1-8513-1D1904E5D4C2.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>1</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>1</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>udo_vglistaging</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="VASS - VGLI - Map to Contact" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{73dcb138-d860-4794-86ef-96109b5f789c}" />
+  </labels>
+</Workflow>

@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.ExceptionLogger">
+            <summary>
+            Consumes ILogger to log the error/information.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.ExceptionLogger.DiagnosticTraceLogger">
+            <summary>
+            DiagnosticTraceLogger object to access the log object
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.ExceptionLogger.InitializeLogger(System.String)">
+            <summary>
+            Initializes the logger object.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.ExtensionMethods.ToCommaDelimitedString(System.Collections.Generic.List{System.Diagnostics.Process})">
+            <summary>
+            Gets details for the given list of processes
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.FileWriter">
+            <summary>
+            class for writing information to flat files
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.FileWriter.Instance">
+            <summary>
+            Instance of the fileWrite class to call its methods
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.FileWriter.#ctor">
+            <summary>
+            Constructore for FileWrite
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.FileWriter.Write(Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType,System.String,System.String)">
+            <summary>
+            writes log of a particular type to a specific file in the Diagnostics directory
+            </summary>
+            <param name="logType"></param>
+            <param name="log"></param>
+            <param name="directoryPath"></param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.FileWriter.Write(System.String,System.String)">
+            <summary>
+            writes log of a particular type to a specific file in the Diagnostics directory
+            </summary>
+            <param name="filePath"></param>
+            <param name="content"></param>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.IFileWriter">
+            <summary>
+            FileWrite implmentation
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.IFileWriter.Write(Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType,System.String,System.String)">
+            <summary>
+            Method to write the logs to the file
+            </summary>
+            <param name="logType"></param>
+            <param name="machineHealthInfo"></param>
+            <param name="directoryPath"></param>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType">
+            <summary>
+            Enums to define the log types
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.ApplicationEventLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.SystemEventLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.RegistryLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.MachineHealthReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.ProcessesReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.ExitReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.BPAReport">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.LogType.HTML">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility">
+            <summary>
+            Machine utility class for accessing the machine details info
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.GetMemorySnapshot">
+            <summary>
+            Gets current Memory Usage (used and free) of the machine
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.GetProcessorIdleTime(System.String)">
+            <summary>
+            Gets percentage time consumed by idle process
+            </summary>
+            <param name="selectedServer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.GetDiskUsage">
+            <summary>
+            Gets current Disk Usage (free and used) of the machine
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MemoryUsage">
+            <summary>
+            utility class for recodring memory usage
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MemoryUsage.ToString">
+            <summary>
+            Function to convert the MemoryUsage to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.DiskInfo">
+            <summary>
+            utility class for recording Disk Info
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.DiskInfo.ToString">
+            <summary>
+            Function to conver the DisInfo to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo">
+            <summary>
+            class for collecting machine heath related info
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.#ctor">
+            <summary>
+            Public consructor for MachineHealthInfo class
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetProcessesInfo">
+            <summary>
+            Function to get the running processes information
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetAvailableRAM">
+            <summary>
+            Function to get available RAM information for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetOSVersion">
+            <summary>
+            Function to get the operating system version for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetAvailableDisk">
+            <summary>
+            Function to get available RAM information in GB for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetOSArchitecture">
+            <summary>
+            Function to get the operating system architecture for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetDisplayMonitorCount">
+            <summary>
+            Function to get the display monitor count for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetMandatoryKBUpdates">
+            <summary>
+            Function to get the list of KB updates for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetNetworkStatistics">
+            <summary>
+            Function to get the network statistics for BPA
+            </summary>
+            <returns></returns>
+            TODO: add network statistics as RTT to CRM org
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetUSDUptime">
+            <summary>
+            Function to get the USD Uptime for BPA in hours
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetMemoryByUSDProcess">
+            <summary>
+            Function to get the memory usage by USD process for BPA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetMemoryWithIEProcess">
+            <summary>
+            Function to get the memory usage by USD process for BPA
+            </summary>
+            <returns></returns>
+            TODO: The Memory consumed by IE prcesses within USD
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.GetCPUByIEProcess">
+            <summary>
+            Function to get the CPU usage by USD process for BPA
+            </summary>
+            <returns></returns>
+            TODO: The CPU consumed by IE prcesses within USD
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.MachineUtility.MachineHealthInfo.ToString">
+            <summary>
+            Function to convert the Machine health info class information to string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.RegistryUtility">
+            <summary>
+            utility function for Diagnostics namespace
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.RegistryUtility.GetIeVersion">
+            <summary>
+            Gets current IE browser version
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.RegistryUtility.TryGetRegistryKeyValue(Microsoft.Win32.RegistryHive,System.String,System.String)">
+            <summary>
+            Gets the registry key
+            </summary>
+            <param name="registryHive">Registry hive where subkey is to be accessed</param>
+            <param name="subKeyPath">Subkey path</param>
+            <param name="keyName">Key name</param>
+            <returns>Returns the value of the key</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.RegistryUtility.TryOpenSubKeyInReadMode(Microsoft.Win32.RegistryHive,System.String,Microsoft.Win32.RegistryKey@)">
+            <summary>
+            Opens subkey in read mode. 
+            </summary>
+            <param name="registryHive">Registry hive where subkey is to be accessed</param>
+            <param name="subKeyPath">Subkey path</param>
+            <param name="registryKey">Outputs the requested registry key</param>
+            <returns>Returns true if user has access to the key</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.MonitoringUtilities.Utilities.RegistryUtility.TryOpenBaseKeyInReadMode(Microsoft.Win32.RegistryHive,Microsoft.Win32.RegistryKey@)">
+            <summary>
+            Opens Base key in read mode
+            </summary>
+            <param name="registryHive"></param>
+            <param name="registryKey"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

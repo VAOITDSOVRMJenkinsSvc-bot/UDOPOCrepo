@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{f4c015d5-fbe9-e911-a989-001dd8009f4b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="va_name" select="1" icon="1" preview="1">
+      <row name="result" id="va_intenttofileid">
+        <cell name="va_generalbenefittype" width="150" />
+        <cell name="va_intenttofiledate" width="150" />
+        <cell name="va_intenttofilestatus" width="100" />
+        <cell name="va_claimantfirstname" width="100" />
+        <cell name="va_claimantlastname" width="100" />
+        <cell name="va_sourceapplicationname" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="va_intenttofile">
+        <attribute name="va_generalbenefittype" />
+        <attribute name="va_intenttofiledate" />
+        <attribute name="va_intenttofilestatus" />
+        <attribute name="va_claimantlastname" />
+        <attribute name="va_claimantfirstname" />
+        <attribute name="va_sourceapplicationname" />
+        <order attribute="va_intenttofiledate" descending="true" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+        <attribute name="va_intenttofileid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="MHEO: ITF &gt; 2/1/2016" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

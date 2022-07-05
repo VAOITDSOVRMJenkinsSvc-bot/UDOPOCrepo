@@ -1,0 +1,27 @@
+<html><head><script>
+    function Confirm(btn) {
+        if (window.IsUSD === true) {
+            setTimeout(function () {
+                btn.disabled=true; 
+                btn.innerText="Processing";
+                window.open("http://event/?eventName=OpenDM");
+            }, 100);
+        }
+
+    }
+</script>
+
+<meta><meta></head><body style="overflow-wrap: break-word;" onfocusout="parent.setEmailRange();">
+
+    <h1 style="font-family: sans-serif;padding: 10px;font-size: larger;">Message for the Caller</h1>
+
+    <p style="font-family: sans-serif;padding: 10px">I am a VA employee who is authorized to receive or request evidentiary
+        information or statements that may result
+        in a change in your VA benefits. The primary purpose for gathering this information or statement is to make an
+        eligibility determination. It is subject to verification through computer matching programs with other agencies.
+    </p>
+
+    <button type="button" onclick="Confirm(this)">Confirm</button>
+
+
+</body></html>

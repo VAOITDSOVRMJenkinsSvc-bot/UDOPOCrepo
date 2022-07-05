@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{761a78e2-04d5-e911-a991-001dd800b582}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="fullname" select="1" icon="1" preview="1">
+      <row name="result" id="contactid">
+        <cell name="fullname" width="300" />
+        <cell name="address1_line1" width="100" />
+        <cell name="address1_city" width="100" />
+        <cell name="address1_stateorprovince" width="100" />
+        <cell name="udo_phonenumber1" width="100" />
+        <cell name="udo_releasedactivedutydate" width="100" />
+        <cell name="udo_ssn" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="contact">
+        <attribute name="fullname" />
+        <order attribute="fullname" descending="false" />
+        <filter type="and">
+          <condition attribute="udo_mheoveteran" operator="eq" value="1" />
+        </filter>
+        <link-entity name="udo_interaction" from="udo_contactid" to="contactid" alias="aa">
+          <filter type="and">
+            <condition attribute="udo_mheocalldisposition" operator="eq" value="752280001" />
+          </filter>
+        </link-entity>
+        <attribute name="udo_phonenumber1" />
+        <attribute name="address1_city" />
+        <attribute name="address1_line1" />
+        <attribute name="address1_stateorprovince" />
+        <attribute name="udo_ssn" />
+        <attribute name="udo_releasedactivedutydate" />
+        <attribute name="contactid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Veterans Failed to Contact" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

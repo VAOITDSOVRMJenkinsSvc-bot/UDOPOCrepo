@@ -1,0 +1,22 @@
+﻿<fetch>
+  <entity name="udo_form0820payments">
+    <attribute name="udo_additionalinformation" alias="AdditionalInformation" />
+    <attribute name="udo_amountofpayment" alias="Amount" />
+    <attribute name="udo_checkendorsedpaymenttype" alias="CheckEndorsedPmt" />
+    <attribute name="udo_checknotendorsedpaymenttype" alias="CheckNotEndorsedPmt" />
+    <attribute name="udo_cpbenefittype" alias="CPB" />
+    <attribute name="udo_dateofpayment" alias="PmtDate" />
+    <attribute name="udo_directdepositpaymenttype" alias="DirDep" />
+    <attribute name="udo_edubenefittype" alias="EDU" />
+    <attribute name="udo_potentialfraud" alias="PotentialFraud" />
+    <attribute name="udo_vetsnetpaymentsystem" alias="VetsNet" />
+    <attribute name="udo_vrebenefittype" alias="VRE" />
+    <attribute name="udo_benefittype" alias="BenefitType" />
+    <attribute name="udo_paymentsystem" alias="PaymentSystem"/>
+    <attribute name="udo_paymenttype" alias="PaymentType"/>
+    <attribute name="udo_servicerequestid"/>
+    <filter>
+      <condition attribute="udo_servicerequestid" operator="eq" value="@ServiceRequestGUID" />
+    </filter>
+  </entity>
+</fetch>

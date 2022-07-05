@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{31a97d4f-c8a2-4ea1-98ee-2f8b66919eb4}" Name="VASS - Education - Map to Contact">
+  <XamlFileName>/Workflows/VASS-Education-MaptoContact-31A97D4F-C8A2-4EA1-98EE-2F8B66919EB4.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>1</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>udo_educationstaging</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="VASS - Education - Map to Contact" />
+  </LocalizedNames>
+  <labels>
+    <steplabels id="{06840bfe-6cda-4fe2-82d2-4e4ecb506a32}" />
+  </labels>
+</Workflow>

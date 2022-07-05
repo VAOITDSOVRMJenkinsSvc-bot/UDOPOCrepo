@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51065DFD-9735-42C2-9B9E-A38EDFCC4EAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VEIS.Messages</RootNamespace>
+    <AssemblyName>VEIS.Messages</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>UDO.LOB.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PREPROD|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\PREPROD\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TRAIN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TRAIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PERF|AnyCPU'">
+    <OutputPath>bin\PERF\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.Management.KeyVault, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\UDO.Crm.LOB.AddressApi\packages\Microsoft.Azure.Management.KeyVault.3.1.0\lib\net461\Microsoft.Azure.Management.KeyVault.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\UDO.Crm.LOB.AddressApi\packages\Microsoft.Rest.ClientRuntime.2.3.20\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\UDO.Crm.LOB.AddressApi\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.19\lib\net461\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\UDO.Crm.LOB.AddressApi\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\EcMessageBase.cs" />
+    <Compile Include="Core\IMessageBase.cs" />
+    <Compile Include="Core\MessageBase.cs" />
+    <Compile Include="Core\VEISMessageBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VEIS.AccountAdapterService\VEIS.AccountAdapterService.Api\Messages\getPaymentInfoRequest.cs" />
+    <Compile Include="VEIS.AccountAdapterService\VEIS.AccountAdapterService.Api\Messages\getPaymentInfoResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findAllPtcpntAddrsByFileNumberRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findAllPtcpntAddrsByFileNumberResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findAllPtcpntAddrsByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findAllPtcpntAddrsByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findCityStateByPostalCodeRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findCityStateByPostalCodeResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findPostalCodeByCityStateCountryRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findPostalCodeByCityStateCountryResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findPtcpntAddrsByPtcpntAddrsIdRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findPtcpntAddrsByPtcpntAddrsIdResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findPtcpntAddrsRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\findPtcpntAddrsResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\validateAddressRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\validateAddressResponse.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\vnAddressValidatorRequest.cs" />
+    <Compile Include="VEIS.AddressWebService\VEIS.AddressWebService.Api\Messages\vnAddressValidatorResponse.cs" />
+    <Compile Include="VEIS.AppealService\VEIS.AppealService.Api\Messages\findAppealsRequest.cs" />
+    <Compile Include="VEIS.AppealService\VEIS.AppealService.Api\Messages\findAppealsResponse.cs" />
+    <Compile Include="VEIS.AppealService\VEIS.AppealService.Api\Messages\getAppealRequest.cs" />
+    <Compile Include="VEIS.AppealService\VEIS.AppealService.Api\Messages\getAppealResponse.cs" />
+    <Compile Include="VEIS.AppealService\VEIS.AppealService.Api\Messages\getAppellantAddressRequest.cs" />
+    <Compile Include="VEIS.AppealService\VEIS.AppealService.Api\Messages\getAppellantAddressResponse.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\findPersonByIdRequest.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\findPersonByIdResponse.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\getCommentsRequest.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\getCommentsResponse.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\getContactHistoryRequest.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\getContactHistoryResponse.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\getHouseholdDataRequest.cs" />
+    <Compile Include="VEIS.BeneficiaryAdapterService\VEIS.BeneficiaryAdapterService.Api\Messages\getHouseholdDataResponse.cs" />
+    <Compile Include="VEIS.BenefitClaimServiceV2\VEIS.BenefitClaimServiceV2.Api\Messages\clearBenefitClaimRequest.cs" />
+    <Compile Include="VEIS.BenefitClaimServiceV2\VEIS.BenefitClaimServiceV2.Api\Messages\clearBenefitClaimResponse.cs" />
+    <Compile Include="VEIS.BenefitClaimServiceV2\VEIS.BenefitClaimServiceV2.Api\Messages\findBenefitClaimRequest.cs" />
+    <Compile Include="VEIS.BenefitClaimServiceV2\VEIS.BenefitClaimServiceV2.Api\Messages\findBenefitClaimResponse.cs" />
+    <Compile Include="VEIS.BenefitClaimServiceV2\VEIS.BenefitClaimServiceV2.Api\Messages\insertBenefitClaimRequest.cs" />
+    <Compile Include="VEIS.BenefitClaimServiceV2\VEIS.BenefitClaimServiceV2.Api\Messages\insertBenefitClaimResponse.cs" />
+    <Compile Include="VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimDetailRequest.cs" />
+    <Compile Include="VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimDetailResponse.cs" />
+    <Compile Include="VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimRequest.cs" />
+    <Compile Include="VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findBenefitClaimResponse.cs" />
+    <Compile Include="VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findPresidentialMemorialCertificateRequest.cs" />
+    <Compile Include="VEIS.BenefitClaimService\VEIS.BenefitClaimService.Api\Messages\findPresidentialMemorialCertificateResponse.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByBeneficiaryRequest.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByBeneficiaryResponse.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByClaimNumberRequest.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByClaimNumberResponse.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByPDIRequest.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByPDIResponse.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByProviderRequest.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\findClaimsByProviderResponse.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\getClaimDetailsRequest.cs" />
+    <Compile Include="VEIS.ClaimAdapterService\VEIS.ClaimAdapterService.Api\Messages\getClaimDetailsResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAllFiduciaryPoaRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAllFiduciaryPoaResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAllRelationshipsRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAllRelationshipsResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAwardAddressesRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAwardAddressesResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAwardMailingAddressRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findAwardMailingAddressResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findBenefitClaimAddressesRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findBenefitClaimAddressesResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findDenialsByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findDenialsByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findDependentsRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findDependentsResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findDepositAccountRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findDepositAccountResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findFiduciaryRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findFiduciaryResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findFlashesRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findFlashesResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findGeneralInformationByFileNumberRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findGeneralInformationByFileNumberResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findGeneralInformationByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findGeneralInformationByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findIncomeExpenseRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findIncomeExpenseResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findMailingAddressRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findMailingAddressResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findMilitaryRecordByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findMilitaryRecordByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findMonthOfDeathRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findMonthOfDeathResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findOtherAwardInformationRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findOtherAwardInformationResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findPaymentAddressRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findPaymentAddressResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findPOARequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findPOAResponse.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findVBMSFlashRequest.cs" />
+    <Compile Include="VEIS.ClaimantService\VEIS.ClaimantService.Api\Messages\findVBMSFlashResponse.cs" />
+    <Compile Include="VEIS.ClaimManagementService\VEIS.ClaimManagementService.Api\Messages\findClaimLevelSuspenseRequest.cs" />
+    <Compile Include="VEIS.ClaimManagementService\VEIS.ClaimManagementService.Api\Messages\findClaimLevelSuspenseResponse.cs" />
+    <Compile Include="VEIS.ClaimManagementService\VEIS.ClaimManagementService.Api\Messages\findClaimStatusRequest.cs" />
+    <Compile Include="VEIS.ClaimManagementService\VEIS.ClaimManagementService.Api\Messages\findClaimStatusResponse.cs" />
+    <Compile Include="VEIS.ContentionService\VEIS.ContentionService.Api\Messages\findContentionsByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.ContentionService\VEIS.ContentionService.Api\Messages\findContentionsByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.ContentionService\VEIS.ContentionService.Api\Messages\findContentionsRequest.cs" />
+    <Compile Include="VEIS.ContentionService\VEIS.ContentionService.Api\Messages\findContentionsResponse.cs" />
+    <Compile Include="VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL\VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL.Api\Messages\createCorrespondenceLabelRequest.cs" />
+    <Compile Include="VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL\VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL.Api\Messages\createCorrespondenceLabelResponse.cs" />
+    <Compile Include="VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL\VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL.Api\Messages\createCorrespondencePickListRequest.cs" />
+    <Compile Include="VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL\VEIS.CpeCreateCorrespondenceAdapterServiceV3.CRMOL.Api\Messages\createCorrespondencePickListResponse.cs" />
+    <Compile Include="VEIS.CpeDrugAdapterServiceV3.CRMOL\VEIS.CpeDrugAdapterServiceV3.CRMOL.Api\Messages\getDrugInfoRequest.cs" />
+    <Compile Include="VEIS.CpeDrugAdapterServiceV3.CRMOL\VEIS.CpeDrugAdapterServiceV3.CRMOL.Api\Messages\getDrugInfoResponse.cs" />
+    <Compile Include="VEIS.CpeDrugAdapterServiceV3.CRMOL\VEIS.CpeDrugAdapterServiceV3.CRMOL.Api\Messages\getDrugPickListRequest.cs" />
+    <Compile Include="VEIS.CpeDrugAdapterServiceV3.CRMOL\VEIS.CpeDrugAdapterServiceV3.CRMOL.Api\Messages\getDrugPickListResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPAcceptLetterRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPAcceptLetterResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPClaimHistoryRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPClaimHistoryResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPClaimsRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPClaimsResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPCommentsRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPCommentsResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPEOBRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPEOBResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPInfoRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPInfoResponse.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPPPRRequest.cs" />
+    <Compile Include="VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL\VEIS.CPEForeignMedicalProgramAdapterv3.CRMOL.Api\Messages\getFMPPPRResponse.cs" />
+    <Compile Include="VEIS.CpeMediSpanAdapterServiceV3.CRMOL\VEIS.CpeMediSpanAdapterServiceV3.CRMOL.Api\Messages\getMediSpanPriceRequest.cs" />
+    <Compile Include="VEIS.CpeMediSpanAdapterServiceV3.CRMOL\VEIS.CpeMediSpanAdapterServiceV3.CRMOL.Api\Messages\getMediSpanPriceResponse.cs" />
+    <Compile Include="VEIS.CpeMediSpanAdapterServiceV3.CRMOL\VEIS.CpeMediSpanAdapterServiceV3.CRMOL.Api\Messages\searchMediSpanRequest.cs" />
+    <Compile Include="VEIS.CpeMediSpanAdapterServiceV3.CRMOL\VEIS.CpeMediSpanAdapterServiceV3.CRMOL.Api\Messages\searchMediSpanResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findAllPtcpntDpositAcntByFileNumberRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findAllPtcpntDpositAcntByFileNumberResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findAllPtcpntDpositAcntByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findAllPtcpntDpositAcntByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findBankNameByRoutngTrnsitNbrRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findBankNameByRoutngTrnsitNbrResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findComericaRoutngTrnsitNbrRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findComericaRoutngTrnsitNbrResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findPtcpntDpositAcntByPtcpntDpositAcntIdRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findPtcpntDpositAcntByPtcpntDpositAcntIdResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findPtcpntDpositAcntByPtcpntFinclInstnIdRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\findPtcpntDpositAcntByPtcpntFinclInstnIdResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\insertPtcpntDpositAcntRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\insertPtcpntDpositAcntResponse.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\updatePtcpntDpositAcntRequest.cs" />
+    <Compile Include="VEIS.DdeftWebService\VEIS.DdeftWebService.Api\Messages\updatePtcpntDpositAcntResponse.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\createNoteRequest.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\createNoteResponse.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\deleteNoteRequest.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\deleteNoteResponse.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\findDevelopmentNotesRequest.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\findDevelopmentNotesResponse.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\updateNoteRequest.cs" />
+    <Compile Include="VEIS.DevelopmentNotesService\VEIS.DevelopmentNotesService.Api\Messages\updateNoteResponse.cs" />
+    <Compile Include="VEIS.DocGenService\VEIS.DocGenService.Api\Messages\ConvertWordToPdfRequest.cs" />
+    <Compile Include="VEIS.DocGenService\VEIS.DocGenService.Api\Messages\ConvertWordToPdfResponse.cs" />
+    <Compile Include="VEIS.DocumentService\VEIS.DocumentService.Api\Messages\findClaimantLettersRequest.cs" />
+    <Compile Include="VEIS.DocumentService\VEIS.DocumentService.Api\Messages\findClaimantLettersResponse.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\GetEduCourseDetailRequest.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\GetEduCourseDetailResponse.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\GetEduInstituteDetailRequest.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\GetEduInstituteDetailResponse.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\GetEduRPOStatesRequest.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\GetEduRPOStatesResponse.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\SearchEduCoursesRequest.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\SearchEduCoursesResponse.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\SearchEduInstitutesRequest.cs" />
+    <Compile Include="VEIS.EBenefitEducationService\VEIS.EBenefitEducationService.Api\Messages\SearchEduInstitutesResponse.cs" />
+    <Compile Include="VEIS.EBenefitsAccountActivity\VEIS.EBenefitsAccountActivity.Api\Messages\getRegistrationStatusRequest.cs" />
+    <Compile Include="VEIS.EBenefitsAccountActivity\VEIS.EBenefitsAccountActivity.Api\Messages\getRegistrationStatusResponse.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findBenefitClaimDetailsByBnftClaimIdRequest.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findBenefitClaimDetailsByBnftClaimIdResponse.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findBenefitClaimsStatusBySSNRequest.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findBenefitClaimsStatusBySSNResponse.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findHistoricalBenefitClaimsStatusBySSNRequest.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findHistoricalBenefitClaimsStatusBySSNResponse.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findOpenBenefitClaimsStatusBySSNRequest.cs" />
+    <Compile Include="VEIS.EBenefitsBnftClaimStatusService\VEIS.EBenefitsBnftClaimStatusService.Api\Messages\findOpenBenefitClaimsStatusBySSNResponse.cs" />
+    <Compile Include="VEIS.EligibilityAdapterService\VEIS.EligibilityAdapterService.Api\Messages\getEligibilityRequest.cs" />
+    <Compile Include="VEIS.EligibilityAdapterService\VEIS.EligibilityAdapterService.Api\Messages\getEligibilityResponse.cs" />
+    <Compile Include="VEIS.EligibilityAdapterService\VEIS.EligibilityAdapterService.Api\Messages\getOHIRequest.cs" />
+    <Compile Include="VEIS.EligibilityAdapterService\VEIS.EligibilityAdapterService.Api\Messages\getOHIResponse.cs" />
+    <Compile Include="VEIS.EntValidationService\VEIS.EntValidationService.Api\Messages\ValidateSsnRequest.cs" />
+    <Compile Include="VEIS.EntValidationService\VEIS.EntValidationService.Api\Messages\ValidateSsnResponse.cs" />
+    <Compile Include="VEIS.ESRService\VEIS.ESRService.Api\Messages\getEESummaryRequest.cs" />
+    <Compile Include="VEIS.ESRService\VEIS.ESRService.Api\Messages\getEESummaryResponse.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\GetOblhDetailsRequest.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\GetOblhDetailsResponse.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\GetPaymentHistoryDetailsRequest.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\GetPaymentHistoryDetailsResponse.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\GetvendorDetailsRequest.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\GetvendorDetailsResponse.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\RequestPaymentRequest.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\RequestPaymentResponse.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\RequestTravelOrderRequest.cs" />
+    <Compile Include="VEIS.FMCService\VEIS.FMCService.Api\Messages\RequestTravelOrderResponse.cs" />
+    <Compile Include="VEIS.IntentToFileWebService\VEIS.IntentToFileWebService.Api\Messages\findIntentToFileByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.IntentToFileWebService\VEIS.IntentToFileWebService.Api\Messages\findIntentToFileByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.IntentToFileWebService\VEIS.IntentToFileWebService.Api\Messages\insertIntentToFileRequest.cs" />
+    <Compile Include="VEIS.IntentToFileWebService\VEIS.IntentToFileWebService.Api\Messages\insertIntentToFileResponse.cs" />
+    <Compile Include="VEIS.MilitaryInfoService\VEIS.MilitaryInfoService.Api\Messages\getMilitaryServiceEpisodesRequest.cs" />
+    <Compile Include="VEIS.MilitaryInfoService\VEIS.MilitaryInfoService.Api\Messages\getMilitaryServiceEpisodesResponse.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\AddPatient.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\AddPatientPerson.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\AddPersonRequest.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\AddPersonResponse.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\AddSubject1.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\AttendedSearchRequest.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\Common.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\CorrespondingIdsResponse.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\CrmUser.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\DeterministicSearchRequest.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\DeterministicSearchResponse.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\Enums.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\Identifier.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\MviAcknowlegement.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\Name.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\PatientAddress.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\PatientPerson.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\PersonTelecom.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\ProxyAddToVista.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\RetrieveOrSearchPersonResponse.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\RetrieveWithOrchestrationRequest.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\SelectedPersonRequest.cs" />
+    <Compile Include="VEIS.MVIWebService\VEIS.MVIService\Messages\UnattendedSearchRequest.cs" />
+    <Compile Include="VEIS.PathWaysService\VEIS.PathWaysService.Api\Messages\isAliveRequest.cs" />
+    <Compile Include="VEIS.PathWaysService\VEIS.PathWaysService.Api\Messages\isAliveResponse.cs" />
+    <Compile Include="VEIS.PathWaysService\VEIS.PathWaysService.Api\Messages\readDataRequest.cs" />
+    <Compile Include="VEIS.PathWaysService\VEIS.PathWaysService.Api\Messages\readDataResponse.cs" />
+    <Compile Include="VEIS.PaymentHistoryService\VEIS.PaymentHistoryService.Api\Messages\findPayHistoryBySSNRequest.cs" />
+    <Compile Include="VEIS.PaymentHistoryService\VEIS.PaymentHistoryService.Api\Messages\findPayHistoryBySSNResponse.cs" />
+    <Compile Include="VEIS.PaymentHistoryService\VEIS.PaymentHistoryService.Api\Messages\findPayHistoryRequest.cs" />
+    <Compile Include="VEIS.PaymentHistoryService\VEIS.PaymentHistoryService.Api\Messages\findPayHistoryResponse.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrieveCH35PaymentSummaryFromBDNRequest.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrieveCH35PaymentSummaryFromBDNResponse.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrievePaymentDetailRequest.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrievePaymentDetailResponse.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrievePaymentSummaryRequest.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrievePaymentSummaryResponse.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrievePaymentSummaryWithBDNRequest.cs" />
+    <Compile Include="VEIS.PaymentInformationService\VEIS.PaymentInformationService.Api\Messages\retrievePaymentSummaryWithBDNResponse.cs" />
+    <Compile Include="VEIS.PersonService\VEIS.PersonService.Api\Messages\findPersonBySSNRequest.cs" />
+    <Compile Include="VEIS.PersonService\VEIS.PersonService.Api\Messages\findPersonBySSNResponse.cs" />
+    <Compile Include="VEIS.ProviderAdpaterService\VEIS.ProviderAdpaterService.Api\Messages\findProviderByIdRequest.cs" />
+    <Compile Include="VEIS.ProviderAdpaterService\VEIS.ProviderAdpaterService.Api\Messages\findProviderByIdResponse.cs" />
+    <Compile Include="VEIS.ProviderAdpaterService\VEIS.ProviderAdpaterService.Api\Messages\findProviderByNPIRequest.cs" />
+    <Compile Include="VEIS.ProviderAdpaterService\VEIS.ProviderAdpaterService.Api\Messages\findProviderByNPIResponse.cs" />
+    <Compile Include="VEIS.ProviderAdpaterService\VEIS.ProviderAdpaterService.Api\Messages\findProviderByVendorNameRequest.cs" />
+    <Compile Include="VEIS.ProviderAdpaterService\VEIS.ProviderAdpaterService.Api\Messages\findProviderByVendorNameResponse.cs" />
+    <Compile Include="VEIS.RatingService\VEIS.RatingService.Api\Messages\findRatingDataRequest.cs" />
+    <Compile Include="VEIS.RatingService\VEIS.RatingService.Api\Messages\findRatingDataResponse.cs" />
+    <Compile Include="VEIS.RetrieveAccountActivity\VEIS.RetrieveAccountActivity.Api\Messages\getRegistrationStatusRequest.cs" />
+    <Compile Include="VEIS.RetrieveAccountActivity\VEIS.RetrieveAccountActivity.Api\Messages\getRegistrationStatusResponse.cs" />
+    <Compile Include="VEIS.TrackedItemService\VEIS.TrackedItemService.Api\Messages\findTrackedItemsRequest.cs" />
+    <Compile Include="VEIS.TrackedItemService\VEIS.TrackedItemService.Api\Messages\findTrackedItemsResponse.cs" />
+    <Compile Include="VEIS.TrackedItemService\VEIS.TrackedItemService.Api\Messages\findUnsolEvdnceRequest.cs" />
+    <Compile Include="VEIS.TrackedItemService\VEIS.TrackedItemService.Api\Messages\findUnsolEvdnceResponse.cs" />
+    <Compile Include="VEIS.VBMSWebService\VEIS.VBMSWebService.Api\Messages\getDocumentContentRequest.cs" />
+    <Compile Include="VEIS.VBMSWebService\VEIS.VBMSWebService.Api\Messages\getDocumentContentResponse.cs" />
+    <Compile Include="VEIS.VBMSWebService\VEIS.VBMSWebService.Api\Messages\getDocumentSeriesReferenceRequest.cs" />
+    <Compile Include="VEIS.VBMSWebService\VEIS.VBMSWebService.Api\Messages\getDocumentSeriesReferenceResponse.cs" />
+    <Compile Include="VEIS.VBMSWebService\VEIS.VBMSWebService.Api\Messages\getDocumentVersionReferenceRequest.cs" />
+    <Compile Include="VEIS.VBMSWebService\VEIS.VBMSWebService.Api\Messages\getDocumentVersionReferenceResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findBirlsRecordByFileNumberRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findBirlsRecordByFileNumberResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findBirlsRecordRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findBirlsRecordResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findCorporateRecordByFileNumberRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findCorporateRecordByFileNumberResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findCorporateRecordRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findCorporateRecordResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findVeteranByFileNumberRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findVeteranByFileNumberResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findVeteranByPtcpntIdRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findVeteranByPtcpntIdResponse.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findVeteranRequest.cs" />
+    <Compile Include="VEIS.VeteranWebService\VEIS.VeteranWebService.Api\Messages\findVeteranResponse.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\getAppointmentsRequest.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\getAppointmentsResponse.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\getAppointmentTextRequest.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\getAppointmentTextResponse.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\getVisitsRequest.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\getVisitsResponse.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\loginVIARequest.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\loginVIAResponse.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\patientInquiryRequest.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\patientInquiryResponse.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\publicFacingAppLoginRequest.cs" />
+    <Compile Include="VEIS.VIAEMRService\VEIS.VIAEMRService.Api\Messages\publicFacingAppLoginResponse.cs" />
+    <Compile Include="VEIS.VIAMHV\VEIS.VIAMHV.Api\Messages\getAppointmentsFromSiteRequest.cs" />
+    <Compile Include="VEIS.VIAMHV\VEIS.VIAMHV.Api\Messages\getAppointmentsFromSiteResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\cancelAppointmentRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\cancelAppointmentResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getAppointmentsBookingNotesRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getAppointmentsBookingNotesResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getCancellationReasonsRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getCancellationReasonsResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getClinicSchedulingDetailsByDateRangeRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getClinicSchedulingDetailsByDateRangeResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getClinicsRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getClinicsResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getConsultDetailsRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getConsultDetailsResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getConsultStatusesRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\getConsultStatusesResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\loginVIARequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\loginVIAResponse.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\makeAppointmentRequest.cs" />
+    <Compile Include="VEIS.VIAScheduling\VEIS.VIAScheduling.Api\Messages\makeAppointmentResponse.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\EcTmpCancelAppointmentRequest.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\EcTmpCancelAppointmentResponse.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\EcTmpCreateAppointmentRequest.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\EcTmpCreateAppointmentResponse.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\EcTmpUpdateAppointmentRequest.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\EcTmpUpdateAppointmentResponse.cs" />
+    <Compile Include="VEIS.VideoVistService\VEIS.VideoVistService.Api\Messages\Shared.cs" />
+    <Compile Include="VEIS.VirtualMeetingRoomService\VEIS.VirtualMeetingRoomService.Api\Messages\DeleteMeetingRequest.cs" />
+    <Compile Include="VEIS.VirtualMeetingRoomService\VEIS.VirtualMeetingRoomService.Api\Messages\DeleteMeetingResponse.cs" />
+    <Compile Include="VEIS.VirtualMeetingRoomService\VEIS.VirtualMeetingRoomService.Api\Messages\ScheduleMeetingRequest.cs" />
+    <Compile Include="VEIS.VirtualMeetingRoomService\VEIS.VirtualMeetingRoomService.Api\Messages\ScheduleMeetingResponse.cs" />
+    <Compile Include="VEIS.VVADocOperations\VEIS.VVADocOperations.Api\Messages\AddDocumentRequest.cs" />
+    <Compile Include="VEIS.VVADocOperations\VEIS.VVADocOperations.Api\Messages\AddDocumentResponse.cs" />
+    <Compile Include="VEIS.VVADocOperations\VEIS.VVADocOperations.Api\Messages\GetDocumentContentRequest.cs" />
+    <Compile Include="VEIS.VVADocOperations\VEIS.VVADocOperations.Api\Messages\GetDocumentContentResponse.cs" />
+    <Compile Include="VEIS.VVADocOperations\VEIS.VVADocOperations.Api\Messages\GetDocumentListRequest.cs" />
+    <Compile Include="VEIS.VVADocOperations\VEIS.VVADocOperations.Api\Messages\GetDocumentListResponse.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="UDO.LOB.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

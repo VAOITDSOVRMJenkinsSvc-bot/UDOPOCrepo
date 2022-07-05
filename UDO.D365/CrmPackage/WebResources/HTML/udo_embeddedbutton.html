@@ -1,0 +1,172 @@
+﻿<html><head>
+    <title></title>
+    <style type="text/css">
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            margin-right: 15px;
+            margin-left: 15px;
+            border-width: 0px;
+        }
+
+        button {
+            /*width: 100%;
+            height: 100%;*/
+            width: 50%;
+            height: 50%;
+            background-color: rgb(0,32,80);
+            border-color: rgb(255,255,255);
+            border-width: 0px;
+            color: rgb(255,255,255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+            font-size: 12.4px;
+            min-width: 84.4px;
+            padding-bottom: 5px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 5px;
+            margin-right: 6px;
+        }
+
+            button:disabled {
+                background-color: gray;
+                color: white;
+            }
+
+            button:hover {
+                background-color: #DF4800;
+                color: white;
+                font-weight: 800;
+            }
+
+        @media screen and (-ms-high-contrast: active) {
+            /*TODO: validate high contrast settings*/
+            button {
+                border-color: ActiveBorder;
+            }
+        }
+    </style>
+
+<script src="udo_jquery1.10.2.min.js" type="text/javascript"></script>
+<script src="udo_utility.js" type="text/javascript"></script>
+<script type="text/javascript">
+"use strict"
+var clickEvent = null;
+    var btnConfig = null;
+var formContext = null;
+function setContext123(context){
+formContext = context;
+}
+
+    $(document).ready(function () {
+
+        var btn = $("#embeddedbutton");
+        var win = document.defaultView || document.parentWindow;
+        var control = win.frameElement.id;
+        var btnTxt = "";
+
+        switch (control) {
+
+            case "WebResource_GenerateLetterAndUpload":
+                btnTxt = "Generate Letter and Upload";
+                $(btn).click({ action: "upload", formatType: "PDF" }, parent.GenerateLetter);
+                break;
+            case "WebResource_GenerateAndOpenLetter":
+                btnTxt = "View Letter";
+                $(btn).click({ action: "open" }, parent.GenerateLetter);
+                break;
+            case "WebResource_DownloadPDF":
+                btnTxt = "Download PDF";
+                $(btn).click({ action: "download", formatType: "PDF" }, parent.GenerateLetter);
+                break;
+            case "WebResource_PopulateEnclosures":
+                btnTxt = "Populate Enclosures";
+                $(btn).click(parent.PopulateEnclosures);
+                break;
+            case "WebResource_FilterPayments":
+                btnTxt = "Filter Payments";
+                $(btn).click(parent.fnMP);
+                break;
+            case "WebResource_PopulateEnclosuresSR":
+                btnTxt = "Populate Enclosures SR";
+                $(btn).click(parent.PopulateEnclosures);
+                break;
+            case "WebResource_SendEmailToRO":
+                btnTxt = "Send Email To RO";
+                // TODO: Function expecting parameter "filedownloaded"
+                $(btn).click(parent.SendEmailToRO);
+                break;
+            case "WebResource_copyMailingAddress":
+                btnTxt = "Copy Mailing Address";
+                $(btn).click(parent.copyMailingAddress);
+                break;
+            case "WebResource_UploadVBMS":
+                btnTxt = "Upload to VBMS";
+                $(btn).click({ filenumber: "", claimnumber: "", firstname: "", middlename: "", lastname: "", role: "", doctype: "" }, parent.Va.Udo.Crm.Scripts.VBMS.OpenVBMSDialog);
+                break;
+            case "IFRAME_ValidateMOD":
+                btnTxt = "Validate MOD Eligibility";
+                $(btn).click(parent.ValidateMOD);
+                break;
+            case "IFRAME_CopyPMC":
+                btnTxt = "Copy Existing to new (optional)";
+                $(btn).click(parent.CopyPMC);
+                break;
+            case "IFRAME_IssuePMC":
+                btnTxt = "Issue PMC";
+                $(btn).click(parent.IssuePMC);
+                break;
+            case "IFRAME_SubmitFNOD":
+                btnTxt = "Submit FNOD (irreversible)";
+                $(btn).click(parent.ExecuteFNOD);
+                break;
+            case "IFRAME_ValidateMODFields":
+                btnTxt = "Validate MOD Address";
+                $(btn).click(parent.ValidateMODAddress);
+                break;
+            case "IFRAME_GenerateTreasuryAddress":
+                btnTxt = "Generate/Update Treasury Address";
+                $(btn).click(parent.updateTreasuryFields);
+                break;
+            case "IFRAME_CopyLastKnowAddress":
+                btnTxt = "Copy Last Known Address";
+                $(btn).click(parent.CopyLastKnownAddressToSpouseFields);
+                break;
+            case "IFRAME_SubmitMOD":
+                btnTxt = "Submit MOD/NOK/LETTERS";
+                $(btn).click(parent.ExecuteMOD);
+                break;
+            case "IFRAME_UpdateVetData":
+                btnTxt = "Update Veteran Data";
+                $(btn).click(parent.RetrieveVetInfo);
+                break;
+            case "WebResource_Download686c":
+                btnTxt = "Download PDF";
+                $(btn).click({ action: "download", formatType: "PDF" }, parent.Download686c);
+                break;
+            case "WebResource_Preview686c":
+                btnTxt = "Download Word";
+                $(btn).click({ action: "download", formatType: "Word" }, parent.Download686c);
+                break;
+        }
+
+        btn.text(btnTxt);
+
+        // Needed for screen readers
+        btn.attr('alt', btnTxt); 
+        btn.attr('type', 'button');
+        btr.attr('aria-label', btnTxt);
+    })
+</script>
+<meta charset="utf-8">
+ </head>
+    <body onfocusout="parent.setEmailRange();" style="overflow-wrap: break-word;">
+        <button tabindex="1" id="embeddedbutton">Button Name</button>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginAssemblyId="8df0ead6-d553-4c20-8cf3-5e1deeb7058e" CustomizationLevel="1">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/UDOWorkflows-8DF0EAD6-D553-4C20-8CF3-5E1DEEB7058E/UDOWorkflows.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="UDO.Workflows.GetInteraction, UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginTypeId="859a6d01-8651-41a7-b7c4-ceda509fb563" Name="UDO.Workflows.GetInteraction">
+      <FriendlyName>b4b082f9-9017-4219-846a-274dd9f165cf</FriendlyName>
+      <WorkflowActivityGroupName>UDO.Workflows (1.0.0.0)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="UDO.Workflows.GetWorkflowContext, UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginTypeId="6a1582ad-8b0a-4045-b81c-0ace7b2b3a11" Name="UDO.Workflows.GetWorkflowContext">
+      <FriendlyName>d84a5826-e85f-4948-8b9e-0b11c1020066</FriendlyName>
+      <WorkflowActivityGroupName>UDO.Workflows (1.0.0.0)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="UDO.Workflows.RetrieveContactBySSN, UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginTypeId="402e2f26-fef1-4e84-a97f-2f25889865a9" Name="UDO.Workflows.RetrieveContactBySSN">
+      <FriendlyName>575aaf08-2e1b-4d90-b108-7f2b1e7489b5</FriendlyName>
+      <WorkflowActivityGroupName>UDO.Workflows (1.0.0.0)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="UDO.Workflows.RetrieveQueueByName, UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginTypeId="68b1536f-69a2-4224-9778-0866a0594dda" Name="UDO.Workflows.RetrieveQueueByName">
+      <FriendlyName>6f1cfc03-92e3-41b6-959f-88bb61ce6759</FriendlyName>
+      <WorkflowActivityGroupName>UDO.Workflows (1.0.0.0)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="UDO.Workflows.RetrieveTeamByName, UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginTypeId="d228df29-af17-41a6-a297-40d085787bcf" Name="UDO.Workflows.RetrieveTeamByName">
+      <FriendlyName>d80f13c5-e2f5-422b-8619-e3b544efe3d0</FriendlyName>
+      <WorkflowActivityGroupName>UDO.Workflows (1.0.0.0)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="UDO.Workflows.SetToFieldOnEmail, UDO.Workflows, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7a4bd9d17245a14b" PluginTypeId="cfbf4f2a-7e22-40f9-a5ab-95da5c81db7d" Name="UDO.Workflows.SetToFieldOnEmail">
+      <FriendlyName>03d00abc-7112-4a5b-a29e-610b15c7a0d4</FriendlyName>
+      <WorkflowActivityGroupName>UDO.Workflows (1.0.0.0)</WorkflowActivityGroupName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>

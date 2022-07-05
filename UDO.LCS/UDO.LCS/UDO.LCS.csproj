@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B77BEE2-C895-4F07-97BF-D00DF7C1BD1C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>UDO.LCS</RootNamespace>
+    <AssemblyName>UDO.LCS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="new_jquery_1.9.1.min" />
+    <None Include="spkl.json" />
+    <None Include="UploaderMapping.config" />
+    <None Include="va_Jquery_1.4.2" />
+    <None Include="va_jquery_1.6.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="crme_jquery1.4.1vsdoc.js" />
+    <Content Include="crme_REST.js" />
+    <Content Include="crme_SDK.REST.js" />
+    <Content Include="crme_style.css" />
+    <Content Include="new_crm_udo_vt_getAttribs.js" />
+    <Content Include="new_LoadReport.js" />
+    <Content Include="new_testctrl.html" />
+    <Content Include="udonotes\fetchtable.css" />
+    <Content Include="udonotes\fetchtable.js" />
+    <Content Include="udonotes\viewnotes.html" />
+    <Content Include="udonotes\XrmSvcToolkit.js" />
+    <Content Include="udo\scripts\js\pcrScripts.js" />
+    <Content Include="udo\scripts\jurisdictions_routing.html" />
+    <Content Include="udo\Styles\announcements.css" />
+    <Content Include="udo\UD\css\template.css" />
+    <Content Include="udo\UD\Scripts\CrmRestKit_2011.js" />
+    <Content Include="udo\UD\Scripts\jquery_1.10.2.min.js" />
+    <Content Include="udo\UD\Scripts\udo_pcrScripts.js" />
+    <Content Include="udo\walkin\carltontest.html" />
+    <Content Include="udo\walkin\css\bootstrap.css" />
+    <Content Include="udo\walkin\css\bootstrap.min.css" />
+    <Content Include="udo\walkin\css\bootstrap2_toggle.css" />
+    <Content Include="udo\walkin\css\bootstrap_flatly.css" />
+    <Content Include="udo\walkin\css\bootstrap_flatly.min.css" />
+    <Content Include="udo\walkin\css\bootstrap_more.css" />
+    <Content Include="udo\walkin\css\bootstrap_theme.css" />
+    <Content Include="udo\walkin\css\bootstrap_theme.min.css" />
+    <Content Include="udo\walkin\css\magicsuggest.css" />
+    <Content Include="udo\walkin\css\walkin.css" />
+    <Content Include="udo\walkin\jqueryui\external\jquery\jquery.js" />
+    <Content Include="udo\walkin\jqueryui\index.html" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.css" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.js" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.min.css" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.min.js" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.structure.css" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.structure.min.css" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.theme.css" />
+    <Content Include="udo\walkin\jqueryui\jquery_ui.theme.min.css" />
+    <Content Include="udo\walkin\js\bootstrap.js" />
+    <Content Include="udo\walkin\js\bootstrap.min.js" />
+    <Content Include="udo\walkin\js\bootstrap2_toggle.js" />
+    <Content Include="udo\walkin\js\carltontest.js" />
+    <Content Include="udo\walkin\js\jquery.aria.js" />
+    <Content Include="udo\walkin\js\jquery.magicsuggest.js" />
+    <Content Include="udo\walkin\js\jquery.min.js" />
+    <Content Include="udo\walkin\js\jquery.sortElements.js" />
+    <Content Include="udo\walkin\js\jquery.toXml.js" />
+    <Content Include="udo\walkin\js\jquery_3.1.1.js" />
+    <Content Include="udo\walkin\js\npm.js" />
+    <Content Include="udo\walkin\js\queues.js" />
+    <Content Include="udo\walkin\js\Sdk.AddToQueue.js" />
+    <Content Include="udo\walkin\js\Sdk.Create.js" />
+    <Content Include="udo\walkin\js\Sdk.Delete.js" />
+    <Content Include="udo\walkin\js\Sdk.ExecuteMultiple.js" />
+    <Content Include="udo\walkin\js\Sdk.Metadata.js" />
+    <Content Include="udo\walkin\js\Sdk.PickFromQueue.js" />
+    <Content Include="udo\walkin\js\Sdk.ReleaseToQueue.js" />
+    <Content Include="udo\walkin\js\Sdk.Retrieve.js" />
+    <Content Include="udo\walkin\js\Sdk.RetrieveAttribute.js" />
+    <Content Include="udo\walkin\js\Sdk.RouteTo.js" />
+    <Content Include="udo\walkin\js\Sdk.SetState.js" />
+    <Content Include="udo\walkin\js\Sdk.Soap.js" />
+    <Content Include="udo\walkin\js\Sdk.Soap.min.js" />
+    <Content Include="udo\walkin\js\Sdk.WhoAmI.js" />
+    <Content Include="udo\walkin\js\vetsearch.js" />
+    <Content Include="udo\walkin\js\walkinform.js" />
+    <Content Include="udo\walkin\js\XrmTable.Column.js" />
+    <Content Include="udo\walkin\js\XrmTable.Columns.js" />
+    <Content Include="udo\walkin\js\XrmTable.Constants.js" />
+    <Content Include="udo\walkin\js\XrmTable.js" />
+    <Content Include="udo\walkin\js\XrmTable.PagingInfo.js" />
+    <Content Include="udo\walkin\js\XrmTable.Table.js" />
+    <Content Include="udo\walkin\walkin.html" />
+    <Content Include="udo_abusiveCaller.html" />
+    <Content Include="udo_accountChange.html" />
+    <Content Include="udo_addressChange.html" />
+    <Content Include="udo_agentAttorneyRepresentation.html" />
+    <Content Include="udo_agentOrange.html" />
+    <Content Include="udo_aidAttendanceHousebound.html" />
+    <Content Include="udo_announcements.html" />
+    <Content Include="udo_announcements.js" />
+    <Content Include="udo_appealOpen.html" />
+    <Content Include="udo_appealPendingDROElection.html" />
+    <Content Include="udo_appealPendingTraditionalReviewElection.html" />
+    <Content Include="udo_appeals.html" />
+    <Content Include="udo_appealSmart.html" />
+    <Content Include="udo_apportionments.html" />
+    <Content Include="udo_award.js" />
+    <Content Include="udo_CADD_OnLoad.js" />
+    <Content Include="udo_CADD_OnSave.js" />
+    <Content Include="udo_calendar.html" />
+    <Content Include="udo_callScript.html" />
+    <Content Include="udo_champVA_Tricare.html" />
+    <Content Include="udo_ChangeOfAddress.html" />
+    <Content Include="udo_chatsessionlog.js" />
+    <Content Include="udo_ClaimEstablishment.js" />
+    <Content Include="udo_claimestablishment_onload.js" />
+    <Content Include="udo_claimEstablishReOpenIncreaseDependantsAandA.html" />
+    <Content Include="udo_claimFullyDeveloped.html" />
+    <Content Include="udo_claimOpenNoTrackedItems.html" />
+    <Content Include="udo_claimOpenOpenTrackedItems.html" />
+    <Content Include="udo_claimOpenTrackItemsClosed.html" />
+    <Content Include="udo_claims.html" />
+    <Content Include="udo_claims.js" />
+    <Content Include="udo_claimsCombined.html" />
+    <Content Include="udo_claimsDocumentDownload.html" />
+    <Content Include="udo_claimStatus.html" />
+    <Content Include="udo_claimStatus.js" />
+    <Content Include="udo_COLA.html" />
+    <Content Include="udo_combinedEvaltionCalculation.html" />
+    <Content Include="udo_CommonFunctions.js" />
+    <Content Include="udo_ComputerDownScript.html" />
+    <Content Include="udo_Contact.js" />
+    <Content Include="udo_correspondenceforms_RequestforForms.html" />
+    <Content Include="udo_correspondenceforms_VVALetters.html" />
+    <Content Include="udo_countrylist.html" />
+    <Content Include="udo_CreateNoteProcess.js" />
+    <Content Include="udo_CrmRestKit2011.js" />
+    <Content Include="udo_ctrlkeytest.html" />
+    <Content Include="udo_customactionloading.html" />
+    <Content Include="udo_customaction_onload.js" />
+    <Content Include="udo_dd214.html" />
+    <Content Include="udo_DeathPension_AA_Housebound.html" />
+    <Content Include="udo_decisionPhase.html" />
+    <Content Include="udo_dependent.js" />
+    <Content Include="udo_DependentPayments.html" />
+    <Content Include="udo_DependentPayments.js" />
+    <Content Include="udo_DirectDeposit.html" />
+    <Content Include="udo_directExpressDebitMasterCard.html" />
+    <Content Include="udo_displayVVADoc.html" />
+    <Content Include="udo_download.js" />
+    <Content Include="udo_eBenefitsGeneralInfo.html" />
+    <Content Include="udo_eBenefitsScript.html" />
+    <Content Include="udo_eBenefitsScripts.html" />
+    <Content Include="udo_eBenefitsScripts2.html" />
+    <Content Include="udo_education.html" />
+    <Content Include="udo_embeddedbutton.html" />
+    <Content Include="udo_embeddedbutton.js" />
+    <Content Include="udo_emergency.htm" />
+    <Content Include="udo_EmergencyPageSilverlight.html" />
+    <Content Include="udo_emergencysilver.js" />
+    <Content Include="udo_fiduciary.html" />
+    <Content Include="udo_FNOD.html" />
+    <Content Include="udo_FNOD_BurialPlot.html" />
+    <Content Include="udo_FNOD_DeathRelatedChecklist.html" />
+    <Content Include="udo_FNOD_DIC.html" />
+    <Content Include="udo_FNOD_Flag.html" />
+    <Content Include="udo_FNOD_HeadStone.html" />
+    <Content Include="udo_FNOD_OverseasCemetaries.html" />
+    <Content Include="udo_FNOD_WidowsPension.html" />
+    <Content Include="udo_getVVAURL.js" />
+    <Content Include="udo_hidddenEntityId.html" />
+    <Content Include="udo_idVerification.html" />
+    <Content Include="udo_ie11test.js" />
+    <Content Include="udo_incomeVerificationMatch.html" />
+    <Content Include="udo_insurance.html" />
+    <Content Include="udo_Interaction.js" />
+    <Content Include="udo_IRISNecessary.html" />
+    <Content Include="udo_ITFPeoplelist.html" />
+    <Content Include="udo_ivm.html" />
+    <Content Include="udo_jquery1.10.2.min.js" />
+    <Content Include="udo_jquery_1.9.1.min.js" />
+    <Content Include="udo_json2.js" />
+    <Content Include="udo_JurisdictionAndRouting.html" />
+    <Content Include="udo_LetterRequest_RepeatCaller.html" />
+    <Content Include="udo_LettersButtonSR.js" />
+    <Content Include="udo_letterspeoplelist.html" />
+    <Content Include="udo_letter_onload.js" />
+    <Content Include="udo_letter_onsave.js" />
+    <Content Include="udo_loanGuarantyIssues.html" />
+    <Content Include="udo_medical.html" />
+    <Content Include="udo_medicalFosterHomeCoordinator.html" />
+    <Content Include="udo_medical_eligibility.html" />
+    <Content Include="udo_medical_FeeBasis.html" />
+    <Content Include="udo_medical_medicalCenterDebts.html" />
+    <Content Include="udo_medical_patientAdvocate.html" />
+    <Content Include="udo_medical_Prescriptions.html" />
+    <Content Include="udo_nationalCemeteriesAdmin.html" />
+    <Content Include="udo_noscript.html" />
+    <Content Include="udo_notes_summary.html" />
+    <Content Include="udo_notes_ui.html" />
+    <Content Include="udo_notes_ui.js" />
+    <Content Include="udo_notificationPhase.html" />
+    <Content Include="udo_noVSO.html" />
+    <Content Include="udo_otherVABenefits_adaptiveHousing.html" />
+    <Content Include="udo_otherVABenefits_ClothingAllowance.html" />
+    <Content Include="udo_otherVABenefits_VehicleAllowance.html" />
+    <Content Include="udo_payDateEffectiveDate.html" />
+    <Content Include="udo_Payments.html" />
+    <Content Include="udo_Payments.js" />
+    <Content Include="udo_PaymentSmart.html" />
+    <Content Include="udo_PaymentsNoPayeeSelected.html" />
+    <Content Include="udo_payments_debts.html" />
+    <Content Include="udo_payments_debtsDMC.html" />
+    <Content Include="udo_payments_debtsNonRecieptCheckTracer.html" />
+    <Content Include="udo_pcrScripts.js" />
+    <Content Include="udo_PCT_QueueItem.js" />
+    <Content Include="udo_peoplelauncher.html" />
+    <Content Include="udo_peoplelist.html" />
+    <Content Include="udo_PersonSearch.html" />
+    <Content Include="udo_popup.js" />
+    <Content Include="udo_process.js" />
+    <Content Include="udo_processV2.js" />
+    <Content Include="udo_red.html" />
+    <Content Include="udo_relatedrecords.html" />
+    <Content Include="udo_Request.js" />
+    <Content Include="udo_script_control.js" />
+    <Content Include="udo_SDK.JQuery.js" />
+    <Content Include="udo_SelectRequest.html" />
+    <Content Include="udo_SelectRequest.js" />
+    <Content Include="udo_servicerequestcode.js" />
+    <Content Include="udo_servicerequestonload.js" />
+    <Content Include="udo_servicerequestonsave.js" />
+    <Content Include="udo_ServiceRequestPayees.html" />
+    <Content Include="udo_specialIsssues_WomenVets.html" />
+    <Content Include="udo_specialIssues.html" />
+    <Content Include="udo_specialIssues_elderlyVeterans.html" />
+    <Content Include="udo_specialIssues_Homeless.html" />
+    <Content Include="udo_specialIssues_minorityVets.html" />
+    <Content Include="udo_specialIssues_NativeAmericanVets.html" />
+    <Content Include="udo_specialIssues_OIF_OEF.html" />
+    <Content Include="udo_specialIssues_Outreach.html" />
+    <Content Include="udo_specialIssues_POW.html" />
+    <Content Include="udo_specialIssues_PTSD.html" />
+    <Content Include="udo_suicideCall.html" />
+    <Content Include="udo_tabcontrol.html" />
+    <Content Include="udo_tabcontrolSS.html" />
+    <Content Include="udo_tag.js" />
+    <Content Include="udo_tags.html" />
+    <Content Include="udo_tcal.css" />
+    <Content Include="udo_tcal.js" />
+    <Content Include="udo_template.css" />
+    <Content Include="udo_TestPayments.html" />
+    <Content Include="udo_TestPayments.js" />
+    <Content Include="udo_testss.js" />
+    <Content Include="udo_ThreatCall_bombThreat.html" />
+    <Content Include="udo_threatCall_physicalThreat.html" />
+    <Content Include="udo_UDO.Claims.Payments.js" />
+    <Content Include="udo_udo_LinkDependentPayments.js" />
+    <Content Include="udo_Utility.js" />
+    <Content Include="udo_VBMS.js" />
+    <Content Include="udo_VBMSDocumentDownload.html" />
+    <Content Include="udo_VBMSeFolder.js" />
+    <Content Include="udo_vbms_lettergeneration.js" />
+    <Content Include="udo_Veteran.js" />
+    <Content Include="udo_vocationalRehab.html" />
+    <Content Include="udo_VSO.html" />
+    <Content Include="udo_VSO_Combined.html" />
+    <Content Include="udo_VSO_f21_22.html" />
+    <Content Include="udo_VSO_notPSO.html" />
+    <Content Include="udo_VSO_PSO.html" />
+    <Content Include="udo_walkin.js" />
+    <Content Include="udo_walkinregistration.html" />
+    <Content Include="udo_WalkIn_ResolutionComplete.html" />
+    <Content Include="va_Actions.js" />
+    <Content Include="va_Actions_Deprecated.js" />
+    <Content Include="va_AddressValidationService.js" />
+    <Content Include="va_AddressWebService.js" />
+    <Content Include="va_AwardsSearch.js" />
+    <Content Include="va_BenefitClaimWebService.js" />
+    <Content Include="va_BirlsSearch.js" />
+    <Content Include="va_BlankFormsButton.js" />
+    <Content Include="va_CallScriptOnLoad.js" />
+    <Content Include="va_CCallWrapper.js" />
+    <Content Include="va_ChangeOfAddressOnLoad.js" />
+    <Content Include="va_ChangeofAddressOnSave.js" />
+    <Content Include="va_ClaimantWebService.js" />
+    <Content Include="va_ClaimsSearch.js" />
+    <Content Include="va_CommonFunctions.js" />
+    <Content Include="va_CommonFunctions_VIP.js" />
+    <Content Include="va_ContactHelper.js" />
+    <Content Include="va_ContactPCRForm_VIP.js" />
+    <Content Include="va_Context.js" />
+    <Content Include="va_Context_Search.js" />
+    <Content Include="va_CorpMinSearch.js" />
+    <Content Include="va_CorpSearch.js" />
+    <Content Include="va_CRMRestKit.js" />
+    <Content Include="va_CrmRestKit_2011.js" />
+    <Content Include="va_CRMRestKit_New.js" />
+    <Content Include="va_CRM_core_style.css" />
+    <Content Include="va_crm_udo_emergency_header_text.html" />
+    <Content Include="va_crm_udo_emergency_links_text.html" />
+    <Content Include="va_crm_udo_vt_getAttribs.js" />
+    <Content Include="va_Date.js" />
+    <Content Include="va_DisableButtonSR.js" />
+    <Content Include="va_EbenefitsBnftClaimStatusService.js" />
+    <Content Include="va_Emergency.html" />
+    <Content Include="va_Emergency.js" />
+    <Content Include="va_emergencyOnLoad.js" />
+    <Content Include="va_EnvironmentConfiguration.js" />
+    <Content Include="va_FNOD.js" />
+    <Content Include="va_FNOD_OnLoad.js" />
+    <Content Include="va_FNOD_OnSave.js" />
+    <Content Include="va_GeneralInfoSearch.js" />
+    <Content Include="va_GetSystemUserProperties.js" />
+    <Content Include="va_holidays.js" />
+    <Content Include="va_IntentToFile.js" />
+    <Content Include="va_IntentToFileWebService.js" />
+    <Content Include="va_jquery_1.10.2.min.js" />
+    <Content Include="va_JSON2.js" />
+    <Content Include="va_LettersButtonSR.js" />
+    <Content Include="va_LettersButtonSrVbms.js" />
+    <Content Include="va_LettersButtonVAI.js" />
+    <Content Include="va_MapDClaimManagementService.js" />
+    <Content Include="va_MapDContentionService.js" />
+    <Content Include="va_MapDDevelopmentNotesService.js" />
+    <Content Include="va_MapDDocumentService.js" />
+    <Content Include="va_MapDStandardDataService.js" />
+    <Content Include="va_MapDTrackedItemService.js" />
+    <Content Include="va_MapDWorkAssignmentService.js" />
+    <Content Include="va_MapDWorkLoadServiceService.js" />
+    <Content Include="va_Message.js" />
+    <Content Include="va_openNewPhoneCall.js" />
+    <Content Include="va_PathwaysSearch.js" />
+    <Content Include="va_PathwaysWebService.js" />
+    <Content Include="va_PaymentHistoryService.js" />
+    <Content Include="va_PhoneAndContactSharedFunctions_VIP.js" />
+    <Content Include="va_PhoneAndContactSharedFunctions_VIP_Search.js" />
+    <Content Include="va_PhoneCall.js" />
+    <Content Include="va_PhoneCallGlobalObjects.js" />
+    <Content Include="va_PhoneCalls_DispositionControls.js" />
+    <Content Include="va_PhoneCall_OnLoad_VIP.js" />
+    <Content Include="va_PhoneCall_OnSave_VIP.js" />
+    <Content Include="va_Progress.htm" />
+    <Content Include="va_QueryLogOnUnload.js" />
+    <Content Include="va_RatingService.js" />
+    <Content Include="va_RibbonActions.js" />
+    <Content Include="va_Search.js" />
+    <Content Include="va_Search_OnLoad.js" />
+    <Content Include="va_servicerequestcode.js" />
+    <Content Include="va_servicerequestonsave.js" />
+    <Content Include="va_ShareStandardDataService.js" />
+    <Content Include="va_ShowMessage.js" />
+    <Content Include="va_Silverlight.js" />
+    <Content Include="va_StationOfJurisdiction.js" />
+    <Content Include="va_TestJScript1.js" />
+    <Content Include="va_udoemergency.js" />
+    <Content Include="va_udoemergencynew.js" />
+    <Content Include="va_udoEmergencypage.html" />
+    <Content Include="va_udoemergencypagenew.html" />
+    <Content Include="va_UserOnload.js" />
+    <Content Include="va_Utilities.js" />
+    <Content Include="va_VACOLSAppealsService.js" />
+    <Content Include="va_VacolsSearch.js" />
+    <Content Include="va_VAI_OnLoad.js" />
+    <Content Include="va_VAI_OnSave.js" />
+    <Content Include="va_VAResponseXml.js" />
+    <Content Include="va_VeteranAppealInfoByAppealKey.js" />
+    <Content Include="va_VeteranAwardInformation.js" />
+    <Content Include="va_veteranbenefitclaimhistoryinformation.js" />
+    <Content Include="va_VeteranBenefitClaimInformation.js" />
+    <Content Include="va_VeteranBenefitClaimStatusInformation.js" />
+    <Content Include="va_VeteranContentions.js" />
+    <Content Include="va_VeteranGeneralInfoByAward.js" />
+    <Content Include="va_VeteranGeneralInformation.js" />
+    <Content Include="va_VeteranGeneralInformationPK.js" />
+    <Content Include="va_VeteranIdentifyIndividual.js" />
+    <Content Include="va_VeteranIncomeInfoByAward.js" />
+    <Content Include="va_VeteranOtherAwardInfoByAward.js" />
+    <Content Include="va_VetRecordWebService.js" />
+    <Content Include="va_vrm_udo_search_button_onLoad.js" />
+    <Content Include="va_vrm_udo_test_script.js" />
+    <Content Include="va_vrm_udo_vip_onload.js" />
+    <Content Include="va_WebServices.js" />
+    <Content Include="va_XmlUtilities.js" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

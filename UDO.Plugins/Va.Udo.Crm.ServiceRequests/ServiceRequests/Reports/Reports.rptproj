@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ToolsVersion="2.0">
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD50cnVlPC9FbmFibGVkPg0KICA8UHJvamVjdE5hbWU+Jmx0O1Byb2plY3QgTG9jYXRpb24gSW4gRGF0YWJhc2UmZ3Q7PC9Qcm9qZWN0TmFtZT4NCiAgPEF1eFBhdGg+Jmx0O1NvdXJjZSBDb250cm9sIERhdGFiYXNlJmd0OzwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD4mbHQ7TG9jYWwgQmluZGluZyBSb290IG9mIFByb2plY3QmZ3Q7PC9Mb2NhbFBhdGg+DQogIDxQcm92aWRlcj5KYXp6IFNvdXJjZSBDb250cm9sIFByb3ZpZGVyOntBQzg4MTBDNS1GNkU3LTQxNDUtODNBQS1GREZGRjZGNTUwNkR9PC9Qcm92aWRlcj4NCjwvU291cmNlQ29udHJvbEluZm8+</State>
+  <DataSources>
+    <ProjectItem>
+      <Name>MSCRM_DataSource.rds</Name>
+      <FullPath>MSCRM_DataSource.rds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSets />
+  <Reports>
+    <ProjectItem>
+      <Name>119 - Report of Contact - UDO.rdl</Name>
+      <FullPath>119 - Report of Contact - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>27-0820 - Report of General Information - UDO.rdl</Name>
+      <FullPath>27-0820 - Report of General Information - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>27-0820a - Report of First Notice of Death - UDO.rdl</Name>
+      <FullPath>27-0820a - Report of First Notice of Death - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>27-0820d - Report of Non-Receipt of Payment - UDO.rdl</Name>
+      <FullPath>27-0820d - Report of Non-Receipt of Payment - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>27-0820f - Report of Month of Death - UDO.rdl</Name>
+      <FullPath>27-0820f - Report of Month of Death - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Amount Letter Gross - UDO.rdl</Name>
+      <FullPath>Amount Letter Gross - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Blank Letter - UDO.rdl</Name>
+      <FullPath>Blank Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>CADD Analysis Report.rdl</Name>
+      <FullPath>CADD Analysis Report.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Commissary Letter - UDO.rdl</Name>
+      <FullPath>Commissary Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Commissary Letter Surviving Spouse - UDO.rdl</Name>
+      <FullPath>Commissary Letter Surviving Spouse - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Commissary Letter with Future Exam - UDO.rdl</Name>
+      <FullPath>Commissary Letter with Future Exam - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Death Benefits Letter - UDO.rdl</Name>
+      <FullPath>Death Benefits Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Disability Breakdown Letter - UDO.rdl</Name>
+      <FullPath>Disability Breakdown Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fax Cover Sheet - UDO.rdl</Name>
+      <FullPath>Fax Cover Sheet - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Income Amount Letter - UDO.rdl</Name>
+      <FullPath>Income Amount Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Informal Claims Letter - AB10 - UDO.rdl</Name>
+      <FullPath>Informal Claims Letter - AB10 - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOD Memorandum - UDO.rdl</Name>
+      <FullPath>MOD Memorandum - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Multiple Payment Letter - UDO.rdl</Name>
+      <FullPath>Multiple Payment Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>No Benefits Letter - UDO.rdl</Name>
+      <FullPath>No Benefits Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOK Letter - UDO.rdl</Name>
+      <FullPath>NOK Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Preference Letters - UDO.rdl</Name>
+      <FullPath>Preference Letters - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Property Tax DMV Registration - MT - UDO.rdl</Name>
+      <FullPath>Property Tax DMV Registration - MT - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Property Tax Exemption - CA - LA - UDO.rdl</Name>
+      <FullPath>Property Tax Exemption - CA - LA - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Real Estate - License Fee Tax Exemption - UDO.rdl</Name>
+      <FullPath>Real Estate - License Fee Tax Exemption - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Service Verification - UDO.rdl</Name>
+      <FullPath>Service Verification - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Sub_Disability Breakdown Report - UDO.rdl</Name>
+      <FullPath>Sub_Disability Breakdown Report - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Summary of Benefits Surviving Spouse Letter - UDO.rdl</Name>
+      <FullPath>Summary of Benefits Surviving Spouse Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Summary of Benefits Veterans Letter - UDO.rdl</Name>
+      <FullPath>Summary of Benefits Veterans Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>UDO Entity Report Listing.rdl</Name>
+      <FullPath>UDO Entity Report Listing.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Veteran Percentage Letter - UDO.rdl</Name>
+      <FullPath>Veteran Percentage Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Veteran PT Letter - UDO.rdl</Name>
+      <FullPath>Veteran PT Letter - UDO.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>JD Powers(Broome Report) -UDO(UDO Only) - GESDER version.rdl</Name>
+      <FullPath>JD Powers(Broome Report) -UDO(UDO Only) - GESDER version.rdl</FullPath>
+    </ProjectItem>
+  </Reports>
+  <Configurations>
+    <Configuration>
+      <Name>Debug</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\Debug</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>Reports</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>DebugLocal</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\DebugLocal</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>Reports</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Release</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\Release</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>Reports</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

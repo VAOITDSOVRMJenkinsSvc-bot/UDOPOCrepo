@@ -1,0 +1,178 @@
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Created CrmConnectionManager 
+Microsoft.Xrm.Tooling.CrmConnectControl Error: 2 : Error Message: SaveConfigToFile() - fail - C:\Users\Jestrada\AppData\Roaming\Microsoft\LoginControlTester\Default_LoginControlTester.exe
+Source	: Microsoft.Xrm.Tooling.CrmConnectControl
+Method	: SaveConfigToFile
+Date	: 5/5/2017
+Time	: 7:03:25 PM
+Error	: Object reference not set to an instance of an object.
+Stack Trace	: at Microsoft.Xrm.Tooling.CrmConnectControl.CrmConnectionManager.SaveConfigToFile(Dictionary`2 configToSave)
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Verbose: 16 : Error Message: Failed to get credentials from Windows Vault
+Source	: Microsoft.Xrm.Tooling.CrmConnectControl
+Method	: ReadCredentials
+Date	: 5/5/2017
+Time	: 7:03:25 PM
+Error	: Failed to read the saved credentials.
+Stack Trace	: at Microsoft.Xrm.Tooling.CrmConnectControl.Utility.CredentialManager.ReadCredentials(String target)
+   at Microsoft.Xrm.Tooling.CrmConnectControl.CrmConnectionManager.LoadConfigFromFile(Boolean readLocalFirst)
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : CheckBoxState = False
+Microsoft.Xrm.Tooling.CrmConnectControl Error: 2 : Error Message: Exception logged by the CRM Connector control:
+Source	: Not Provided
+Method	: Not Provided
+Date	: 5/5/2017
+Time	: 7:03:25 PM
+Error	: A CRM server name is required.
+Parameter name: CrmServerName
+Stack Trace	: Not Provided
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : You must specify a CRM Server to connect too
+Microsoft.Xrm.Tooling.CrmConnectControl Verbose: 16 : Error Message: Failed to get credentials from Windows Vault
+Source	: Microsoft.Xrm.Tooling.CrmConnectControl
+Method	: ReadCredentials
+Date	: 5/5/2017
+Time	: 7:03:25 PM
+Error	: Failed to read the saved credentials.
+Stack Trace	: at Microsoft.Xrm.Tooling.CrmConnectControl.Utility.CredentialManager.ReadCredentials(String target)
+   at Microsoft.Xrm.Tooling.CrmConnectControl.CrmConnectionManager.LoadConfigFromFile(Boolean readLocalFirst)
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : CheckBoxState = False
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : CheckBoxState = True
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : SetConfigKeyInfo, Key Count = 13
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Using CRM deployment type Prem
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : SSL Connection = False
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Connecting to the Microsoft Dynamics CRM server...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Initializing UII core connections to Microsoft Dynamics CRM...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Discovery URI is = http://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/XRMServices/2011/Discovery.svc
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Connecting to the Microsoft Dynamics CRM server...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Retrieving organizations from CRM...
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : DiscoverOrganizations - Initializing Discovery Server Object with http://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/XRMServices/2011/Discovery.svc
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Error: 2 : ERROR REQUESTING Token FROM THE Authentication context
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Error: 2 : Source	: mscorlib
+Method	: ThrowIfExceptional
+Date	: 5/5/2017
+Time	: 7:03:51 PM
+Error	: One or more errors occurred.
+Stack Trace	: at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.Xrm.Tooling.Connector.CrmWebSvc.ExecuteAuthenticateServiceProcess(Uri serviceUrl, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, PromptBehavior promptBehavior, String tokenCachePath, Boolean isOnPrem, String authority, Uri& targetServiceUrl, AuthenticationContext& authContext, String& resource)
+======================================================================================================================
+Inner Exception Level 1	: 
+Source	: Microsoft.IdentityModel.Clients.ActiveDirectory
+Method	: Close
+Date	: 5/5/2017
+Time	: 7:03:51 PM
+Error	: Object reference not set to an instance of an object.
+Stack Trace	: at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebResponseWrapper.Close()
+   at Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationParameters.<CreateFromResourceUrlCommonAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationParameters.<CreateFromResourceUrlAsync>d__8.MoveNext()
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Error: 2 : Error Message: Exception logged by the CRM Connector control:
+Source	: mscorlib
+Method	: ThrowIfExceptional
+Date	: 5/5/2017
+Time	: 7:03:51 PM
+Error	: One or more errors occurred.
+Stack Trace	: at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.Xrm.Tooling.Connector.CrmWebSvc.ExecuteAuthenticateServiceProcess(Uri serviceUrl, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, PromptBehavior promptBehavior, String tokenCachePath, Boolean isOnPrem, String authority, Uri& targetServiceUrl, AuthenticationContext& authContext, String& resource)
+   at Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DiscoverOrganizations(Uri discoveryServiceUri, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, PromptBehavior promptBehavior, String tokenCachePath, Boolean isOnPrem, String authority)
+   at Microsoft.Xrm.Tooling.Connector.CrmServiceClient.DiscoverOrganizations(Uri discoveryServiceUri, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, String tokenCachePath, Boolean isOnPrem, String authority, PromptBehavior promptBehavior)
+   at Microsoft.Xrm.Tooling.CrmConnectControl.CrmConnectionManager.ValidateServerConnection(CrmOrgByServer selectedOrg)
+======================================================================================================================
+Inner Exception Level 1	: 
+Source	: Microsoft.IdentityModel.Clients.ActiveDirectory
+Method	: Close
+Date	: 5/5/2017
+Time	: 7:03:51 PM
+Error	: Object reference not set to an instance of an object.
+Stack Trace	: at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebResponseWrapper.Close()
+   at Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationParameters.<CreateFromResourceUrlCommonAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationParameters.<CreateFromResourceUrlAsync>d__8.MoveNext()
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Error: 2 : Error Message: Can't connect to Microsoft Dynamics CRM - internalcrm.
+Source	: mscorlib
+Method	: ThrowIfExceptional
+Date	: 5/5/2017
+Time	: 7:03:51 PM
+Error	: One or more errors occurred.
+Stack Trace	: at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Microsoft.Xrm.Tooling.Connector.CrmWebSvc.ExecuteAuthenticateServiceProcess(Uri serviceUrl, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, PromptBehavior promptBehavior, String tokenCachePath, Boolean isOnPrem, String authority, Uri& targetServiceUrl, AuthenticationContext& authContext, String& resource)
+   at Microsoft.Xrm.Tooling.Connector.CrmWebSvc.DiscoverOrganizations(Uri discoveryServiceUri, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, PromptBehavior promptBehavior, String tokenCachePath, Boolean isOnPrem, String authority)
+   at Microsoft.Xrm.Tooling.Connector.CrmServiceClient.DiscoverOrganizations(Uri discoveryServiceUri, ClientCredentials clientCredentials, UserIdentifier user, String clientId, Uri redirectUri, String tokenCachePath, Boolean isOnPrem, String authority, PromptBehavior promptBehavior)
+   at Microsoft.Xrm.Tooling.CrmConnectControl.CrmConnectionManager.ValidateServerConnection(CrmOrgByServer selectedOrg)
+======================================================================================================================
+Inner Exception Level 1	: 
+Source	: Microsoft.IdentityModel.Clients.ActiveDirectory
+Method	: Close
+Date	: 5/5/2017
+Time	: 7:03:51 PM
+Error	: Object reference not set to an instance of an object.
+Stack Trace	: at Microsoft.IdentityModel.Clients.ActiveDirectory.HttpWebResponseWrapper.Close()
+   at Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationParameters.<CreateFromResourceUrlCommonAsync>d__0.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationParameters.<CreateFromResourceUrlAsync>d__8.MoveNext()
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : SetConfigKeyInfo, Key Count = 13
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Connecting to the Microsoft Dynamics CRM server...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Using CRM deployment type Prem
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : SSL Connection = True
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Discovery URI is = https://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/XRMServices/2011/Discovery.svc
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : DiscoverOrganizations - Initializing Discovery Server Object with https://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/XRMServices/2011/Discovery.svc
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : AuthenticateService - find authority with name https://adfs.np.crm.vrm.vba.va.gov/adfs/oauth2/authorize
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Initializing UII core connections to Microsoft Dynamics CRM...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Connecting to the Microsoft Dynamics CRM server...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Retrieving organizations from CRM...
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : DiscoverOrganizations - Discovery Server Get Orgs Call Complete - Elapsed:00:01:00.0921364
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Found 3 Org(s)
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : looking for Org = internalcrm in the results from CRM's Discovery server list.
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Connecting to the Microsoft Dynamics CRM server...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Using CRM deployment type Prem
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : SSL Connection = True
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Initializing UII core connections to Microsoft Dynamics CRM...
+Microsoft.Xrm.Tooling.CrmConnectControl Verbose: 16 : DiscoveryServer indicated organization service location = https://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/UDODEV/XRMServices/2011/Organization.svc
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Organization Service URI is = https://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/UDODEV/XRMServices/2011/Organization.svc
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Validating connection to Microsoft Dynamics CRM...
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Validating connection to Microsoft Dynamics CRM...
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : Process is bypassed.. OrgDetail object was provided
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Verbose: 16 : DiscoveryServer indicated organization service location = https://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/UDODEV/XRMServices/2011/Organization.svc
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : Organization Service URI is = https://internalcrm.crmo15.dev.crm.vrm.vba.va.gov/UDODEV/XRMServices/2011/Organization.svc
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : ConnectAndInitCrmOrgService - Initializing Organization Service Object
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : ConnectAndInitCrmOrgService - Requesting connection to Org with CRM Version: 7.0.3.157
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : AuthenticateService - find authority with name https://adfs.np.crm.vrm.vba.va.gov/adfs/oauth2/authorize/
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : ConnectAndInitCrmOrgService - Proxy created, total elapsed time: 00:00:00.0190002
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : Beginning Validation of CRM Connection
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Information: 8 : Validation of CRM Connection Complete, total duration: 00:00:00.1470247
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Verbose: 16 : New Batch Manager Created, Max #of Batches:50000, Max #of RequestsPerBatch:5000
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : Login Status in Connect is =  Connection to CRM Complete
+Microsoft.Xrm.Tooling.CrmConnectControl Verbose: 16 : Error Message: Failed to remove unneeded credentials from Windows Vault
+Source	: Microsoft.Xrm.Tooling.CrmConnectControl
+Method	: DeleteCredentials
+Date	: 5/5/2017
+Time	: 7:07:42 PM
+Error	: Unable to delete the saved credentials.
+Stack Trace	: at Microsoft.Xrm.Tooling.CrmConnectControl.Utility.CredentialManager.DeleteCredentials(String target, Boolean deletePasswordOnly)
+   at Microsoft.Xrm.Tooling.CrmConnectControl.CrmConnectionManager.SaveConfigToFile(Dictionary`2 configToSave)
+======================================================================================================================
+
+Microsoft.Xrm.Tooling.CrmConnectControl Information: 8 : CheckBoxState = True
+Microsoft.Xrm.Tooling.Connector.CrmServiceClient Verbose: 16 : Executed Command - RetrieveEntity : GetEntityMetadata : duration: 00:00:00.0410046

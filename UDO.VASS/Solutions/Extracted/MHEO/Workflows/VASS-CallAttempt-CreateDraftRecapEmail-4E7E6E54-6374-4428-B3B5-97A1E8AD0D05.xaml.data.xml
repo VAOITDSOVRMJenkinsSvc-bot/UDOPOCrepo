@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{4e7e6e54-6374-4428-b3b5-97a1e8ad0d05}" Name="VASS - Call Attempt - Create Draft Recap Email">
+  <XamlFileName>/Workflows/VASS-CallAttempt-CreateDraftRecapEmail-4E7E6E54-6374-4428-B3B5-97A1E8AD0D05.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>1</OnDemand>
+  <TriggerOnCreate>1</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>1</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>10.02.2019.01</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>udo_outboundcallattempt</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="VASS - Call Attempt - Create Draft Recap Email" />
+  </LocalizedNames>
+</Workflow>

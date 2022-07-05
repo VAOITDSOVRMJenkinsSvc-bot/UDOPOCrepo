@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="CRM">
+      <DataSourceReference>MSCRM_DataSource</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>dfce9e8d-9d73-4879-9f31-eefbf42c2b48</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="FaxCoverSheet">
+      <Query>
+        <DataSourceName>CRM</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@LetterGenerationGUID">
+            <Value>=Parameters!LetterGenerationGUID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>SELECT udo_srfirstname AS ContactFirstName, 
+FaxDescription,
+udo_reqnumber,
+udo_srlastname AS ContactLastName,
+FaxPages,
+FaxNum
+FROM LetterGeneration
+WHERE udo_lettergenerationid = @LetterGenerationGUID</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ContactFirstName">
+          <DataField>ContactFirstName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxDescription">
+          <DataField>FaxDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_reqnumber">
+          <DataField>udo_reqnumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactLastName">
+          <DataField>ContactLastName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxPages">
+          <DataField>FaxPages</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxNum">
+          <DataField>FaxNum</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Image Name="VA_LOGO">
+            <Source>Embedded</Source>
+            <Value>VALOGO</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.92583in</Top>
+            <Left>0.68625in</Left>
+            <Height>1.3988in</Height>
+            <Width>1.35417in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>United States</Value>
+                    <Style>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>DEPARTMENT OF VETERANS AFFAIRS</Value>
+                    <Style>
+                      <FontSize>22pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.92583in</Top>
+            <Left>2.10987in</Left>
+            <Height>1.3988in</Height>
+            <Width>5.80555in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>FAX</Value>
+                    <Style>
+                      <FontFamily>Arial Black</FontFamily>
+                      <FontSize>48pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>2.53in</Top>
+            <Left>0.68625in</Left>
+            <Height>0.96875in</Height>
+            <Width>2.5in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>To:</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=StrConv(Fields!ContactFirstName.Value, vbProperCase)</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=StrConv(Fields!ContactLastName.Value, vbProperCase)</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Fax: </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FaxNum.Value</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox3</rd:DefaultName>
+            <Top>3.655in</Top>
+            <Left>0.68625in</Left>
+            <Height>1.48958in</Height>
+            <Width>3.42361in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>From: </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>VA National Call Center, 1-800-827-1000</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Univers</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Date: </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=FormatDateTime(Today(), DateFormat.ShortDate)</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Number of Pages: </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!FaxPages.Value</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>(including this cover sheet)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>3.655in</Top>
+            <Left>4.16542in</Left>
+            <Height>1.48958in</Height>
+            <Width>3.75in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Comments:</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!FaxDescription.Value</Value>
+                    <Style>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>5.28in</Top>
+            <Left>0.68625in</Left>
+            <Height>2.54167in</Height>
+            <Width>7.22916in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>This transmission is intended only for the use of the person or office to whom it is addressed and may contain information that is privileged, confidential, or protected by law.  All others are hereby notified that receipt of this message does not waive any applicable privilege or exemption from disclosure and that any dissemination, distribution, or copying of this communication is prohibited.  If you have received this communication in error, please notify us immediately by telephone at (800) 827-1000.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox6</rd:DefaultName>
+            <Top>8.00917in</Top>
+            <Left>1.36333in</Left>
+            <Height>1.32292in</Height>
+            <Width>5.70833in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+              <PaddingLeft>5pt</PaddingLeft>
+              <PaddingRight>5pt</PaddingRight>
+              <PaddingTop>5pt</PaddingTop>
+              <PaddingBottom>5pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>10.41022in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>8.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="LetterGenerationGUID">
+      <DataType>String</DataType>
+      <Prompt>Letter Generation GUID</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>1</NumberOfColumns>
+      <NumberOfRows>1</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>LetterGenerationGUID</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <CustomProperties>
+    <CustomProperty>
+      <Name>Custom</Name>
+      <Value>&lt;MSCRM xmlns="mscrm"&gt;&lt;/MSCRM&gt;</Value>
+    </CustomProperty>
+  </CustomProperties>
+  <EmbeddedImages>
+    <EmbeddedImage Name="VALOGO">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>7b5b0d8d-0f27-4ac9-9a96-367c88344777</rd:ReportID>
+</Report>

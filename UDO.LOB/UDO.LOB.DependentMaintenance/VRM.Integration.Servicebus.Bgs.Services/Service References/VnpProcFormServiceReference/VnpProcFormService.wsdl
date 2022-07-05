@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://procFormService.services.vonapp.vba.va.gov/" name="VnpProcFormService" targetNamespace="http://procFormService.services.vonapp.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VnpProcFormWebServiceBean/VnpProcFormService?xsd=1" namespace="http://procFormService.services.vonapp.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="vnpProcFormFindByPrimaryKey">
+    <part name="parameters" element="tns:vnpProcFormFindByPrimaryKey" />
+  </message>
+  <message name="vnpProcFormFindByPrimaryKeyResponse">
+    <part name="parameters" element="tns:vnpProcFormFindByPrimaryKeyResponse" />
+  </message>
+  <message name="MessageFaultException">
+    <part name="fault" element="tns:MessageFaultException" />
+  </message>
+  <message name="findAllAsArray">
+    <part name="parameters" element="tns:findAllAsArray" />
+  </message>
+  <message name="findAllAsArrayResponse">
+    <part name="parameters" element="tns:findAllAsArrayResponse" />
+  </message>
+  <message name="vnpProcFormRemove">
+    <part name="parameters" element="tns:vnpProcFormRemove" />
+  </message>
+  <message name="vnpProcFormRemoveResponse">
+    <part name="parameters" element="tns:vnpProcFormRemoveResponse" />
+  </message>
+  <message name="vnpProcFormCreate">
+    <part name="parameters" element="tns:vnpProcFormCreate" />
+  </message>
+  <message name="vnpProcFormCreateResponse">
+    <part name="parameters" element="tns:vnpProcFormCreateResponse" />
+  </message>
+  <portType name="VnpProcFormService">
+    <operation name="vnpProcFormFindByPrimaryKey">
+      <input message="tns:vnpProcFormFindByPrimaryKey" />
+      <output message="tns:vnpProcFormFindByPrimaryKeyResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="findAllAsArray">
+      <input message="tns:findAllAsArray" />
+      <output message="tns:findAllAsArrayResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpProcFormRemove">
+      <input message="tns:vnpProcFormRemove" />
+      <output message="tns:vnpProcFormRemoveResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpProcFormCreate">
+      <input message="tns:vnpProcFormCreate" />
+      <output message="tns:vnpProcFormCreateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+  </portType>
+  <binding name="VnpProcFormServicePortBinding" type="tns:VnpProcFormService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vnpProcFormFindByPrimaryKey">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllAsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpProcFormRemove">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpProcFormCreate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VnpProcFormService">
+    <port name="VnpProcFormServicePort" binding="tns:VnpProcFormServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VnpProcFormWebServiceBean/VnpProcFormService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,8 @@
+REM Generate Proxy
+
+REM /codewriterfilter:SvcUtilFilter.CodeWriterFilter,SvcUtilFilter
+REM crmsvcutil.exe /url:https://vrm.crmud.dev.crm.vrm.vba.va.gov/XRMServices/2011/Organization.svc /d:VrmCloud /u:wblancett /p:P@$$w0rd123456 /namespace:Va.CrmUD.Utility /out:VaProxy.cs /serviceContextName:XrmServiceContext
+REM crmsvcutil.exe /url:https://crme.crme.dev.crm.vrm.vba.va.gov/XRMServices/2011/Organization.svc /d:VrmCloud /u:wblancett /p:P@$$w0rd123456 /namespace:Va.CrmUD.Utility /out:VaProxy.cs /serviceContextName:XrmServiceContext
+crmsvcutil.exe /url:https://crme.crme.dev.crm.vrm.vba.va.gov/XRMServices/2011/Organization.svc /d:VrmCloud /u:wblancett /p:P@$$w0rd123456 /namespace:Va.CrmUD.Utility /out:VaProxy.cs /serviceContextName:XrmServiceContext /codewriterfilter:SvcUtilFilter.CodeWriterFilter,SvcUtilFilter
+REM CrmSvcUtil.exe /codewriterfilter:"Microsoft.Crm.Sdk.Samples.FilteringService, GeneratePicklistEnums" /codecustomization:"Microsoft.Crm.Sdk.Samples.CodeCustomizationService, GeneratePicklistEnums" /namingservice:"Microsoft.Crm.Sdk.Samples.NamingService, GeneratePicklistEnums" /url:https://vrm.crmud.dev.crm.vrm.vba.va.gov/XRMServices/2011/Organization.svc /out:OptionSets.cs /d:VrmCloud /u:wblancett /p:P@$$w0rd123456
+REM CrmSvcUtil.exe /codewriterfilter:"Microsoft.Crm.Sdk.Samples.FilteringService, GeneratePicklistEnums" /codecustomization:"Microsoft.Crm.Sdk.Samples.CodeCustomizationService, GeneratePicklistEnums" /namingservice:"Microsoft.Crm.Sdk.Samples.NamingService, GeneratePicklistEnums" /url:https://crme.crme.dev.crm.vrm.vba.va.gov/XRMServices/2011/Organization.svc /out:OptionSets.cs /d:VrmCloud /u:wblancett /p:P@$$w0rd123456

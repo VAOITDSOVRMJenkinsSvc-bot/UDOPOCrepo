@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.AddConnection.HideAction" Location="Mscrm.Form.udo_servicerequest.AddConnection" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.AddToQueue.HideAction" Location="Mscrm.Form.udo_servicerequest.AddToQueue" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.Assign.HideAction" Location="Mscrm.Form.udo_servicerequest.Assign" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.Deactivate.HideAction" Location="Mscrm.Form.udo_servicerequest.Deactivate" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.Permissions.HideAction" Location="Mscrm.Form.udo_servicerequest.Permissions" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.QueueItemDetail.HideAction" Location="Mscrm.Form.udo_servicerequest.QueueItemDetail" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.RunScript.HideAction" Location="Mscrm.Form.udo_servicerequest.RunScript" />
+    <HideCustomAction HideActionId="Mscrm.Form.udo_servicerequest.RunWorkflow.HideAction" Location="Mscrm.Form.udo_servicerequest.RunWorkflow" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.AddConnection.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.AddConnection" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.AddToQueue.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.AddToQueue" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.Assign.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.Assign" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.Deactivate.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.Deactivate" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.RunScript.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.RunScript" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.RunWorkflow.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.RunWorkflow" />
+    <HideCustomAction HideActionId="Mscrm.HomepageGrid.udo_servicerequest.Sharing.HideAction" Location="Mscrm.HomepageGrid.udo_servicerequest.Sharing" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.AddConnection.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.AddConnection" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.AddToQueue.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.AddToQueue" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.Assign.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.Assign" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.Deactivate.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.Deactivate" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.RunScript.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.RunScript" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.RunWorkflow.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.RunWorkflow" />
+    <HideCustomAction HideActionId="Mscrm.SubGrid.udo_servicerequest.Sharing.HideAction" Location="Mscrm.SubGrid.udo_servicerequest.Sharing" />
+    <CustomAction Id="udo.ISV.DynamicFlyoutAnchor.CustomAction" Location="Mscrm.Form.udo_servicerequest.MainTab.Actions.Controls._children" Sequence="4">
+      <CommandUIDefinition>
+        <FlyoutAnchor Alt="$LocLabels:ISV.DynamicFlyoutAnchor.Alt" Command="Mscrm.Enabled" Id="ISV.DynamicFlyoutAnchor" Image16by16="/_imgs/ribbon/Contents_16.png" Image32by32="/_imgs/ribbon/Contents_32.png" LabelText="$LocLabels:ISV.DynamicFlyoutAnchor.LabelText" PopulateDynamically="true" PopulateQueryCommand="ISV.PopulateMenu" Sequence="4" TemplateAlias="o1" ToolTipTitle="$LocLabels:ISV.DynamicFlyoutAnchor.ToolTipTitle" ToolTipDescription="$LocLabels:ISV.DynamicFlyoutAnchor.ToolTipDescription" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Activate.Hide" Location="Mscrm.Form.udo_servicerequest.Activate" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.AddOtherActivities.Hide" Location="Mscrm.Form.udo_servicerequest.AddOtherActivities" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Close.Hide" Location="Mscrm.Form.udo_servicerequest.Close" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Convert.Case.Hide" Location="Mscrm.Form.udo_servicerequest.Convert.Case" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Convert.Opportunity.Hide" Location="Mscrm.Form.udo_servicerequest.Convert.Opportunity" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Delete.Hide" Location="Mscrm.Form.udo_servicerequest.Delete" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.EditSalesProcess.Hide" Location="Mscrm.Form.udo_servicerequest.EditSalesProcess" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.FollowButton.Hide" Location="Mscrm.Form.udo_servicerequest.FollowButton" />
+    <CustomAction Id="udo.Mscrm.Form.udo_servicerequest.MainTab.Save.CustomAction" Location="Mscrm.Form.udo_servicerequest.MainTab.Groups._children" Sequence="10">
+      <CommandUIDefinition>
+        <Group Command="Mscrm.Enabled" Description="$Resources:Ribbon.Form.MainTab.Save" Id="Mscrm.Form.udo_servicerequest.MainTab.Save" Image32by32Popup="/_imgs/ribbon/Save_32.png" Sequence="10" Template="Mscrm.Templates.Flexible2" Title="$Resources:Ribbon.Form.MainTab.Save">
+          <Controls Id="Mscrm.Form.udo_servicerequest.MainTab.Save.Controls">
+            <Button Alt="$Resources:Ribbon.Form.MainTab.Save.Save" Command="Mscrm.SavePrimary" Id="Mscrm.Form.udo_servicerequest.Save" Image32by32="/_imgs/ribbon/Save_32.png" Image16by16="/_imgs/ribbon/Save_16.png" LabelText="$Resources:Ribbon.Form.MainTab.Save.Save" Sequence="10" TemplateAlias="o1" ToolTipTitle="$Resources:Mscrm_Form_Other_MainTab_Save_Save_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.Save" ModernImage="Save" />
+            <Button Alt="$Resources:Ribbon.Form.MainTab.Save.SaveAndNew" Command="Mscrm.SaveAndNewPrimary" Id="Mscrm.Form.udo_servicerequest.SaveAndNew" Image32by32="/_imgs/ribbon/saveandnew32.png" Image16by16="/_imgs/ribbon/saveandnew16.png" LabelText="$Resources:Ribbon.Form.MainTab.Save.SaveAndNew" Sequence="40" TemplateAlias="o2" ToolTipTitle="$Resources:Mscrm_Form_Other_MainTab_Save_SaveAndNew_ToolTipTitle" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.SaveAndNew" />
+          </Controls>
+        </Group>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="udo.Mscrm.Form.udo_servicerequest.MainTab.Save.MaxSize.CustomAction" Location="Mscrm.Form.udo_servicerequest.MainTab.Scaling._children" Sequence="10">
+      <CommandUIDefinition>
+        <MaxSize GroupId="Mscrm.Form.udo_servicerequest.MainTab.Save" Id="Mscrm.Form.udo_servicerequest.MainTab.Save.MaxSize" Sequence="10" Size="LargeMedium" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="udo.Mscrm.Form.udo_servicerequest.MainTab.Save.Scale.1.CustomAction" Location="Mscrm.Form.udo_servicerequest.MainTab.Scaling._children" Sequence="130">
+      <CommandUIDefinition>
+        <Scale GroupId="Mscrm.Form.udo_servicerequest.MainTab.Save" Id="Mscrm.Form.udo_servicerequest.MainTab.Save.Scale.1" Sequence="130" Size="LargeSmall" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="udo.Mscrm.Form.udo_servicerequest.MainTab.Save.Scale.2.CustomAction" Location="Mscrm.Form.udo_servicerequest.MainTab.Scaling._children" Sequence="170">
+      <CommandUIDefinition>
+        <Scale GroupId="Mscrm.Form.udo_servicerequest.MainTab.Save" Id="Mscrm.Form.udo_servicerequest.MainTab.Save.Scale.2" Sequence="170" Size="Popup" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.NewRecord.Hide" Location="Mscrm.Form.udo_servicerequest.NewRecord" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Permissions.Grant.Hide" Location="Mscrm.Form.udo_servicerequest.Permissions.Grant" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.Permissions.Sharing.Hide" Location="Mscrm.Form.udo_servicerequest.Permissions.Sharing" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.PromoteToResponse.Hide" Location="Mscrm.Form.udo_servicerequest.PromoteToResponse" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.SaveAndClose.Hide" Location="Mscrm.Form.udo_servicerequest.SaveAndClose" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.SaveAsComplete.Hide" Location="Mscrm.Form.udo_servicerequest.SaveAsComplete" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.SendSelected.Hide" Location="Mscrm.Form.udo_servicerequest.SendSelected" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.SwitchProcess.Hide" Location="Mscrm.Form.udo_servicerequest.SwitchProcess" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.UnfollowButton.Hide" Location="Mscrm.Form.udo_servicerequest.UnfollowButton" />
+    <HideCustomAction HideActionId="udo.Mscrm.Form.udo_servicerequest.ViewHierarchy.Hide" Location="Mscrm.Form.udo_servicerequest.ViewHierarchy" />
+    <HideCustomAction HideActionId="va.Mscrm.Form.udo_servicerequest.Reports.Hide" Location="Mscrm.Form.udo_servicerequest.Reports" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="ISV.PopulateMenu">
+      <EnableRules>
+        <EnableRule Id="Mscrm.Enabled" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="isNaN" Library="$webresource:va_jquery_1.10.2.min.js" />
+        <JavaScriptFunction FunctionName="Letters" Library="$webresource:udo_LettersButtonSR">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="CommandProperties" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="ISV.SearchCommand">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="isNaN" Library="$webresource:va_jquery_1.10.2.min.js" />
+        <JavaScriptFunction FunctionName="Search" Library="$webresource:udo_LettersButtonSR">
+          <CrmParameter Value="PrimaryControl" />
+          <CrmParameter Value="CommandProperties" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Enabled">
+      <EnableRules>
+        <EnableRule Id="Mscrm.Enabled" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions />
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="ISV.DynamicFlyoutAnchor.Alt">
+      <Titles>
+        <Title description="Letters" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ISV.DynamicFlyoutAnchor.LabelText">
+      <Titles>
+        <Title description="Letters" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ISV.DynamicFlyoutAnchor.ToolTipDescription">
+      <Titles>
+        <Title description="Letters" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="ISV.DynamicFlyoutAnchor.ToolTipTitle">
+      <Titles>
+        <Title description="Letters" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

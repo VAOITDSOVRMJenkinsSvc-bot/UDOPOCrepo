@@ -1,0 +1,33 @@
+<html><head><title>Notes Summary</title>
+ <script type="text/jscript" src="udo_Xrm.min.js"></script>
+
+	<script type="text/jscript" src="udo_CrmRestKit2011.js"></script>
+	<script type="text/jscript" src="udo_notes_ui.js"></script>
+	<script type="text/jscript" src="crme_JQuery1.7.1_min"></script>
+<style>
+.date {
+	font-size: 0.75em;
+	font-style: italic;
+	}
+.note {
+	font-size: 1.25em;
+}
+.header {
+	font-size: 1.25em;
+	font-weight: bold;
+	text-align: center;
+}
+</style>
+
+<meta charset="utf-8"></head><body>
+ <script type="text/jscript">
+
+        $(document).ready(function () {
+			var urlParams = Va.Udo.Crm.Scripts.Notes.UI.getUrlParams();
+			Va.Udo.Crm.Scripts.Notes.UI.getAllRecords(urlParams.id);				
+        });
+    </script>
+	<p class="header">Notes Summary</p>
+<div id="SummaryDiv"></div>
+
+</body></html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<title>Notification Phase</title>
+<link rel="stylesheet" type="text/css" href="udo_template.css" />
+<script type="text/javascript" src="udo_jquery_1.9.1.min.js"></script>
+<script type="text/javascript" src="udo_pcrScripts.js"></script>
+</head>
+<body onload="LoadClaimScriptData()">
+	<script type="text/javascript">
+	    insertModDate();
+    </script>
+	<div id="main">
+	<h1>Notification Phase - (Mandatory)</h1>
+		<h2>When a rating has been prepared:</h2>
+        <div id="claimName">[type of claim]</div> on <div id="dateOpen">[date of claim]</div>
+			<ul>We received your <label id="Label1">[type of claim]</label> on <label id="Label2">[date of claim]</label> for <label id="contentions">[contentions]</label>. Your claim is in its final stages.  A decision was made on <b>(date of rating decision complete)</b>.  We will process this decision in our system, review it for accuracy, and notify you by U.S. mail.  May I verify your mailing address?</ul>
+		<h2>When a rating has been prepared and is pending authorization:</h2>
+			<ul>We received your (type of claim) on (date of claim). Your claim is in its final stages.  A decision was made on <b> (date of rating decision complete) </b> and was processed in the system.  This is pending a review for accuracy as of <b>(date of pending authorization)</b>.  Once the review is finalized, we will notify you by U. S. mail.  May I verify your mailing address?</ul>
+		<h2>When no rating was required:</h2>
+			<ul>We received your (type of claim) on (date of claim). Your claim is in its final stages.  We have made a decision and it is pending a review for accuracy as of <b>(date of pending authorization)</b>.  Once the review is finalized, we will notify you by U.S. mail.  May I verify your mailing address? </ul>
+		<h2>If timeframe is directly asked:</h2>
+			<ul>The Notification Phase is completed on most claims on average in <b>(see <a href="http://vbaedwweb1.vba.va.gov:7778/oowa-bin/oowaro/ExpSrv634/dbxwdevkit/xwd_init?door3.db/web3/3003" " target="_blank">Average Claims Processing Days</a> for #)</b> days.  Your claim?s Notification Phase began (date of latest change that moved claim into the Decision Phase). The length of time it takes to complete the Notification Phase depends on several factors, such as the type of claim filed, the number of disabilities you claimed, and VA?s pending workload.  A claim may take longer in this phase based on the specifics of your claim.</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{fbd96785-9123-4f3a-8163-0d783d4b6ea4}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="1920">
+    <tabs>
+      <tab id="{98c92b47-65d7-4b65-b214-11f59fe7865c}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+        <labels>
+          <label description="Tab" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="66%">
+            <sections>
+              <section id="{7977c10d-6077-4c1a-ab6f-c270ea9b5d1d}" name="tab_1_column_1_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{d1016ae7-eca0-2a4b-7665-7a40363adcb6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Confirmed Identity" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_confirmedidentity" datafieldname="udo_confirmedidentity" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1b11b39c-d109-9bc1-c92b-690e8362181c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Disposition" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_disposition" datafieldname="udo_disposition" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{071ba010-24c7-b580-5d26-62bdaa7347ec}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5bd6d9b1-1444-d7c1-82e5-653524a74c90}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Direction" languagecode="1033" />
+                      </labels>
+                      <control id="udo_direction" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="udo_direction" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3c92be12-e460-b810-3312-a48a4ce265ea}" showlabel="true" locklevel="0" rowspan="4">
+                      <labels>
+                        <label description="Call Notes" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_callnotes" datafieldname="udo_callnotes" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" uniqueid="{3595ec09-a634-5818-6d58-b573b46db556}" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="32%">
+            <sections>
+              <section id="{168e8508-72f2-416e-b134-52161cd34fc4}" name="tab_1_column_2_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{784a4115-0a23-4333-a9da-60880120e3d4}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+          <column width="2%">
+            <sections>
+              <section id="{37ed008b-67f3-44c7-bf3a-3fde449e5f4e}" name="tab_1_column_3_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{1296ba98-9c1a-4559-b7dd-0b707c84f41f}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <controlDescriptions />
+    <DisplayConditions Order="1">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="VASS Quick Create" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

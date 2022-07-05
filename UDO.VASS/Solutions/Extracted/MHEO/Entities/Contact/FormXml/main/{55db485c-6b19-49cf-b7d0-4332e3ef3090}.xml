@@ -1,0 +1,1447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{55db485c-6b19-49cf-b7d0-4332e3ef3090}</formid>
+  <IntroducedVersion>1.2.48.1</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form showImage="false" shownavigationbar="false" maxWidth="1900">
+    <ancestor id="{1fed44d1-ae68-4a41-bd2b-f13acac4acfa}" />
+    <hiddencontrols>
+      <data id="fullname" datafieldname="fullname" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="address1_addressid" datafieldname="address1_addressid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+      <data id="address2_addressid" datafieldname="address2_addressid" classid="{5546E6CD-394C-4bee-94A8-4425E17EF6C6}" />
+    </hiddencontrols>
+    <tabs>
+      <tab name="displaytabs" id="{a357caeb-ec3e-5562-7106-32076b57ded1}" IsUserDefined="0" locklevel="0" showlabel="false" expanded="true">
+        <labels>
+          <label description="displaytabs" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="displaytabssection" showlabel="false" showbar="false" locklevel="0" id="{9996a668-0140-26de-ee8b-d3de2e9745a5}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="displaytabssection" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{3e931321-6100-6223-7853-8b6acddc9361}" showlabel="false" colspan="1" auto="false" rowspan="1">
+                      <labels>
+                        <label description="udo_tabcontrolss" languagecode="1033" />
+                      </labels>
+                      <control id="WebResource_udo_tabcontrolss" classid="{9FDF5F91-88B1-47f4-AD53-C11EFC01A01D}">
+                        <parameters>
+                          <Url>udo_tabcontrolSS</Url>
+                          <PassParameters>false</PassParameters>
+                          <ShowOnMobileClient>false</ShowOnMobileClient>
+                          <Security>false</Security>
+                          <Scrolling>auto</Scrolling>
+                          <Border>false</Border>
+                          <WebResourceId>{CF5A27A0-4B6D-E511-9457-00155D14E7F0}</WebResourceId>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="phonecall" id="{9bea7393-a35b-c0ce-bb77-53ecedcece2b}" IsUserDefined="0" locklevel="0" showlabel="true" labelid="{eec8fdff-b3f2-41e7-8038-6d1346ddd1da}" expanded="true">
+        <labels>
+          <label description="Phone Calls/Requests" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_10_section_4" showlabel="false" showbar="false" locklevel="0" id="{aaa8a946-e0ea-d72d-6256-c06427876555}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" labelid="{d104c21c-d63c-46a7-a930-c0b6243abbaa}" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{3e73c907-3248-5e6e-19d0-be79cd3938b6}" showlabel="true" locklevel="0" labelid="{4a24f511-9349-4ceb-afdd-2427ff9ee937}">
+                      <labels>
+                        <label description="First Name" languagecode="1033" />
+                      </labels>
+                      <control id="firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="firstname" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9c14e98d-3e4a-6198-88a7-a4d1155c0b44}" showlabel="true" locklevel="0" labelid="{ca4743c4-1d59-4956-8312-b30fdd8492ee}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{88eb06ac-7375-6452-84ea-3953e2a0be9d}" showlabel="true" locklevel="0" labelid="{7de9596f-2a17-48c6-aa7e-79e074707679}">
+                      <labels>
+                        <label description="Last Name" languagecode="1033" />
+                      </labels>
+                      <control id="lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="lastname" disabled="true" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{47cbee7c-0c36-3d35-ed2a-661e5b7ad85a}" showlabel="true" locklevel="1" labelid="{72a810b8-d5c2-4572-9a44-2dbbd400f6bb}">
+                      <labels>
+                        <label description="Station Of Jurisdiction" languagecode="1033" />
+                      </labels>
+                      <control id="va_stationofjurisdictionid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="va_stationofjurisdictionid" disabled="true">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{DDC82830-A6B6-4789-B416-25DBDA58D468}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="pc2" showlabel="true" showbar="true" locklevel="0" id="{6395b2eb-c7d4-7595-dbdb-d16eb6520dd7}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Interactions &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{14ee3343-9351-41a6-31d6-447b271e4d1e}" showlabel="true" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Requests" languagecode="1033" />
+                      </labels>
+                      <control id="requests" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{3d7debd4-6178-cd98-cb09-42dbccd0c772}">
+                        <parameters>
+                          <ViewId>{04739C1D-B834-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_udo_request_Veteran</RelationshipName>
+                          <TargetEntityType>udo_request</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{B6D4EC98-8490-470E-93B8-4832BCB09F73},{04739C1D-B834-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>true</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="pc1" showlabel="true" showbar="false" locklevel="0" id="{8b67eb9d-3063-b746-920d-de824766dab2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Phone Calls &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{0777725d-7e45-b187-b2c0-a4797cb64dda}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Phone Calls (Regarding)" languagecode="1033" />
+                      </labels>
+                      <control id="phonecalls" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{c01dc990-47c0-6dd2-3be1-059d63e24de4}">
+                        <parameters>
+                          <ViewId>{2340C709-1003-E111-B109-00505688029A}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>Contact_Phonecalls</RelationshipName>
+                          <TargetEntityType>phonecall</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{FB05863E-93D8-E011-8D8E-00505688029A},{2340C709-1003-E111-B109-00505688029A}</ViewIds>
+                          <EnableJumpBar>true</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId>{281B6EC4-729E-E011-A483-00155D01C211}</VisualizationId>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="phonecall_section_4" showlabel="true" showbar="true" locklevel="0" id="{69a70a2c-6838-a885-4a4e-ece13b03becd}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="MHEO Interactions" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{3b364652-2e13-0703-ee19-7d1b530aabea}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Interactions (Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="MHEOInteractions" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true" uniqueid="{7d4b675c-edbb-1d30-831a-ddedca293b00}">
+                        <parameters>
+                          <ViewId>{B0F4D848-CAE3-E911-A987-001DD800BA25}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_udo_interaction</RelationshipName>
+                          <TargetEntityType>udo_interaction</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{B0F4D848-CAE3-E911-A987-001DD800BA25},{76A57A67-9310-E611-943D-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <VisualizationId>{080C2ACC-E0C8-E911-A98F-001DD800B582}</VisualizationId>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="PhoneCallTabChange" libraryName="udo_Veteran" handlerUniqueId="{7db669e3-5843-edad-0347-1acbe41da07d}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="sr" id="{d84d10b0-dd55-8b7d-3ae6-e38d59526a0b}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Service Requests" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="sr2" showlabel="true" showbar="true" locklevel="0" id="{7969834d-d94a-2eab-94dd-49378e6720bd}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Service Requests &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{e4a82c01-cb10-7549-2ddd-29a802e37ce7}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Service Requests (Related Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="udosr" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{acc2e740-8ca8-e4d7-d268-3a65513cec27}">
+                        <parameters>
+                          <ViewId>{C61F0BF3-2037-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>va_contact_udo_servicerequest_vet</RelationshipName>
+                          <TargetEntityType>udo_servicerequest</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{E6BDBEC6-3849-4785-B0AF-9C04B81B19AA},{C61F0BF3-2037-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="sr1" showlabel="true" showbar="true" locklevel="0" id="{c4316117-8ea7-02c5-e6a7-60ce008a049a}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Service Requests &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{60254c55-6167-61a5-3992-210ae89cc507}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Service Requests - UD (Related Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="udsr" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{1a1c38e0-be3d-bda0-0eed-98e299c2bb49}">
+                        <parameters>
+                          <ViewId>{06ED9085-2137-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>va_contact_va_servicerequest_vet</RelationshipName>
+                          <TargetEntityType>va_servicerequest</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{C6E75132-2E24-E111-9DB0-00505688029A},{06ED9085-2137-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId>{20AE63B0-1D28-E211-90EE-00505688029A}</VisualizationId>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="SRTabChange" libraryName="udo_Veteran" handlerUniqueId="{06e2ca9d-597e-0083-243c-4ed40e39d107}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="itf" id="{5a697e33-8e70-444e-5db1-c409ac7bdb64}" IsUserDefined="0" locklevel="0" showlabel="true" visible="false" expanded="true">
+        <labels>
+          <label description="ITF" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="itf2" showlabel="true" showbar="true" locklevel="0" id="{7eab7159-6a73-1e73-aa58-b2dc929c20e2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="ITF &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{410824ea-3988-de59-9168-9e53d6392367}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Intent To File (Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="itf2" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{35cd002d-11a8-5514-1b60-24cad900eb54}">
+                        <parameters>
+                          <ViewId>{D561D26B-2E3A-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_va_intenttofile_VeteranId</RelationshipName>
+                          <TargetEntityType>va_intenttofile</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{1F33CD08-2EBA-E411-9559-00155DE606BC},{007DFA53-2E3A-E611-9442-0050568DF261},{D561D26B-2E3A-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="itf1" showlabel="true" showbar="true" locklevel="0" id="{a179aecd-2d27-e753-21c7-a390a59148d2}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="ITF &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{12c79eaa-5965-eaa3-5659-b75a08c5a76d}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Intent To File (Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="itf1" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{97e2d2c4-caa0-d3c4-0d30-b21b5dd11b76}">
+                        <parameters>
+                          <ViewId>{007DFA53-2E3A-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_va_intenttofile_VeteranId</RelationshipName>
+                          <TargetEntityType>va_intenttofile</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{1F33CD08-2EBA-E411-9559-00155DE606BC},{007DFA53-2E3A-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler handlerUniqueId="{569c2d46-ed0c-a8b8-33ad-04045aa814dd}" functionName="ITFTabChange" libraryName="udo_Veteran" enabled="false" passExecutionContext="true" parameters="" />
+              <Handler handlerUniqueId="{5b2c734a-8605-11e3-b822-c9cc72c88297}" functionName="UDO.CustomActions.OnTabOpen" libraryName="udo_customaction_onload" enabled="true" passExecutionContext="true" parameters="&quot;contact&quot;,&quot;&quot;,&quot;udo_GetITFS&quot;,&quot;&quot;,&quot;&quot;, &quot;true&quot;" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="cadd" id="{e4a20c21-ab1c-7992-dd48-9c4bad162624}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="CADD" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="cadd2" showlabel="true" showbar="true" locklevel="0" id="{77526499-18eb-eb00-6bab-418be08c8351}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="CADD &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{90cd1800-4256-dc2b-8b48-b1d0ecdcda58}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Change of Address &amp; Bank Account (Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="caddafter" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{bd3b5555-589a-d32e-c1a9-3c685dbb2111}">
+                        <parameters>
+                          <ViewId>{5DD57CA3-AC3B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_va_bankaccount_Veteranid</RelationshipName>
+                          <TargetEntityType>va_bankaccount</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{5DD57CA3-AC3B-E611-9442-0050568DF261},{14DCA496-85B8-44A8-8E41-E47F2FD713B2}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="cadd1" showlabel="true" showbar="true" locklevel="0" id="{77a586d9-0a17-6ba0-8a39-27bd62ada136}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="CADD &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{1452e080-90c9-7c4e-14db-5bc09252936b}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Change of Address &amp; Bank Account (Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="caddbefore" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{138e9105-c69e-6754-cba3-e72c9186a23c}">
+                        <parameters>
+                          <ViewId>{1CBE848E-AC3B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_va_bankaccount_Veteranid</RelationshipName>
+                          <TargetEntityType>va_bankaccount</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{1CBE848E-AC3B-E611-9442-0050568DF261},{14DCA496-85B8-44A8-8E41-E47F2FD713B2}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="CADDTabChange" libraryName="udo_Veteran" handlerUniqueId="{0653227a-a0db-3aa6-23b8-5a0e3ae4a626}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="chat" id="{247d2220-5b3e-2b6b-7ea0-38bc24e893c8}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Chat Logs" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="chat2" showlabel="true" showbar="true" locklevel="0" id="{4ca23a33-24c0-d4a7-20e5-3266486abd87}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Chat &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{18cce668-1ec4-a7e7-0712-c999a9474be2}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Chat Session Log (Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="chatafter" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{41dd9134-b875-d80d-57d7-871b79d2195b}">
+                        <parameters>
+                          <ViewId>{762BF8C7-B43B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_crme_chatcobrowsesessionlog_VeteranId</RelationshipName>
+                          <TargetEntityType>crme_chatcobrowsesessionlog</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{762BF8C7-B43B-E611-9442-0050568DF261},{3AF410B8-C127-4968-81B0-70D325ED8E6B}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="chat1" showlabel="true" showbar="true" locklevel="0" id="{e5da67b6-7237-c5d4-4a75-35a3b90c2340}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Chat &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{53066d8d-a129-b7a2-ae93-89d5b7693e9b}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Chat Session Log (Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="chatbefore" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{763840e7-209e-b9a0-a9be-5dbc820b7264}">
+                        <parameters>
+                          <ViewId>{14DC6FAA-B43B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_crme_chatcobrowsesessionlog_VeteranId</RelationshipName>
+                          <TargetEntityType>crme_chatcobrowsesessionlog</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{14DC6FAA-B43B-E611-9442-0050568DF261},{3AF410B8-C127-4968-81B0-70D325ED8E6B}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="CHATTabChange" libraryName="udo_Veteran" handlerUniqueId="{045d2436-ab81-9287-52c1-0c3660576262}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="ad" id="{2b141b6d-81e2-c5cb-8dc2-62c90491d79e}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="Dependent Maintenance" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="ad2" showlabel="true" showbar="true" locklevel="0" id="{b805c3c4-c069-4a35-8e2a-0180700336b9}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Dependent Maintenance &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{8d8a5ab8-0cb0-423e-cd6c-7a0ad466549e}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Dependent Maintenances (Related Veteran)" languagecode="1033" />
+                      </labels>
+                      <control id="adafter" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{145b800a-a216-be02-3252-05844274b211}">
+                        <parameters>
+                          <ViewId>{4DDD2378-B83B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>crme_contact_crme_dependentmaintenance_RelatedVeteranid</RelationshipName>
+                          <TargetEntityType>crme_dependentmaintenance</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{4DDD2378-B83B-E611-9442-0050568DF261},{4CAB73FA-7AFF-44CF-A991-4C2769528EFB}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="ad1" showlabel="true" showbar="true" locklevel="0" id="{d99a3634-e8a1-c99c-2044-2a0d35153aed}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" visible="false">
+                <labels>
+                  <label description="Dependent Maintenance &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{bb0b890e-c2d3-1360-e675-ec7bd7ebeb4e}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="Dependent Maintenances (Regarding)" languagecode="1033" />
+                      </labels>
+                      <control id="adbefore" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{a1ab7eee-cc86-1b80-9a3c-94264560189c}">
+                        <parameters>
+                          <ViewId>{BFD31155-B83B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>crme_contact_crme_dependentmaintenance_RelatedVeteranid</RelationshipName>
+                          <TargetEntityType>crme_dependentmaintenance</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{BFD31155-B83B-E611-9442-0050568DF261},{4CAB73FA-7AFF-44CF-A991-4C2769528EFB}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="ADTabChange" libraryName="udo_Veteran" handlerUniqueId="{9d088500-0164-5eea-3cd2-0847298b4e98}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+      <tab name="fnod" id="{73ce8ecd-b6e9-c34c-cd20-552740155754}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true">
+        <labels>
+          <label description="FNOD" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="fnod2" showlabel="true" showbar="true" locklevel="0" id="{7e62878c-eaa0-4ada-84d7-3c2a0c7922a8}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="FNOD &gt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{118c1236-4be2-b81d-0b66-b1c82ddd5ba6}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="FNOD/MOD/Memorial Certificate (Veteran/Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="fnodafter" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{e20ea6ce-4205-e568-755c-4bb7a654de9d}">
+                        <parameters>
+                          <ViewId>{619AC2E3-BC3B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>va_contact_va_fnod</RelationshipName>
+                          <TargetEntityType>va_fnod</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{C0E24C42-A90B-4878-99B4-83BD969DEA13},{619AC2E3-BC3B-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode />
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+              <section name="fnod1" showlabel="true" showbar="true" locklevel="0" id="{7c5453d2-3d33-cd61-d803-911194e053bb}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="FNOD &lt; 2/1/2016" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{4b89a73b-0067-2533-2c15-8e702bb6eae4}" showlabel="false" colspan="1" auto="false" rowspan="6">
+                      <labels>
+                        <label description="FNOD/MOD/Memorial Certificate (Veteran/Contact)" languagecode="1033" />
+                      </labels>
+                      <control id="fnodbefore" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{4064a926-a106-e779-682a-da639c7996bd}" indicationOfSubgrid="true">
+                        <parameters>
+                          <ViewId>{B01669B2-BC3B-E611-9442-0050568DF261}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>va_contact_va_fnod</RelationshipName>
+                          <TargetEntityType>va_fnod</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{C0E24C42-A90B-4878-99B4-83BD969DEA13},{B01669B2-BC3B-E611-9442-0050568DF261}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+        <events>
+          <event name="tabstatechange" application="false" active="false">
+            <Handlers>
+              <Handler functionName="FNODTabChange" libraryName="udo_Veteran" handlerUniqueId="{1b5ad170-c3c0-d064-9c5e-361a2c9339e5}" enabled="true" parameters="" passExecutionContext="true" />
+            </Handlers>
+          </event>
+        </events>
+      </tab>
+    </tabs>
+    <header id="{3ff9aa06-4e43-41ce-afa9-22a038af5c19}" celllabelposition="Top" columns="1111" labelwidth="115" celllabelalignment="Left">
+      <rows>
+        <row>
+          <cell id="{6d5398fe-f3be-4966-be98-b7dcd2c59517}" labelid="{baced3b8-0af7-449e-bc55-fb515e50e575}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{20cd0dd6-58c2-401d-b7b4-c7c694cc8534}" labelid="{6f606872-8220-4948-b7ee-b05d7c6d8b40}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{e544741f-3350-4c2b-a2a9-d94cba500423}" labelid="{b0d1668d-3693-4ed9-8be8-d1f8835abd5e}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{40160f05-ed57-4ad1-b2c2-4d4362807308}" labelid="{0a8a1e34-d8ef-413e-a40b-dea34f2d065f}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <footer id="{414c7e65-3415-4f83-a1b2-c5e5b1f3f5de}" columns="111">
+      <rows>
+        <row>
+          <cell id="{7b655a5c-5a0b-51c9-48c8-3b2c37a687d9}" showlabel="false" locklevel="0" visible="false">
+            <labels>
+              <label description="ITF Loading" languagecode="1033" />
+            </labels>
+            <control id="footer_udo_itfloading" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="udo_itfloading" disabled="true" />
+          </cell>
+          <cell id="{ce602586-9b29-4c91-a19c-72d9ce32b6d0}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{99b7821c-0ebb-4ceb-82ae-be4ee6656d32}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <clientresources>
+      <internalresources>
+        <clientincludes>
+          <internaljscriptfile src="$webresource:AppCommon/Contact/Contact_main_system_library.js" />
+        </clientincludes>
+      </internalresources>
+    </clientresources>
+    <Navigation>
+      <NavBar>
+        <NavBarByRelationshipItem RelationshipName="invoice_customer_contacts" Id="navInvoices" Sequence="10" Area="Info" Show="false">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Invoice" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="quote_customer_contacts" Id="navQuotes" Area="Info" Show="false" Sequence="11">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Quote" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contract_customer_contacts" Id="navContracts" Area="Info" Show="false" Sequence="12">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Contract" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contact_customer_relationship_customer" Id="navRelationships" Area="Info" Show="false" Sequence="13">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="CustomerRelationship" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="Contact_CustomerAddress" Id="navAddresses" Area="Info" Show="false" Sequence="14">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Addresses" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="order_customer_contacts" Id="navOrders" Area="Info" Show="false" Sequence="15">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="SalesOrder" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contact_customer_contacts" Id="navSubConts" Area="Info" Show="false" Sequence="16">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="Contacts" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="listcontact_association" Id="navListsInSFA" Area="Info" Show="false" Sequence="17">
+          <Privileges>
+            <Privilege Entity="" Privilege="ReadActivity" />
+          </Privileges>
+          <Titles>
+            <Title LCID="1033" Text="List" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="contact_entitlement_Customer" Area="Info" Id="navEntitlement" Sequence="21">
+          <Titles>
+            <Title LCID="1033" Text="Entitlements" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navAsyncOperations" Sequence="9500" Area="ProcessCenter" Id="navAsyncOperations" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Workflows" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="hardcoded_{B7196B13-6B9D-42CD-BD58-B19A3953126F}navProcessSessions" Sequence="9700" Area="ProcessCenter" Id="navProcessSessions" Show="false">
+          <Titles>
+            <Title LCID="1033" Text="Dialog Sessions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_mcs_log_contactId" Area="Info" Id="nav_udo_contact_mcs_log_contactId" Sequence="10001">
+          <Titles>
+            <Title LCID="1033" Text="Logs" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_address_VeteranId" Area="Info" Id="nav_udo_contact_udo_address_VeteranId" Sequence="10002">
+          <Titles>
+            <Title LCID="1033" Text="Addresses" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appeal_VeteranId" Area="Info" Id="nav_udo_contact_udo_appeal_VeteranId" Sequence="10003">
+          <Titles>
+            <Title LCID="1033" Text="Appeals" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appealdates_veteranid" Area="Info" Id="nav_udo_contact_udo_appealdates_veteranid" Sequence="10004">
+          <Titles>
+            <Title LCID="1033" Text="Appeal Dates" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appealdiaries_veteranid" Area="Info" Id="nav_udo_contact_udo_appealdiaries_veteranid" Sequence="10005">
+          <Titles>
+            <Title LCID="1033" Text="Appeal Diaries" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appealissues_veteranid" Area="Info" Id="nav_udo_contact_udo_appealissues_veteranid" Sequence="10006">
+          <Titles>
+            <Title LCID="1033" Text="Appeal Issues" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appealremandreasons_veteranid" Area="Info" Id="nav_udo_contact_udo_appealremandreasons_veteranid" Sequence="10007">
+          <Titles>
+            <Title LCID="1033" Text="Appeal Remand Reasons" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appealspecialcontentions" Area="Info" Id="nav_udo_contact_udo_appealspecialcontentions" Sequence="10008">
+          <Titles>
+            <Title LCID="1033" Text="Appeal Special Contentions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appealspecialcontentions_Veteran" Area="Info" Id="nav_udo_contact_udo_appealspecialcontentions_Veteran" Sequence="10009">
+          <Titles>
+            <Title LCID="1033" Text="Appeal Special Contentions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_appointment_VeteranId" Area="Info" Id="nav_udo_contact_udo_appointment_VeteranId" Sequence="10010">
+          <Titles>
+            <Title LCID="1033" Text="Appointments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_attorneyinformation_VeteranId" Area="Info" Id="nav_udo_contact_udo_attorneyinformation_VeteranId" Sequence="10011">
+          <Titles>
+            <Title LCID="1033" Text="Attorney Information" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_award_VeteranId" Area="Info" Id="nav_udo_contact_udo_award_VeteranId" Sequence="10012">
+          <Titles>
+            <Title LCID="1033" Text="Awards" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_awardadjustment" Area="Info" Id="nav_udo_contact_udo_awardadjustment" Sequence="10013">
+          <Titles>
+            <Title LCID="1033" Text="Award Adjustment" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_awardline_veteranid" Area="Info" Id="nav_udo_contact_udo_awardline_veteranid" Sequence="10014">
+          <Titles>
+            <Title LCID="1033" Text="Award Lines" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_claim_VeteranId" Area="Info" Id="nav_udo_contact_udo_claim_VeteranId" Sequence="10015">
+          <Titles>
+            <Title LCID="1033" Text="Claims" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_claimstatus_veteranid" Area="Info" Id="nav_udo_contact_udo_claimstatus_veteranid" Sequence="10016">
+          <Titles>
+            <Title LCID="1033" Text="Claim Statuses" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_claimsuspense_VeteranID" Area="Info" Id="nav_udo_contact_udo_claimsuspense_VeteranID" Sequence="10017">
+          <Titles>
+            <Title LCID="1033" Text="Claim Suspenses" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_clothingallowance_veteranid" Area="Info" Id="nav_udo_contact_udo_clothingallowance_veteranid" Sequence="10018">
+          <Titles>
+            <Title LCID="1033" Text="Clothing Allowance" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_contention_veteran" Area="Info" Id="nav_udo_contact_udo_contention_veteran" Sequence="10019">
+          <Titles>
+            <Title LCID="1033" Text="Contentions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_deathrating_VeteranId" Area="Info" Id="nav_udo_contact_udo_deathrating_VeteranId" Sequence="10020">
+          <Titles>
+            <Title LCID="1033" Text="Death Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_decoration_VeteranId" Area="Info" Id="nav_udo_contact_udo_decoration_VeteranId" Sequence="10021">
+          <Titles>
+            <Title LCID="1033" Text="Decorations" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_deduction" Area="Info" Id="nav_udo_contact_udo_deduction" Sequence="10022">
+          <Titles>
+            <Title LCID="1033" Text="Deductions" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_denial_VeteranId" Area="Info" Id="nav_udo_contact_udo_denial_VeteranId" Sequence="10023">
+          <Titles>
+            <Title LCID="1033" Text="Denials" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_dependant" Area="Info" Id="nav_udo_contact_udo_dependant" Sequence="10024">
+          <Titles>
+            <Title LCID="1033" Text="Dependents" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_diaries_veteranid" Area="Info" Id="nav_udo_contact_udo_diaries_veteranid" Sequence="10025">
+          <Titles>
+            <Title LCID="1033" Text="Diaries" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_disabilityrating_VeteranId" Area="Info" Id="nav_udo_contact_udo_disabilityrating_VeteranId" Sequence="10026">
+          <Titles>
+            <Title LCID="1033" Text="Disability Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_evidence_Veteran" Area="Info" Id="nav_udo_contact_udo_evidence_Veteran" Sequence="10027">
+          <Titles>
+            <Title LCID="1033" Text="Evidence" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_evr_veteranid" Area="Info" Id="nav_udo_contact_udo_evr_veteranid" Sequence="10028">
+          <Titles>
+            <Title LCID="1033" Text="EVRs" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_exam_VeteranId" Area="Info" Id="nav_udo_contact_udo_exam_VeteranId" Sequence="10029">
+          <Titles>
+            <Title LCID="1033" Text="Exams" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_examandappontment" Area="Info" Id="nav_udo_contact_udo_examandappontment" Sequence="10030">
+          <Titles>
+            <Title LCID="1033" Text="Exams and Appointments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_familymemberrating_VeteranId" Area="Info" Id="nav_udo_contact_udo_familymemberrating_VeteranId" Sequence="10031">
+          <Titles>
+            <Title LCID="1033" Text="Family Member Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_flash" Area="Info" Id="nav_udo_contact_udo_flash" Sequence="10032">
+          <Titles>
+            <Title LCID="1033" Text="Flashes" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_idproof_Veteran" Area="Info" Id="nav_udo_contact_udo_idproof_Veteran" Sequence="10033">
+          <Titles>
+            <Title LCID="1033" Text="Id Proofs" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_incomesummary_veteranid" Area="Info" Id="nav_udo_contact_udo_incomesummary_veteranid" Sequence="10034">
+          <Titles>
+            <Title LCID="1033" Text="Income Summary" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_legacypaymenthistory_VeteranId" Area="Info" Id="nav_udo_contact_udo_legacypaymenthistory_VeteranId" Sequence="10035">
+          <Titles>
+            <Title LCID="1033" Text="Legacy Payments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_lifecycle_Veteran" Area="Info" Id="nav_udo_contact_udo_lifecycle_Veteran" Sequence="10036">
+          <Titles>
+            <Title LCID="1033" Text="Life Cycles" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_mapdletter_Veteran" Area="Info" Id="nav_udo_contact_udo_mapdletter_Veteran" Sequence="10037">
+          <Titles>
+            <Title LCID="1033" Text="Claims and Contact Notes" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_militaryperson_VeteranId" Area="Info" Id="nav_udo_contact_udo_militaryperson_VeteranId" Sequence="10038">
+          <Titles>
+            <Title LCID="1033" Text="Military Persons" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_militaryservice_VeteranId" Area="Info" Id="nav_udo_contact_udo_militaryservice_VeteranId" Sequence="10039">
+          <Titles>
+            <Title LCID="1033" Text="Military Services" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_militarytheater_VeteranId" Area="Info" Id="nav_udo_contact_udo_militarytheater_VeteranId" Sequence="10040">
+          <Titles>
+            <Title LCID="1033" Text="Military Theaters" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_note_VeteranId" Area="Info" Id="nav_udo_contact_udo_note_VeteranId" Sequence="10041">
+          <Titles>
+            <Title LCID="1033" Text="Notes" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_otherrating_VeteranId" Area="Info" Id="nav_udo_contact_udo_otherrating_VeteranId" Sequence="10042">
+          <Titles>
+            <Title LCID="1033" Text="Other Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_pastfiduciary" Area="Info" Id="nav_udo_contact_udo_pastfiduciary" Sequence="10043">
+          <Titles>
+            <Title LCID="1033" Text="Past Fiduciary" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_pastpoa" Area="Info" Id="nav_udo_contact_udo_pastpoa" Sequence="10044">
+          <Titles>
+            <Title LCID="1033" Text="Past POA" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_payeecode_Veteran" Area="Info" Id="nav_udo_contact_udo_payeecode_Veteran" Sequence="10045">
+          <Titles>
+            <Title LCID="1033" Text="Payee Codes" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_payment" Area="Info" Id="nav_udo_contact_udo_payment" Sequence="10046">
+          <Titles>
+            <Title LCID="1033" Text="Payments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_paymentadjustment" Area="Info" Id="nav_udo_contact_udo_paymentadjustment" Sequence="10047">
+          <Titles>
+            <Title LCID="1033" Text="Payment Adjustments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_paymentdata_VeteranId" Area="Info" Id="nav_udo_contact_udo_paymentdata_VeteranId" Sequence="10048">
+          <Titles>
+            <Title LCID="1033" Text="Payment Data" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_person_veteranId" Area="Info" Id="nav_udo_contact_udo_person_veteranId" Sequence="10049">
+          <Titles>
+            <Title LCID="1033" Text="People" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_powinformation_VeteranId" Area="Info" Id="nav_udo_contact_udo_powinformation_VeteranId" Sequence="10050">
+          <Titles>
+            <Title LCID="1033" Text="POW Information" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_proceed_veteranid" Area="Info" Id="nav_udo_contact_udo_proceed_veteranid" Sequence="10051">
+          <Titles>
+            <Title LCID="1033" Text="Proceeds" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_rating_VeteranId" Area="Info" Id="nav_udo_contact_udo_rating_VeteranId" Sequence="10052">
+          <Titles>
+            <Title LCID="1033" Text="Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_readjustmentbalance_VeteranId" Area="Info" Id="nav_udo_contact_udo_readjustmentbalance_VeteranId" Sequence="10053">
+          <Titles>
+            <Title LCID="1033" Text="Readjustment Balances" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_readjustmentpayment_VeteranId" Area="Info" Id="nav_udo_contact_udo_readjustmentpayment_VeteranId" Sequence="10054">
+          <Titles>
+            <Title LCID="1033" Text="Readjustment Payments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_receivable_veteranid" Area="Info" Id="nav_udo_contact_udo_receivable_veteranid" Sequence="10055">
+          <Titles>
+            <Title LCID="1033" Text="Receivables" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_relationships" Area="Info" Id="nav_udo_contact_udo_relationships" Sequence="10056">
+          <Titles>
+            <Title LCID="1033" Text="Relationships" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_request_Regarding" Area="Info" Id="nav_udo_contact_udo_request_Regarding" Sequence="10057">
+          <Titles>
+            <Title LCID="1033" Text="Requests" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_request_Veteran" Area="Info" Id="nav_udo_contact_udo_request_Veteran" Sequence="10058">
+          <Titles>
+            <Title LCID="1033" Text="Requests" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_retirementpay_VeteranId" Area="Info" Id="nav_udo_contact_udo_retirementpay_VeteranId" Sequence="10059">
+          <Titles>
+            <Title LCID="1033" Text="Retirement Pay" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_returnedpaymentdata_VeteranId" Area="Info" Id="nav_udo_contact_udo_returnedpaymentdata_VeteranId" Sequence="10060">
+          <Titles>
+            <Title LCID="1033" Text="Returned Payment Data" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_seperationbalance_VeteranId" Area="Info" Id="nav_udo_contact_udo_seperationbalance_VeteranId" Sequence="10061">
+          <Titles>
+            <Title LCID="1033" Text="Seperation Balances" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_seperationpayment_VeteranId" Area="Info" Id="nav_udo_contact_udo_seperationpayment_VeteranId" Sequence="10062">
+          <Titles>
+            <Title LCID="1033" Text="Seperation Payments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_severancebalance_VeteranId" Area="Info" Id="nav_udo_contact_udo_severancebalance_VeteranId" Sequence="10063">
+          <Titles>
+            <Title LCID="1033" Text="Severance Balances" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_severancepayment_VeteranId" Area="Info" Id="nav_udo_contact_udo_severancepayment_VeteranId" Sequence="10064">
+          <Titles>
+            <Title LCID="1033" Text="Severance Payments" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_smcparagraphrating_VeteranId" Area="Info" Id="nav_udo_contact_udo_smcparagraphrating_VeteranId" Sequence="10065">
+          <Titles>
+            <Title LCID="1033" Text="SMC Paragraph Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_smcrating_VeteranId" Area="Info" Id="nav_udo_contact_udo_smcrating_VeteranId" Sequence="10066">
+          <Titles>
+            <Title LCID="1033" Text="SMC Ratings" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_status_VeteranId" Area="Info" Id="nav_udo_contact_udo_status_VeteranId" Sequence="10067">
+          <Titles>
+            <Title LCID="1033" Text="Status" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_suspense_Veteranid" Area="Info" Id="nav_udo_contact_udo_suspense_Veteranid" Sequence="10068">
+          <Titles>
+            <Title LCID="1033" Text="Suspense" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_tourhistory_VeteranId" Area="Info" Id="nav_udo_contact_udo_tourhistory_VeteranId" Sequence="10069">
+          <Titles>
+            <Title LCID="1033" Text="Tour Histories" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_trackeditem_Veteran" Area="Info" Id="nav_udo_contact_udo_trackeditem_Veteran" Sequence="10070">
+          <Titles>
+            <Title LCID="1033" Text="Tracked Items" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_veteransnapshot_VeteranID" Area="Info" Id="nav_udo_contact_udo_veteransnapshot_VeteranID" Sequence="10071">
+          <Titles>
+            <Title LCID="1033" Text="Veteran Snapshots" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_virtualva_VeteranId" Area="Info" Id="nav_udo_contact_udo_virtualva_VeteranId" Sequence="10072">
+          <Titles>
+            <Title LCID="1033" Text="Virtual VA" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_va_bankaccount_Veteranid" Area="Info" Id="nav_udo_contact_va_bankaccount_Veteranid" Sequence="10073">
+          <Titles>
+            <Title LCID="1033" Text="Change of Address &amp; Bank Account" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_va_intenttofile_VeteranId" Area="Info" Id="nav_udo_contact_va_intenttofile_VeteranId" Sequence="10074">
+          <Titles>
+            <Title LCID="1033" Text="Intent To File" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_udo_servicerequest_vet" Area="Info" Id="nav_va_contact_udo_servicerequest_vet" Sequence="10075">
+          <Titles>
+            <Title LCID="1033" Text="Service Requests - UDO" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_va_emergencycall" Area="Info" Id="nav_va_contact_va_emergencycall" Sequence="10076">
+          <Titles>
+            <Title LCID="1033" Text="Emergency Calls" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_va_vai_Veteran" Area="Info" Id="nav_va_contact_va_vai_Veteran" Sequence="10077">
+          <Titles>
+            <Title LCID="1033" Text="VAIs" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_contact" Area="Info" Id="nav_va_contact_contact" Sequence="10078">
+          <Titles>
+            <Title LCID="1033" Text="Contacts" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_va_addresshistory" Area="Info" Id="nav_va_contact_va_addresshistory" Sequence="10079">
+          <Titles>
+            <Title LCID="1033" Text="Address History" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_va_bankaccount" Area="Info" Id="nav_va_contact_va_bankaccount" Sequence="10080">
+          <Titles>
+            <Title LCID="1033" Text="Change of Address &amp; Bank Account" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_va_fnod" Area="Info" Id="nav_va_contact_va_fnod" Sequence="10081">
+          <Titles>
+            <Title LCID="1033" Text="FNOD/MOD/Memorial Certificate" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="va_contact_va_servicerequest_vet" Area="Info" Id="nav_va_contact_va_servicerequest_vet" Sequence="10082">
+          <Titles>
+            <Title LCID="1033" Text="Service Requests" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_birlsmilitaryservice_VeteranId" Area="Info" Id="nav_udo_contact_udo_birlsmilitaryservice_VeteranId" Sequence="10083">
+          <Titles>
+            <Title LCID="1033" Text="BirlsMilitaryServices" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_birls_VeteranId" Area="Info" Id="nav_udo_contact_udo_birls_VeteranId" Sequence="10084">
+          <Titles>
+            <Title LCID="1033" Text="BIRLS" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_alternatename_VeteranId" Area="Info" Id="nav_udo_contact_udo_alternatename_VeteranId" Sequence="10085">
+          <Titles>
+            <Title LCID="1033" Text="Alternate Names" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_lettergeneration_RelatedVeteranId" Area="Info" Id="nav_udo_contact_udo_lettergeneration_RelatedVeteranId" Sequence="10086">
+          <Titles>
+            <Title LCID="1033" Text="Letter Generations" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_insurance_VeteranId" Area="Info" Id="nav_udo_contact_udo_insurance_VeteranId" Sequence="10087">
+          <Titles>
+            <Title LCID="1033" Text="InsurancePolicies" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_servicediagnostics_VeteranId" Area="Info" Id="nav_udo_contact_udo_servicediagnostics_VeteranId" Sequence="10088">
+          <Titles>
+            <Title LCID="1033" Text="Service Diagnostics" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_folderlocation_VeteranId" Area="Info" Id="nav_udo_contact_udo_folderlocation_VeteranId" Sequence="10089">
+          <Titles>
+            <Title LCID="1033" Text="Folder Locations" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_birlsflash_VeteranId" Area="Info" Id="nav_udo_contact_udo_birlsflash_VeteranId" Sequence="10090">
+          <Titles>
+            <Title LCID="1033" Text="Flashes" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="udo_contact_udo_disclosure_VeteranId" Area="Info" Id="nav_udo_contact_udo_disclosure_VeteranId" Sequence="10091">
+          <Titles>
+            <Title LCID="1033" Text="Disclosures" />
+          </Titles>
+        </NavBarByRelationshipItem>
+        <NavBarByRelationshipItem RelationshipName="crme_contact_crme_dependentmaintenance_RelatedVeteranid" Id="nav_crme_contact_crme_dependentmaintenance_RelatedVeteranid" Show="true" Area="Info" Sequence="30001">
+          <Titles>
+            <Title LCID="1033" Text="Dependent Maintenances" />
+          </Titles>
+        </NavBarByRelationshipItem>
+      </NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <formLibraries>
+      <Library name="udo_CRMCommonJS.js" libraryUniqueId="{95621311-bd1d-29de-0b51-e0bd0a6eb3d9}" />
+      <Library name="udo_Veteran" libraryUniqueId="{e6c08ab8-5e4d-a648-d6cc-718627d92dcc}" />
+      <Library name="udo_customaction_onload" libraryUniqueId="{c6430ac6-23bc-a92e-6457-87638aed3d00}" />
+    </formLibraries>
+    <events>
+      <event name="onload" application="true" active="true">
+        <InternalHandlers>
+          <Handler functionName="AppCommon.Contact.Instance.form_onload" libraryName="AppCommon/Contact/Contact_main_system_library.js" handlerUniqueId="4ea24ebd-795d-434e-af94-6812c3867b54" enabled="true" />
+        </InternalHandlers>
+        <Handlers>
+          <Handler functionName="UDO.CustomActions.OnLoad" libraryName="udo_customaction_onload" handlerUniqueId="{ed5518aa-07aa-cd09-b8b5-9e0a1db7180b}" enabled="true" parameters="&quot;contact&quot;,&quot;&quot;,&quot;udo_GetVeteranUpdates&quot;,&quot;requests;phonecalls;udosr;udsr;itf2;itf1;caddafter;caddbefore;chatafter;chatbefore;adafter;adbefore;fnodafter;fnodbefore&quot;" passExecutionContext="true" />
+        </Handlers>
+      </event>
+    </events>
+    <controlDescriptions />
+    <DisplayConditions Order="5" FallbackForm="true">
+      <Everyone />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Vet History" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

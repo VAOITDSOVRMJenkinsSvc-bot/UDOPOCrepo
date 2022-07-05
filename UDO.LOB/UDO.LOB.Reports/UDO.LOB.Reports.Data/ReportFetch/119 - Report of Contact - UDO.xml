@@ -1,0 +1,47 @@
+﻿<fetch>
+  <entity name="udo_lettergeneration">
+    <attribute name="udo_ecccity" />
+    <attribute name="udo_dateofdeath" />
+    <attribute name="udo_mailing_address1" />
+    <attribute name="udo_ecctitle" alias="ECCTitle" />
+    <attribute name="udo_ecccountry" />
+    <attribute name="udo_mailing_state" />
+    <attribute name="udo_eccssn" alias="ECCSSN"/>
+    <attribute name="udo_eccstate" />
+    <attribute name="udo_mailing_city" />
+    <attribute name="udo_reqnumber" />
+    <attribute name="udo_eccaddress2" />
+    <attribute name="udo_eccaddress1" />
+    <attribute name="udo_mailing_address2" />
+    <attribute name="udo_eccmiddlename" />
+    <attribute name="udo_dayphone" />
+    <attribute name="udo_ecclastname" />
+    <attribute name="udo_eccfirstname" />
+    <attribute name="udo_eccphone1" />
+    <attribute name="udo_mailing_address3" />
+    <attribute name="udo_mailingcountry" />
+    <attribute name="udo_ecczip" />
+    <attribute name="udo_mailing_zip" />
+    <attribute name="udo_filenumber" />
+    <attribute name="udo_country" />
+    <attribute name="udo_description" />
+    <attribute name="udo_srfirstname" />
+    <attribute name="udo_srlastname" />
+    <filter type="and">
+      <condition attribute="udo_lettergenerationid" operator="eq" value="@LetterGenerationGUID" />
+    </filter>
+    <link-entity name="systemuser" from="systemuserid" to="udo_pcrofrecordid" link-type="outer" alias="u">
+      <attribute name="siteidname" alias="UserOffice" />
+      <attribute name="va_replyreferto" alias="ReplyRefer" />
+      <attribute name="lastname" alias="UserLastName" />
+      <attribute name="title" alias="UserTitle" />
+      <attribute name="firstname" alias="UserFirstName" />
+      <attribute name="fullname" alias="UserFullName" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer" alias="vet" >
+      <attribute name="lastname" alias="vet_lastname" />
+      <attribute name="middlename" alias="vet_middlename" />
+      <attribute name="firstname" alias="vet_firstname" />
+    </link-entity>
+  </entity>
+</fetch>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Chat Session Log" OriginalName="Chat &amp; CoBrowse Session Log">crme_chatcobrowsesessionlog</Name>
+  <EntityInfo>
+    <entity Name="crme_chatcobrowsesessionlog" unmodified="1">
+      <attributes />
+    </entity>
+  </EntityInfo>
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

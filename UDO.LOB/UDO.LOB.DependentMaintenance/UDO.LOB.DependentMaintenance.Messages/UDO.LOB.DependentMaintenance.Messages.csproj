@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05D3C9C0-4871-4886-8066-7F264B34E739}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UDO.LOB.DependentMaintenance.Messages</RootNamespace>
+    <AssemblyName>UDO.LOB.DependentMaintenance.Messages</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TRAIN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TRAIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PROD|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\PROD\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PERF|AnyCPU'">
+    <OutputPath>bin\PERF\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PREPROD|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\PREPROD\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.32\lib\net462\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.32\lib\net462\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VRM.Integration.Servicebus.Core">
+      <HintPath>..\..\Global\Assemblies\VRM.Integration.Servicebus.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Global\Versioning\BuildInfo.cs">
+      <Link>Properties\BuildInfo.cs</Link>
+    </Compile>
+    <Compile Include="AddDependentOrchestrationRequest.cs" />
+    <Compile Include="AddDependentRequest.cs" />
+    <Compile Include="Address.cs" />
+    <Compile Include="DependentParticipant.cs" />
+    <Compile Include="DependentRelationship.cs" />
+    <Compile Include="Plugin Messages\GetDependentInfoRequest.cs" />
+    <Compile Include="Plugin Messages\GetDependentInfoResponse.cs" />
+    <Compile Include="Plugin Messages\GetMaritalInfoRequest.cs" />
+    <Compile Include="Plugin Messages\GetMaritalInfoResponse.cs" />
+    <Compile Include="Plugin Messages\GetSchoolInfoRequest.cs" />
+    <Compile Include="Plugin Messages\GetSchoolInfoResponse.cs" />
+    <Compile Include="Plugin Messages\GetSensitivityLevelRequest.cs" />
+    <Compile Include="Plugin Messages\GetSensitivityLevelResponse.cs" />
+    <Compile Include="Plugin Messages\GetVeteranInfoRequest.cs" />
+    <Compile Include="Plugin Messages\GetVeteranInfoResponse.cs" />
+    <Compile Include="IAddDependentOchestrationRequest.cs" />
+    <Compile Include="IAddDependentRequest.cs" />
+    <Compile Include="IAddress.cs" />
+    <Compile Include="IDependentParticipant.cs" />
+    <Compile Include="IDependentRelationship.cs" />
+    <Compile Include="IMaritalHistory.cs" />
+    <Compile Include="IParticipant.cs" />
+    <Compile Include="IPhoneNumber.cs" />
+    <Compile Include="IVeteranParticipant.cs" />
+    <Compile Include="MaritalHistory.cs" />
+    <Compile Include="MessageRegistry.cs" />
+    <Compile Include="Participant.cs" />
+    <Compile Include="PhoneNumber.cs" />
+    <Compile Include="Plugin Messages\SearchSchoolInfoRequest.cs" />
+    <Compile Include="Plugin Messages\SearchSchoolInfoResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UDOVBMSUploadDocument.cs" />
+    <Compile Include="VeteranParticipant.cs" />
+    <Compile Include="Web Messages\UdoEcGetEduInstitueResponse.cs" />
+    <Compile Include="Web Messages\UdoEcIMessageBase.cs" />
+    <Compile Include="Web Messages\UdoEcMessageBase.cs" />
+    <Compile Include="Web Messages\UdoEcResponseBase.cs" />
+    <Compile Include="Web Messages\UdoEcSearchEduInstitutesResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UDO.Crm.LOB.Core\UDO.LOB.Core.csproj">
+      <Project>{75cee666-371f-4679-8c93-629f35309dc1}</Project>
+      <Name>UDO.LOB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\UDO.Crm.LOB.Extensions\UDO.LOB.Extensions.csproj">
+      <Project>{a4e91fc6-6983-4a58-b306-7cc71829484f}</Project>
+      <Name>UDO.LOB.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

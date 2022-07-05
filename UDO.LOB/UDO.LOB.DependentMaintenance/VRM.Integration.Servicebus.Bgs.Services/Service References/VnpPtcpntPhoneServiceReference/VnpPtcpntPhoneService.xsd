@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ptcpntPhoneService.services.vonapp.vba.va.gov/" targetNamespace="http://ptcpntPhoneService.services.vonapp.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FaultException" nillable="true" type="xs:anyType" />
+  <xs:element name="MessageFaultException" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="100" name="faultExceptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="100" name="variables" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findPhoneAllAsArray" type="tns:findPhoneAllAsArray" />
+  <xs:element name="findPhoneAllAsArrayResponse" type="tns:findPhoneAllAsArrayResponse" />
+  <xs:element name="vnpPtcpntPhoneCreate" type="tns:vnpPtcpntPhoneCreate" />
+  <xs:element name="vnpPtcpntPhoneCreateResponse" type="tns:vnpPtcpntPhoneCreateResponse" />
+  <xs:element name="vnpPtcpntPhoneFindByPrimaryKey" type="tns:vnpPtcpntPhoneFindByPrimaryKey" />
+  <xs:element name="vnpPtcpntPhoneFindByPrimaryKeyResponse" type="tns:vnpPtcpntPhoneFindByPrimaryKeyResponse" />
+  <xs:element name="vnpPtcpntPhoneRemove" type="tns:vnpPtcpntPhoneRemove" />
+  <xs:element name="vnpPtcpntPhoneRemoveResponse" type="tns:vnpPtcpntPhoneRemoveResponse" />
+  <xs:element name="vnpPtcpntPhoneUpdate" type="tns:vnpPtcpntPhoneUpdate" />
+  <xs:element name="vnpPtcpntPhoneUpdateResponse" type="tns:vnpPtcpntPhoneUpdateResponse" />
+  <xs:complexType name="vnpPtcpntPhoneCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPtcpntPhoneDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpPtcpntPhoneDTO">
+    <xs:sequence>
+      <xs:element name="vnpPtcpntPhoneId" type="xs:long" />
+      <xs:element name="vnpProcId" type="xs:long" />
+      <xs:element name="vnpPtcpntId" type="xs:string" />
+      <xs:element name="phoneTypeNm" type="xs:string" />
+      <xs:element name="phoneNbr" type="xs:string" />
+      <xs:element name="efctvDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="endDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="areaNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="cntryNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="frgnPhoneRfrncTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="extnsnNbr" type="xs:string" />
+      <xs:element name="jrnDt" type="xs:dateTime" />
+      <xs:element name="jrnLctnId" type="xs:string" />
+      <xs:element name="jrnUserId" type="xs:string" />
+      <xs:element name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element name="jrnObjId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneCreateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntPhoneDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPtcpntPhoneDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntPhoneDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneRemove">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntPhoneId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneRemoveResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneFindByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntPhoneId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhoneFindByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntPhoneDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPhoneAllAsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findPhoneAllAsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:vnpPtcpntPhone" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntPhone">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="areaNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="cntryNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="efctvDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="endDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="extnsnNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="frgnPhoneRfrncTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="phoneNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="phoneTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpProcId" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpPtcpntId" type="xs:string" />
+      <xs:element name="vnpPtcpntPhoneId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

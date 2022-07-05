@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDO.CustomActions.LogtoAppInsights.Plugins", "UDO.CustomActions.LogtoAppInsights.Plugins.csproj", "{FC8B8B87-CEC7-4EB0-84D9-2E119035ECBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC8B8B87-CEC7-4EB0-84D9-2E119035ECBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC8B8B87-CEC7-4EB0-84D9-2E119035ECBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC8B8B87-CEC7-4EB0-84D9-2E119035ECBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC8B8B87-CEC7-4EB0-84D9-2E119035ECBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {719A0D45-0C17-4C65-A9B5-43853C223CED}
+	EndGlobalSection
+EndGlobal

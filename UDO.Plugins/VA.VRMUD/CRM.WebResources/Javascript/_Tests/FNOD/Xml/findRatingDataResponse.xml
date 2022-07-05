@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <findRatingDataResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+      <return>
+        <deathRatingRecord>
+          <numberOfRecords>0</numberOfRecords>
+          <returnCode>SHAR 9999</returnCode>
+          <returnMessage>Records found.</returnMessage>
+          <deathratings/>
+        </deathRatingRecord>
+        <disabilityRatingRecord>
+          <combinedDegreeEffectiveDate>02012006</combinedDegreeEffectiveDate>
+          <legalEffectiveDate>01012006</legalEffectiveDate>
+          <nonServiceConnectedCombinedDegree>100</nonServiceConnectedCombinedDegree>
+          <numberOfRecords>1</numberOfRecords>
+          <promulgationDate>03272008</promulgationDate>
+          <returnCode>SHAR 9999</returnCode>
+          <returnMessage>Records found.</returnMessage>
+          <serviceConnectedCombinedDegree>100</serviceConnectedCombinedDegree>
+          <testing/>
+          <disabilityratings>
+            <ratings>
+              <beginDate>01012006</beginDate>
+              <bilateralTypeName/>
+              <combatIndicator>N</combatIndicator>
+              <diagnosticPercent>100</diagnosticPercent>
+              <diagnosticText>ptsd</diagnosticText>
+              <diagnosticTypeCode>9411</diagnosticTypeCode>
+              <diagnosticTypeName>Post traumatic stress disorder</diagnosticTypeName>
+              <disabilityDate>03272008</disabilityDate>
+              <disabilityDecisionTypeCode>SVCCONNCTED</disabilityDecisionTypeCode>
+              <disabilityDecisionTypeName>Service Connected</disabilityDecisionTypeName>
+              <disabilityID>1043257</disabilityID>
+              <endDate/>
+              <futureExamDate/>
+              <hyphenatedDiagnosticTypeCode/>
+              <hyphenatedDiagnosticTypeName/>
+              <hyphenatedRelatedDisabilityTypeName/>
+              <lastExamDate/>
+              <majorIndicator>N</majorIndicator>
+              <militaryServicePeriodTypeName>World War II</militaryServicePeriodTypeName>
+              <paragraphTypeName/>
+              <previousServicePercent/>
+              <relatedDisabilityTypeName/>
+              <supplementalDecisionTypeName/>
+              <withholdingPercent/>
+              <withholdingTypeName/>
+            </ratings>
+          </disabilityratings>
+        </disabilityRatingRecord>
+        <familyMemberRatingRecord>
+          <numberOfRecords>0</numberOfRecords>
+          <returnCode>SHAR 9999</returnCode>
+          <returnMessage>Records found.</returnMessage>
+          <familyratings/>
+        </familyMemberRatingRecord>
+        <otherRatingRecord>
+          <numberOfRecords>0</numberOfRecords>
+          <returnCode>SHAR 9999</returnCode>
+          <returnMessage>Records found.</returnMessage>
+          <otherratings/>
+        </otherRatingRecord>
+        <specialMonthlyCompensationRatingRecord>
+          <numberOfSMCParagraphRecords>0</numberOfSMCParagraphRecords>
+          <numberOfSMCRecords>0</numberOfSMCRecords>
+          <returnCode>SHAR 9999</returnCode>
+          <returnMessage>Records found.</returnMessage>
+          <smcparagraphrating/>
+          <smcrating/>
+        </specialMonthlyCompensationRatingRecord>
+      </return>
+    </findRatingDataResponse>
+  </Body>
+</Envelope>

@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{88A30576-7583-4F75-8136-5EFD2C14ADFF}") = "CrmPackage", "Va.Udo.Crm\CrmPackage\CrmPackage.csproj", "{E3B4262A-298D-4567-9E4E-052C988D59D4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06290079-0625-41B9-AB2F-2DACD2C1269E} = {06290079-0625-41B9-AB2F-2DACD2C1269E}
+		{C0D01BF1-0809-4E80-8C35-BB66100CE20F} = {C0D01BF1-0809-4E80-8C35-BB66100CE20F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugins", "Va.Udo.Crm\Plugins\Plugins.csproj", "{06290079-0625-41B9-AB2F-2DACD2C1269E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow", "Va.Udo.Crm\Workflow\Workflow.csproj", "{C0D01BF1-0809-4E80-8C35-BB66100CE20F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://pssc-amalgam-tfs2012.solutiondevcenter.com/tfs/pssc01
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Va.Udo.Crm\\CrmPackage\\CrmPackage.csproj
+		SccProjectName1 = Va.Udo.Crm/CrmPackage
+		SccLocalPath1 = Va.Udo.Crm\\CrmPackage
+		SccProjectUniqueName2 = Va.Udo.Crm\\Plugins\\Plugins.csproj
+		SccProjectName2 = Va.Udo.Crm/Plugins
+		SccLocalPath2 = Va.Udo.Crm\\Plugins
+		SccProjectUniqueName3 = Va.Udo.Crm\\Workflow\\Workflow.csproj
+		SccProjectName3 = Va.Udo.Crm/Workflow
+		SccLocalPath3 = Va.Udo.Crm\\Workflow
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3B4262A-298D-4567-9E4E-052C988D59D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B4262A-298D-4567-9E4E-052C988D59D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B4262A-298D-4567-9E4E-052C988D59D4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E3B4262A-298D-4567-9E4E-052C988D59D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B4262A-298D-4567-9E4E-052C988D59D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B4262A-298D-4567-9E4E-052C988D59D4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{06290079-0625-41B9-AB2F-2DACD2C1269E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06290079-0625-41B9-AB2F-2DACD2C1269E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06290079-0625-41B9-AB2F-2DACD2C1269E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06290079-0625-41B9-AB2F-2DACD2C1269E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D01BF1-0809-4E80-8C35-BB66100CE20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D01BF1-0809-4E80-8C35-BB66100CE20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D01BF1-0809-4E80-8C35-BB66100CE20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D01BF1-0809-4E80-8C35-BB66100CE20F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

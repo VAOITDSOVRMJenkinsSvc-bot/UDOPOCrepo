@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DSDependentMaintenanceSubmissionFailuresUDO">
+      <DataSourceReference>MSCRM_DataSource</DataSourceReference>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>02ec215b-1300-4c4a-a11e-a6a9936657cd</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DSDependentMaintenanceSubmissionFailuresUDO</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@reportDate">
+            <Value>=Parameters!reportDate.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>--DECLARE @reportDate DATE
+--SET @reportDate = '06/15/2020'
+
+declare @baseMonday datetime
+set @baseMonday = '17530101'
+
+SELECT 
+	DISTINCT 
+	CASE WHEN 
+		dm.createdon &gt; @baseMonday + datediff(day,@baseMonday,CAST(YEAR(dm.createdon) AS CHAR(4))+'0301')/7*7+13 AND 
+		dm.createdon &lt;= @baseMonday + datediff(day,@baseMonday,CAST(YEAR(dm.createdon) AS CHAR(4))+'1101')/7*7+6
+	THEN DATEADD(hour,-4,dm.createdon)
+		ELSE DATEADD(hour,-5,dm.createdon)
+	END AS 'Issue Date'
+	--, CASE WHEN su.va_StationNumber = '310' THEN 'Philadelphia Call Center'
+	--	WHEN su.va_StationNumber = '319' THEN 'Columbia Call Center'
+	--	WHEN su.va_StationNumber = '320' THEN 'Nashville Call Center'
+	--	WHEN su.va_StationNumber = '325' THEN 'Cleveland Call Center'
+	--	WHEN su.va_StationNumber = '331' THEN 'St. Louis Call Center'
+	--	WHEN su.va_StationNumber = '341' THEN 'Salt Lake City Call Center'
+	--	WHEN su.va_StationNumber = '345' THEN 'Phoenix Call Center'
+	--	WHEN su.va_StationNumber = '355' THEN 'San Juan'
+	--	ELSE CAST(su.va_StationNumber as VARCHAR(MAX)) END AS 'Site'
+	, s.name AS 'Site'
+	, dm.CreatedByName AS 'PCR Name'
+	, 'https://dvagov-udo-prod4.crm9.dynamics.com/main.aspx?etn=crme_dependentmaintenance&amp;pagetype=entityrecord&amp;extraqs=?etn=crme_dependentmaintenance&amp;id=%7b' + CAST(dm.ActivityId AS VARCHAR(40)) + '%7d' AS 'Add Dep URL'   
+	, CASE
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%CASE ALREADY ESTABLISHED%' THEN '130 already exist'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%Invalid SSN number as defined by SSA%' THEN 'Invalid SSN'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%SSN_NBR contains invalid characters%' THEN 'SSN contains invalid characters'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%There was no endpoint listening at https://crmprod.vba.va.gov/VnpProcWebServiceBean/VnpProcService%' THEN 'Service was down'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%The request channel timed out while waiting for a reply after 00:01:00%' THEN 'Connection timed out'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%BenefitClaimId was not returned from InsertBenefitClaimInformation%BIRLS Inquiry - An unexpected error was encountered.  Please contact the System Administrator%' AND CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) NOT LIKE '%AddressLine1 has invalid character(s)%' THEN 'BIRLS was down'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%AddressLine1 has invalid character(s)%' THEN 'Address 1 has invalid characters'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%SSN_NBR must be 9 characters long%' THEN 'SSN must be 9 characters'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%Postcondition%firstOrDefault should not be null%failed%' THEN 'firstOrDefault should not be null'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%The request channel timed out while waiting for a reply after 00:02:00%' THEN 'Connection timed out'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%Postcondition%response should not be an empty string%failed%' THEN 'Service returned null value'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%Maximum number of EPs reached for this bnftClaimTypeCd%' THEN 'Maximum number of EPs reached'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%Ssn should not be null or an empty string%' THEN 'Null or empty SSN submitted'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%A connection that was expected to be kept alive was closed by the server%' THEN 'Connection was terminated'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%Duplicate Veteran Records found on Corporate%' THEN 'Then duplicate Veteran records in CORP'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%The underlying connection was closed: A connection that was expected to be kept alive was closed by the server%' THEN 'Connection was terminated'
+		WHEN CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)) LIKE '%fatal general error&gt; org.apache.openjpa.persistence.PersistenceException: The transaction has been rolled back%' THEN 'Transaction rolled back'
+		ELSE ISNULL(CAST(CAST(a.DocumentBody AS XML).value('.', 'varbinary(max)') AS varchar(MAX)),'Error File Not Found')
+	END AS 'Transaction Failure Reason'
+FROM 
+	ods.crme_dependentmaintenance dm
+		LEFT OUTER JOIN (
+			SELECT objectid, DocumentBody
+			FROM ods.annotation
+			WHERE NoteText = 'Orchestration Error Log') a
+				ON a.ObjectId = dm.ActivityId 
+	LEFT JOIN ods.systemUser su
+		ON dm.CreatedBy = su.systemUserId
+	LEFT JOIN ods.[site] s
+		on su.siteid = s.siteid
+WHERE 
+	CAST(CASE WHEN 
+		dm.createdon &gt; @baseMonday + datediff(day,@baseMonday,CAST(YEAR(dm.createdon) AS CHAR(4))+'0301')/7*7+13 AND 
+		dm.createdon &lt;= @baseMonday + datediff(day,@baseMonday,CAST(YEAR(dm.createdon) AS CHAR(4))+'1101')/7*7+6
+	THEN DATEADD(hour,-4,dm.createdon)
+		ELSE DATEADD(hour,-5,dm.createdon)
+	END as DATE)
+		BETWEEN CAST(DATEADD(DAY,-6,@reportDate) as DATE) AND CAST(@reportDate as date)
+	AND dm.crme_txnStatus = 935950002
+ORDER BY CASE WHEN 
+		dm.createdon &gt; @baseMonday + datediff(day,@baseMonday,CAST(YEAR(dm.createdon) AS CHAR(4))+'0301')/7*7+13 AND 
+		dm.createdon &lt;= @baseMonday + datediff(day,@baseMonday,CAST(YEAR(dm.createdon) AS CHAR(4))+'1101')/7*7+6
+	THEN DATEADD(hour,-4,dm.createdon)
+		ELSE DATEADD(hour,-5,dm.createdon)
+	END </CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="Issue_Date">
+          <DataField>Issue Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Site">
+          <DataField>Site</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PCR_Name">
+          <DataField>PCR Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Add_Dep_URL">
+          <DataField>Add Dep URL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Transaction_Failure_Reason">
+          <DataField>Transaction Failure Reason</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="table1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.63542in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.63542in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.63542in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.76042in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.63542in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.22in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Issue Date (EST)</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Site</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>PCR Name</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Add Dep URL</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Transaction Failure Reason</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>SteelBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.21in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Issue_Date">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Issue_Date.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Issue_Date</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Site">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Site.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Site</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="PCR_Name">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!PCR_Name.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>PCR_Name</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Add_Dep_URL">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Add_Dep_URL.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Add_Dep_URL</rd:DefaultName>
+                          <ActionInfo>
+                            <Actions>
+                              <Action>
+                                <Hyperlink>=Fields!Add_Dep_URL.Value</Hyperlink>
+                              </Action>
+                            </Actions>
+                          </ActionInfo>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Transaction_Failure_Reason">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Transaction_Failure_Reason.Value</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Transaction_Failure_Reason</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="table1_Details_Group">
+                    <DataElementName>Detail</DataElementName>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0.785in</Top>
+            <Height>0.43in</Height>
+            <Width>9.3021in</Width>
+            <Style />
+          </Tablix>
+          <Textbox Name="Textbox11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Weekly Dependent Maintenance Submission Failures</Value>
+                    <Style>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>SteelBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox11</rd:DefaultName>
+            <Top>0.19667in</Top>
+            <Height>0.46875in</Height>
+            <Width>9.3021in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>9.3021in</Width>
+      <Page>
+        <PageHeight>8.5in</PageHeight>
+        <PageWidth>11in</PageWidth>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="reportDate">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=CDate(Format(DateAdd("d",-1,Now()), "MM/dd/yyyy"))</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Report Date</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>reportDate</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>30dd0d64-f802-49af-be69-32f6f2eb9d85</rd:ReportID>
+</Report>

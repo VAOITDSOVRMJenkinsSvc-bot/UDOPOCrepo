@@ -1,0 +1,465 @@
+<html><head><meta><meta><meta></head>
+
+<body style="overflow-wrap: break-word;">
+    <title>Person Search</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <meta>
+
+    <style type="text/css">
+        fieldset {
+            color: rgb(0, 0, 0);
+            direction: ltr;
+            font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+            font-size: 16px;
+            /*line-height: 20px;*/
+            /*font-weight: 100;*/
+            margin-bottom: 14px;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 0;
+            background-color: rgb(255, 255, 255);
+            padding: 2px;
+            border: solid 0 #ffffff;
+            width: 100%;
+        }
+
+        fieldset legend {
+            display: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+            width: 705px;
+        }
+
+        th {
+            background-color: #ffffff;
+            color: black;
+            font-family: "Segoe UI Light", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+            font-size: 16px;
+            /*line-height: 20px;*/
+            font-weight: 600;
+            white-space: nowrap;
+            text-align: left;
+            padding: 5px;
+        }
+
+        td {
+            padding: 5px;
+            white-space: nowrap;
+        }
+
+        tr:focus {
+            background-color: aliceblue;
+            color: #800000;
+        }
+
+        .odd {
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .even {
+            background-color: whitesmoke;
+            cursor: pointer;
+        }
+
+        .odd:hover {
+            background-color: #99ccff;
+            color: #600000;
+        }
+
+        .even:hover {
+            background-color: #99ccff;
+            color: #600000;
+        }
+
+        div#tmpDialog {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 50px;
+            margin: -101px 0 0 -251px;
+            background: rgb(255, 255, 255);
+            border: 1px solid black;
+        }
+
+        div#tmpDialog img {
+            float: left;
+            height: 45px;
+            width: 45px;
+            padding: 5px 10px 5px 5px;
+            text-align: left;
+        }
+
+        div#tmpDialog p {
+            padding: 5px;
+            margin: 15px 5px 5px 5px;
+            text-align: left;
+        }
+
+        input.formInputText {
+            background-color: rgba(255, 255, 255, 0);
+            border-color: rgb(186, 186, 186);
+            border-width: 1px;
+            border-style: solid;
+            color: rgb(0, 0, 0);
+            font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+            font-size: 14.06px;
+            height: 30px;
+            /*line-height: normal;*/
+        }
+
+        div.search {
+            color: rgb(0, 0, 0);
+            direction: ltr;
+            float: left;
+            font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+            font-size: 12.06px;
+            /*line-height: 17px;*/
+            padding-bottom: 4px;
+            padding-top: 0;
+            text-align: left;
+        }
+
+        input.search {
+            color: rgb(0, 0, 0);
+            direction: ltr;
+            float: left;
+            font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+            font-size: 12.06px;
+            /*line-height: 17px;*/
+            padding-bottom: 4px;
+            padding-top: 0;
+            text-align: left;
+        }
+
+        span.button,
+        button {
+            background-color: rgb(0, 32, 80);
+            border-color: rgb(255, 255, 255);
+            border-width: 0px;
+            color: rgb(255, 255, 255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold", "Segoe UI Web Semibold", "Segoe UI Web Regular", "Segoe UI", "Segoe UI Symbol", "HelveticaNeue-Medium", "Helvetica Neue", Arial, sans-serif;
+            font-size: 14.06px;
+            min-width: 84.4px;
+            padding-bottom: 5px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 5px;
+            margin-right: 6px;
+        }
+
+        button:disabled {
+            background-color: gray;
+            color: white;
+        }
+
+        @media screen and (-ms-high-contrast: active) {
+
+            button {
+                border-color: ActiveBorder;
+            }
+        }
+
+        h1 {
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-weight: 100;
+            color: #262626;
+            font-size: 32px;
+            /*line-height: 20px;*/
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-weight: 100;
+            color: #262626;
+            font-size: 20px;
+            /*line-height: 10px;*/
+            white-space: nowrap;
+            margin-bottom: 12px;
+            margin-top: 8px;
+        }
+
+        fieldset {
+            border: 0;
+        }
+
+        .auto-style1 {
+            width: 142px;
+        }
+
+        form {
+            clear: both;
+        }
+    </style>
+
+    <script src="udo_Xrm.min.js" type="text/javascript"></script>
+    <script src="udo_jquery1.10.2.min.js" type="text/javascript"></script>
+    <script src="udo_CRMCommonJS.js" type="text/javascript"></script>
+    <script src="crme_json2.js" type="text/javascript"></script>
+    <script src="udo_utility.js" type="text/jscript"></script>
+    <script src="udo_popup.js" type="text/jscript"></script>
+    <script src="udo_PersonSearchUCI.js" type="text/javascript"></script>
+
+    <form id="searchByTraitsForm">
+        <h1 style="padding-top: 12px;">Veteran Search</h1>
+        <div class="search">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="auto-style1">
+                            <h2>Section 1 - Search By Traits</h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <fieldset>
+                <legend>The search criteria for a search by traits includes the Social Security Number, First Name, Last
+                    Name, and Date of Birth in MM DD YYYY format</legend>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="auto-style1">
+                                <label for="SocialSecurityTextBox">*SSN</label>
+                            </td>
+                            <td>
+                                <label for="FirstNameTextBox">First</label>
+                            </td>
+                            <td>
+                                <label for="LastNameTextBox">*Last</label>
+                            </td>
+                            <td>
+                                <label for="BirthMonthTextBox">*Month</label>
+                            </td>
+                            <td>
+                                <label for="BirthDayTextBox">*Day</label>
+                            </td>
+                            <td>
+                                <label for="BirthYearTextBox">*Year</label>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
+                                <input name="ssn" tabindex="1" title="Social Security Number (9 char max)" class="formInputText" id="SocialSecurityTextBox" required="" onfocus="clearField(this)" type="text" size="16" maxlength="50">
+                            </td>
+                            <td>
+                                <input name="firstName" tabindex="2" title="First Name (30 char max)" class="formInputText" id="FirstNameTextBox" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                            <td>
+                                <input name="lastName" tabindex="3" title="Last Name (30 char max)" class="formInputText" id="LastNameTextBox" required="" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                            <td>
+
+                                <input name="dateOfBirthMonth" tabindex="4" title="DOB Month in MM format" class="formInputText" id="BirthMonthTextBox" style="height: 30px;" required="" onkeyup="if($(this).val().length == 2) $('#BirthDayTextBox').focus()" onfocus="clearField(this)" type="text" size="2" maxlength="2" placeholder="MM" pattern="[0-9]*">
+                                /
+                            </td>
+                            <td>
+                                <input name="dateOfBirthDay" tabindex="5" title="DOB Day in DD format" class="formInputText" id="BirthDayTextBox" style="height: 30px;" required="" onkeyup="if($(this).val().length == 2) $('#BirthYearTextBox').focus()" onfocus="clearField(this)" type="text" size="2" maxlength="2" placeholder="DD" pattern="[0-9]*">
+                                /
+                            </td>
+                            <td>
+                                <input name="dateOfBirthYear" tabindex="6" title="DOB Year in YYYY format" class="formInputText" id="BirthYearTextBox" style="height: 30px;" required="" onfocus="clearField(this)" type="text" size="4" maxlength="4" placeholder="YYYY" pattern="[0-9]*">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;" colspan="4">
+                                <button tabindex="7" id="SearchByNameButton" aria-label="Search by Traits">Search</button>
+                                <button tabindex="8" id="clearNameFieldsButton" aria-label="Reset Search by Traits" type="reset">Reset</button>
+                                <button tabindex="9" id="altSearchButton" aria-label="Alternate Search">Alternate
+                                    Search</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </form>
+    <form id="searchByEdipiForm">
+        <div class="search">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="auto-style1">
+                            <h2>Section 2 - Search By EDIPI</h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <fieldset>
+                <legend>The search criteria for a search by EDIPI includes the EDIPI</legend>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label for="EdipiTextBox">*EDIPI</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="edipi" tabindex="10" title="EDIPI (10 char max)" class="formInputText" id="EdipiTextBox" required="" onfocus="clearField(this)" type="text" size="16" maxlength="10">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;">
+                                <button tabindex="11" id="SearchByIdentifierButton" aria-label="Search by EDIPI">Search</button>
+                                <button tabindex="12" id="clearIdentifierFieldsButton" aria-label="Reset Search by EDIPI" type="reset">Reset</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </form>
+    <br>
+    <div class="search" id="validationFailedDiv" style="color: rgb(128, 0, 0); clear: both; font-size: 1em; font-weight: bold; display: none;" aria-label="Search validation failed message">The search requires some additional information. Please follow the
+        instructions above to execute your search.</div>
+    <div tabindex="50" class="search" id="resultsFieldSetDiv" style="width: 100%; float: left; display: none;">
+        <h2>Section 3 - Search Results</h2>
+        <div class="search" style="clear: both;"></div>
+        <div id="searchResultsMessageDiv"><input tabindex="51" class="search" id="searchResultsMessageInput" style="border: currentColor; color: rgb(128, 0, 0); font-size: 1em; font-weight: bold; display: none;" type="text" readonly="readonly"></div>
+        <fieldset id="SearchResultFieldSet">
+            <legend style="display: none;">Search Results</legend>
+            <table id="personSearchResultsTable" style="width: 100%;"></table>
+            <button tabindex="200" id="idProofVeteranCompleteButton" style="margin-top: 10px;" aria-label="Identify Veteran and ID Proof Complete">Identify Veteran and ID Proof Complete</button>
+            <button tabindex="201" id="idProofCompleteButton" style="margin-top: 10px;" aria-label="ID Proof Complete">ID Proof Complete</button>
+            <button tabindex="202" id="idProofFailedButton" style="margin-top: 10px;" aria-label="ID Proof Failed">ID
+                Proof Failed</button>
+        </fieldset>
+    </div>
+
+    <form id="birlsSearchForm">
+        <div tabindex="60" class="search" id="birlsSearchDiv" style="width: 100%; float: left; display: none;">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="auto-style1">
+                            <h2>Alternate Search: </h2>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <fieldset id="birlsFieldset">
+                <legend>Search</legend>
+                <hr style="border: 1px solid gray; border-image: none;">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="auto-style1">
+                                <label for="SocialSecurityBirlsTextBox">SSN</label>
+                            </td>
+                            <td>
+                                <label for="FirstNameBirlsTextBox">First</label>
+                            </td>
+                            <td>
+                                <label for="LastNameBirlsTextBox">Last</label>
+                            </td>
+                            <td>
+                                <label for="DobBirlsTextBox">DOB</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
+                                <input name="ssn" tabindex="61" title="Social Security Number (9 char max)" class="formInputText" id="SocialSecurityBirlsTextBox" onfocus="clearField(this)" type="text" size="16" maxlength="50">
+                            </td>
+                            <td>
+                                <input name="firstName" tabindex="62" title="First Name (30 char max)" class="formInputText" id="FirstNameBirlsTextBox" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                            <td>
+                                <input name="lastName" tabindex="63" title="Last Name (30 char max)" class="formInputText" id="LastNameBirlsTextBox" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                            <td>
+
+                                <input name="dateOfBirth" tabindex="64" title="Date of Birth in MM/DD/YYYY format" class="formInputText" id="DobBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="10" maxlength="10" placeholder="MM/DD/YYYY" pattern="\d{1,2}/\d{1,2}/\d{4}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
+                                <label for="BranchOfServiceBirlsTextBox">Branch of Service</label>
+                            </td>
+                            <td>
+                                <label for="ServiceNumberBirlsTextBox">Service Number</label>
+                            </td>
+                            <td>
+                                <label for="InsuranceNumberBirlsTextBox">Insurance Number</label>
+                            </td>
+                            <td>
+                                <label for="DateOfDeathBirlsTextBox">Date of Death</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">
+                                <input name="branchOfService" tabindex="67" title="Branch of Service" class="formInputText" id="BranchOfServiceBirlsTextBox" onfocus="clearField(this)" type="text" size="16">
+                            </td>
+                            <td>
+                                <input name="serviceNumber" tabindex="68" title="Service Number (30 char max)" class="formInputText" id="ServiceNumberBirlsTextBox" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                            <td>
+                                <input name="InsuranceNumber" tabindex="69" title="Insurance Number (30 char max)" class="formInputText" id="InsuranceNumberBirlsTextBox" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                            <td>
+                                <input name="dateOfDeath" tabindex="70" title="Date of Death in MM/DD/YYYY format" class="formInputText" id="DateOfDeathBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="10" maxlength="10" placeholder="MM/DD/YYYY" pattern="\d{1,2}/\d{1,2}/\d{4}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="EnteredOnDutyBirlsTextBox">Entered on Duty</label>
+                            </td>
+                            <td>
+                                <label for="ReleasedActiveDutyBirlsTextBox">Released Active Duty</label>
+                            </td>
+                            <td>
+                                <label for="SuffixBirlsTextBox">Suffix</label>
+                            </td>
+                            <td>
+                                <label for="PayeeNumberBirlsTextBox">Payee Number</label>
+                            </td>
+                            <td>
+                                <label for="FolderLocationBirlsTextBox">Folder Location</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="EnteredOnDuty" tabindex="71" title="Entered on Duty in MM/DD/YYYY format" class="formInputText" id="EnteredOnDutyBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="10" maxlength="10" placeholder="MM/DD/YYYY" pattern="\d{1,2}/\d{1,2}/\d{4}">
+                            </td>
+                            <td>
+                                <input name="ReleasedActiveDuty" tabindex="72" title="Released Active Duty in MM/DD/YYYY format" class="formInputText" id="ReleasedActiveDutyBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="10" maxlength="10" placeholder="MM/DD/YYYY" pattern="\d{1,2}/\d{1,2}/\d{4}">
+                            </td>
+                            <td>
+                                <input name="suffix" tabindex="73" title="Suffix (11 char max)" class="formInputText" id="SuffixBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="2" maxlength="11">
+                            </td>
+                            <td>
+                                <input name="payeeNumber" tabindex="74" title="Payee Number (2 digit max)" class="formInputText" id="PayeeNumberBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="2" maxlength="2" pattern="[0-9]*">
+                            </td>
+                            <td>
+                                <input name="folderLocation" tabindex="75" title="Folder Location (30 char max)" class="formInputText" id="FolderLocationBirlsTextBox" style="height: 30px;" onfocus="clearField(this)" type="text" size="16" maxlength="30">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;" colspan="4">
+                                <button tabindex="80" id="SearchBirlsButton" aria-label="Search BIRLS" type="submit">Search</button>
+                                <button tabindex="81" id="ResetSearchBirlsButton" aria-label="Reset Search by BIRLS" type="reset">Reset Alternate Search</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+        <div tabindex="70" class="search" id="notFoundDiv" style="width: 100%; float: left; display: none;">
+            <fieldset id="notFoundFieldset">
+                <legend>No Records Found</legend>
+            </fieldset>
+        </div>
+    </form>
+    <div class="search" id="tmpDialog">
+        <img alt="Loading Image" src="udo_/images/search/loading.gif">
+        <p>Working on it. Please wait...</p>
+    </div>
+</body></html>

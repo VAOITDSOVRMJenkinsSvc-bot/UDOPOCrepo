@@ -1,0 +1,223 @@
+﻿<html>
+<head><title>Emergency Call</title></head>
+<body>
+    ﻿ 
+    <style type="text/css">
+        body
+        {
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #F1F3F5;
+            font-family: Tahoma;
+            width: 420px;
+        }
+
+        table
+        {
+            font-family: Tahoma;
+            font-size: smaller;
+        }
+
+        .main
+        {
+            width: 100%;
+        }
+
+        .childtables
+        {
+            width: 100%;
+        }
+
+        .main-header
+        {
+            color: #CC0000;
+        }
+
+        #startEmergency, #close
+        {
+            width: 166px;
+        }
+
+        #cancelEmergency
+        {
+            width: 166px;
+            display: none;
+        }
+
+        #addrecipients
+        {
+            width: 390px;
+        }
+
+        .add-recipients, .link-heades
+        {
+            border-bottom: 1px solid gray;
+            font-weight: bolder;
+        }
+
+        #silverlightControlHost
+        {
+            background-color: #F1F3F5;
+            height: 0px;
+            width: 0px;
+        }
+
+        h3
+        {
+            font-family: Tahoma;
+            padding-left: 5px;
+        }
+
+        .right
+        {
+            text-align: right;
+        }
+
+        .td-radios
+        {
+            width: 100px;
+        }
+
+        .td-title
+        {
+            width: 300px;
+        }
+    </style>
+
+    <form id="main" runat="server">
+        <h3>Emergency Call</h3>
+        <table class="main">
+            <tbody>
+                <tr>
+                    <td class="main-header">FOR EMERGENCY WARM TRANSFERS OF SUICIDAL CALLERS TO THE VA NATIONAL SUICIDE PREVENTION HOTLINE:</td>
+                </tr>
+                <tr>
+                    <td class="main-header">1-585-393-7938 
+                        <p>Public VA Suicide Hotline</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="main-header">1-800-273-TALK (8255)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <table class="childtables">
+                            <tbody>
+                                <tr>
+                                    <td class="add-recipients" colspan="2">Add Additional People to the Message (one email per line)</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea id="addRecipients" cols="50" rows="3"></textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="childtables">
+                            <tbody>
+                                <tr>
+                                    <td class="link-heades" colspan="2">Suicide Links</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-title"><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000002528" target="_blank">Suicide Guidance</a></td>
+                                    <td class="td-radios">
+                                        <input id="radSuicide" title="Suicide" name="group" value="1" type="radio">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><a href="http://www.suicide.org/suicide-hotlines.html" target="_blank">Suicide Hotline</a></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><a href="http://www.mentalhealth.va.gov" target="_blank">Mental Health Website</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="childtables">
+                            <tbody>
+                                <tr>
+                                    <td class="link-heades" colspan="2">Threats</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-title"><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000003635" target="_blank">Physical Threat of Employee</a></td>
+                                    <td class="td-radios">
+                                        <input id="radThreats" title="Threat" name="group" value="2" type="radio">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://vbaw.vba.va.gov/bl/21/publicat/docs/bombthreat.pdf" target="_blank">Bomb Threat</a></td>
+                                    <td>
+                                        <input id="radBomb" title="Bomb" name="group" value="3" type="radio">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="childtables">
+                            <tbody>
+                                <tr>
+                                    <td class="link-heades" colspan="2">Employee Emergency</td>
+                                </tr>
+                                <tr>
+                                    <td class="td-title">Emergency</td>
+                                    <td class="td-radios">
+                                        <input id="radEmergency" title="Emergency" name="group" value="4" type="radio">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table class="childtables">
+                            <tbody>
+                                <tr>
+                                    <td class="link-heades" colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input id="startEmergency" disabled value="Loading..." type="button">
+                                    </td>
+                                    <td class="right">
+                                        <input id="close" value="Close" type="button">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script type="text/javascript" src="va_Silverlight.js"></script>
+
+        <script type="text/javascript" src="va_Emergency.js"></script>
+
+            <div id="silverlightControlHost">
+                <object width="0" height="0" data="data:application/x-oleobject;base64,QfXq3+HzJEysrJnDBxUISgAJAAAAAAAAAAAAAAwAAAB3AGgAaQB0AGUAAAAAAAAAAAAAAAAAAAAiAAAAdgBhAF8ARQBtAGUAcgBnAGUAbgBjAHkALgB4AGEAcAAAADwAAAAAAAAAJgAAAG8AbgBTAGkAbAB2AGUAcgBsAGkAZwBoAHQARQByAHIAbwByAAAAAAAAAAAAAAAAAAAAHgAAAG8AbgBQAGwAdQBnAGkAbgBMAG8AYQBkAGUAZAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAGAAAADQALgAwAC4ANQAwADgAMgA2AC4AMAAAAAoAAAB0AHIAdQBlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" type="application/x-silverlight-2">
+                    <param name="source" value="va_Emergency.xap">
+                    <param name="onError" value="onSilverlightError">
+                    <param name="background" value="white">
+                    <param name="minRuntimeVersion" value="4.0.50826.0">
+                    <param name="onLoad" value="onPluginLoaded">
+                    <param name="autoUpgrade" value="true">
+                    <a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=149156&amp;v=4.0.50826.0">
+                        <img style="" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=161376">
+                    </a>
+                </object><iframe id="_sl_historyFrame" style="border: 0px currentColor; width: 0px; height: 0px; visibility: hidden;"></iframe>
+            </div>
+    </form>
+</body>
+</html>

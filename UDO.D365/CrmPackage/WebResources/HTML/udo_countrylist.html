@@ -1,0 +1,331 @@
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="udo_Xrm.min.js" type="text/javascript"></script>
+    <!--<script src="udo_jquery1.10.2.min.js" type="text/javascript"></script>-->
+    <script src="udo_jquery_3.3.1.min.js" type="text/javascript"></script>
+    <script src="va_JSON2" type="text/javascript"></script>
+    <script src="udo_CrmRestKit2011.js" type="text/javascript"></script>
+    <script src="udo_utility.js" type="text/javascript"></script>
+    <script src="udo_environmentconfiguration.js" type="text/javascript"></script>
+    <script src="udo_crmcommonjs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        if (typeof window.LOCID_JUMP_TO_RIBBON == "undefined") window.LOCID_JUMP_TO_RIBBON = "[";
+        if (typeof window.LOCID_JUMP_TO_RIBBON_CONTROL == "undefined") window.top.LOCID_JUMP_TO_RIBBON_CONTROL = "]";
+
+        $(document).ready(function () {
+            debugger;
+
+            var focusAnnouncement;            
+
+            window["ENTITY_SET_NAMES"] = window["ENTITY_SET_NAMES"] || JSON.stringify({
+                "va_systemsettings": "va_systemsettings"
+            });
+            var loadCountryDropDown = function () {
+                function parseXmlObject(xmlString) {
+                    if (!xmlString) {
+                        alert('XML Object contains a null value');
+                        return null;
+                    }
+                    var xmlObject = new ActiveXObject("Microsoft.XMLDOM");
+                    xmlObject.async = false;
+                    xmlObject.loadXML(xmlString);
+
+                    return xmlObject;
+                }
+                var getEnvironment = function () {
+                    //var defer = $.Deferred();
+                    //var response = { error: false };
+
+                    if (!window._currentEnv) {
+                        var envConfig = environmentConfigurations.initalize().then(function (currEnv) {
+                            environmentSetup(currEnv);
+                        }).catch(function (error) {
+                            throw new Error(error.message);
+                        });
+
+                    }
+                    else {
+                        environmentSetup(window._currentEnv);
+                    }
+                }
+                var environmentSetup(currEnv) {
+                    console.log("after envSetup");
+                    if (window.top._currentEnv) {
+                        response.env = window.top._currentEnv;
+                        defer.resolve(response);
+                    } else if (!window._currentEnv) {
+                        CrmRestKit2011.ByQuery('va_systemsettings', ['va_name', 'va_Description'], 'va_Type/Value eq 953850002', false)
+                            .done(function (data) {
+                                if (data && data.d && data.d.results && data.d.results.length > 0) {
+                                    data = data.d.results;
+                                    var env = {};
+                                    for (var i = 0; i < data.length; i++) {
+                                        if (data[i].va_Description === null || data[i].va_Description === 'undefined' || data[i].va_Description === '' || data[i].va_Description.toLowerCase() === 'null') {
+                                            env[data[i].va_name] = null;
+                                        } else if (data[i].va_Description.toLowerCase() === 'true' || data[i].va_Description.toLowerCase() === 'false') {
+                                            env[data[i].va_name] = (data[i].va_Description.toLowerCase() === 'true');
+                                        } else {
+                                            env[data[i].va_name] = data[i].va_Description;
+                                        }
+                                    }
+                                    response.env = env;
+                                    defer.resolve(response);
+                                } else {
+                                    throw new Error('CRM did not return any enviroment settings!');
+                                }
+
+                            }).fail(function (err) {
+                                var message = 'Failed to retrieve the System Settings.\r\nError: ' + err.statusText;
+                                if (err.status === 400 && err.responseText)
+                                    message += '\r\n' + $.parseJSON(err.responseText).error.message.value;
+                                response.error = true;
+                                response.message = message;
+                                defer.reject(response);
+                            });
+                    }
+                    return defer.promise();
+                };
+                var getSystemUserSettings = function (response) {
+                    var defer = $.Deferred();
+                    if (typeof response == "undefined" || response == null) {
+                        response = {};
+                        response.error = false;
+                    }
+                    var currentUserId = Xrm.Page.context.getUserId();
+                    var columns = ['SystemUserId', 'va_IPAddress', 'va_StationNumber', 'va_WSLoginName', 'va_ApplicationName', 'DomainName'];
+                    CrmRestKit2011.Retrieve('SystemUser', currentUserId, columns, false)
+                        .done(function (data) {
+                            // Save SystemUser Info
+                            if (data && data.d) {
+                                var systemUserSettings = data.d;
+                                response.user = {};
+
+                                // User name comes as a Login name part of domain login. If va_WSLoginName is present, it is used as an override
+                                if (systemUserSettings.va_WSLoginName && systemUserSettings.va_WSLoginName.length > 0)
+                                    response.user.userName = systemUserSettings.va_WSLoginName;
+                                else {
+                                    var slashPos = systemUserSettings.DomainName.indexOf('\\');
+                                    response.user.userName = systemUserSettings.DomainName.substr(slashPos + 1);
+                                }
+                                response.user.clientMachine = systemUserSettings.va_IPAddress;
+                                response.user.stationId = systemUserSettings.va_StationNumber;
+                                response.user.applicationName = systemUserSettings.va_ApplicationName;
+                            }
+                            defer.resolve(response);
+                        })
+                        .fail(function () {
+                            response.error = true;
+                            response.message = "Unable to retrieve user settings needed to make the web-service call.";
+                            defer.reject(response);
+                        });
+                    return defer.promise();
+                }
+                var getCountries = function (data) {
+                    var defer = $.Deferred();
+                    var response = { error: false };
+
+                    // Make SOAP Call
+                    var soapMessage = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" '
+                        + 'xmlns:ser="http://services.share.benefits.vba.va.gov/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" '
+                        + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
+                        + '<soapenv:Header>'
+                        + '<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">'
+                        + '<wsse:UsernameToken xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">'
+                        + '<wsse:Username>' + data.user.userName + '</wsse:Username>'
+                        + '<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"></wsse:Password>'
+                        + '</wsse:UsernameToken>'
+                        + '<vaws:VaServiceHeaders xmlns:vaws="http://vbawebservices.vba.va.gov/vawss">'
+                        + '<vaws:CLIENT_MACHINE>' + data.user.clientMachine + '</vaws:CLIENT_MACHINE>'
+                        + '<vaws:STN_ID>' + data.user.stationId + '</vaws:STN_ID>'
+                        + '<vaws:applicationName>' + data.user.applicationName + '</vaws:applicationName>'
+                        + '</vaws:VaServiceHeaders>'
+                        + '</wsse:Security>'
+                        + '</soapenv:Header>'
+                        + '<soapenv:Body><ser:findCountries></ser:findCountries></soapenv:Body></soapenv:Envelope>';
+
+                    var webserviceRequestUrl = data.env.CORP + 'ShareStandardDataServiceBean/ShareStandardDataWebService';
+                    var serviceUri = webserviceRequestUrl;
+
+                    var usingDAC = false;
+                    if (data.env.globalDAC && data.env.globalDAC.length > 0) {
+                        usingDAC = true;
+                        serviceUri = data.env.globalDAC;
+                    }
+                    if (usingDAC) {
+                        soapMessage = '<?xml version="1.0" encoding="utf-8"?>'
+                            + '<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" '
+                            + 'xmlns:xsd="http://www.w3.org/2001/XMLSchema" '
+                            + 'xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">'
+                            + '<soap12:Body><Execute xmlns="http://tempuri.org/">'
+                            + '<address>' + webserviceRequestUrl + '</address>'
+                            + '<value><payload><' + '!' + '[CDATA[' + soapMessage + ']]></payload></value>'
+                            + '</Execute></soap12:Body></soap12:Envelope>';
+                    }
+                    var request = new ActiveXObject('Microsoft.XMLHTTP');
+                    request.open('POST', serviceUri, false);
+                    request.setRequestHeader('SOAPAction', '');
+                    request.setRequestHeader('Content-Type', 'text/xml; charset=utf-8');
+                    request.setRequestHeader('Content-Length', soapMessage.length);
+
+                    try {
+                        request.send(soapMessage);
+                    } catch (senderr) {
+                        var message = 'Failed to send web service request. '
+                            + 'Web Service may be unavailable at the time of execution.'
+                            + (senderr ? '\nError: ' + senderr.message : '') + '\n';
+
+                        response.error = true;
+                        response.message = message;
+                        response.responseText = request.responseText;
+                        response.responseXml = request.responseXml;
+                        defer.resolve(response);
+                        return defer.promise();
+                    }
+                    response.responseText = request.responseText;
+                    response.responseXml = request.responseXml;
+
+                    if (usingDAC) {
+                        var rx = parseXmlObject(request.responseText);
+                        var resNode = rx.selectSingleNode('//ExecuteResult');
+                        if (!resNode) {
+                            alert('No response from DAC');
+                        } else {
+                            response.responseText = resNode.text;
+                            response.responseXml = resNode.xml;
+                            //alert(formatXml(request.responseText));
+                        }
+                    }
+                    if (!response.responseText || response.responseText == '') {
+                        response.message = 'Did not receive response from country list web service request';
+                        response.error = true;
+                        defer.reject(response);
+                    } else {
+                        defer.resolve(response);
+                    }
+                    return defer.promise();
+                };
+                var gotCountries = function (response) {
+                    var defer = $.Deferred();
+                    if (typeof response == "undefined" || response == null) {
+                        response = { error: false };
+                    } else {
+                        response.error = false;
+                    }
+
+                    if (!response.responseXml) {
+                        response.error = true;
+                        response.message = 'No data found to populate the country list drop down.';
+                        return defer.promise();
+                    }
+
+                    var xmlo = parseXmlObject(response.responseText);
+                    var returnNodes = xmlo.selectNodes('//return');
+                    if (returnNodes == null) {
+                        response.error = true;
+                        response.message = 'Unable to parse the country list results.';
+                        return defer.promise();
+                    }
+
+                    var Xrm = parent.Xrm;
+                    var countryNodes = returnNodes[0].childNodes;
+                    var sel = $('<select style="border: #c6c6c6 solid 1px; color:#000; cursor:default; direction: ltr; font-family: Segoe UI,Tahoma,Arial; font-size: 11px; ime-mode:auto; width:100%;"/>').appendTo('body');
+                    var params = Va.Udo.Crm.Scripts.Utility.getUrlParams();
+                    var selectedcountry = '', selectedcountrycode = '', countryattribute = '', countrycodeattribute = '';
+                    if (params.hasOwnProperty("data")) {
+
+                        if (params.data.hasOwnProperty("id")) {
+                            sel.attr('id', params.data.id);
+                        }
+                        if (params.data.hasOwnProperty("countryattribute")) {
+                            countryattribute = params.data.countryattribute;
+                            // get xrm value...
+                            selectedcountry = Xrm.Page.getAttribute(countryattribute).getValue();
+
+                        }
+                        if (params.data.hasOwnProperty("countrycodeattribute")) {
+                            countrycodeattribute = params.data.countrycodeattribute;
+                            // get xrm value..
+                            selectedcountrycode = Xrm.Page.getAttribute(countrycodeattribute).getValue();
+                        }
+                        if (params.data.hasOwnProperty("tabindex")) {
+                            var tabindex = params.data.tabindex;
+                            sel.attr('tabIndex', tabindex);
+                            $(frameElement).attr('tabIndex', tabindex);
+                        }
+                    }
+                    var nulloption = $("<option>").attr("selected", "selected").attr('value', '').text("");
+                    sel.append(nulloption);
+
+                    var itemselected = false;
+                    var codeoption = null;
+                    for (var i = 0; i < countryNodes.length; i++) {         //looping through countries and
+                        if (countryNodes[i].nodeName == 'types') {  //making sure we dont check irrelevant nodes
+                            var node = countryNodes[i];
+                            var option = $("<option>")
+                                .attr('value', node.selectSingleNode('code').text)
+                                .text(node.selectSingleNode('name').text);
+                            if (option.text() == selectedcountry) {
+                                itemselected = true;
+                                option.attr('selected', 'selected');
+                                nulloption.removeAttr('selected');
+                            }
+                            if (!itemselected && codeoption == null && option.attr('value') == selectedcountrycode) {
+                                codeoption = option;
+                            }
+                            sel.append(option);
+                        }
+                    }
+                    if (!itemselected && codeoption != null) {
+                        codeoption.attr('selected', 'selected');
+                        nulloption.removeAttr('selected');
+                    }
+                    sel.change(function () {
+                        $("select option:selected").each(function () {
+                            selectedcountry = $(this).text();
+                            if (countryattribute != '') Xrm.Page.getAttribute(countryattribute).setValue(selectedcountry);
+                            selectedcountrycode = $(this).val();
+                            if (countrycodeattribute != '') Xrm.Page.getAttribute(countrycodeattribute).setValue(selectedcountrycode);
+                        });
+                    });
+
+                    defer.resolve(response);
+                    return defer.promise();
+                };
+                return getEnvironment().then(getSystemUserSettings).then(getCountries).then(gotCountries);
+            };
+            window.SetValue = function (value) {
+                $("select option:selected").each(function () {
+                    $(this).removeAttr('selected');
+                });
+                $("select option").each(function () {
+                    if (value == $(this).text()) {
+                        $(this).attr('selected', 'selected');
+                    }
+                });
+            }
+            window.GetValue = function () {
+                var _value;
+                $("select option:selected").each(function () {
+                    _value = $(this).text();
+                });
+                return _value;
+            }
+            window.GetText = window.GetValue;
+            window.GetCode = function () {
+                var _value;
+                $("select option:selected").each(function () {
+                    _value = $(this).val();
+                });
+                return _value;
+            };
+            window.SetFocus = function () {
+                $("select").focus();
+            };
+
+            loadCountryDropDown();
+        });
+    </script>
+    <meta charset="utf-8"></head>
+<body tabindex="-1" style="margin: 0px; padding: 0px; width: 100%; height: 100%;">
+</body></html>

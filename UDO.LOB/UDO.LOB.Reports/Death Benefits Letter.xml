@@ -1,0 +1,120 @@
+﻿<fetch no-lock="true">
+  <entity name="udo_lettergeneration">
+    <attribute name="udo_militaryserviceeoddate" alias="SReoddate" />
+    <attribute name="udo_ssn" alias="VetSSN" />
+    <attribute name="udo_pensionbenefitamount" alias="PensionBenefit" />
+    <attribute name="udo_description" alias="SRdescription" />
+    <attribute name="udo_futureexamdate" alias="FutureExamDate" />
+    <attribute name="udo_srfirstname" />
+    <attribute name="udo_depfirstname"/>
+    <attribute name="udo_deplastname"/>
+    <attribute name="udo_netamountpaid" alias="NetAmount" />
+    <attribute name="udo_militaryservicebranch" alias="SRbranch" />
+    <attribute name="udo_dateofdeath" />
+    <attribute name="udo_aaamount" alias="AAAmount" />
+    <attribute name="udo_mailing_address1" />
+    <attribute name="udo_blindnesseffectivedate"  />
+    <attribute name="udo_mailing_state" />
+    <attribute name="udo_dateofbirth" />
+    <attribute name="udo_effectivedate" alias="EffectiveDate" />
+    <attribute name="udo_claimnumber" alias="ClaimNumber" />
+    <attribute name="udo_paymentamount" alias="PaymentAmount" />
+    <attribute name="udo_ratingeffectivedate" alias="SRratingeffectivedate" />
+    <attribute name="udo_injurydiseasedisableddate"  />
+    <attribute name="udo_dependentamount" alias="DependentAmount" />
+    <attribute name="udo_militaryserviceraddate" alias="SRraddate" />
+    <attribute name="udo_mailing_city" />
+    <attribute name="udo_reqnumber" />
+    <attribute name="udo_evaluationconsideredpermanent" />
+    <attribute name="udo_mailing_address2" />
+    <attribute name="udo_srlastname" />
+    <attribute name="udo_evaluationconsideredpermanent" alias="Evaluation" />
+    <attribute name="udo_branchofservice" alias="VetBranch" />
+    <attribute name="udo_ratingdegree" alias="SRratingdegree" />
+    <attribute name="udo_currentmonthlyrate" alias="CurrentMonthlyRate" />
+    <attribute name="udo_mailing_address3" />
+    <attribute name="udo_limblosseffectivedate"  />
+    <attribute name="udo_mailingcountry" />
+    <attribute name="udo_mailing_zip" />
+    <attribute name="udo_filenumber" />
+    <attribute name="udo_enclosures" alias="Enclosures" />
+    <attribute name="udo_contactprefix" alias="Prefix" />
+    <attribute name="udo_address1"  />
+    <attribute name="udo_address2"  />
+    <attribute name="udo_address3"  />
+    <attribute name="udo_city"  />
+    <attribute name="udo_state"  />
+    <attribute name="udo_zipcode"  />
+    <attribute name="udo_country" />
+    <attribute name="udo_characterofdischarge" alias="DischargeTypes" />
+    <attribute name="udo_disabilitylist" alias="Disabilities" />
+    <attribute name="udo_disabilitypercentages" alias="DisabilityPercent" />
+    <attribute name="udo_lostalimborblind" alias="LostLimbOrBlind" />
+    <attribute name="udo_discharge" alias="Discharge" />
+    <attribute name="udo_servicedates" alias="ServiceDates" />
+    <attribute name="udo_diedinactiveduty" alias="DiedInActiveDuty" />
+    <attribute name="udo_diedduetoserviceconnecteddisability" alias="DiedToDisability" />
+    <attribute name="udo_serviceconnecteddisability" alias="DisabilityInd" />
+    <attribute name="udo_receivedsahorshagrant" alias="ReceivedGrant" />
+    <attribute name="udo_entitledtohigherlevelofdisability" alias="EntitledToHigherDisability" />
+    <attribute name="udo_benefittype" alias="BenefitType" />
+    <attribute name="udo_awardbenefittype" alias="AwardBenefitType" />
+    <attribute name="udo_faxdescription" alias="FaxDescription" />
+    <attribute name="udo_faxnumberofpages" alias="FaxPages" />
+    <attribute name="udo_paydate" alias="PayDate" />
+    <attribute name="udo_faxnumber" alias="FaxNum" />
+    <attribute name="udo_letteraddressing" />
+    <filter>
+      <condition attribute="udo_lettergenerationid" operator="eq" value="@LetterGenerationGUID" />
+    </filter>
+    <link-entity name="systemuser" from="systemuserid" to="udo_pcrofrecordid" link-type="inner" alias="u">
+      <attribute name="va_replyreferto" />
+      <attribute name="va_filenumber" alias="OwnerFileNum" />
+      <link-entity name="site" from="siteid" to="siteid" link-type="inner" alias="s">
+        <attribute name="address1_line1" alias="CCaddress1" />
+        <attribute name="address1_line2" alias="CCaddress2" />
+        <attribute name="address1_line3" alias="CCaddress3" />
+        <attribute name="address1_city" alias="CCcity" />
+        <attribute name="address1_stateorprovince" alias="CCstate" />
+        <attribute name="address1_postalcode" alias="CCzip" />
+      </link-entity>
+      <link-entity name="systemuser" from="systemuserid" to="parentsystemuserid" link-type="outer" alias="manager">
+        <attribute name="fullname" alias="OwnerManager" />
+        <attribute name="firstname" alias="ManagerFirst"/>
+        <attribute name="lastname" alias="ManagerLast"/>
+        <attribute name="title" alias="ManagerTitle"/>
+      </link-entity>
+    </link-entity>
+    <link-entity name="va_regionaloffice" from="va_regionalofficeid" to="udo_regionalofficeid" link-type="outer" alias="soj">
+      <link-entity name="va_intakecenter" from="va_intakecenterid" to="va_intakecenterid" link-type="outer" alias="ic">
+        <attribute name="va_address2" alias="ic_va_address2" />
+        <attribute name="va_address3" alias="ic_va_address3" />
+        <attribute name="va_address1" alias="ic_va_address1" />
+        <attribute name="va_state" 	  alias="ic_va_state" />
+        <attribute name="va_city"  	  alias="ic_va_city" />
+        <attribute name="va_zipcode"  alias="ic_va_zipcode" />
+        <attribute name="va_localfax" alias="ic_va_localfax" />
+        <attribute name="va_alias"    alias="ic_va_alias" />
+        <attribute name="va_faxnumber" alias="ic_va_faxnumber" />
+        <attribute name="udo_returnmailingaddress" alias="ic_udo_returnmailingaddress"/>
+      </link-entity>
+      <link-entity name="va_pensioncenter" from="va_pensioncenterid" to="va_pensioncenterid" link-type="outer" alias="pc">
+        <attribute name="va_address2" alias="pc_va_address2" />
+        <attribute name="va_address3" alias="pc_va_address3" />
+        <attribute name="va_address1" alias="pc_va_address1" />
+        <attribute name="va_state" alias="pc_va_state" />
+        <attribute name="va_city" alias="pc_va_city" />
+        <attribute name="va_zipcode" alias="pc_va_zipcode" />
+        <attribute name="va_localfax" alias="pc_va_localfax" />
+        <attribute name="va_alias" alias="pc_va_alias" />
+        <attribute name="va_faxnumber" alias="pc_va_faxnumber" />
+        <attribute name="udo_returnmailingaddress" alias="pc_udo_returnmailingaddress"/>
+      </link-entity>
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer" alias="vet">
+      <attribute name="lastname" alias="vet_lastname"/>
+      <attribute name="middlename" alias="vet_middlename" />
+      <attribute name="firstname" alias="vet_firstname" />
+    </link-entity>
+  </entity>
+</fetch>

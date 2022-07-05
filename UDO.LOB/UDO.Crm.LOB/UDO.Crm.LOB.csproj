@@ -1,0 +1,735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion />
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC7CABD7-7252-4CC2-83E3-21D299CA9BE2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UDO.Crm.LOB</RootNamespace>
+    <AssemblyName>UDO.Crm.LOB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.5\lib\net452\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.4.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.4.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.4.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.5\lib\net452\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.4.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="VIMT.AddressWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.AddressWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.AppealService.Messages">
+      <HintPath>Assemblies\VIMT\VIMT.AppealService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.BenefitClaimService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.BenefitClaimService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.ClaimantWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\VIMT\VIMT.ClaimantWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.ClaimManagementService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.ClaimManagementService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.ContentionServiceRemote.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.ContentionServiceRemote.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.DdeftWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.DdeftWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.DevelopmentNotesService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.DevelopmentNotesService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.DocumentWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.DocumentWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.EBenefitsAccountActivity.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.EBenefitsAccountActivity.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.EBenefitsBnftClaimStatusWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.EBenefitsBnftClaimStatusWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.eMISMilitaryInfoService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.eMISMilitaryInfoService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.IntentToFileWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.IntentToFileWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.PathwaysService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.PathwaysService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.PaymentHistoryService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.PaymentHistoryService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.PaymentInformationService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.PaymentInformationService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.RatingWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.RatingWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.TrackedItemServiceRemote.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\nipaul\source\repos\UDO.Crm.LOB\Assemblies\VIMT\VIMT.TrackedItemServiceRemote.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VIMT.VeteranWebService.Messages, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\VIMT\VIMT.VeteranWebService.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a73bc104879edcb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\VRM.Integration.Servicebus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Logging.CRM.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\VRM.Integration.Servicebus.Logging.CRM.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.UDO.Common, Version=7.65.6953.30273, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\VRM.Integration.UDO.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Messages\Contact\" />
+    <Folder Include="Models\" />
+    <Folder Include="Processors\PeoplelistPayeeCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assemblies\CRM007.CRM.SDK.Core.dll" />
+    <Content Include="Assemblies\CuttingEdge.Conditions.dll" />
+    <Content Include="Assemblies\log4net.dll" />
+    <Content Include="Assemblies\microsoft.crm.sdk.proxy.dll" />
+    <Content Include="Assemblies\microsoft.xrm.sdk.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.AddressWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.AddressWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.AddressWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.AppealService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.AppealService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.AppealService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.BenefitClaimService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.BenefitClaimService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.BenefitClaimService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.BenefitClaimServiceV2.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.BenefitClaimServiceV2.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.BenefitClaimServiceV2.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ClaimantWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ClaimantWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ClaimantWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ClaimManagementService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ClaimManagementService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ClaimManagementService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ContentionServiceRemote.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ContentionServiceRemote.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ContentionServiceRemote.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeAccountAdapterService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeAccountAdapterService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeAccountAdapterService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeBeneficiaryAdapterService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeBeneficiaryAdapterService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeBeneficiaryAdapterService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeClaimAdapterService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeClaimAdapterService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeClaimAdapterService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeEligibilityAdapterService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeEligibilityAdapterService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeEligibilityAdapterService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeProviderAdapterService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeProviderAdapterService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.CpeProviderAdapterService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DdeftWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DdeftWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DdeftWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DevelopmentNotesService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DevelopmentNotesService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DevelopmentNotesService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocGen.CrmModel.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocGen.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocGen.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocGen.Service.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocumentWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocumentWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.DocumentWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitEducationService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitEducationService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitEducationService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitsAccountActivity.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitsAccountActivity.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitsAccountActivity.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitsBnftClaimStatusWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitsBnftClaimStatusWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.EBenefitsBnftClaimStatusWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.eDocumentService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.eDocumentService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.eDocumentService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.eMISMilitaryInfoService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.eMISMilitaryInfoService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.eMISMilitaryInfoService.Services.dll" />
+    <Content Include="Assemblies\VIMT\Vimt.HealthShare.dll" />
+    <Content Include="Assemblies\VIMT\Vimt.HealthShare.Messages.dll" />
+    <Content Include="Assemblies\VIMT\Vimt.HealthShare.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.IntentToFileWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.IntentToFileWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.IntentToFileWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\Vimt.JsonWebToken.dll" />
+    <Content Include="Assemblies\VIMT\Vimt.JsonWebToken.Messages.dll" />
+    <Content Include="Assemblies\VIMT\Vimt.JsonWebToken.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PathwaysService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PathwaysService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PathwaysService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PaymentHistoryService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PaymentHistoryService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PaymentHistoryService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PaymentInformationService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PaymentInformationService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PaymentInformationService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PersonService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PersonWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PersonWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.PersonWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.RatingWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.RatingWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.RatingWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ReportServerReportExecution.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ReportServerReportExecution.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.ReportServerReportExecution.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.TrackedItemServiceRemote.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.TrackedItemServiceRemote.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.TrackedItemServiceRemote.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VBMSWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VBMSWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VBMSWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VeteranWebService.CRMOL.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VeteranWebService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VeteranWebService.Messages.CRMOL.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VeteranWebService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VeteranWebService.Services.CRMOL.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VeteranWebService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VIAEMRService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VIAEMRService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VIAEMRService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VIASchedulingService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VIASchedulingService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VIASchedulingService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VideoVisit.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VideoVisit.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VideoVisit.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VirtualMeetingRoom.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VirtualMeetingRoom.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VirtualMeetingRoom.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VNPChildSchoolService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VNPChildSchoolService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VNPChildSchoolService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VNPChildStudentService.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VNPChildStudentService.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VNPChildStudentService.Services.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VVADocOperations.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VVADocOperations.Messages.dll" />
+    <Content Include="Assemblies\VIMT\VIMT.VVADocOperations.Services.dll" />
+    <Content Include="Assemblies\VRM.Integration.Mvi.PersonSearch.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.Servicebus.Core.dll" />
+    <Content Include="Assemblies\VRM.Integration.Servicebus.CRM.SDK.dll" />
+    <Content Include="Assemblies\VRM.Integration.Servicebus.Logging.CRM.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.Servicebus.Logging.CRM.Util.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Appeals.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Appeals.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Awards.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.BIRLS.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.BIRLS.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.ClaimDocuments.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.ClaimDocuments.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Claims.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Claims.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Common.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Debt.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Debt.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Denials.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.eMIS.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.eMIS.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.ExamsAppointments.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.ExamsAppointments.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Flashes.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Flashes.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.FNOD.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.FNOD.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.IDProofOrchestration.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.IDProofOrchestration.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.IMSDEV.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.LegacyPayments.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.LegacyPayments.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.MVI.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.MVI.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Payments.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Payments.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.PeoplelistPayeeCode.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.PeoplelistPayeeCode.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Ratings.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.Ratings.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.UserTool.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.UserTool.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.VeteranSnapShot.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.VeteranSnapShot.Messages.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.VirtualVA.dll" />
+    <Content Include="Assemblies\VRM.Integration.UDO.VirtualVA.Messages.dll" />
+    <Content Include="Assemblies\VRM.UDO.Integration.Contact.dll" />
+    <Content Include="Assemblies\VRM.UDO.Intergration.Contact.Messages.dll" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Address\AddressController.cs" />
+    <Compile Include="Controllers\Appeals\AppealsController.cs" />
+    <Compile Include="Controllers\Awards\AwardsController.cs" />
+    <Compile Include="Controllers\BIRLS\BIRLSController.cs" />
+    <Compile Include="Controllers\CADD\CADDController.cs" />
+    <Compile Include="Controllers\ClaimDocuments\ClaimDocumentsController.cs" />
+    <Compile Include="Controllers\Claims\ClaimsController.cs" />
+    <Compile Include="Controllers\Contact\ContactsController.cs" />
+    <Compile Include="Controllers\Denials\DenialsController.cs" />
+    <Compile Include="Controllers\eMIS\eMISController.cs" />
+    <Compile Include="Controllers\MilitaryService\MilitaryServiceController.cs" />
+    <Compile Include="Controllers\Notes\NotesController.cs" />
+    <Compile Include="Controllers\Payments\PaymentsController.cs" />
+    <Compile Include="Controllers\Ratings\RatingsController.cs" />
+    <Compile Include="Controllers\ServiceRequest\ServiceRequestController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UserTool\SecurityController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\Address\UDOcreateAddressRecordsRequest.cs" />
+    <Compile Include="Messages\Address\UDOcreateAddressRecordsResponse.cs" />
+    <Compile Include="Messages\Address\UDOgetAddressRecordsRequest.cs" />
+    <Compile Include="Messages\Address\UDOgetAddressRecordsResponse.cs" />
+    <Compile Include="Messages\Address\UDOValidateAddressRequest.cs" />
+    <Compile Include="Messages\Address\UDOValidateAddressResponse.cs" />
+    <Compile Include="Messages\Appeals\UDOcreateUDOAppealDetailsRequest.cs" />
+    <Compile Include="Messages\Appeals\UDOcreateUDOAppealDetailsResponse.cs" />
+    <Compile Include="Messages\Appeals\UDOcreateUDOAppealsRequest.cs" />
+    <Compile Include="Messages\Appeals\UDOcreateUDOAppealsResponse.cs" />
+    <Compile Include="Messages\Appeals\Dates\UDOcreateUDOAppealDatesRequest.cs" />
+    <Compile Include="Messages\Appeals\Dates\UDOcreateUDOAppealDatesResponse.cs" />
+    <Compile Include="Messages\Appeals\Diaries\UDOcreateUDOAppealDiariesRequest.cs" />
+    <Compile Include="Messages\Appeals\Diaries\UDOcreateUDOAppealDiariesResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateAwardLinesRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateAwardLinesResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateAwardsRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateAwardsResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateAwardsSyncOrchRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateAwardsSyncRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateClothingAllowanceRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateClothingAllowanceResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateDeductionRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateDeductionResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateDiariesRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateDiariesResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateEVRsRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateEVRsResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateIncomeSummaryRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateIncomeSummaryResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateProceedsRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateProceedsResponse.cs" />
+    <Compile Include="Messages\Awards\UDOcreateReceiveablesRequest.cs" />
+    <Compile Include="Messages\Awards\UDOcreateReceiveablesResponse.cs" />
+    <Compile Include="Messages\Awards\UDOretrieveAwardRequest.cs" />
+    <Compile Include="Messages\Awards\UDOretrieveAwardResponse.cs" />
+    <Compile Include="Messages\Awards\UDORetrievePaymentsRequest.cs" />
+    <Compile Include="Messages\BIRLS\UDOgetBIRLSDataRequest.cs" />
+    <Compile Include="Messages\BIRLS\UDOgetBIRLSDataResponse.cs" />
+    <Compile Include="Messages\CADD\UDOFindBankRequest.cs" />
+    <Compile Include="Messages\CADD\UDOFindBankResponse.cs" />
+    <Compile Include="Messages\CADD\UDOInitiateCADDRequest.cs" />
+    <Compile Include="Messages\CADD\UDOInitiateCADDResponse.cs" />
+    <Compile Include="Messages\CADD\UDOupdateCADDAddressRequest.cs" />
+    <Compile Include="Messages\CADD\UDOupdateCADDAddressResponse.cs" />
+    <Compile Include="Messages\ClaimDocuments\getUDOClaimDocumentsRequest.cs" />
+    <Compile Include="Messages\ClaimDocuments\getUDOClaimDocumentsResponse.cs" />
+    <Compile Include="Messages\Claims\Claims\createUDOClaimsRequest.cs" />
+    <Compile Include="Messages\Claims\Claims\createUDOClaimsResponse.cs" />
+    <Compile Include="Messages\Claims\Claims\createUDOClaimsSyncOrchRequest.cs" />
+    <Compile Include="Messages\Claims\Claims\createUDOClaimsSyncRequest.cs" />
+    <Compile Include="Messages\Claims\Claims\UpdateUDOClaimsRequest.cs" />
+    <Compile Include="Messages\Claims\Claims\UpdateUDOClaimsResponse.cs" />
+    <Compile Include="Messages\Claims\Contentions\UDOcreateUdoContentionsRequest.cs" />
+    <Compile Include="Messages\Claims\Contentions\UDOcreateUdoContentionsResponse.cs" />
+    <Compile Include="Messages\Claims\Evidence\createUDOEvidenceRequest.cs" />
+    <Compile Include="Messages\Claims\Evidence\createUDOEvidenceResponse.cs" />
+    <Compile Include="Messages\Claims\Lifecycles\createUDOLifecyclesRequest.cs" />
+    <Compile Include="Messages\Claims\Lifecycles\createUDOLifecyclesResponse.cs" />
+    <Compile Include="Messages\Claims\Status\UDOcreateUDOStatusRequest.cs" />
+    <Compile Include="Messages\Claims\Status\UDOcreateUDOStatusResponse.cs" />
+    <Compile Include="Messages\Claims\Suspense\createUDOSuspenseRequest.cs" />
+    <Compile Include="Messages\Claims\Suspense\createUDOSuspenseResponse.cs" />
+    <Compile Include="Messages\Claims\Tracked Items\createUDOTrackedItemsRequest.cs" />
+    <Compile Include="Messages\Claims\Tracked Items\createUDOTrackedItemsResponse.cs" />
+    <Compile Include="Messages\Denials\UDOcreateDenialsRequest.cs" />
+    <Compile Include="Messages\Denials\UDOcreateDenialsResponse.cs" />
+    <Compile Include="Messages\eMIS\UDOgetMilitaryInformationRequest.cs" />
+    <Compile Include="Messages\eMIS\UDOgetMilitaryInformationResponse.cs" />
+    <Compile Include="Messages\ExamsAppointments\UDOcreateUDOAppointmentsRequest.cs" />
+    <Compile Include="Messages\ExamsAppointments\UDOcreateUDOAppointmentsResponse.cs" />
+    <Compile Include="Messages\ExamsAppointments\UDOcreateUDOExamRequest.cs" />
+    <Compile Include="Messages\ExamsAppointments\UDOcreateUDOExamRequestRequest.cs" />
+    <Compile Include="Messages\ExamsAppointments\UDOcreateUDOExamRequestResponse.cs" />
+    <Compile Include="Messages\ExamsAppointments\UDOcreateUDOExamResponse.cs" />
+    <Compile Include="Messages\Flashes\UDOgetFlashesRequest.cs" />
+    <Compile Include="Messages\Flashes\UDOgetFlashesResponse.cs" />
+    <Compile Include="Messages\FNOD\UDOInitiateFNODRequest.cs" />
+    <Compile Include="Messages\FNOD\UDOInitiateFNODResponse.cs" />
+    <Compile Include="Messages\HeaderInfo.cs" />
+    <Compile Include="Messages\Appeals\Issues\UDOcreateUDOAppealIssuesRequest.cs" />
+    <Compile Include="Messages\Appeals\Issues\UDOcreateUDOAppealIssuesResponse.cs" />
+    <Compile Include="Messages\IDProofOrchestration\UDOIDProofOrchestrationMessages.cs" />
+    <Compile Include="Messages\IDProofOrchestration\UDOIDProofOrchestrationRequest.cs" />
+    <Compile Include="Messages\IDProofOrchestration\UDOIDProofOrchestrationResponse.cs" />
+    <Compile Include="Messages\IntentToFile\UDOcreateIntentToFileRequest.cs" />
+    <Compile Include="Messages\IntentToFile\UDOcreateIntentToFileResponse.cs" />
+    <Compile Include="Messages\IntentToFile\UDOfindZipCodeRequest.cs" />
+    <Compile Include="Messages\IntentToFile\UDOfindZipCodeResponse.cs" />
+    <Compile Include="Messages\IntentToFile\UDOInitiateITFRequest.cs" />
+    <Compile Include="Messages\IntentToFile\UDOInitiateITFResponse.cs" />
+    <Compile Include="Messages\IntentToFile\UDOSubmitITFRequest.cs" />
+    <Compile Include="Messages\IntentToFile\UDOSubmitITFResponse.cs" />
+    <Compile Include="Messages\IntentToFile\UDOvalidateAddressRequest.cs" />
+    <Compile Include="Messages\IntentToFile\UDOvalidateAddressResponse.cs" />
+    <Compile Include="Messages\LegacyPayments\UDOcreateLegacyPaymentsDetailsRequest.cs" />
+    <Compile Include="Messages\LegacyPayments\UDOcreateLegacyPaymentsDetailsResponse.cs" />
+    <Compile Include="Messages\LegacyPayments\UDOcreateLegacyPaymentsRequest.cs" />
+    <Compile Include="Messages\LegacyPayments\UDOcreateLegacyPaymentsResponse.cs" />
+    <Compile Include="Messages\Letters\UDOInitiateLettersRequest.cs" />
+    <Compile Include="Messages\Letters\UDOInitiateLettersResponse.cs" />
+    <Compile Include="Messages\MessageRegistry.cs" />
+    <Compile Include="Messages\Appeals\Remand Reasons\UDOcreateUDOAppealRemandReasonsRequest.cs" />
+    <Compile Include="Messages\Appeals\Remand Reasons\UDOcreateUDOAppealRemandReasonsResponse.cs" />
+    <Compile Include="Messages\Appeals\Special Contentions\UDOcreateUDOAppealSpecialContentionsRequest.cs" />
+    <Compile Include="Messages\Appeals\Special Contentions\UDOcreateUDOAppealSpecialContentionsResponse.cs" />
+    <Compile Include="Messages\MilitaryService\UDOfindMilitaryServiceRequest.cs" />
+    <Compile Include="Messages\MilitaryService\UDOfindMilitaryServiceResponse.cs" />
+    <Compile Include="Messages\Notes\UDOCreateNoteRequest.cs" />
+    <Compile Include="Messages\Notes\UDOCreateNoteResponse.cs" />
+    <Compile Include="Messages\Notes\UDODeleteNoteRequest.cs" />
+    <Compile Include="Messages\Notes\UDODeleteNoteResponse.cs" />
+    <Compile Include="Messages\Notes\UDORetrieveNotesAsyncRequest.cs" />
+    <Compile Include="Messages\Notes\UDORetrieveNotesRequest.cs" />
+    <Compile Include="Messages\Notes\UDORetrieveNotesResponse.cs" />
+    <Compile Include="Messages\Notes\UDOUpdateNoteRequest.cs" />
+    <Compile Include="Messages\Notes\UDOUpdateNoteResponse.cs" />
+    <Compile Include="Messages\Payments\UDOcreateAwardAdjustmentRequest.cs" />
+    <Compile Include="Messages\Payments\UDOcreateAwardAdjustmentResponse.cs" />
+    <Compile Include="Messages\Payments\UDOcreatePaymentAdjustmentRequest.cs" />
+    <Compile Include="Messages\Payments\UDOcreatePaymentAdjustmentResponse.cs" />
+    <Compile Include="Messages\Payments\UDOcreatePaymentsAsyncRequest.cs" />
+    <Compile Include="Messages\Payments\UDOcreatePaymentsRequest.cs" />
+    <Compile Include="Messages\Payments\UDOcreatePaymentsResponse.cs" />
+    <Compile Include="Messages\Payments\UDOgetPaymentDetailsAsyncRequest.cs" />
+    <Compile Include="Messages\Payments\UDOgetPaymentDetailsRequest.cs" />
+    <Compile Include="Messages\Payments\UDOgetPaymentDetailsResponse.cs" />
+    <Compile Include="Messages\PeoplelistPayeeCode\UDOCreatePeoplePayeeRequest.cs" />
+    <Compile Include="Messages\PeoplelistPayeeCode\UDOCreatePeoplePayeeResposne.cs" />
+    <Compile Include="Messages\PeoplelistPayeeCode\UDOFiduciaryExistsRequest.cs" />
+    <Compile Include="Messages\PeoplelistPayeeCode\UDOFiduciaryExistsResponse.cs" />
+    <Compile Include="Messages\Ratings\UDOfindRatingsRequest.cs" />
+    <Compile Include="Messages\Ratings\UDOfindRatingsResponse.cs" />
+    <Compile Include="Messages\Ratings\UDOgetRatingDataRequest.cs" />
+    <Compile Include="Messages\Ratings\UDOgetRatingDataResponse.cs" />
+    <Compile Include="Messages\ServiceRequest\UDOCloneSRRequest.cs" />
+    <Compile Include="Messages\ServiceRequest\UDOCloneSRResponse.cs" />
+    <Compile Include="Messages\ServiceRequest\UDOInitiateSRRequest.cs" />
+    <Compile Include="Messages\ServiceRequest\UDOInitiateSRResponse.cs" />
+    <Compile Include="Messages\ServiceRequest\UDOUpdateSRRequest.cs" />
+    <Compile Include="Messages\ServiceRequest\UDOUpdateSRResponse.cs" />
+    <Compile Include="Messages\UserTool\UDOSecurityAssocRequest.cs" />
+    <Compile Include="Messages\UserTool\UDOSecurityAssocResponse.cs" />
+    <Compile Include="Messages\UserTool\UDOSecurityDisassocRequest.cs" />
+    <Compile Include="Messages\UserTool\UDOSecurityDisassocResponse.cs" />
+    <Compile Include="Messages\UserTool\UDOSecurityRequest.cs" />
+    <Compile Include="Messages\UserTool\UDOSecurityResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOcreateDependentsRequest.cs" />
+    <Compile Include="Messages\Veteran\UDOcreateDependentsResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOcreateFlashesRequest.cs" />
+    <Compile Include="Messages\Veteran\UDOcreateFlashesResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOcreatePastFiduciariesRequest.cs" />
+    <Compile Include="Messages\Veteran\UDOcreatePastFiduciariesResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOcreatePastPOARequest.cs" />
+    <Compile Include="Messages\Veteran\UDOcreatePastPOAResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOcreateRelationshipsRequest.cs" />
+    <Compile Include="Messages\Veteran\UDOcreateRelationshipsResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOgetContactRecordsRequest.cs" />
+    <Compile Include="Messages\Veteran\UDOgetContactRecordsResponse.cs" />
+    <Compile Include="Messages\Veteran\UDOupdateHasBenefitsRequest.cs" />
+    <Compile Include="Messages\Veteran\UDOupdateHasBenefitsResponse.cs" />
+    <Compile Include="Processors\Appeals\UDOcreateUDOAppealDatesProcessor.cs" />
+    <Compile Include="Processors\Appeals\UDOcreateUDOAppealDetailsProcessor.cs" />
+    <Compile Include="Processors\Appeals\UDOcreateUDOAppealDiariesProcessor.cs" />
+    <Compile Include="Processors\Appeals\UDOcreateUDOAppealProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateAwardLinesProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateAwardsOrchProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateAwardsProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateClothingAllowanceProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateDeductionProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateDiariesProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateEVRsProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateIncomeSummaryProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateProceedsProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOcreateReceiveablesProcessor.cs" />
+    <Compile Include="Processors\Awards\UDOretrieveAwardProcessor.cs" />
+    <Compile Include="Processors\Awards\UDORetrievePaymentsProcessor.cs" />
+    <Compile Include="Processors\BIRLS\UDOgetBIRLSDataProcessor.cs" />
+    <Compile Include="Processors\CADD\UDOFindBankProcessor.cs" />
+    <Compile Include="Processors\CADD\UDOinitiateCADDProcessor.cs" />
+    <Compile Include="Processors\CADD\UDOupdateCADDAddressProcessor.cs" />
+    <Compile Include="Processors\ClaimDocuments\getUDOClaimDocumentsProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOClaimsOrchProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOClaimsProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOContentionsProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOEvidenceProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOLifecyclesProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOSuspenseProcessor.cs" />
+    <Compile Include="Processors\Claims\createUDOTrackedItemsProcessor.cs" />
+    <Compile Include="Processors\Claims\UDOcreateUDOStatusProcessor.cs" />
+    <Compile Include="Processors\Claims\UpdateUDOClaimsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOCreateAddressRecordsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOcreateDependentsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOcreateFlashesProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOcreatePastFiduciariesProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOcreateRelationshipsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOgetAddressRecordsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOgetContactRecordsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOUpdateHasBenefitsProcessor.cs" />
+    <Compile Include="Processors\Contact\UDOvalidateAddressRecordProcessor.cs" />
+    <Compile Include="Processors\Denials\UDOcreateDenialsProcessor.cs" />
+    <Compile Include="Processors\eMIS\UDOgetMilitaryInformationProcessor.cs" />
+    <Compile Include="Processors\eMIS\UDORankHelper.cs" />
+    <Compile Include="Processors\ExamsAppointments\UDOcreateUDOAppointmentsProcessor.cs" />
+    <Compile Include="Processors\ExamsAppointments\UDOcreateUDOExamRequestProcessor.cs" />
+    <Compile Include="Processors\ExamsAppointments\UDOcreateUDOExamsProcessor.cs" />
+    <Compile Include="Processors\Flashes\UDOgetFlashesProcessor.cs" />
+    <Compile Include="Processors\FNOD\UDOInitiateFNODProcessor.cs" />
+    <Compile Include="Processors\IDProofOrchestration\UDOIDProofOrchestrationProcessor.cs" />
+    <Compile Include="Processors\IntentToFile\UDOcreateIntentToFileProcessor.cs" />
+    <Compile Include="Processors\IntentToFile\UDOfindZipCodeProcessor.cs" />
+    <Compile Include="Processors\IntentToFile\UDOInitiateITFProcessor.cs" />
+    <Compile Include="Processors\IntentToFile\UDOSubmitITFProcessor.cs" />
+    <Compile Include="Processors\IntentToFile\UDOvalidateAddressProcessor.cs" />
+    <Compile Include="Processors\LegacyPayments\UDOcreateLegacyPaymentsDetailsProcessor.cs" />
+    <Compile Include="Processors\LegacyPayments\UDOcreateLegacyPaymentsProcessor.cs" />
+    <Compile Include="Processors\Letters\UDOInitiateLettersProcessor.cs" />
+    <Compile Include="Processors\MilitaryService\UDOfindMilitaryServiceProcessor.cs" />
+    <Compile Include="Processors\Notes\UDOCreateNoteProcessor.cs" />
+    <Compile Include="Processors\Notes\UDODeleteNoteProcessor.cs" />
+    <Compile Include="Processors\Notes\UDORetrieveNotesProcessor.cs" />
+    <Compile Include="Processors\Notes\UDOUpdateNoteProcessor.cs" />
+    <Compile Include="Processors\Payments\UDOcreatePaymentsProcessor.cs" />
+    <Compile Include="Processors\Payments\UDOgetPaymentDetailsProcessor.cs" />
+    <Compile Include="Processors\Ratings\UDOfindRatingsProcessor.cs" />
+    <Compile Include="Processors\Ratings\UDOgetRatingDataProcessor.cs" />
+    <Compile Include="Processors\ServiceRequest\MapDNote.cs" />
+    <Compile Include="Processors\ServiceRequest\UDOCloneSRProcessor.cs" />
+    <Compile Include="Processors\ServiceRequest\UDOInitiateSRProcessor.cs" />
+    <Compile Include="Processors\ServiceRequest\UDOUpdateSRProcessor.cs" />
+    <Compile Include="Processors\UserTool\SecurityAssociation.cs" />
+    <Compile Include="Processors\UserTool\UDOSecurity.cs" />
+    <Compile Include="Processors\UserTool\UDOSecurityAssocProcessor.cs" />
+    <Compile Include="Processors\UserTool\UDOSecurityDisassocProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\crmlob - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\crmlob - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\crmlob - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\crmlob - Web Deploy3.pubxml" />
+    <None Include="Properties\PublishProfiles\crmlob - Web Deploy4.pubxml" />
+    <None Include="Properties\PublishProfiles\crmlob - Web Deploy5.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UDO.Crm.LOB.Extensions\UDO.Crm.LOB.Extensions.csproj">
+      <Project>{a4e91fc6-6983-4a58-b306-7cc71829484f}</Project>
+      <Name>UDO.Crm.LOB.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60776</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60776/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

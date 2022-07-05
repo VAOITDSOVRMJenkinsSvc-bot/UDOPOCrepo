@@ -1,0 +1,184 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Change of Address Script</title>
+<script type="text/javascript" src="udo_jquery_1.9.1.min.js"></script>
+<script language="javascript" src="udo_pcrScripts.js"></script>
+<style type="text/css">
+    body
+{
+ font-family:"verdana";
+ font-size:15px;
+ color:#000000;
+}
+h1
+{
+ font-family:"cambria";
+ font-size:20px;
+ color:#365F91;
+}
+h2
+{
+ font-family:"cambria";
+ font-size:18px;
+ padding-left:10px;
+ color:#000000;
+}
+ul
+{
+ font-family:"verdana";
+ font-size:14px;
+ color:#000000;
+}
+th,td
+{
+ border:1px solid black;
+}
+td.datacelltype
+{
+ font-family:"cambria";
+ font-size:18px;
+ background-color: #8DB3E2; color: white;
+ border-top-width:2px;
+ border-bottom-width:2px;
+ border-color:#365F91;
+}
+th.type
+{
+ font-family:"cambria";
+ font-size:20px;
+ background-color: #365F91; color: white;
+}
+th.where
+{
+ font-family:"cambria";
+ font-size:20px;
+ background-color: #365F91; color: white;
+}
+th.location
+{
+ font-family:"cambria";
+ font-size:20px;
+ background-color: #365F91; color: white;
+}
+td.type_d
+{
+ padding-left:10px;
+ width:25%;
+}
+td.where_d
+{
+ width:30%;
+}
+td.location_d
+{
+ width:45%;
+}
+#jurisdictions
+{
+ margin-left:20px;
+ border:2px solid #365F91;
+ border-collapse:collapse;
+}
+</style>
+</head>
+<body>
+ <script>     insertModDate()</script>
+ <div id="main">
+ <h1><u>Qualifications for Using Letter Request:&nbsp; Repeat Caller Script:</u></h1>
+ <ul type="disc">
+   <li>System       of records clearly indicates that caller is a repeat caller, </li>
+   <li>System       of records confirms that previous PCR prepared and sent the requested       letter, and</li>
+   <li>Caller       is inquiring about status of previously requested letter and not       requesting a new letter or new delivery method.</li>
+   <ul type="circle">
+     <li>For        example, caller originally requested an amounts letter by mail.&nbsp; The repeat caller script can be used if        the caller is requesting an update on the status of the amounts letter        that was sent by mail.&nbsp; However,        the repeat caller script can not be used if the caller is requesting a        different type of letter or requesting that the letter be resent by        another means, i.e., by fax.</li>
+   </ul>
+ </ul>
+ <h1><u>Script</u></h1>
+ <p>In reviewing your record, I  see that you contacted us on (insert date of last contact) to request a (insert  type of letter).&nbsp; The requested letter  was prepared and sent on (insert date letter was mailed).&nbsp; Please allow 7 to 10 days for the letter to  be received. May I please confirm your address to ensure our records are up to  date?&nbsp; </p>
+ <ul>
+   <li>PCR should confirm mailing address in system of  records and take appropriate action to update as needed.</li>
+ </ul>
+ <p>&nbsp;</p>
+ <h1><u>Components</u></h1>
+ <ul>
+   <li>Date of previous contact</li>
+   <li>Confirm type of letter originally requested</li>
+   <li>Date requested letter was sent</li>
+   <li>Advise to allow 7 to 10 days from the date  letter was sent for the letter to be received</li>
+   <li>Confirm address and take appropriate action to  update </li>
+ </ul>
+ <p>&nbsp;</p>
+
+ <p><strong><u>Script Notes:</u></strong></p>
+ <ul type="disc">
+   <li>For       the purposes of script qualifications, a &ldquo;repeat caller&rdquo; is considered to       be a caller who has contacted the VA within the last 7 days requesting       information on the same issue.</li>
+   <li>When       handling a letter request call, PCRs should review the system of records       to determine if letter has been previously requested prior to taking       action to initiate the requested letter.&nbsp;       If the caller meets the &ldquo;repeat caller&rdquo; requirement, PCR can       utilize the above script and advise appropriately.</li>
+   <li>If       caller is adamant that they want or need another letter, PCR is expected       to prepare and send the letter as requested.</li>
+ </ul>
+<!-- <h1>Cutoff Dates to Change C&P Recurring Payments </h1>
+         <table id=jurisdictions>
+             <tr>
+                 <td colspan="4" align="center" class="datacelltype">February 1 Recurring Payment* </td>
+             </tr>
+             <tr>
+                 <td colspan="2" align="center" class="type">BDN AWARDS</th>
+                 <td colspan="2" align="center" class="where">VETSNET AWARDS</th>
+             </tr>
+             <tr>
+                 <td class="type_d" align="center">Paper to DD, Paper to paper, and DD to paper</td>
+                 <td class="where_d" align="center">01/06/2012</td>
+                 <td class="location_d" rowspan = "2" align="center"> All Changes</td>
+                 <td class="location_d" rowspan = "2" align="center"> 01/19/2012</td>
+             </tr>
+             <tr>
+                 <td class="type_d" align="center">DD to DD </td>
+                 <td class="where_d" align="center">01/23/2012</td>
+             </tr>
+         </table>
+         &nbsp;
+         <table id=jurisdictions>
+             <tr>
+                 <td colspan="4" align="center" class="datacelltype">March 1 Recurring Payment*
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="2" align="center" class="type">BDN AWARDS</th>
+                 <td colspan="2" align="center" class="where">VETSNET AWARDS</th>
+             </tr>
+             <tr>
+                 <td class="type_d" align="center">Paper to DD, Paper to paper, and DD to paper</td>
+                 <td class="where_d" align="center">02/06/2012</td>
+                 <td class="location_d" rowspan = "2" align="center"> All Changes</td>
+                 <td class="location_d" rowspan = "2" align="center"> 02/16/2012</td>
+             </tr>
+             <tr>
+                 <td class="type_d" align="center">DD to DD </td>
+                 <td class="where_d" align="center">02/21/2012</td>
+             </tr>
+         </table>
+         <h2>Prior month:</h2>
+         <table id=jurisdictions>
+             <tr>
+                 <td colspan="4" align="center" class="datacelltype">January 1 Recurring Payment* </td>
+             </tr>
+             <tr>
+                 <td colspan="2" align="center" class="type">BDN AWARDS</th>
+                 <td colspan="2" align="center" class="where">VETSNET AWARDS</th>
+             </tr>
+             <tr>
+                 <td class="type_d" align="center">Paper to DD, Paper to paper, and DD to paper</td>
+                 <td class="where_d" align="center"><i>By COB</i> 12/06/2011</td>
+                 <td class="location_d" rowspan = "2" align="center"> All Changes</td>
+                 <td class="location_d" rowspan = "2" align="center"> <i>By COB</i> 12/18/2011</td>
+             </tr>
+             <tr>
+                 <td class="type_d" align="center">DD to DD </td>
+                 <td class="where_d" align="center"><i>By COB</i> 12/20/2011</td>
+             </tr>
+         </table>
+ <p>*For specific payment date, see the payment inquiry screen in Share.</p>
+         -->
+ </div>
+</body>
+</html>

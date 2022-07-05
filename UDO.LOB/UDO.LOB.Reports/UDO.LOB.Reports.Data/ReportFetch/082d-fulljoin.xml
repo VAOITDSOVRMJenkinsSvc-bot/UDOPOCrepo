@@ -1,0 +1,107 @@
+<fetch no-lock="true">
+  <entity name="udo_servicerequest">
+    <attribute name="udo_dateofdeath" alias="DOD" />
+    <attribute name="udo_typeofcontact" />
+    <attribute name="udo_sremail" alias="VetEmail" />
+    <attribute name="udo_reqnumber" />
+    <attribute name="udo_poadata" alias="POA" />
+    <attribute name="udo_mailing_address1" alias="VetAddress1" />
+    <attribute name="udo_mailing_address2" alias="VetAddress2" />
+    <attribute name="udo_mailing_address3" alias="VetAddress3" />
+    <attribute name="udo_mailing_city" alias="VetCity" />
+    <attribute name="udo_mailing_state" alias="VetState" />
+    <attribute name="udo_mailing_zip" alias="VetZip" />
+    <attribute name="udo_mailingcountry" />
+    <attribute name="udo_filenumber" />
+    <attribute name="udo_eveningphone" alias="EveningPhone" />
+    <attribute name="udo_dayphone" alias="DayPhone" />
+    <attribute name="udo_phone" alias="CallerPhone" />
+    <attribute name="udo_description" />
+    <attribute name="udo_firstname" alias="CallerFirstName" />
+    <attribute name="udo_lastname" alias="CallerLastName" />
+    <attribute name="udo_address1" alias="CallerStreet1" />
+    <attribute name="udo_address2" alias="CallerStreet2" />
+    <attribute name="udo_address3" alias="CallerStreet3" />
+    <attribute name="udo_city" alias="CallerCity" />
+    <attribute name="udo_state" alias="CallerState" />
+    <attribute name="udo_zipcode" alias="CallerZip" />
+    <attribute name="udo_country"/>
+    <attribute name="udo_readscript" />
+    <attribute name="udo_relationtoveteran" />
+    <attribute name="udo_enroutetova" />
+    <attribute name="udo_depfirstname" alias="DependentFirstName" />
+    <attribute name="udo_deplastname" alias="DependentLastName" />
+    <attribute name="udo_depaddress" alias="DependentAddress" />
+    <attribute name="udo_depstate" alias="DependentState" />
+    <attribute name="udo_depcity" alias="DependentCity" />
+    <attribute name="udo_depzipcode" alias="DependentZip" />
+    <attribute name="udo_depdateofbirth" alias="DependentDOB" />
+    <attribute name="udo_depssn" alias="DependentSSN" />
+    <attribute name="udo_dependentaddresses" alias="DependentAddresses" />
+    <attribute name="udo_placeofdeath" alias="PlaceOfDeath" />
+    <attribute name="udo_dependentnames" alias="DependentNames" />
+    <attribute name="udo_21534" />
+    <attribute name="udo_deathrelatedinformationchecklists" alias="DeathChecklist" />
+    <attribute name="udo_21530" />
+    <attribute name="udo_nokletter" alias="NOKLetter" />
+    <attribute name="udo_processedfnodinshareexplanation" alias="ProcessedFnodExp" />
+    <attribute name="udo_other" alias="Other" />
+    <attribute name="udo_otherspecification" alias="OtherSpec" />
+    <attribute name="udo_lookedupvetrecord" alias="VetLookedUp" />
+    <attribute name="udo_401330" />
+    <attribute name="udo_benefitsstopped" />
+    <attribute name="udo_pmc" alias="PMC" />
+    <attribute name="udo_processedfnodinshare" alias="ProcessedFnod" />
+    <attribute name="udo_possibleburialinnationalcemetery" />
+    <attribute name="udo_benefitsstopfirstofmonth" />
+    <attribute name="udo_willroutereportofdeath" />
+    <attribute name="udo_dateofmissingpayment" />
+    <attribute name="udo_amtofpayments" />
+    <attribute name="udo_paymentissuedvia" />
+    <attribute name="udo_checkendorsedandlost" />
+    <attribute name="udo_typeofpayment" />
+    <attribute name="udo_checkendorsedandstolen" />
+    <attribute name="udo_paymentmethod" />
+    <attribute name="udo_addresschanged" />
+    <attribute name="udo_deceasedisnvb" alias="DeceasedNVB" />
+    <attribute name="udo_namenvb" alias="NameNVB" />
+    <attribute name="udo_payeecode" alias="PayeeCode" />
+    <attribute name="udo_beneficiaryssn" alias="BenSSN" />
+    <attribute name="udo_payment" alias="Payment" />
+    <attribute name="udo_beneficiaryname" alias="BenName" />
+    <attribute name="udo_fnodreportingfor" />
+    <attribute name="udo_wasanupdatetothepaymentaddressordirec" alias="UpdateAddr" />
+    <filter>
+      <condition attribute="udo_servicerequestid" operator="eq" value="@ServiceRequestGUID" />
+    </filter>
+    <link-entity name="systemuser" from="systemuserid" to="udo_pcrofrecordid" link-type="inner" alias="u">
+      <attribute name="siteidname" alias="UserOffice" />
+      <attribute name="va_stationnumber" alias="StationNumber" />
+      <attribute name="va_replyreferto" alias="ReplyRefer" />
+      <attribute name="lastname" alias="UserLastName" />
+      <attribute name="title" alias="UserTitle" />
+      <attribute name="firstname" alias="UserFirstName" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer" alias="vet">
+      <attribute name="lastname" alias="vet_lastname" />
+      <attribute name="middlename" alias="vet_middlename" />
+      <attribute name="firstname" alias="vet_firstname" />
+    </link-entity>
+    <link-entity name="udo_form0820payments" from="udo_servicerequestid" to="udo_servicerequestid" link-type="outer" alias="p">
+      <attribute name="udo_additionalinformation" alias="AdditionalInformation" />
+      <attribute name="udo_amountofpayment" alias="Amount" />
+      <attribute name="udo_checkendorsedpaymenttype" alias="CheckEndorsedPmt" />
+      <attribute name="udo_checknotendorsedpaymenttype" alias="CheckNotEndorsedPmt" />
+      <attribute name="udo_cpbenefittype" alias="CPB" />
+      <attribute name="udo_dateofpayment" alias="PmtDate" />
+      <attribute name="udo_directdepositpaymenttype" alias="DirDep" />
+      <attribute name="udo_edubenefittype" alias="EDU" />
+      <attribute name="udo_potentialfraud" alias="PotentialFraud" />
+      <attribute name="udo_vetsnetpaymentsystem" alias="VetsNet" />
+      <attribute name="udo_vrebenefittype" alias="VRE" />
+      <attribute name="udo_benefittype" alias="BenefitType" />
+      <attribute name="udo_paymentsystem" alias="PaymentSystem"/>
+      <attribute name="udo_paymenttype" alias="PaymentType"/>
+    </link-entity>
+  </entity>
+</fetch>

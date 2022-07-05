@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://procService.services.vonapp.vba.va.gov/" name="VnpProcService" targetNamespace="http://procService.services.vonapp.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VnpProcWebServiceBean/VnpProcService?xsd=1" namespace="http://procService.services.vonapp.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="vnpProcUpdate">
+    <part name="parameters" element="tns:vnpProcUpdate" />
+  </message>
+  <message name="vnpProcUpdateResponse">
+    <part name="parameters" element="tns:vnpProcUpdateResponse" />
+  </message>
+  <message name="MessageFaultException">
+    <part name="fault" element="tns:MessageFaultException" />
+  </message>
+  <message name="vnpProcCreate">
+    <part name="parameters" element="tns:vnpProcCreate" />
+  </message>
+  <message name="vnpProcCreateResponse">
+    <part name="parameters" element="tns:vnpProcCreateResponse" />
+  </message>
+  <message name="vnpProcRemove">
+    <part name="parameters" element="tns:vnpProcRemove" />
+  </message>
+  <message name="vnpProcRemoveResponse">
+    <part name="parameters" element="tns:vnpProcRemoveResponse" />
+  </message>
+  <message name="findAllAsArray">
+    <part name="parameters" element="tns:findAllAsArray" />
+  </message>
+  <message name="findAllAsArrayResponse">
+    <part name="parameters" element="tns:findAllAsArrayResponse" />
+  </message>
+  <message name="vnpProcFindByPrimaryKey">
+    <part name="parameters" element="tns:vnpProcFindByPrimaryKey" />
+  </message>
+  <message name="vnpProcFindByPrimaryKeyResponse">
+    <part name="parameters" element="tns:vnpProcFindByPrimaryKeyResponse" />
+  </message>
+  <portType name="VnpProcService">
+    <operation name="vnpProcUpdate">
+      <input message="tns:vnpProcUpdate" />
+      <output message="tns:vnpProcUpdateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpProcCreate">
+      <input message="tns:vnpProcCreate" />
+      <output message="tns:vnpProcCreateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpProcRemove">
+      <input message="tns:vnpProcRemove" />
+      <output message="tns:vnpProcRemoveResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="findAllAsArray">
+      <input message="tns:findAllAsArray" />
+      <output message="tns:findAllAsArrayResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpProcFindByPrimaryKey">
+      <input message="tns:vnpProcFindByPrimaryKey" />
+      <output message="tns:vnpProcFindByPrimaryKeyResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+  </portType>
+  <binding name="VnpProcServicePortBinding" type="tns:VnpProcService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vnpProcUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpProcCreate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpProcRemove">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllAsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpProcFindByPrimaryKey">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VnpProcService">
+    <port name="VnpProcServicePort" binding="tns:VnpProcServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VnpProcWebServiceBean/VnpProcService" />
+    </port>
+  </service>
+</definitions>

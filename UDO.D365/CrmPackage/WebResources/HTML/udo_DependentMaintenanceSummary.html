@@ -1,0 +1,46 @@
+<html><head>
+	<meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>	
+   	<script type="text/javascript" src="udo_Xrm.min.js"></script>
+	<script type="text/javascript" src="udo_appinsights.bootstrap.js"></script>
+	<script type="text/javascript" src="udo_appinsights.common.js"></script>
+	<script type="text/javascript" src="udo_CRMCommonJS.js"></script>
+	<script type="text/javascript" src="udo_jquery_3.3.1.min.js"></script>
+	<script type="text/javascript" src="udo_DependentMaintenanceSummary.js"></script>
+	<style type="text/css">
+		.headerRow {
+			font-family: "SegoeUI-Semibold", "Segoe UI Semibold";
+			font-size: 14px;
+            min-width: 200px;
+			max-width: 300px;
+			column-gap: 15px;
+		}
+
+        .dependentRow {
+            font-family: "SegoeUI", "Segoe UI";
+            font-size: 14px;
+            min-width: 200px;
+			max-width: 300px;
+            column-gap: 15px;
+        }
+	</style>
+<meta><meta><meta></head>
+	<body onload="onLoad()" onfocusout="parent.setEmailRange();" style="overflow-wrap: break-word;">
+		<form name="dmSummaryForm">
+			<div>
+				<table class="dmSummaryInnerTable" cellspacing="2" cellpadding="3">
+					<colgroup>
+						<col style="width: 20px;">
+						<col>
+					</colgroup>
+					<tbody id="dmSummaryTableBody">
+						<!-- Table formulated based on results from FetchXml query -->
+						<tr>
+							<td colspan="2">
+						</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</form>
+	
+</body></html>

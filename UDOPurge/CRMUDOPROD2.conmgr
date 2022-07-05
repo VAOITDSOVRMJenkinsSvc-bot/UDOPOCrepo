@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="UDO_Connection"
+  DTS:DTSID="{63AB5D75-D6FC-4DF5-952B-3B56C395E5CF}"
+  DTS:CreationName="DynamicsCRM">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::UDO_ConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <CrmConnectionManager
+      ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=Soap2011;DiscoveryServerUrl=;UserName=;Domain=;OrganizationName=;CrmServerUrl=https://dvagov-udo-qa2.api.crm9.dynamics.com/XRMServices/2011/Organization.svc;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=3db0fc1e-8965-40b0-b8ba-449802f735e4;AuthorizationServerUrl=;ServiceResource=;CertificateThumbprint=;ServiceTimeout=720;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+      <ClientSecret
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZsvYnSlvhk2D3cNdNQ1/pgAAAAACAAAAAAADZgAAwAAAABAAAADQL90tqxIyc1veASRkNDHDAAAAAASAAACgAAAAEAAAAPsQLUgbn6bvMfyeyqVYT5h4AAAAw16IxL6GHuulxR1w7yMkflPXKiEE4x01P0PwQr6UKtjDJ+/xfcsvNwjwZzhqj7kjT83dBTGA3X/fFlTKMjhIjXNUqV+zP8ZW26G53ZS6OAl/21qH1KSTa4Oo6/rhylxhMdK2d+pa35WgmK+BsxJGK1hO7PDPJeKxFAAAAGRr48ia9aRRc+itLXvRJXGlKGZS</ClientSecret>
+    </CrmConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,150 @@
+/* CSS Document */
+.sectionheader {
+  display: inline;
+  padding-top:0px;
+  padding-bottom: 0px;
+  padding-left:0.6em;
+  padding-right:0.6em;
+  
+  /*padding: .2em .6em .3em;*/
+  font-size: 75%;
+  font-weight: normal;
+  line-height: .75;
+  color: #fff;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border: none;
+  text-overflow:ellipsis;
+}
+a.sectionheader:hover,
+a.sectionheader:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.sectionheader:empty {
+  display: none;
+}
+.sectionheader {
+  position: relative;
+  top: -1px;
+}
+.sectionheader-default {
+  color: #777;
+}
+.sectionheader-default[href]:hover,
+.sectionheader-default[href]:focus {
+  color: #5e5e5e;
+}
+.sectionheader-primary {
+  color: #337ab7;
+}
+.sectionheader-primary[href]:hover,
+.sectionheader-primary[href]:focus {
+  color: #286090;
+}
+.sectionheader-success {
+  color: #5cb85c;
+}
+.sectionheader-success[href]:hover,
+.sectionheader-success[href]:focus {
+  color: #449d44;
+}
+.sectionheader-info {
+  color: #5bc0de;
+}
+.sectionheader-info[href]:hover,
+.sectionheader-info[href]:focus {
+  color: #31b0d5;
+}
+.sectionheader-warning {
+  color: #f0ad4e;
+}
+.sectionheader-warning[href]:hover,
+.sectionheader-warning[href]:focus {
+  color: #ec971f;
+}
+.sectionheader-danger {
+  color: #d9534f;
+}
+.sectionheader-danger[href]:hover,
+.sectionheader-danger[href]:focus {
+  color: #c9302c;
+}
+table > caption.panel-heading,
+thead.panel-heading {
+  color: #2c3e50;
+  background-color: #ecf0f1;
+  border-color: #ecf0f1;
+}
+
+thead.withcaption {
+    background-color: #CDD8DA;
+}
+
+.panel-heading {
+ font-weight: bold;
+}
+.panel-title {
+	font-weight: bold;
+}
+.ui-selected > td:not(.btn),
+.ui-state-highlight,
+.list-group-item-active {
+  background-color: #CDFFCA;
+  border-color: #CDFFCA;
+  color: #2c3e50;
+}
+li.list-group-item:hover,
+.list-group-item-drop-hover,
+.table-hover > tbody > tr > td:hover:not(.btn),
+.table-hover > tbody > tr:hover > td:not(.btn)  {
+  background-color: #7AD2FF;
+  color: #2c3e50;
+}
+li.list-group-item:focus,
+.table-hover > tbody > tr > td:focus:not(.btn),
+.table-hover > tbody > tr:focus > td:not(.btn) {
+  background-color: #7AD2FF;
+  color: #2c3e50;
+}
+
+tr.footer {
+	padding:2px;
+	margin:0px;
+}
+.btn {
+	margin-left:5px;
+}
+.btn:first {
+	margin-left:0px;
+}
+
+/*
+select > option.placeholder {
+    color:  #acb6c0;
+}
+select > option.placeholder:disabled {
+    color:  #fff;
+    background-color:black;
+}*/
+select:disabled,
+select:invalid {
+    color:  #acb6c0;
+}
+
+div.ms-sel-ctn input::-moz-placeholder {
+  color: #acb6c0;
+  opacity: 1;
+  width:100%;height:100%;
+  overflow:hidden;
+}
+div.ms-sel-ctn input:-ms-input-placeholder {
+  color: #acb6c0;
+  width:100%;height:100%;overflow:hidden;
+}
+div.ms-sel-ctn input::-webkit-input-placeholder {
+  color: #acb6c0;
+  width:100%;height:100%;overflow:hidden;
+}

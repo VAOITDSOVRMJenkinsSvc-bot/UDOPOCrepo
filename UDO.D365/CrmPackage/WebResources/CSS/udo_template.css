@@ -1,0 +1,97 @@
+#main h1
+{
+	font-family:"cambria";
+	font-size:20px;
+	font-weight:bold;
+	color:#365F91;
+}
+#main h2
+{
+	font-family:"cambria";
+	font-size:18px;
+	padding-left:10px;
+	color:#000000;
+}
+#main ul
+{
+	font-family:"verdana";
+	font-size:14px;
+	padding-left:15px;
+	color:#000000;
+}
+body {
+	margin: 0; padding: 0;
+	background: #fff;
+	font: normal 10px Verdana, Arial, Helvetica, sans-serif;
+	color: #444;
+}
+.container {width: 1050px; overflow: hidden; font-size: 1.2em; position: relative;}
+.container2 {width: 1224px; overflow: hidden; font-size: 1.2em; position: relative;}
+#sidenav {
+	width:  250px;
+	height: 900px;
+	position: fixed;
+	float: left;
+	font-size:11px;
+	background-color: #3A6EA5;
+}
+h1 {font: normal 20px Verdana, Arial, Helvetica, sans-serif; color: #fff;}
+
+#sidenav ul {
+	margin: 2px;
+	list-style: none;	
+}
+#sidenav ul li{
+	display: inline;
+	word-wrap: break-word;
+}
+#sidenav ul li a{
+	display: block;
+	margin: 0; padding:  5px 0 5px 5px;
+	text-decoration: none;
+	color: #fff;
+}
+#sidenav ul li a:hover {
+	color: #999;
+}
+
+#content {
+	float: right;
+	width: 798px;
+
+}
+
+#content h1
+{
+	font-family:"cambria";
+	font-size:25px;
+	font-weight:bold;
+	color:#365F91;
+}
+#content h2
+{
+	font-family:"cambria";
+	font-size:18px;
+	padding-left:10px;
+	color:#000000;
+}
+#content ul
+{
+	font-family:"verdana";
+	font-size:14px;
+	color:#000000;
+}
+#content ul.one {
+	padding-left: 2em;
+}
+#content li
+{
+	font-family:"verdana";
+	font-size:14px;
+	color:#000000;
+}
+#content p {
+	line-height: 1.8em;
+	padding: 7px 0;
+	margin: 7px 0;
+}

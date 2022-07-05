@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B0A4D25-D9CF-46B0-A286-D1DAE45AA576}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Va.Udo.Crm.Plugins</RootNamespace>
+    <AssemblyName>Va.Udo.Crm.Plugins</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CRM.VA.UDO.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\References\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\References\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Helpers\AIMessages.cs">
+      <Link>Helpers\AIMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AppInsightsLogData.cs">
+      <Link>Helpers\AppInsightsLogData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AppInsightsLogger.cs">
+      <Link>Helpers\AppInsightsLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AuthExtensions.cs">
+      <Link>Helpers\AuthExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AzureAccessToken.cs">
+      <Link>Helpers\AzureAccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\CRMAuthTokenConfiguration.cs">
+      <Link>Helpers\CRMAuthTokenConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\ExceptionHelper.cs">
+      <Link>Helpers\ExceptionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\HeaderInfo.cs">
+      <Link>Helpers\HeaderInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\HttpHelper.cs">
+      <Link>Helpers\HttpHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\ILogging.cs">
+      <Link>Helpers\ILogging.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\JsonHelper.cs">
+      <Link>Helpers\JsonHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\LOBAPIDictionary.cs">
+      <Link>Helpers\LOBAPIDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\LogLevel.cs">
+      <Link>Helpers\LogLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\SerializationHelper.cs">
+      <Link>Helpers\SerializationHelper.cs</Link>
+    </Compile>
+    <Compile Include="Common\DurationUpdateRunner.cs" />
+    <Compile Include="Helpers\MCSHelper.cs" />
+    <Compile Include="Helpers\MCSLogger.cs" />
+    <Compile Include="Helpers\MCSSettings.cs" />
+    <Compile Include="Helpers\PluginRunner.cs" />
+    <Compile Include="Helpers\Utility.cs" />
+    <Compile Include="Helpers\UtilityFunctions.cs" />
+    <Compile Include="IDProof\IdProofPostCreate.cs" />
+    <Compile Include="IDProof\IdProofPostCreateRunner.cs" />
+    <Compile Include="IDProof\RetrieveMultiplePreStage.cs" />
+    <Compile Include="IDProof\RetrieveMultiplePreStageRunner.cs" />
+    <Compile Include="Interaction\InteractionClosePostUpdate.cs" />
+    <Compile Include="Interaction\InteractionCloseRunner.cs" />
+    <Compile Include="Interaction\InteractionDurationPreUpdate.cs" />
+    <Compile Include="ITF\ITFPostCreate.cs" />
+    <Compile Include="ITF\ITFPostCreateRunner.cs" />
+    <Compile Include="Person\PersonFiduciaryExists.cs" />
+    <Compile Include="Person\PersonFiduciaryExistsRunner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Plugin.cs" />
+    <Compile Include="Properties\BuildVersion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuildVersion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\PluginVersion.cs" />
+    <Compile Include="Query\SavedQueryPreRetrieveMultiple.cs" />
+    <Compile Include="Query\SavedQueryPreRetrieveMultipleRunner.cs" />
+    <Compile Include="Request\RequestPostCreate.cs" />
+    <Compile Include="Request\RequestPostCreateRunner.cs" />
+    <Compile Include="Request\RequestPreCreate.cs" />
+    <Compile Include="Request\RequestPreCreateRuner.cs" />
+    <Compile Include="Request\RequestPreUpdate.cs" />
+    <Compile Include="Security\AssignmentPreCreate.cs" />
+    <Compile Include="Security\AssignmentRunner.cs" />
+    <Compile Include="Security\VeteranAgentFilter.cs" />
+    <Compile Include="Security\VeteranAgentFilterRunner.cs" />
+    <Compile Include="Veteran\VeteranPreUpdate.cs" />
+    <Compile Include="Veteran\VeteranRunner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CRM.VA.UDO.snk" />
+    <None Include="packages.config" />
+    <None Include="VAUDO.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\BuildVersion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BuildVersion.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

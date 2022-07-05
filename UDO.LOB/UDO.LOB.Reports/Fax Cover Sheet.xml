@@ -1,0 +1,13 @@
+﻿<fetch>
+  <entity name="udo_lettergeneration">
+    <attribute name="udo_srfirstname" />
+    <attribute name="udo_faxdescription" />
+    <attribute name="udo_reqnumber"/>
+    <attribute name="udo_srlastname" />
+    <attribute name="udo_faxnumberofpages" />
+    <attribute name="udo_faxnumber" />
+    <filter type="and">
+      <condition value="@LetterGenerationGUID" operator="eq"    attribute="udo_lettergenerationid"/>
+    </filter>
+  </entity>
+</fetch>

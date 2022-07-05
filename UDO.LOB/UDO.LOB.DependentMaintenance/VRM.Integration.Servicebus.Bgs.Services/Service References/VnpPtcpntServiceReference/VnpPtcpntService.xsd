@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ptcpntService.services.vonapp.vba.va.gov/" targetNamespace="http://ptcpntService.services.vonapp.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FaultException" nillable="true" type="xs:anyType" />
+  <xs:element name="MessageFaultException" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="100" name="faultExceptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="100" name="variables" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findAllAsArray" type="tns:findAllAsArray" />
+  <xs:element name="findAllAsArrayResponse" type="tns:findAllAsArrayResponse" />
+  <xs:element name="vnpPtcpntCreate" type="tns:vnpPtcpntCreate" />
+  <xs:element name="vnpPtcpntCreateResponse" type="tns:vnpPtcpntCreateResponse" />
+  <xs:element name="vnpPtcpntFindByPrimaryKey" type="tns:vnpPtcpntFindByPrimaryKey" />
+  <xs:element name="vnpPtcpntFindByPrimaryKeyResponse" type="tns:vnpPtcpntFindByPrimaryKeyResponse" />
+  <xs:element name="vnpPtcpntRemove" type="tns:vnpPtcpntRemove" />
+  <xs:element name="vnpPtcpntRemoveResponse" type="tns:vnpPtcpntRemoveResponse" />
+  <xs:element name="vnpPtcpntUpdate" type="tns:vnpPtcpntUpdate" />
+  <xs:element name="vnpPtcpntUpdateResponse" type="tns:vnpPtcpntUpdateResponse" />
+  <xs:complexType name="vnpPtcpntFindByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntFindByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpPtcpntDTO">
+    <xs:sequence>
+      <xs:element name="vnpPtcpntId" type="xs:long" />
+      <xs:element name="vnpProcId" type="xs:long" />
+      <xs:element minOccurs="0" name="fraudInd" type="xs:string" />
+      <xs:element name="jrnDt" type="xs:dateTime" />
+      <xs:element name="jrnLctnId" type="xs:string" />
+      <xs:element name="jrnObjId" type="xs:string" />
+      <xs:element name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="legacyPoaCd" type="xs:string" />
+      <xs:element minOccurs="0" name="miscVendorInd" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntShortNm" type="xs:string" />
+      <xs:element name="ptcpntTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="taxIdfctnNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="tinWaiverReasonTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntFkPtcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="corpPtcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllAsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:vnpPtcpnt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpnt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="corpPtcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="fraudInd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="legacyPoaCd" type="xs:string" />
+      <xs:element minOccurs="0" name="miscVendorInd" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntShortNm" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="taxIdfctnNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="tinWaiverReasonTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpProcId" type="xs:long" />
+      <xs:element name="vnpPtcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPtcpntDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRemove">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRemoveResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPtcpntDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntCreateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

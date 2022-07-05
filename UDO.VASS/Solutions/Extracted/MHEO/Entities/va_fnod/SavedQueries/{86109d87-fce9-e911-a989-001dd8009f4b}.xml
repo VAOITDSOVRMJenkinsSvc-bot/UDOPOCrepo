@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{86109d87-fce9-e911-a989-001dd8009f4b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="va_name" select="1" icon="1" preview="1">
+      <row name="result" id="va_fnodid">
+        <cell name="va_name" width="300" />
+        <cell name="createdon" width="125" />
+        <cell name="va_ranfnod" width="100" />
+        <cell name="va_ranmod" width="100" />
+        <cell name="va_ranpmc" width="100" />
+        <cell name="va_causeofdeath" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="va_filenumber" width="100" />
+        <cell name="va_firstname" width="100" />
+        <cell name="va_folderlocation" width="100" />
+        <cell name="va_lastname" width="100" />
+        <cell name="modifiedby" width="100" />
+        <cell name="modifiedon" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="va_phonecallid" width="100" />
+        <cell name="va_poa" width="100" />
+        <cell name="va_soj" width="100" />
+        <cell name="va_survivingspousehasawards" width="100" />
+        <cell name="va_survivingspousesssn" width="100" />
+        <cell name="va_vetdateofdeath" width="100" />
+        <cell name="va_isnationalorstatecemetery" width="100" />
+        <cell name="va_veterancontactid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="va_fnod">
+        <attribute name="va_name" />
+        <attribute name="createdon" />
+        <attribute name="va_ranpmc" />
+        <attribute name="va_ranfnod" />
+        <attribute name="va_veterancontactid" />
+        <attribute name="va_vetdateofdeath" />
+        <attribute name="va_survivingspousesssn" />
+        <attribute name="va_survivingspousehasawards" />
+        <attribute name="va_soj" />
+        <attribute name="va_poa" />
+        <attribute name="va_phonecallid" />
+        <attribute name="ownerid" />
+        <attribute name="modifiedon" />
+        <attribute name="modifiedby" />
+        <attribute name="va_lastname" />
+        <attribute name="va_folderlocation" />
+        <attribute name="va_firstname" />
+        <attribute name="va_filenumber" />
+        <attribute name="createdby" />
+        <attribute name="va_causeofdeath" />
+        <attribute name="va_ranmod" />
+        <attribute name="va_isnationalorstatecemetery" />
+        <order attribute="createdon" descending="true" />
+        <attribute name="va_fnodid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="MHEO: FNOD &gt; 2/1/2016" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

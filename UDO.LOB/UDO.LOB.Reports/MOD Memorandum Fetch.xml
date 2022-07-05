@@ -1,0 +1,18 @@
+<fetch no-lock="true" >
+  <entity name="udo_lettergeneration" >
+    <attribute name="udo_ssn" />
+    <attribute name="udo_dateofdeath" />
+    <attribute name="udo_filenumber" />
+    <attribute name="udo_moderror" />
+    <filter>
+      <condition attribute="udo_lettergenerationid" operator="eq" value="@LetterGenerationGUID" />
+    </filter>
+    <link-entity name="va_regionaloffice" from="va_regionalofficeid" to="udo_regionalofficeid" link-type="outer" alias="soj" >
+      <attribute name="va_name" alias="soj_va_name" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer" alias="vet" >
+      <attribute name="lastname" alias="vet_lastname" />
+      <attribute name="firstname" alias="vet_firstname"/>
+    </link-entity>
+  </entity>
+</fetch>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <savedqueryid>{e264239c-a486-4636-8456-093747e00c58}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" icon="1" preview="1">
+      <row name="result" id="udo_mheointeractionassignmentid">
+        <cell name="udo_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="udo_mheointeractionassignment">
+        <attribute name="udo_name" />
+        <attribute name="createdon" />
+        <order attribute="udo_name" descending="false" />
+        <attribute name="udo_mheointeractionassignmentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>10.01.19</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Interaction Assignment Advanced Find View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

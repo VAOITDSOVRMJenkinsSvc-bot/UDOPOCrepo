@@ -1,0 +1,984 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/20/2021 11:39:41 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="VAC20SQLEIS205"
+  DTS:CreatorName="VHA11\OITSAGAHEARM0"
+  DTS:DTSID="{08FB9F64-5A3B-48C1-97C6-973506B87166}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="UDOPluginStop"
+  DTS:PackageType="5"
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{E8F577E7-4822-4895-A1A9-FFF46E19CD1A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[D365]"
+      DTS:CreationName="DynamicsCRM"
+      DTS:DTSID="{1AD82DD9-E745-4B0D-B524-1512669262EC}"
+      DTS:ObjectName="D365">
+      <DTS:PropertyExpression
+        DTS:Name="ClientSecret">@[$Package::ClientSecret]</DTS:PropertyExpression>
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"AuthenticationType=OAuth;ServiceEndpoint=WebAPI;UserName=;Domain=;ServerUrl=" + @[$Package::CrmServerUrl] + ";ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=" + @[$Package::ClientAppId]  + ";AuthorizationServerUrl=;ServiceResource=;CertificateThumbprint=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <CrmConnectionManager
+          ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=WebAPI;UserName=;Domain=;ServerUrl=https://dvagov-udo-dev.crm9.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=3db0fc1e-8965-40b0-b8ba-449802f735e4;AuthorizationServerUrl=;ServiceResource=;CertificateThumbprint=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+          <ClientSecret
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0L5GDzbbGEajFaKn2W/oggAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACl7DjPhm6RtiA16gsIqLOLAAAAAASAAACgAAAAEAAAADsicmqx3YK6ZRW643qd+kNIAAAArdF7/flFQNmjvaMnLWlsU5K/C97pc0yCcWRgUE/9+hx0D6jujZlIlvdO28uBVBLg4le0mAVKqiVtNp7+Zf/vz1wRFMR30ewgFAAAAKtRMF71LGTFvOAnpS/idiUwpU2w</ClientSecret>
+          <Password
+            Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0L5GDzbbGEajFaKn2W/oggAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADSQSzHIgesU7esrrzHHqnMAAAAAASAAACgAAAAEAAAAFyK6oh6ofZe/jB0GjAUau4oAAAAbqiDTIcE0zWwxvjZ4WjNV/3pJ8EabeY1d1STlUW9aZ1lNS+Ak/uvBBQAAAAWnbpXuqd67gynCXDp/IX68AqBmA</Password>
+        </CrmConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8530827A-A5A8-43AF-A44D-02647D433ADC}"
+      DTS:ObjectName="ClientAppId"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">3db0fc1e-8965-40b0-b8ba-449802f735e4</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{8CADEAA7-814C-4798-AD2B-A1B3EBE7ECFD}"
+      DTS:ObjectName="ClientSecret"
+      DTS:Required="True"
+      DTS:Sensitive="True">
+      <DTS:Property
+        DTS:Name="ParameterValue">
+        <DTS:Property
+          DTS:DataType="8"
+          DTS:Name="ParameterValue"
+          Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0L5GDzbbGEajFaKn2W/oggAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACDk7yGQWeI9yCzATwC6UzXAAAAAASAAACgAAAAEAAAALLX4YD0ie8K5bPnc2T0RdFIAAAAJNkyz/KsXPucfh/O8VLoDWxnV5SxiK+Pp3Y7tVyEjP9L80i/3U2dZVuLZ/9q+Ewg46BlM0gAaDAfy8tubY1IMGPNWOMLKeQxFAAAACDsEncMnYIuXn1dBcaR9SPzipM9</DTS:Property>
+      </DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{72A4E3E1-BA7D-4AE6-9502-AE0529D0EEC4}"
+      DTS:ObjectName="CrmServerUrl"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">https://dvagov-udo-dev.crm9.dynamics.com/</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{33115C2D-42E1-4497-B2FA-39DE03B3B746}"
+      DTS:ObjectName="PluginStep"
+      DTS:Required="True">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">VRM.Integration.UDO.Notes.Plugins.DeleteNotesPre: Delete of udo_note</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8CB86193-0D95-4FC4-9743-4379B5C14DA8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PluginDisabled">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Disable Plugin Step"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{d0c4548b-9165-475d-af3c-c39df1fde1dc}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Disable Plugin Step"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Disable Plugin Step\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Disable Plugin Step\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Disable Plugin Step\Derived Column.Inputs[Derived Column Input].Columns[DisabledStateCode]"
+                      cachedDataType="i4"
+                      cachedName="statecode"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
+                      name="DisabledStateCode"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::PluginDisabled]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::PluginDisabled]</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Disable Plugin Step\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Disable Plugin Step\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Disable Plugin Step\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">sdkmessageprocessingstep</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">1</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to Microsoft Dynamics 365/CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to Dynamics 365/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to tentatively disable relevant plugins"
+                  expressionType="Notify"
+                  name="TentativelyDisableRelevantPlugins">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Disable Plugin Step\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[D365]"
+                  connectionManagerRefId="Package.ConnectionManagers[D365]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].Columns[sdkmessageid]"
+                      cachedDataType="guid"
+                      cachedName="sdkmessageid"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessageid]"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageid]" />
+                    <inputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].Columns[sdkmessageprocessingstepid]"
+                      cachedDataType="guid"
+                      cachedName="sdkmessageprocessingstepid"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessageprocessingstepid]"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageprocessingstepid]" />
+                    <inputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].Columns[statecode]"
+                      cachedDataType="i4"
+                      cachedName="statecode"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[asyncautodelete]"
+                      dataType="bool"
+                      name="asyncautodelete">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Boolean</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[configuration]"
+                      dataType="nText"
+                      name="configuration">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="256"
+                      name="description">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[eventexpander]"
+                      dataType="nText"
+                      name="eventexpander">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[eventhandler]"
+                      dataType="guid"
+                      name="eventhandler">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">plugintype;serviceendpoint</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[eventhandlertypecode]"
+                      dataType="wstr"
+                      length="64"
+                      name="eventhandlertypecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[filteringattributes]"
+                      dataType="nText"
+                      name="filteringattributes">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[impersonatinguserid]"
+                      dataType="guid"
+                      name="impersonatinguserid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[invocationsource]"
+                      dataType="i4"
+                      name="invocationsource">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[iscustomizable]"
+                      dataType="wstr"
+                      length="4000"
+                      name="iscustomizable">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">ManagedProperty</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ishidden]"
+                      dataType="wstr"
+                      length="4000"
+                      name="ishidden">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">ManagedProperty</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[mode]"
+                      dataType="i4"
+                      name="mode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="256"
+                      name="name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[plugintypeid]"
+                      dataType="guid"
+                      name="plugintypeid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sdkmessagefilter</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[rank]"
+                      dataType="i4"
+                      name="rank">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessagefilterid]"
+                      dataType="guid"
+                      name="sdkmessagefilterid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sdkmessagefilter</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessageid]"
+                      dataType="guid"
+                      name="sdkmessageid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sdkmessage</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessageprocessingstepid]"
+                      dataType="guid"
+                      name="sdkmessageprocessingstepid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sdkmessageprocessingstep</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessageprocessingstepidunique]"
+                      dataType="guid"
+                      name="sdkmessageprocessingstepidunique">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sdkmessageprocessingstepsecureconfigid]"
+                      dataType="guid"
+                      name="sdkmessageprocessingstepsecureconfigid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sdkmessageprocessingstepsecureconfig</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[solutionid]"
+                      dataType="guid"
+                      name="solutionid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[stage]"
+                      dataType="i4"
+                      name="stage">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[supporteddeployment]"
+                      dataType="i4"
+                      name="supporteddeployment">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Picklist</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input].ExternalColumns[supportingsolutionid]"
+                      dataType="guid"
+                      name="supportingsolutionid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Disable Plugin Step\Dynamics CRM Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2019 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch&gt;
+  &lt;entity name="sdkmessageprocessingstep" &gt;
+    &lt;attribute name="sdkmessageid" /&gt;
+    &lt;attribute name="statecode" /&gt;
+    &lt;filter type="and" &gt;
+    &lt;condition attribute="description" operator="eq" value="@[$Package::PluginStep]" /&gt;
+    &lt;/filter&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">1</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Null"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone" />
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Disable Plugin Step\Dynamics CRM Source.Connections[DynamicsCRM]"
+                  connectionManagerID="Package.ConnectionManagers[D365]"
+                  connectionManagerRefId="Package.ConnectionManagers[D365]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sdkmessageid]"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageid]"
+                      name="sdkmessageid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sdkmessageidname]"
+                      length="256"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageidname]"
+                      name="sdkmessageidname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageprocessingstepid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sdkmessageprocessingstepid]"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[sdkmessageprocessingstepid]"
+                      name="sdkmessageprocessingstepid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[statecode]"
+                      name="statecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[statecodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      length="4000"
+                      lineageId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].Columns[statecodename]"
+                      name="statecodename"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sdkmessageid]"
+                      dataType="guid"
+                      name="sdkmessageid" />
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sdkmessageidname]"
+                      dataType="wstr"
+                      length="256"
+                      name="sdkmessageidname" />
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sdkmessageprocessingstepid]"
+                      dataType="guid"
+                      name="sdkmessageprocessingstepid" />
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      dataType="wstr"
+                      length="4000"
+                      name="statecodename" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Disable Plugin Step.Paths[Derived Column Output]"
+              endId="Package\Disable Plugin Step\Dynamics CRM Destination.Inputs[Input]"
+              name="Derived Column Output"
+              startId="Package\Disable Plugin Step\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Disable Plugin Step.Paths[Primary Output]"
+              endId="Package\Disable Plugin Step\Derived Column.Inputs[Derived Column Input]"
+              name="Primary Output"
+              startId="Package\Disable Plugin Step\Dynamics CRM Source.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Disable Plugin Step"
+          TopLeft="65.4166656918824,57.633332302769" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Disable Plugin Step">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205.333333333334,42"
+          Id="Package\Disable Plugin Step\Dynamics CRM Destination"
+          TopLeft="381,201" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Disable Plugin Step\Derived Column"
+          TopLeft="404,114" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Disable Plugin Step\Dynamics CRM Source"
+          TopLeft="389,28" />
+        <EdgeLayout
+          Id="Package\Disable Plugin Step.Paths[Primary Output]"
+          TopLeft="481,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Disable Plugin Step.Paths[Derived Column Output]"
+          TopLeft="482.25,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

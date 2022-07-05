@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{74441757-7801-ea11-a98b-001dd800ba25}" name="VASS Coach">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendToudo_mheointeractionassignment" level="Deep" />
+    <RolePrivilege name="prvAppendudo_mheointeractionassignment" level="Deep" />
+    <RolePrivilege name="prvAssignudo_mheointeractionassignment" level="Deep" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvReadudo_mheointeractionassignment" level="Deep" />
+    <RolePrivilege name="prvShareudo_mheointeractionassignment" level="Deep" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+    <RolePrivilege name="prvWriteudo_mheointeractionassignment" level="Deep" />
+  </RolePrivileges>
+</Role>

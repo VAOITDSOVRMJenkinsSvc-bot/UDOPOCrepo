@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{827aef56-5eae-4b64-9a2b-663af337eaa7}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{8ab66c26-0844-4af5-a960-5a5341941663}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{b3a30860-afb9-4a9f-baca-c5ff73065500}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c007eb25-5a3a-a721-099e-4373d3a2a1d0}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Contact" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="udo_contactid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0d07e19a-8b66-5042-0882-0e70d536047a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="First Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_firstname" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ba67b942-8432-3062-5774-ad904b33d436}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Middle Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_middlename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_middlename" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c2b2ba4e-5118-3228-0735-c2b00e253c17}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Last Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_lastname" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8c3d8e94-a9c7-783e-79da-418498227944}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SSN" languagecode="1033" />
+                      </labels>
+                      <control id="udo_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_ssn" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c7ee6324-4614-3e81-d08c-8ee23152563b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Applied / Using EDU Benefit" languagecode="1033" />
+                      </labels>
+                      <control id="udo_appliedusingedubenefit" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_appliedusingedubenefit" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7b0c4310-2942-852e-ce07-4dc3c98e0370}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Transferred Entitlement" languagecode="1033" />
+                      </labels>
+                      <control id="udo_transferredentitlement" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_transferredentitlement" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5c9f577c-a26d-40d8-af1c-5aab5b1f2ac3}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{155bf549-3e46-4e6d-af2f-476f1ce6e72d}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{07d7ed0a-e07c-ddde-78de-8d3aa4c7638c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                      </labels>
+                      <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

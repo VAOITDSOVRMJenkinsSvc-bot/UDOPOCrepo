@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<findGeneralInformationByPtcpntIdsResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+			<return>
+				<additionalServiceIndicator>Y</additionalServiceIndicator>
+				<authznChangeClmantAddrsInd>
+				</authznChangeClmantAddrsInd>
+				<authznPoaAccessInd>
+				</authznPoaAccessInd>
+				<awardTypeCode/>
+				<benefitTypeCode/>
+				<benefitTypeName/>
+				<clothingAllowanceTypeCode/>
+				<clothingAllowanceTypeName/>
+				<cnsldtPymtCd>
+				</cnsldtPymtCd>
+				<cnsldtPymtNm>
+				</cnsldtPymtNm>
+				<competencyDecisionTypeCode/>
+				<competencyDecisionTypeName/>
+				<convertedCaseIndicator>N</convertedCaseIndicator>
+				<currentMonthlyRate/>
+				<desertShieldIndicator>N</desertShieldIndicator>
+				<directDepositAccountID/>
+				<enteredOnDutyDate>07031982</enteredOnDutyDate>
+				<fiduciaryDecisionTypeCode/>
+				<fiduciaryDecisionTypeName/>
+				<fundsDueIncompetentBalance/>
+				<guardianFolderLocation/>
+				<gulfWarRegistryIndicator/>
+				<mailingAddressID/>
+				<militaryBranch>Coast Guard</militaryBranch>
+				<numberOfAwardBenes>1</numberOfAwardBenes>
+				<numberOfDiaries>0</numberOfDiaries>
+				<numberOfEvrs>1</numberOfEvrs>
+				<numberOfFlashes>2</numberOfFlashes>
+				<nursingHomeIndicator>N</nursingHomeIndicator>
+				<nursingHomeName/>
+				<paidThroughDate/>
+				<paraplegicHousingNumber/>
+				<payStatusTypeCode/>
+				<payStatusTypeName/>
+				<payeeBirthDate>03171938</payeeBirthDate>
+				<payeeName>VRMNEWMAN                     NICHOLAS                      N</payeeName>
+				<payeeSSN>555111181</payeeSSN>
+				<payeeSex>M</payeeSex>
+				<payeeTypeCode/>
+				<payeeTypeIndicator>P</payeeTypeIndicator>
+				<payeeTypeName/>
+				<paymentAddressID/>
+				<personalFundsOfPatientBalance/>
+				<powerOfAttorney>083 - DISABLED AMERICAN VETERANS</powerOfAttorney>
+				<ptcpntBeneID>600021973</ptcpntBeneID>
+				<ptcpntRecipID>600021973</ptcpntRecipID>
+				<ptcpntVetID>600021973</ptcpntVetID>
+				<releasedActiveDutyDate>11011984</releasedActiveDutyDate>
+				<returnCode>SHAR 9999</returnCode>
+				<returnMessage>Records found.</returnMessage>
+				<stationOfJurisdiction/>
+				<statusReasonDate/>
+				<statusReasonTypeCode/>
+				<statusReasonTypeName/>
+				<vetBirthDate>03171938</vetBirthDate>
+				<vetDeathDate/>
+				<vetFirstName>NICHOLAS</vetFirstName>
+				<vetLastName>VRMNEWMAN</vetLastName>
+				<vetMiddleName>N</vetMiddleName>
+				<vetSSN>555111181</vetSSN>
+				<vetSex>M</vetSex>
+				<evr>
+					<evrs>
+						<control>
+						</control>
+						<exempt>
+						</exempt>
+						<lastReported>
+						</lastReported>
+						<status>
+						</status>
+						<type>
+						</type>
+					</evrs>
+				</evr>
+				<flash>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>Homeless                                          </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+					<flashes>
+						<assignedIndicator>
+						</assignedIndicator>
+						<flashName>POW                                               </flashName>
+						<flashType>
+						</flashType>
+					</flashes>
+				</flash>
+				<diary/>
+			</return>
+		</findGeneralInformationByPtcpntIdsResponse>
+	</Body>
+</Envelope>

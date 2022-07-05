@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="SubDisabilityBreakdown">
+    <Query>
+      <DataSourceReference>MSCRM_DataSource</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@LetterGenerationGUID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT *
+FROM LetterGenerationDisability
+WHERE udo_lettergenerationid = @LetterGenerationGUID
+ORDER BY udo_percentage DESC
+          
+        </CommandText>
+      <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+    </Query>
+    <Fields>
+      <Field Name="udo_lettergenerationdisabilityid">
+        <DataField>udo_lettergenerationdisabilityid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_percentage">
+        <DataField>udo_percentage</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_lettergenerationid">
+        <DataField>udo_lettergenerationid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_effectivedate">
+        <DataField>udo_effectivedate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="udo_diagnosticcode">
+        <DataField>udo_diagnosticcode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_disability">
+        <DataField>udo_disability</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

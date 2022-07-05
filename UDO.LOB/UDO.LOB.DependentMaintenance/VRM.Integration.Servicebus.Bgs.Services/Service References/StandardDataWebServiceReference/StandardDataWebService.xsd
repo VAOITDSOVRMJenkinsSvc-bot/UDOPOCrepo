@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://standarddata.services.vetsnet.vba.va.gov/" targetNamespace="http://standarddata.services.vetsnet.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MessageException" nillable="true" type="tns:messageFaultInfoBean" />
+  <xs:element name="findAllBddIntakeSites" type="tns:findAllBddIntakeSites" />
+  <xs:element name="findAllBddIntakeSitesResponse" type="tns:findAllBddIntakeSitesResponse" />
+  <xs:element name="findAllBenefitClaimTypes" type="tns:findAllBenefitClaimTypes" />
+  <xs:element name="findAllBenefitClaimTypesResponse" type="tns:findAllBenefitClaimTypesResponse" />
+  <xs:element name="findBenefitClaimLifeCycleStatuses" type="tns:findBenefitClaimLifeCycleStatuses" />
+  <xs:element name="findBenefitClaimLifeCycleStatusesResponse" type="tns:findBenefitClaimLifeCycleStatusesResponse" />
+  <xs:element name="findBenefitClaimTypeIncrement" type="tns:findBenefitClaimTypeIncrement" />
+  <xs:element name="findBenefitClaimTypeIncrementResponse" type="tns:findBenefitClaimTypeIncrementResponse" />
+  <xs:element name="findBenefitClaimTypeIncrements" type="tns:findBenefitClaimTypeIncrements" />
+  <xs:element name="findBenefitClaimTypeIncrementsResponse" type="tns:findBenefitClaimTypeIncrementsResponse" />
+  <xs:element name="findBenefitClaimTypes" type="tns:findBenefitClaimTypes" />
+  <xs:element name="findBenefitClaimTypesResponse" type="tns:findBenefitClaimTypesResponse" />
+  <xs:element name="findCemeteries" type="tns:findCemeteries" />
+  <xs:element name="findCemeteriesResponse" type="tns:findCemeteriesResponse" />
+  <xs:element name="findClaimSuspnsReasons" type="tns:findClaimSuspnsReasons" />
+  <xs:element name="findClaimSuspnsReasonsResponse" type="tns:findClaimSuspnsReasonsResponse" />
+  <xs:element name="findCountries" type="tns:findCountries" />
+  <xs:element name="findCountriesResponse" type="tns:findCountriesResponse" />
+  <xs:element name="findEndProductTypes" type="tns:findEndProductTypes" />
+  <xs:element name="findEndProductTypesResponse" type="tns:findEndProductTypesResponse" />
+  <xs:element name="findFlashes" type="tns:findFlashes" />
+  <xs:element name="findFlashesResponse" type="tns:findFlashesResponse" />
+  <xs:element name="findForeignStates" type="tns:findForeignStates" />
+  <xs:element name="findForeignStatesResponse" type="tns:findForeignStatesResponse" />
+  <xs:element name="findItfCanctnReasonTypes" type="tns:findItfCanctnReasonTypes" />
+  <xs:element name="findItfCanctnReasonTypesResponse" type="tns:findItfCanctnReasonTypesResponse" />
+  <xs:element name="findMilitaryBranches" type="tns:findMilitaryBranches" />
+  <xs:element name="findMilitaryBranchesResponse" type="tns:findMilitaryBranchesResponse" />
+  <xs:element name="findOrganizationTypes" type="tns:findOrganizationTypes" />
+  <xs:element name="findOrganizationTypesResponse" type="tns:findOrganizationTypesResponse" />
+  <xs:element name="findOtherMilitaryBranches" type="tns:findOtherMilitaryBranches" />
+  <xs:element name="findOtherMilitaryBranchesResponse" type="tns:findOtherMilitaryBranchesResponse" />
+  <xs:element name="findPOAs" type="tns:findPOAs" />
+  <xs:element name="findPOAsResponse" type="tns:findPOAsResponse" />
+  <xs:element name="findPayeeCdByPgmTypeCd" type="tns:findPayeeCdByPgmTypeCd" />
+  <xs:element name="findPayeeCdByPgmTypeCdResponse" type="tns:findPayeeCdByPgmTypeCdResponse" />
+  <xs:element name="findPayeeCdsByBnftClaimTypeCd" type="tns:findPayeeCdsByBnftClaimTypeCd" />
+  <xs:element name="findPayeeCdsByBnftClaimTypeCdResponse" type="tns:findPayeeCdsByBnftClaimTypeCdResponse" />
+  <xs:element name="findPayeeTypes" type="tns:findPayeeTypes" />
+  <xs:element name="findPayeeTypesResponse" type="tns:findPayeeTypesResponse" />
+  <xs:element name="findPhoneTypes" type="tns:findPhoneTypes" />
+  <xs:element name="findPhoneTypesResponse" type="tns:findPhoneTypesResponse" />
+  <xs:element name="findPreDischargeType" type="tns:findPreDischargeType" />
+  <xs:element name="findPreDischargeTypeResponse" type="tns:findPreDischargeTypeResponse" />
+  <xs:element name="findPrefByPoaCd" type="tns:findPrefByPoaCd" />
+  <xs:element name="findPrefByPoaCdResponse" type="tns:findPrefByPoaCdResponse" />
+  <xs:element name="findPrefByPtcpntId" type="tns:findPrefByPtcpntId" />
+  <xs:element name="findPrefByPtcpntIdResponse" type="tns:findPrefByPtcpntIdResponse" />
+  <xs:element name="findRegionalOffices" type="tns:findRegionalOffices" />
+  <xs:element name="findRegionalOfficesResponse" type="tns:findRegionalOfficesResponse" />
+  <xs:element name="findSignaturesByStationNumber" type="tns:findSignaturesByStationNumber" />
+  <xs:element name="findSignaturesByStationNumberResponse" type="tns:findSignaturesByStationNumberResponse" />
+  <xs:element name="findSpecialIssues" type="tns:findSpecialIssues" />
+  <xs:element name="findSpecialIssuesResponse" type="tns:findSpecialIssuesResponse" />
+  <xs:element name="findStates" type="tns:findStates" />
+  <xs:element name="findStatesResponse" type="tns:findStatesResponse" />
+  <xs:element name="findStations" type="tns:findStations" />
+  <xs:element name="findStationsResponse" type="tns:findStationsResponse" />
+  <xs:element name="findSubmtrApplcnTypes" type="tns:findSubmtrApplcnTypes" />
+  <xs:element name="findSubmtrApplcnTypesResponse" type="tns:findSubmtrApplcnTypesResponse" />
+  <xs:element name="findSubmtrRoleTypes" type="tns:findSubmtrRoleTypes" />
+  <xs:element name="findSubmtrRoleTypesResponse" type="tns:findSubmtrRoleTypesResponse" />
+  <xs:element name="findUSStates" type="tns:findUSStates" />
+  <xs:element name="findUSStatesResponse" type="tns:findUSStatesResponse" />
+  <xs:element name="findVreFormTypes" type="tns:findVreFormTypes" />
+  <xs:element name="findVreFormTypesResponse" type="tns:findVreFormTypesResponse" />
+  <xs:element name="updatePref" type="tns:updatePref" />
+  <xs:element name="updatePrefResponse" type="tns:updatePrefResponse" />
+  <xs:complexType name="findSpecialIssues">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findSpecialIssuesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cd" type="xs:string" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="messageFaultInfoBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element minOccurs="0" name="faultCode" type="xs:string" />
+      <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+      <xs:element minOccurs="0" name="functionName" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDate" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnExtnlKeyTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnExtnlUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnLocationId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjectId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+      <xs:element minOccurs="0" name="reason" type="xs:string" />
+      <xs:element minOccurs="0" name="service" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findOrganizationTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findOrganizationTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="OrgType" type="tns:orgType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orgType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cd" type="xs:string" />
+      <xs:element minOccurs="0" name="dactvtDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="descpTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findStates">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findStatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:stateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stateDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="commonLawStateInd" type="xs:string" />
+      <xs:element minOccurs="0" name="legacyFipsStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+      <xs:element minOccurs="0" name="postalCd" type="xs:string" />
+      <xs:element minOccurs="0" name="stateInd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPayeeCdByPgmTypeCd">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="shareComndTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="pgmTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="svcTypeCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPayeeCdByPgmTypeCdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="PayeeTypeDTO" type="tns:payeeTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="payeeTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="payeeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="payeeTypeNm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPrefByPtcpntId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPrefByPtcpntIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pref" type="tns:pref" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pref">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="poaCd" type="xs:string" />
+      <xs:element minOccurs="0" name="prfrdCmnctnMethodTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCountries">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findCountriesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:cntryTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cntryTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cntryTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="cntryTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="descpTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="eftCntryCd" type="xs:string" />
+      <xs:element minOccurs="0" name="eftCntryNm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findMilitaryBranches">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findMilitaryBranchesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimLifeCycleStatuses">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimLifeCycleStatusesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findSignaturesByStationNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stationNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findSignaturesByStationNumberResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="StnPrfilDetailDTO" type="tns:stnPrfilDetailDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stnPrfilDetailDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="letterSigntrTitleTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="letterSigntrTxt" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimTypes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cntrlShareListValuePK" type="tns:cntrlShareListValuesPK" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cntrlShareListValuesPK">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bnftClaimTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="payeeRangeTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="pgmTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="shareComndTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="svcTypeCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:typeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="attrib1Nm" type="xs:string" />
+      <xs:element minOccurs="0" name="attrib1Txt" type="xs:string" />
+      <xs:element minOccurs="0" name="attrib2Nm" type="xs:string" />
+      <xs:element minOccurs="0" name="attrib2Txt" type="xs:string" />
+      <xs:element minOccurs="0" name="attrib3Nm" type="xs:string" />
+      <xs:element minOccurs="0" name="attrib3Txt" type="xs:string" />
+      <xs:element minOccurs="0" name="cd" type="xs:string" />
+      <xs:element minOccurs="0" name="compId" type="tns:typePK" />
+      <xs:element minOccurs="0" name="dactvtDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="descpTxt" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="100" name="increment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typePK">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="groupTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+      <xs:element minOccurs="0" name="typeId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllBddIntakeSites">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllBddIntakeSitesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="BddIntakeSiteDTO" type="tns:bddIntakeSiteDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bddIntakeSiteDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="endDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="lctnId" type="xs:long" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findOtherMilitaryBranches">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findOtherMilitaryBranchesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findFlashes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findFlashesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:typeRlnshpDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="typeRlnshpDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+      <xs:element minOccurs="0" name="rlnshpNm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findSubmtrRoleTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findSubmtrRoleTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findItfCanctnReasonTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findItfCanctnReasonTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEndProductTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findEndProductTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findClaimSuspnsReasons">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findClaimSuspnsReasonsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:claimSuspnsReasonDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="claimSuspnsReasonDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="claimSuspnsCd" type="xs:string" />
+      <xs:element minOccurs="0" name="claimSuspnsDaysNbr" type="xs:int" />
+      <xs:element minOccurs="0" name="claimSuspnsNm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findVreFormTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findVreFormTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="VreFormTypeDTO" type="tns:vreFormTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vreFormTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="vreFormCd" type="xs:string" />
+      <xs:element minOccurs="0" name="vreFormDescpTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="vreFormTypeId" type="xs:long" />
+      <xs:element minOccurs="0" name="vreFormVersnTxt" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPayeeCdsByBnftClaimTypeCd">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="shareComndTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="pgmTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="bnftClaimTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="svcTypeCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPayeeCdsByBnftClaimTypeCdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="PayeeTypeDTO" type="tns:payeeTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimTypeIncrements">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bnftClaimTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="blnCPD" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimTypeIncrementsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findForeignStates">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findForeignStatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:stateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findStations">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findStationsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:stnDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stnDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lctnId" type="xs:long" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+      <xs:element minOccurs="0" name="pmcLctnId" type="xs:long" />
+      <xs:element minOccurs="0" name="pmcNm" type="xs:string" />
+      <xs:element minOccurs="0" name="pmcStationNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="stationNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePref">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="pref" type="tns:pref" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updatePrefResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pref" type="tns:pref" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findRegionalOffices">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findRegionalOfficesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:stnDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllBenefitClaimTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllBenefitClaimTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPrefByPoaCd">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="poaCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPrefByPoaCdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pref" type="tns:pref" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCemeteries">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findCemeteriesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="Cemetery" type="tns:cemetery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cemetery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="addrLineOne" type="xs:string" />
+      <xs:element minOccurs="0" name="addrLineThree" type="xs:string" />
+      <xs:element minOccurs="0" name="addrLineTwo" type="xs:string" />
+      <xs:element minOccurs="0" name="cityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="consolPayeeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="dayPhoneAreaNbr" type="xs:int" />
+      <xs:element minOccurs="0" name="dayPhonePhoneNbr" type="xs:long" />
+      <xs:element minOccurs="0" name="emailAddrs" type="xs:string" />
+      <xs:element minOccurs="0" name="nightPhoneAreaNbr" type="xs:int" />
+      <xs:element minOccurs="0" name="nightPhonePhoneNbr" type="xs:long" />
+      <xs:element minOccurs="0" name="orgNm" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="state" type="xs:string" />
+      <xs:element minOccurs="0" name="zipCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPhoneTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findPhoneTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findUSStates">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findUSStatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:stateDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findSubmtrApplcnTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findSubmtrApplcnTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPOAs">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findPOAsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="PowerOfAttorneyDTO" type="tns:powerOfAttorneyDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="powerOfAttorneyDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="legacyPoaCd" type="xs:string" />
+      <xs:element minOccurs="0" name="nm" type="xs:string" />
+      <xs:element minOccurs="0" name="orgTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimTypeIncrement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:string" />
+      <xs:element minOccurs="0" name="bnftClaimTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="pgmTypeCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findBenefitClaimTypeIncrementResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPreDischargeType">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findPreDischargeTypeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPayeeTypes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findPayeeTypesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:listTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

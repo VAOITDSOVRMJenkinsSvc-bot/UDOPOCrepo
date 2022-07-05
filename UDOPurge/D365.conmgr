@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="D365"
+  DTS:DTSID="{391B03A4-8508-4E07-A169-8942C9663AC6}"
+  DTS:CreationName="DynamicsCRM">
+  <DTS:PropertyExpression
+    DTS:Name="ClientAppId">@[$Project::ClientAppId]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ClientSecret">@[$Project::ClientSecret]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <CrmConnectionManager
+      ConnectionString="AuthenticationType=OAuth;ServiceEndpoint=WebAPI;UserName=;Domain=;ServerUrl=https://dvagov-udo-dev.crm9.dynamics.com/;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;OAuthType=ClientCredentials;ClientAppId=3db0fc1e-8965-40b0-b8ba-449802f735e4;CertificateThumbprint=;AuthorizationServerUrl=;ServiceResource=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False;TimezoneConversionEngine=Auto">
+      <ClientSecret
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsOzgrsZvRkClnZlokZdmbwAAAAACAAAAAAADZgAAwAAAABAAAACTKL20TcBAMWMPREslACIuAAAAAASAAACgAAAAEAAAABEmRQzVvkNyFvAYkFhsxaB4AAAAlTDJohSpC0vk2UVlBnPmriGlhPVibN/D0nAn8v4Zun5SnCL96mt+7FVR2z7v2JC9bypWZ9UAgZKSOXD2qFuEeB8K/3vbeMmUzEGsrOozqmxIIC2vC6JrCFwoJhkCigmTQi5rVn8pKtZRoci0lmbbYOEEIi4ZQaSZFAAAANKzBBgmjSy7kxwiAAZhlUzd3iEw</ClientSecret>
+    </CrmConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

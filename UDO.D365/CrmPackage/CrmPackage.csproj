@@ -1,0 +1,2396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{870E1994-93BB-4BC6-A5B5-F0DBD578ACF6}</ProjectGuid>
+    <ProjectTypeGuids>
+    </ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UDO.D365.CrmPackage</RootNamespace>
+    <AssemblyName>UDO.D365.CrmPackage</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputFile>CrmPackage.zip</OutputFile>
+    <Name>CrmPackage</Name>
+    <MainFile>WebResources\Web Page (HTML)\MVISearch.htm</MainFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="spkl.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap_flatly.css">
+      <DisplayName>walkin\bootstrap_flatly</DisplayName>
+      <UniqueName>walkin_bootstrap_flatly.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap_flatly.min.css">
+      <DisplayName>walkin\bootstrap_flatly.min</DisplayName>
+      <UniqueName>walkin_bootstrap_flatly.min.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap_more.css">
+      <DisplayName>walkin\bootstrap_more</DisplayName>
+      <UniqueName>walkin_bootstrap_more.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap_theme.css">
+      <DisplayName>walkin\bootstrap_theme</DisplayName>
+      <UniqueName>walkin_bootstrap_theme.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap_theme.min.css">
+      <DisplayName>walkin\bootstrap_theme.min</DisplayName>
+      <UniqueName>walkin_bootstrap_theme.min.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap.4.3.1.css">
+      <DisplayName>walkin\bootstrap.4.3.1</DisplayName>
+      <UniqueName>walkin_bootstrap.4.3.1.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap.css">
+      <DisplayName>walkin\bootstrap</DisplayName>
+      <UniqueName>walkin_bootstrap.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap.min.css">
+      <DisplayName>walkin\bootstrap.min</DisplayName>
+      <UniqueName>walkin_bootstrap.min.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\bootstrap2_toggle.css">
+      <DisplayName>walkin\bootstrap2_toggle</DisplayName>
+      <UniqueName>walkin_bootstrap2_toggle.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\jquery_ui.css">
+      <DisplayName>walkin\jquery_ui</DisplayName>
+      <UniqueName>walkin_jquery_ui.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\jquery_ui.min.css">
+      <DisplayName>walkin\jquery_ui.min</DisplayName>
+      <UniqueName>walkin_jquery_ui.min.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\jquery_ui.structure.css">
+      <DisplayName>walkin\jquery_ui.structure</DisplayName>
+      <UniqueName>walkin_jquery_ui.structure.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\jquery_ui.structure.min.css">
+      <DisplayName>walkin\jquery_ui.structure.min</DisplayName>
+      <UniqueName>walkin_jquery_ui.structure.min.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\jquery_ui.theme.css">
+      <DisplayName>walkin\jquery_ui.theme</DisplayName>
+      <UniqueName>walkin_jquery_ui.theme.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\jquery_ui.theme.min.css">
+      <DisplayName>walkin\jquery_ui.theme.min</DisplayName>
+      <UniqueName>walkin_jquery_ui.theme.min.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\magicsuggest.css">
+      <DisplayName>walkin\magicsuggest</DisplayName>
+      <UniqueName>walkin_magicsuggest.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\Walkin\walkin.css">
+      <DisplayName>walkin\walkin</DisplayName>
+      <UniqueName>walkin_walkin.css</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\announcements.css">
+      <DisplayName>announcements</DisplayName>
+      <UniqueName>udo_announcements</UniqueName>
+      <WebResourceType>CascadingStylesheet</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\announcements.min.css">
+      <DisplayName>announcements.min</DisplayName>
+      <UniqueName>udo_announcements.min</UniqueName>
+      <WebResourceType>CascadingStylesheet</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\crme_style.css">
+      <DisplayName>udo\crme_style</DisplayName>
+      <UniqueName>udo_crme_style</UniqueName>
+      <WebResourceType>CascadingStylesheet</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\fetchtable.css">
+      <DisplayName>fetchtable</DisplayName>
+      <UniqueName>udo_fetchtable</UniqueName>
+      <WebResourceType>CascadingStylesheet</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\udo_tcal.css">
+      <DisplayName>udo\udo_tcal</DisplayName>
+      <UniqueName>udo_udo_tcal</UniqueName>
+      <WebResourceType>CascadingStylesheet</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\CSS\udo_template.css">
+      <DisplayName>udo\udo_template</DisplayName>
+      <UniqueName>udo_udo_template</UniqueName>
+      <WebResourceType>CascadingStylesheet</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\XML\udo_highcontraststyle.xml">
+      <DisplayName>udo\udo_highcontraststyle</DisplayName>
+      <UniqueName>udo_highcontraststyle</UniqueName>
+      <WebResourceType>Data</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\XML\udo_SensitivityLevelOptionsetConversion.xml">
+      <DisplayName>udo\udo_SensitivityLevelOptionsetConversion</DisplayName>
+      <UniqueName>udo_SensitivityLevelOptionsetConversion</UniqueName>
+      <WebResourceType>Data</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\XML\udo_SettingsDefaults.xml">
+      <DisplayName>udo\udo_SettingsDefaults</DisplayName>
+      <UniqueName>udo_SettingsDefaults</UniqueName>
+      <WebResourceType>Data</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\XML\udo_USDStyle.xml">
+      <DisplayName>udo\udo_USDStyle</DisplayName>
+      <UniqueName>udo_USDStyle</UniqueName>
+      <WebResourceType>Data</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\XML\udo_USDStyle_DefaultTest.xml">
+      <DisplayName>udo\udo_USDStyle_DefaultTest</DisplayName>
+      <UniqueName>udo_USDStyle_DefaultTest</UniqueName>
+      <WebResourceType>Data</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\GIF\udo_progress.gif">
+      <DisplayName>udo\progress</DisplayName>
+      <UniqueName>udo_progress</UniqueName>
+      <WebResourceType>GIF</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\PNG\Announcement.png">
+      <DisplayName>udo\Announcement</DisplayName>
+      <UniqueName>udo_Announcement</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\PNG\va_arrow_refresh.png">
+      <DisplayName>va_InitiateCADD</DisplayName>
+      <UniqueName>va_InitiateCADD</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\PNG\va_email_go.png">
+      <DisplayName>va_InitiateCADD</DisplayName>
+      <UniqueName>va_InitiateCADD</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\PNG\va_InitiateCADD.png">
+      <DisplayName>va_InitiateCADD</DisplayName>
+      <UniqueName>va_InitiateCADD</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\CADD\udo_CADD_OnLoad.js">
+      <DisplayName>udo\udo_CADD_OnLoad</DisplayName>
+      <UniqueName>udo_CADD_OnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\CADD\udo_CADD_OnSave.js">
+      <DisplayName>udo\udo_CADD_OnSave</DisplayName>
+      <UniqueName>udo_CADD_OnSave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\crme_jquery1.4.1.min.js">
+      <DisplayName>crme_jquery1.4.1.min</DisplayName>
+      <UniqueName>crme_jquery1.4.1.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\crme_jquery1.4.1vsdoc.js">
+      <DisplayName>crme_jquery1.4.1vsdoc</DisplayName>
+      <UniqueName>crme_jquery1.4.1vsdoc</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\crme_JQuery1.7.1_min.js">
+      <DisplayName>crme_JQuery1.7.1_min</DisplayName>
+      <UniqueName>crme_JQuery1.7.1_min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\crme_json2.js">
+      <DisplayName>crme_json2</DisplayName>
+      <UniqueName>crme_json2</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\crme_REST.js">
+      <DisplayName>crme_REST</DisplayName>
+      <UniqueName>crme_REST</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\crme_SDK.REST.js">
+      <DisplayName>crme_SDK.REST</DisplayName>
+      <UniqueName>crme_SDK.REST</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\jquery-1.9.1.js">
+      <DisplayName>udo\jquery_1.9.1</DisplayName>
+      <UniqueName>udo_jquery_1.9.1</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\jquery_1.9.1.min.js">
+      <DisplayName>udo\jquery_1.9.1.min</DisplayName>
+      <UniqueName>udo_jquery_1.9.1.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\json2.js">
+      <DisplayName>udo\json2</DisplayName>
+      <UniqueName>udo_json2</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\SDK.JQuery.js">
+      <DisplayName>udo\SDK.JQuery</DisplayName>
+      <UniqueName>udo_SDK.JQuery</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\va_jquery_1.10.2.min.js">
+      <DisplayName>va_jquery_1.10.2.min</DisplayName>
+      <UniqueName>va_jquery_1.10.2.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\va_Jquery_1.4.2.js">
+      <DisplayName>va_Jquery_1.4.2</DisplayName>
+      <UniqueName>va_Jquery_1.4.2</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\va_jquery_1.6.4.js">
+      <DisplayName>va_jquery_1.6.4</DisplayName>
+      <UniqueName>va_jquery_1.6.4</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\va_Utilities.js">
+      <DisplayName>va_Utilities</DisplayName>
+      <UniqueName>va_Utilities</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\va_XmlUtilities.js">
+      <DisplayName>va_XmlUtilities</DisplayName>
+      <UniqueName>va_XmlUtilities</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Common\xrmsvctooklit.js">
+      <DisplayName>udo\xrmsvctooklit</DisplayName>
+      <UniqueName>udo_xrmsvctooklit</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_ButtonGenerator.js">
+      <DisplayName>udo_ButtonGenerator</DisplayName>
+      <UniqueName>udo_udo_ButtonGenerator</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_DependentMaintenanceValidation.js">
+      <DisplayName>udo_DependentMaintenanceValidation</DisplayName>
+      <UniqueName>udo_udo_DependentMaintenanceValidation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_DependentOnSave.js">
+      <DisplayName>udo_DependentOnSave</DisplayName>
+      <UniqueName>udo_udo_DependentOnSave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_SpouseMaritalHistory.js">
+      <DisplayName>udo_SpouseMaritalHistoryOnLoad</DisplayName>
+      <UniqueName>udo_udo_SpouseMaritalHistoryOnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_DependentMaintenanceSummary.js">
+      <DisplayName>crme_DependentMaintenanceSummary</DisplayName>
+      <UniqueName>udo_crme_DependentMaintenanceSummary</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\bootstrap.4.3.1.js">
+      <DisplayName>walkin\bootstrap.4.3.1</DisplayName>
+      <UniqueName>walkin_bootstrap.4.3.1</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery_ui.min.js">
+      <DisplayName>walkin\jquery_ui.min</DisplayName>
+      <UniqueName>walkin_jquery_ui.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\bootstrap.bundle.4.3.1.js">
+      <DisplayName>walkin\bootstrap.bundle.4.3.1</DisplayName>
+      <UniqueName>walkin_bootstrap.bundle.4.3.1</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\bootstrap.js">
+      <DisplayName>walkin\bootstrap.bundle.4.3.1</DisplayName>
+      <UniqueName>walkin_bootstrap.bundle.4.3.1</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\bootstrap.min.js">
+      <DisplayName>walkin\bootstrap.min</DisplayName>
+      <UniqueName>walkin_bootstrap.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\bootstrap2_toggle.js">
+      <DisplayName>walkin\bootstrap2_toggle</DisplayName>
+      <UniqueName>walkin_bootstrap2_toggle</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery_3.1.1.js">
+      <DisplayName>walkin\jquery_3.1.1</DisplayName>
+      <UniqueName>walkin_jquery_3.1.1</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery_ui.js">
+      <DisplayName>walkin\jquery_ui</DisplayName>
+      <UniqueName>walkin_jquery_ui</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery.aria.js">
+      <DisplayName>walkin\jquery.aria</DisplayName>
+      <UniqueName>walkin_jquery.aria</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery.js">
+      <DisplayName>walkin\jquery</DisplayName>
+      <UniqueName>walkin_jquery</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery.magicsuggest.js">
+      <DisplayName>walkin\jquery.magicsuggest</DisplayName>
+      <UniqueName>walkin_jquery.magicsuggest</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery.min.js">
+      <DisplayName>walkin\jquery.min</DisplayName>
+      <UniqueName>walkin_jquery.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery.sortElements.js">
+      <DisplayName>walkin\jquery.sortElements</DisplayName>
+      <UniqueName>walkin_jquery.sortElements</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\jquery.toXml.js">
+      <DisplayName>walkin\jquery.toXml</DisplayName>
+      <UniqueName>walkin_jquery.toXml</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\npm.js">
+      <DisplayName>walkin\npm</DisplayName>
+      <UniqueName>walkin_npm</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\queues.js">
+      <DisplayName>walkin\queues</DisplayName>
+      <UniqueName>walkin_queues</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.AddToQueue.js">
+      <DisplayName>walkin\Sdk.AddToQueue</DisplayName>
+      <UniqueName>walkin_Sdk.AddToQueue</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.Create.js">
+      <DisplayName>walkin\Sdk.Create</DisplayName>
+      <UniqueName>walkin_Sdk.Create</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.Delete.js">
+      <DisplayName>walkin\Sdk.Delete</DisplayName>
+      <UniqueName>walkin_Sdk.Delete</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.ExecuteMultiple.js">
+      <DisplayName>walkin\Sdk.ExecuteMultiple</DisplayName>
+      <UniqueName>walkin_Sdk.ExecuteMultiple</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.Metadata.js">
+      <DisplayName>walkin\Sdk.Metadata</DisplayName>
+      <UniqueName>walkin_Sdk.Metadata</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.PickFromQueue.js">
+      <DisplayName>walkin\Sdk.PickFromQueue</DisplayName>
+      <UniqueName>walkin_Sdk.PickFromQueue</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.ReleaseToQueue.js">
+      <DisplayName>walkin\Sdk.ReleaseToQueue</DisplayName>
+      <UniqueName>walkin_Sdk.ReleaseToQueue</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.Retrieve.js">
+      <DisplayName>walkin\Sdk.Retrieve</DisplayName>
+      <UniqueName>walkin_Sdk.Retrieve</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.RetrieveAttribute.js">
+      <DisplayName>walkin\Sdk.RetrieveAttribute</DisplayName>
+      <UniqueName>walkin_Sdk.RetrieveAttribute</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.RouteTo.js">
+      <DisplayName>walkin\Sdk.RouteTo</DisplayName>
+      <UniqueName>walkin_Sdk.RouteTo</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.SetState.js">
+      <DisplayName>walkin\Sdk.SetState</DisplayName>
+      <UniqueName>walkin_Sdk.SetState</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.Soap.js">
+      <DisplayName>walkin\Sdk.Soap</DisplayName>
+      <UniqueName>walkin_Sdk.Soap</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.Soap.min.js">
+      <DisplayName>walkin\Sdk.Soap.min</DisplayName>
+      <UniqueName>walkin_Sdk.Soap.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\Sdk.WhoAmI.js">
+      <DisplayName>walkin\Sdk.WhoAmI</DisplayName>
+      <UniqueName>walkin_Sdk.WhoAmI</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\vetsearch.js">
+      <DisplayName>walkin\vetsearch</DisplayName>
+      <UniqueName>walkin_vetsearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\walkinform.js">
+      <DisplayName>walkin\walkinform</DisplayName>
+      <UniqueName>walkin_walkinform</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\XrmTable.Column.js">
+      <DisplayName>walkin\XrmTable.Column</DisplayName>
+      <UniqueName>walkin_XrmTable.Column</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\XrmTable.Columns.js">
+      <DisplayName>walkin\XrmTable.Columns</DisplayName>
+      <UniqueName>walkin_XrmTable.Columns</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\XrmTable.Constants.js">
+      <DisplayName>walkin\XrmTable.Constants</DisplayName>
+      <UniqueName>walkin_XrmTable.Constants</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\XrmTable.js">
+      <DisplayName>walkin\XrmTable</DisplayName>
+      <UniqueName>walkin_XrmTable</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\XrmTable.PagingInfo.js">
+      <DisplayName>walkin\XrmTable.PagingInfo</DisplayName>
+      <UniqueName>walkin_XrmTable.PagingInfo</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Walkin\XrmTable.Table.js">
+      <DisplayName>walkin\XrmTable.Table</DisplayName>
+      <UniqueName>walkin_XrmTable.Table</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Configuration_entity_library.js">
+      <DisplayName>Configuration Entity Library</DisplayName>
+      <UniqueName>Configuration_entity_library</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Contact.js">
+      <DisplayName>Contact</DisplayName>
+      <UniqueName>udo_Contact</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_ChatCoBrowseOnSave.js">
+      <DisplayName>crme_ChatCoBrowseOnSave</DisplayName>
+      <UniqueName>crme_ChatCoBrowseOnSave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_CIHSGetFormValues.js">
+      <DisplayName>crme_CIHSGetFormValues</DisplayName>
+      <UniqueName>crme_CIHSGetFormValues</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_CIHSGetFormValues.js">
+      <DisplayName>crme_CIHSGetFormValues</DisplayName>
+      <UniqueName>crme_CIHSGetFormValues</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_DependentMaintenanceOnLoad.js">
+      <DisplayName>crme_DependentMaintenanceOnLoad</DisplayName>
+      <UniqueName>crme_DependentMaintenanceOnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_dependentmaintenanceRibbon.js">
+      <DisplayName>crme_dependentmaintenanceRibbon</DisplayName>
+      <UniqueName>crme_dependentmaintenanceRibbon</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_DependentOnLoad.js">
+      <DisplayName>crme_DependentOnLoad</DisplayName>
+      <UniqueName>crme_DependentOnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_MaritalInformationOnload.js">
+      <DisplayName>crme_MaritalInformationOnload</DisplayName>
+      <UniqueName>crme_MaritalInformationOnload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\fetchtable.js">
+      <DisplayName>fetchtable</DisplayName>
+      <UniqueName>fetchtable</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\crme_DependentOnChange.js">
+      <DisplayName>crme_DependentOnChange</DisplayName>
+      <UniqueName>crme_DependentOnChange</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\msdyusd_ActionCalls.js">
+      <DisplayName>msdyusd_ActionCalls</DisplayName>
+      <UniqueName>msdyusd_ActionCalls</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\msdyusd_CRMUnifiedServiceDesk.js">
+      <DisplayName>msdyusd_CRMUnifiedServiceDesk</DisplayName>
+      <UniqueName>msdyusd_CRMUnifiedServiceDesk</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\msdyusd_Events.js">
+      <DisplayName>msdyusd_Events</DisplayName>
+      <UniqueName>msdyusd_Events</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\msdyusd_RoutingRules.js">
+      <DisplayName>msdyusd_RoutingRules.js</DisplayName>
+      <UniqueName>msdyusd_RoutingRules.js</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\msdyusd_ToolbarButtonScript.js">
+      <DisplayName>msdyusd_ToolbarButtonScript</DisplayName>
+      <UniqueName>msdyusd_ToolbarButtonScript</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\msdyusd_uiiOption.js">
+      <DisplayName>msdyusd_uiiOption</DisplayName>
+      <UniqueName>msdyusd_uiiOption</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\InitiateSessionCloseOutCadd.js">
+      <DisplayName>udo\InitiateSessionCloseOutCadd</DisplayName>
+      <UniqueName>udo_InitiateSessionCloseOutCadd</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\InitiateSessionCloseOutInteraction.js">
+      <DisplayName>udo\InitiateSessionCloseOutInteraction</DisplayName>
+      <UniqueName>udo_InitiateSessionCloseOutInteraction</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\SaveInteraction.js">
+      <DisplayName>udo\SaveInteraction</DisplayName>
+      <UniqueName>udo_SaveInteraction</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\SetCallerAndCreateRequest.js">
+      <DisplayName>udo\SetCallerAndCreateRequest</DisplayName>
+      <UniqueName>udo_SetCallerAndCreateRequest</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\SetCallerAsAuthorized.js">
+      <DisplayName>udo\SetCallerAsAuthorized</DisplayName>
+      <UniqueName>udo_SetCallerAsAuthorized</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\SetCallerRelationshipAsPrivateAgent.js">
+      <DisplayName>udo\SetCallerRelationshipAsPrivateAgent</DisplayName>
+      <UniqueName>udo_SetCallerRelationshipAsPrivateAgent</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\SetCallerRelationshipAsPrivateAttorney.js">
+      <DisplayName>udo\SetCallerRelationshipAsPrivateAttorney</DisplayName>
+      <UniqueName>udo_SetCallerRelationshipAsPrivateAttorney</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\UpdateCallerDetails.js">
+      <DisplayName>udo\UpdateCallerDetails</DisplayName>
+      <UniqueName>udo_UpdateCallerDetails</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\UpdateRelationshipAsDependent.js">
+      <DisplayName>udo\UpdateRelationshipAsDependent</DisplayName>
+      <UniqueName>udo_UpdateRelationshipAsDependent</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\UpdateRelationshipAsFiduciary.js">
+      <DisplayName>udo\UpdateRelationshipAsFiduciary</DisplayName>
+      <UniqueName>udo_UpdateRelationshipAsFiduciary</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\UpdateRelationshipAsOther.js">
+      <DisplayName>udo\UpdateRelationshipAsOther</DisplayName>
+      <UniqueName>udo_UpdateRelationshipAsOther</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\UpdateRelationshipAsPoa.js">
+      <DisplayName>udo\UpdateRelationshipAsPoa</DisplayName>
+      <UniqueName>udo_UpdateRelationshipAsPoa</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\USD\UpdateRelationshipAsSpouse.js">
+      <DisplayName>udo\UpdateRelationshipAsSpouse</DisplayName>
+      <UniqueName>udo_UpdateRelationshipAsSpouse</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_vt_getAttribs.js">
+      <DisplayName>udo\crm_udo_vt_getAttribs</DisplayName>
+      <UniqueName>udo_vt_getAttribs</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_walkinform.js">
+      <DisplayName>udo\crm_udo_walkinform</DisplayName>
+      <UniqueName>udo_walkinform</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\uii_Action.js">
+      <DisplayName>uii_Action</DisplayName>
+      <UniqueName>uii_Action</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\UII_action_main_library.js">
+      <DisplayName>UII_action_main_library</DisplayName>
+      <UniqueName>UII_action_main_library</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\uii_HostedApplication.js">
+      <DisplayName>uii_HostedApplication</DisplayName>
+      <UniqueName>uii_HostedApplicationy</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\UII_hostedapplication_main_library.js">
+      <DisplayName>UII_hostedapplication_main_library</DisplayName>
+      <UniqueName>UII_hostedapplication_main_library</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\uii_NonHostedApplication.js">
+      <DisplayName>uii_NonHostedApplication</DisplayName>
+      <UniqueName>uii_NonHostedApplication</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\uii_Option.js">
+      <DisplayName>uii_Option</DisplayName>
+      <UniqueName>uii_Option</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\uii_Workflow.js">
+      <DisplayName>uii_Workflow</DisplayName>
+      <UniqueName>uii_Workflow</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_LoadReport.js">
+      <DisplayName>udo\LoadReport</DisplayName>
+      <UniqueName>udo_LoadReport</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\Request.js">
+      <DisplayName>Request</DisplayName>
+      <UniqueName>udo_Request</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_announcements.js">
+      <DisplayName>udo_announcements</DisplayName>
+      <UniqueName>udo_udo_announcements</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_announcements.min.js">
+      <DisplayName>udo_announcements.min</DisplayName>
+      <UniqueName>udo_udo_announcements.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_award.js">
+      <DisplayName>udo_award</DisplayName>
+      <UniqueName>udo_udo_award</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_chatsessionlog.js">
+      <DisplayName>udo_chatsessionlog</DisplayName>
+      <UniqueName>udo_udo_chatsessionlog</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_claimestablishment.js">
+      <DisplayName>udo_claimestablishment</DisplayName>
+      <UniqueName>udo_udo_claimestablishment</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_claimestablishment_onload.js">
+      <DisplayName>udo_claimestablishment_onload</DisplayName>
+      <UniqueName>udo_udo_claimestablishment_onload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_claims.js">
+      <DisplayName>udo_claims</DisplayName>
+      <UniqueName>udo_udo_claims</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_claimStatus.js">
+      <DisplayName>udo_claimStatus</DisplayName>
+      <UniqueName>udo_udo_claimStatus</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_CommonFunctions.js">
+      <DisplayName>CommonFunctions</DisplayName>
+      <UniqueName>udo_CommonFunctions</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_Contact.js">
+      <DisplayName>udo_Contact</DisplayName>
+      <UniqueName>udo_udo_Contact</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_CreateITF.js">
+      <DisplayName>udo_CreateITF</DisplayName>
+      <UniqueName>udo_udo_CreateITF</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_CreateNoteProcess.js">
+      <DisplayName>udo_CreateNoteProcess</DisplayName>
+      <UniqueName>udo_udo_CreateNoteProcess</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_CRMCommonJS.js">
+      <DisplayName>udo_CRMCommonJS</DisplayName>
+      <UniqueName>udo_udo_CRMCommonJS</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_CRMCommonJS.min.js">
+      <DisplayName>udo_CRMCommonJS.min</DisplayName>
+      <UniqueName>udo_udo_CRMCommonJS.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_customaction_onload.js">
+      <DisplayName>udo_customaction_onload</DisplayName>
+      <UniqueName>udo_udo_customaction_onload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_customaction_onload.min.js">
+      <DisplayName>udo_customaction_onload.min</DisplayName>
+      <UniqueName>udo_udo_customaction_onload.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_dependent.js">
+      <DisplayName>udo_dependent</DisplayName>
+      <UniqueName>udo_udo_dependent</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_DependentPayments.js">
+      <DisplayName>udo_DependentPayments</DisplayName>
+      <UniqueName>udo_udo_DependentPayments</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_download.js">
+      <DisplayName>udo_download</DisplayName>
+      <UniqueName>udo_udo_download</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_embeddedbutton.js">
+      <DisplayName>udo_embeddedbutton</DisplayName>
+      <UniqueName>udo_udo_embeddedbutton</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_emergencyonload.js">
+      <DisplayName>udo_emergencyonload</DisplayName>
+      <UniqueName>udo_udo_emergencyonload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_emergencysilver.js">
+      <DisplayName>udo_emergencysilver</DisplayName>
+      <UniqueName>udo_udo_emergencysilver</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_generatedocument.js">
+      <DisplayName>udo_generatedocument</DisplayName>
+      <UniqueName>udo_udo_generatedocument</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_getVVAURL.js">
+      <DisplayName>udo_getVVAURL</DisplayName>
+      <UniqueName>udo_udo_getVVAURL</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_hidddenEntityId.js">
+      <DisplayName>udo_hidddenEntityId</DisplayName>
+      <UniqueName>udo_udo_hidddenEntityId</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_ie11test.js">
+      <DisplayName>udo_ie11test</DisplayName>
+      <UniqueName>udo_udo_ie11test</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_incomeVerificationMatch.js">
+      <DisplayName>udo_incomeVerificationMatch</DisplayName>
+      <UniqueName>udo_udo_incomeVerificationMatch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_Interaction.js">
+      <DisplayName>udo_Interaction</DisplayName>
+      <UniqueName>udo_udo_Interaction</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_jquery_3.3.1.min.js">
+      <DisplayName>udo_jquery_3.3.1.min</DisplayName>
+      <UniqueName>udo_udo_jquery_3.3.1.min</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_LettersButtonSR.js">
+      <DisplayName>udo_LettersButtonSR</DisplayName>
+      <UniqueName>udo_udo_LettersButtonSR</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_letterspeoplelist.js">
+      <DisplayName>udo_letterspeoplelist</DisplayName>
+      <UniqueName>udo_udo_letterspeoplelist</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_letter_onload.js">
+      <DisplayName>udo_letter_onload</DisplayName>
+      <UniqueName>udo_udo_letter_onload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_letter_onsave.js">
+      <DisplayName>udo_letter_onsave</DisplayName>
+      <UniqueName>udo_udo_letter_onsave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_LinkDependentPayments.js">
+      <DisplayName>udo_LinkDependentPayments</DisplayName>
+      <UniqueName>udo_udo_LinkDependentPayments</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_Utility.js">
+      <DisplayName>udo_Utility</DisplayName>
+      <UniqueName>udo_Utility</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_mapdletter.js">
+      <DisplayName>udo_mapdletter</DisplayName>
+      <UniqueName>udo_udo_mapdletter</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_notes_ui.js">
+      <DisplayName>udo_notes_ui</DisplayName>
+      <UniqueName>udo_udo_notes_ui</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_Payments.js">
+      <DisplayName>udo_Payments</DisplayName>
+      <UniqueName>udo_udo_Payments</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_pcrScripts.js">
+      <DisplayName>udo_pcrScripts</DisplayName>
+      <UniqueName>udo_udo_pcrScripts</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_PCT_QueueItem.js">
+      <DisplayName>udo_PCT_QueueItem</DisplayName>
+      <UniqueName>udo_udo_PCT_QueueItem</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_popup.js">
+      <DisplayName>udo_popup</DisplayName>
+      <UniqueName>udo_udo_popup</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_processV2.js">
+      <DisplayName>udo_processV2</DisplayName>
+      <UniqueName>udo_udo_processV2</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_Request.js">
+      <DisplayName>udo_Request</DisplayName>
+      <UniqueName>udo_udo_Request</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_script_control.js">
+      <DisplayName>udo_script_control</DisplayName>
+      <UniqueName>udo_udo_script_control</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_SelectRequest.js">
+      <DisplayName>udo_SelectRequest</DisplayName>
+      <UniqueName>udo_udo_SelectRequest</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_servicerequestcode.js">
+      <DisplayName>udo_servicerequestcode</DisplayName>
+      <UniqueName>udo_udo_servicerequestcode</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_servicerequestonload.js">
+      <DisplayName>udo_servicerequestonload</DisplayName>
+      <UniqueName>udo_udo_servicerequestonload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_servicerequestonsave.js">
+      <DisplayName>udo_servicerequestonsave</DisplayName>
+      <UniqueName>udo_udo_servicerequestonsave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_tabcontrol.js">
+      <DisplayName>udo_tabcontrol</DisplayName>
+      <UniqueName>udo_udo_tabcontrol</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_tabcontrolSS.js">
+      <DisplayName>udo_tabcontrolSS</DisplayName>
+      <UniqueName>udo_udo_tabcontrolSS</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_tag.js">
+      <DisplayName>udo_tag</DisplayName>
+      <UniqueName>udo_udo_tag</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_tcal.js">
+      <DisplayName>udo_tcal</DisplayName>
+      <UniqueName>udo_udo_tcal</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_TestPayments.js">
+      <DisplayName>udo_TestPayments</DisplayName>
+      <UniqueName>udo_udo_TestPayments</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_testss.js">
+      <DisplayName>udo_testss</DisplayName>
+      <UniqueName>udo_udo_testss</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_UDO.Claims.Payments.js">
+      <DisplayName>udo_UDO.Claims.Payments</DisplayName>
+      <UniqueName>udo_udo_UDO.Claims.Payments</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_udo_LinkDependentPayments.js">
+      <DisplayName>udo_udo_LinkDependentPayments</DisplayName>
+      <UniqueName>udo_udo_udo_LinkDependentPayments</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_VBMS.js">
+      <DisplayName>udo_VBMS</DisplayName>
+      <UniqueName>udo_udo_VBMS</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_VBMSeFolder.js">
+      <DisplayName>udo_VBMSeFolder</DisplayName>
+      <UniqueName>udo_udo_VBMSeFolder</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\udo_Veteran.js">
+      <DisplayName>udo_Veteran</DisplayName>
+      <UniqueName>udo_udo_Veteran</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Actions.js">
+      <DisplayName>va_Actions</DisplayName>
+      <UniqueName>udo_va_Actions</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Actions_Deprecated.js">
+      <DisplayName>va_Actions_Deprecated</DisplayName>
+      <UniqueName>udo_va_Actions_Deprecated</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_AddressValidationService.js">
+      <DisplayName>va_AddressValidationService</DisplayName>
+      <UniqueName>udo_va_AddressValidationService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_AddressWebService.js">
+      <DisplayName>va_AddressWebService</DisplayName>
+      <UniqueName>udo_va_AddressWebService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_AwardsSearch.js">
+      <DisplayName>va_AwardsSearch</DisplayName>
+      <UniqueName>udo_va_AwardsSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_BenefitClaimWebService.js">
+      <DisplayName>va_BenefitClaimWebService</DisplayName>
+      <UniqueName>udo_va_BenefitClaimWebService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_BirlsSearch.js">
+      <DisplayName>va_BirlsSearch</DisplayName>
+      <UniqueName>udo_va_BirlsSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_BlankFormsButton.js">
+      <DisplayName>va_BlankFormsButton</DisplayName>
+      <UniqueName>udo_va_BlankFormsButton</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CallScriptOnLoad.js">
+      <DisplayName>va_CallScriptOnLoad</DisplayName>
+      <UniqueName>udo_va_CallScriptOnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CCallWrapper.js">
+      <DisplayName>va_CCallWrapper</DisplayName>
+      <UniqueName>udo_va_CCallWrapper</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ChangeOfAddressOnLoad.js">
+      <DisplayName>va_ChangeOfAddressOnLoad</DisplayName>
+      <UniqueName>udo_va_ChangeOfAddressOnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ChangeofAddressOnSave.js">
+      <DisplayName>va_ChangeofAddressOnSave</DisplayName>
+      <UniqueName>udo_va_ChangeofAddressOnSave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ClaimantWebService.js">
+      <DisplayName>va_ClaimantWebService</DisplayName>
+      <UniqueName>udo_va_ClaimantWebService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ClaimsSearch.js">
+      <DisplayName>va_ClaimsSearch</DisplayName>
+      <UniqueName>udo_va_ClaimsSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CommonFunctions.js">
+      <DisplayName>va_CommonFunctions</DisplayName>
+      <UniqueName>udo_va_CommonFunctions</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CommonFunctions_VIP.js">
+      <DisplayName>va_CommonFunctions_VIP</DisplayName>
+      <UniqueName>udo_va_CommonFunctions_VIP</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ContactHelper.js">
+      <DisplayName>va_ContactHelper</DisplayName>
+      <UniqueName>udo_va_ContactHelper</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ContactPCRForm_VIP.js">
+      <DisplayName>va_ContactPCRForm_VIP</DisplayName>
+      <UniqueName>udo_va_ContactPCRForm_VIP</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Context.js">
+      <DisplayName>va_Context</DisplayName>
+      <UniqueName>udo_va_Context</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Context_Search.js">
+      <DisplayName>va_Context_Search</DisplayName>
+      <UniqueName>udo_va_Context_Search</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CorpMinSearch.js">
+      <DisplayName>va_CorpMinSearch</DisplayName>
+      <UniqueName>udo_va_CorpMinSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CorpSearch.js">
+      <DisplayName>va_CorpSearch</DisplayName>
+      <UniqueName>udo_va_CorpSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_CRM_core_style.js">
+      <DisplayName>va_CRM_core_style</DisplayName>
+      <UniqueName>udo_va_CRM_core_style</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_crm_udo_vt_getAttribs.js">
+      <DisplayName>va_crm_udo_vt_getAttribs</DisplayName>
+      <UniqueName>udo_va_crm_udo_vt_getAttribs</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_DisableButtonSR.js">
+      <DisplayName>va_DisableButtonSR</DisplayName>
+      <UniqueName>udo_va_DisableButtonSR</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_EbenefitsBnftClaimStatusService.js">
+      <DisplayName>va_EbenefitsBnftClaimStatusService</DisplayName>
+      <UniqueName>udo_va_EbenefitsBnftClaimStatusService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Emergency.js">
+      <DisplayName>va_Emergency</DisplayName>
+      <UniqueName>udo_va_Emergency</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_emergencyOnLoad.js">
+      <DisplayName>va_emergencyOnLoad</DisplayName>
+      <UniqueName>udo_va_emergencyOnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_EnvironmentConfiguration.js">
+      <DisplayName>va_EnvironmentConfiguration</DisplayName>
+      <UniqueName>udo_va_EnvironmentConfiguration</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_FNOD.js">
+      <DisplayName>va_FNOD</DisplayName>
+      <UniqueName>udo_va_FNOD</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_FNOD_OnLoad.js">
+      <DisplayName>va_FNOD_OnLoad</DisplayName>
+      <UniqueName>udo_va_FNOD_OnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_FNOD_OnSave.js">
+      <DisplayName>va_FNOD_OnSave</DisplayName>
+      <UniqueName>udo_va_FNOD_OnSave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_GeneralInfoSearch.js">
+      <DisplayName>va_GeneralInfoSearch</DisplayName>
+      <UniqueName>udo_va_GeneralInfoSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_GetSystemUserProperties.js">
+      <DisplayName>va_GetSystemUserProperties</DisplayName>
+      <UniqueName>udo_va_GetSystemUserProperties</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_holidays.js">
+      <DisplayName>va_holidays</DisplayName>
+      <UniqueName>udo_va_holidays</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_IntentToFile.js">
+      <DisplayName>va_IntentToFile</DisplayName>
+      <UniqueName>udo_va_IntentToFile</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_IntentToFileWebService.js">
+      <DisplayName>va_IntentToFileWebService</DisplayName>
+      <UniqueName>udo_va_IntentToFileWebService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_LettersButtonSR.js">
+      <DisplayName>va_LettersButtonSR</DisplayName>
+      <UniqueName>udo_va_LettersButtonSR</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_LettersButtonSrVbms.js">
+      <DisplayName>va_LettersButtonSrVbms</DisplayName>
+      <UniqueName>udo_va_LettersButtonSrVbms</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_LettersButtonVAI.js">
+      <DisplayName>va_LettersButtonVAI</DisplayName>
+      <UniqueName>udo_va_LettersButtonVAI</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDClaimManagementService.js">
+      <DisplayName>va_MapDClaimManagementService</DisplayName>
+      <UniqueName>udo_va_MapDClaimManagementService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDContentionService.js">
+      <DisplayName>va_MapDContentionService</DisplayName>
+      <UniqueName>udo_va_MapDContentionService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDDevelopmentNotesService.js">
+      <DisplayName>va_MapDDevelopmentNotesService</DisplayName>
+      <UniqueName>udo_va_MapDDevelopmentNotesService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDDocumentService.js">
+      <DisplayName>va_MapDDocumentService</DisplayName>
+      <UniqueName>udo_va_MapDDocumentService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDStandardDataService.js">
+      <DisplayName>va_MapDStandardDataService</DisplayName>
+      <UniqueName>udo_va_MapDStandardDataService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDTrackedItemService.js">
+      <DisplayName>va_MapDTrackedItemService</DisplayName>
+      <UniqueName>udo_va_MapDTrackedItemService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDWorkAssignmentService.js">
+      <DisplayName>va_MapDWorkAssignmentService</DisplayName>
+      <UniqueName>udo_va_MapDWorkAssignmentService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_MapDWorkLoadServiceService.js">
+      <DisplayName>va_MapDWorkLoadServiceService</DisplayName>
+      <UniqueName>udo_va_MapDWorkLoadServiceService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Message.js">
+      <DisplayName>va_Message</DisplayName>
+      <UniqueName>udo_va_Message</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_openNewPhoneCall.js">
+      <DisplayName>va_openNewPhoneCall</DisplayName>
+      <UniqueName>udo_va_openNewPhoneCall</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PathwaysSearch.js">
+      <DisplayName>va_PathwaysSearch</DisplayName>
+      <UniqueName>udo_va_PathwaysSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PathwaysWebService.js">
+      <DisplayName>va_PathwaysWebService</DisplayName>
+      <UniqueName>udo_va_PathwaysWebService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PaymentHistoryService.js">
+      <DisplayName>va_PaymentHistoryService</DisplayName>
+      <UniqueName>udo_va_PaymentHistoryService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneAndContactSharedFunctions_VIP.js">
+      <DisplayName>va_PhoneAndContactSharedFunctions_VIP</DisplayName>
+      <UniqueName>udo_va_PhoneAndContactSharedFunctions_VIP</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneAndContactSharedFunctions_VIP_Search.js">
+      <DisplayName>va_PhoneAndContactSharedFunctions_VIP_Search</DisplayName>
+      <UniqueName>udo_va_PhoneAndContactSharedFunctions_VIP_Search</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneCall.js">
+      <DisplayName>va_PhoneCall</DisplayName>
+      <UniqueName>udo_va_PhoneCall</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneCallGlobalObjects.js">
+      <DisplayName>va_PhoneCallGlobalObjects</DisplayName>
+      <UniqueName>udo_va_PhoneCallGlobalObjects</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneCalls_DispositionControls.js">
+      <DisplayName>va_PhoneCalls_DispositionControls</DisplayName>
+      <UniqueName>udo_va_PhoneCalls_DispositionControls</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneCall_OnLoad_VIP.js">
+      <DisplayName>va_PhoneCall_OnLoad_VIP</DisplayName>
+      <UniqueName>udo_va_PhoneCall_OnLoad_VIP</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_PhoneCall_OnSave_VIP.js">
+      <DisplayName>va_PhoneCall_OnSave_VIP</DisplayName>
+      <UniqueName>udo_va_PhoneCall_OnSave_VIP</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_QueryLogOnUnload.js">
+      <DisplayName>va_QueryLogOnUnload</DisplayName>
+      <UniqueName>udo_va_QueryLogOnUnload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_RatingService.js">
+      <DisplayName>va_RatingService</DisplayName>
+      <UniqueName>udo_va_RatingService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_RibbonActions.js">
+      <DisplayName>va_RibbonActions</DisplayName>
+      <UniqueName>udo_va_RibbonActions</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Search.js">
+      <DisplayName>va_Search</DisplayName>
+      <UniqueName>udo_va_Search</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Search_OnLoad.js">
+      <DisplayName>va_Search_OnLoad</DisplayName>
+      <UniqueName>udo_va_Search_OnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_servicerequestcode.js">
+      <DisplayName>va_servicerequestcode</DisplayName>
+      <UniqueName>udo_va_servicerequestcode</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_servicerequestonsave.js">
+      <DisplayName>va_servicerequestonsave</DisplayName>
+      <UniqueName>udo_va_servicerequestonsave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ShareStandardDataService.js">
+      <DisplayName>va_ShareStandardDataService</DisplayName>
+      <UniqueName>udo_va_ShareStandardDataService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_ShowMessage.js">
+      <DisplayName>va_ShowMessage</DisplayName>
+      <UniqueName>udo_va_ShowMessage</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Silverlight.js">
+      <DisplayName>va_Silverlight</DisplayName>
+      <UniqueName>udo_va_Silverlight</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_StationOfJurisdiction.js">
+      <DisplayName>va_StationOfJurisdiction</DisplayName>
+      <UniqueName>udo_va_StationOfJurisdiction</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_udoemergency.js">
+      <DisplayName>va_udoemergency</DisplayName>
+      <UniqueName>udo_va_udoemergency</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_UserOnload.js">
+      <DisplayName>va_UserOnload</DisplayName>
+      <UniqueName>udo_va_UserOnload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_Utilities.js">
+      <DisplayName>va_Utilities</DisplayName>
+      <UniqueName>udo_va_Utilities</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VACOLSAppealsService.js">
+      <DisplayName>va_VACOLSAppealsService</DisplayName>
+      <UniqueName>udo_va_VACOLSAppealsService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VacolsSearch.js">
+      <DisplayName>va_VacolsSearch</DisplayName>
+      <UniqueName>udo_va_VacolsSearch</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VAI_OnLoad.js">
+      <DisplayName>va_VAI_OnLoad</DisplayName>
+      <UniqueName>udo_va_VAI_OnLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VAI_OnSave.js">
+      <DisplayName>va_VAI_OnSave</DisplayName>
+      <UniqueName>udo_va_VAI_OnSave</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VAResponseXml.js">
+      <DisplayName>va_VAResponseXml</DisplayName>
+      <UniqueName>udo_va_VAResponseXml</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranAppealInfoByAppealKey.js">
+      <DisplayName>va_VeteranAppealInfoByAppealKey</DisplayName>
+      <UniqueName>udo_va_VeteranAppealInfoByAppealKey</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranAwardInformation.js">
+      <DisplayName>va_VeteranAwardInformation</DisplayName>
+      <UniqueName>udo_va_VeteranAwardInformation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_veteranbenefitclaimhistoryinformation.js">
+      <DisplayName>va_veteranbenefitclaimhistoryinformation</DisplayName>
+      <UniqueName>udo_va_veteranbenefitclaimhistoryinformation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranBenefitClaimInformation.js">
+      <DisplayName>va_VeteranBenefitClaimInformation</DisplayName>
+      <UniqueName>udo_va_VeteranBenefitClaimInformation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranBenefitClaimStatusInformation.js">
+      <DisplayName>va_VeteranBenefitClaimStatusInformation</DisplayName>
+      <UniqueName>udo_va_VeteranBenefitClaimStatusInformation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranContentions.js">
+      <DisplayName>va_VeteranContentions</DisplayName>
+      <UniqueName>udo_va_VeteranContentions</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranGeneralInfoByAward.js">
+      <DisplayName>va_VeteranGeneralInfoByAward</DisplayName>
+      <UniqueName>udo_va_VeteranGeneralInfoByAward</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranGeneralInformation.js">
+      <DisplayName>va_VeteranGeneralInformation</DisplayName>
+      <UniqueName>udo_va_VeteranGeneralInformation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranGeneralInformationPK.js">
+      <DisplayName>va_VeteranGeneralInformationPK</DisplayName>
+      <UniqueName>udo_va_VeteranGeneralInformationPK</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranIdentifyIndividual.js">
+      <DisplayName>va_VeteranIdentifyIndividual</DisplayName>
+      <UniqueName>udo_va_VeteranIdentifyIndividual</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranIncomeInfoByAward.js">
+      <DisplayName>va_VeteranIncomeInfoByAward</DisplayName>
+      <UniqueName>udo_va_VeteranIncomeInfoByAward</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VeteranOtherAwardInfoByAward.js">
+      <DisplayName>va_VeteranOtherAwardInfoByAward</DisplayName>
+      <UniqueName>udo_va_VeteranOtherAwardInfoByAward</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_VetRecordWebService.js">
+      <DisplayName>va_VetRecordWebService</DisplayName>
+      <UniqueName>udo_va_VetRecordWebService</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_vrm_udo_search_button_onLoad.js">
+      <DisplayName>va_vrm_udo_search_button_onLoad</DisplayName>
+      <UniqueName>udo_va_vrm_udo_search_button_onLoad</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_vrm_udo_vip_onload.js">
+      <DisplayName>va_vrm_udo_vip_onload</DisplayName>
+      <UniqueName>udo_va_vrm_udo_vip_onload</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\Script\va_WebServices.js">
+      <DisplayName>va_WebServices</DisplayName>
+      <UniqueName>udo_va_WebServices</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ButtonGenerator.html">
+      <DisplayName>udo_ButtonGenerator</DisplayName>
+      <UniqueName>udo_udo_ButtonGenerator</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_IntentToFile_WebButton.html">
+      <DisplayName>udo_IntentToFile_WebButton</DisplayName>
+      <UniqueName>new_udo_IntentToFile_WebButton</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_DependentMaintenanceSummary.html">
+      <DisplayName>crme_DependentMaintenanceSummary</DisplayName>
+      <UniqueName>udo_crme_DependentMaintenanceSummary</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_IHSearchButton.html">
+      <DisplayName>udo\udo_IHSearchButton</DisplayName>
+      <UniqueName>udo_IHSearchButton</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_HiddenEntityID.html">
+      <DisplayName>udo\HiddenEntityID</DisplayName>
+      <UniqueName>udo_HiddenEntityID</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_MVISearch.htm">
+      <DisplayName>udo\MVISearch</DisplayName>
+      <UniqueName>udo_MVISearch</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_testctrl.html">
+      <DisplayName>udo\new_testctrl</DisplayName>
+      <UniqueName>udo_new_testctrl</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\SelectRequest.html">
+      <DisplayName>udo\SelectRequest</DisplayName>
+      <UniqueName>udo_SelectRequest</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\TabControl.html">
+      <DisplayName>udo\TabControl</DisplayName>
+      <UniqueName>udo_TabControl</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\TabControlSS.html">
+      <DisplayName>udo\TabControlSS</DisplayName>
+      <UniqueName>udo_TabControlSS</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_abusiveCaller.html">
+      <DisplayName>udo\udo_abusiveCaller</DisplayName>
+      <UniqueName>udo_abusiveCaller</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_accountChange.html">
+      <DisplayName>udo\udo_accountChange</DisplayName>
+      <UniqueName>udo_accountChange</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_addressChange.html">
+      <DisplayName>udo\addressChange</DisplayName>
+      <UniqueName>udo_addressChange</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_agentAttorneyRepresentation.html">
+      <DisplayName>udo\agentAttorneyRepresentation</DisplayName>
+      <UniqueName>udo_agentAttorneyRepresentation</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_agentOrange.html">
+      <DisplayName>udo\agentOrange</DisplayName>
+      <UniqueName>udo_agentOrange</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_aidAttendanceHousebound.html">
+      <DisplayName>udo\aidAttendanceHousebound</DisplayName>
+      <UniqueName>udo_aidAttendanceHousebound</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_announcements.html">
+      <DisplayName>udo\announcements</DisplayName>
+      <UniqueName>udo_announcements</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_announcements.min.html">
+      <DisplayName>udo\announcements.min</DisplayName>
+      <UniqueName>udo_announcements.min</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_appealOpen.html">
+      <DisplayName>udo\appealOpen</DisplayName>
+      <UniqueName>udo_appealOpen</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_appealPendingDROElection.html">
+      <DisplayName>udo\appealPendingDROElection</DisplayName>
+      <UniqueName>udo_appealPendingDROElection</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_appealPendingTraditionalReviewElection.html">
+      <DisplayName>udo\appealPendingTraditionalReviewElection</DisplayName>
+      <UniqueName>udo_appealPendingTraditionalReviewElection</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_appeals.html">
+      <DisplayName>udo\appeals</DisplayName>
+      <UniqueName>udo_appeals</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_appealSmart.html">
+      <DisplayName>udo\appealSmart</DisplayName>
+      <UniqueName>udo_appealSmart</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_apportionments.html">
+      <DisplayName>udo\apportionments</DisplayName>
+      <UniqueName>udo_apportionments</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_CADDPayees.html">
+      <DisplayName>udo\CADDPayees</DisplayName>
+      <UniqueName>udo_CADDPayees</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_calendar.html">
+      <DisplayName>udo\calendar</DisplayName>
+      <UniqueName>udo_calendar</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_callScript.html">
+      <DisplayName>udo\callScript</DisplayName>
+      <UniqueName>udo_callScript</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_champVA_Tricare.html">
+      <DisplayName>udo\champVA_Tricare</DisplayName>
+      <UniqueName>udo_champVA_Tricare</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ChangeOfAddress.html">
+      <DisplayName>udo\ChangeOfAddress</DisplayName>
+      <UniqueName>udo_ChangeOfAddress</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimEstablishReOpenIncreaseDependantsAandA.html">
+      <DisplayName>udo\claimEstablishReOpenIncreaseDependantsAandA</DisplayName>
+      <UniqueName>udo_claimEstablishReOpenIncreaseDependantsAandA</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimFullyDeveloped.html">
+      <DisplayName>udo\claimFullyDeveloped</DisplayName>
+      <UniqueName>udo_claimFullyDeveloped</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimOpenNoTrackedItems.html">
+      <DisplayName>udo\claimOpenNoTrackedItems</DisplayName>
+      <UniqueName>udo_claimOpenNoTrackedItems</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimOpenOpenTrackedItems.html">
+      <DisplayName>udo\claimOpenOpenTrackedItems</DisplayName>
+      <UniqueName>udo_claimOpenOpenTrackedItems</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimOpenTrackItemsClosed.html">
+      <DisplayName>udo\claimOpenTrackItemsClosed</DisplayName>
+      <UniqueName>udo_claimOpenTrackItemsClosed</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claims.html">
+      <DisplayName>udo\claims</DisplayName>
+      <UniqueName>udo_claims</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimsCombined.html">
+      <DisplayName>udo\claimsCombined</DisplayName>
+      <UniqueName>udo_claimsCombined</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimsDocumentDownload.html">
+      <DisplayName>udo\claimsDocumentDownload</DisplayName>
+      <UniqueName>udo_claimsDocumentDownload</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_claimStatus.html">
+      <DisplayName>udo\claimStatus</DisplayName>
+      <UniqueName>udo_claimStatus</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_COLA.html">
+      <DisplayName>udo\COLA</DisplayName>
+      <UniqueName>udo_COLA</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_combinedEvaltionCalculation.html">
+      <DisplayName>udo\combinedEvaltionCalculation</DisplayName>
+      <UniqueName>udo_combinedEvaltionCalculation</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ComputerDownScript.html">
+      <DisplayName>udo\ComputerDownScript</DisplayName>
+      <UniqueName>udo_ComputerDownScript</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_correspondenceforms_RequestforForms.html">
+      <DisplayName>udo\correspondenceforms_RequestforForms</DisplayName>
+      <UniqueName>udo_correspondenceforms_RequestforForms</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_correspondenceforms_VVALetters.html">
+      <DisplayName>udo\correspondenceforms_VVALetters</DisplayName>
+      <UniqueName>udo_correspondenceforms_VVALetters</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_countrylist.html">
+      <DisplayName>udo\countrylist</DisplayName>
+      <UniqueName>udo_countrylist</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ctrlkeytest.html">
+      <DisplayName>udo\ctrlkeytest</DisplayName>
+      <UniqueName>udo_ctrlkeytest</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_customactionloading.html">
+      <DisplayName>udo\customactionloading</DisplayName>
+      <UniqueName>udo_customactionloading</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_dd214.html">
+      <DisplayName>udo\dd214</DisplayName>
+      <UniqueName>udo_dd214</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_DeathPension_AA_Housebound.html">
+      <DisplayName>udo\DeathPension_AA_Housebound</DisplayName>
+      <UniqueName>udo_DeathPension_AA_Housebound</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_decisionPhase.html">
+      <DisplayName>udo\decisionPhase</DisplayName>
+      <UniqueName>udo_decisionPhase</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_DependentPayments.html">
+      <DisplayName>udo\DependentPayments</DisplayName>
+      <UniqueName>udo_DependentPayments</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_DirectDeposit.html">
+      <DisplayName>udo\DirectDeposit</DisplayName>
+      <UniqueName>udo_DirectDeposit</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_directExpressDebitMasterCard.html">
+      <DisplayName>udo\directExpressDebitMasterCard</DisplayName>
+      <UniqueName>udo_directExpressDebitMasterCard</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_displayVVADoc.html">
+      <DisplayName>udo\displayVVADoc</DisplayName>
+      <UniqueName>udo_displayVVADoc</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_eBenefitsGeneralInfo.html">
+      <DisplayName>udo\eBenefitsGeneralInfo</DisplayName>
+      <UniqueName>udo_eBenefitsGeneralInfo</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_eBenefitsScript.html">
+      <DisplayName>udo\eBenefitsScript</DisplayName>
+      <UniqueName>udo_eBenefitsScript</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_eBenefitsScripts.html">
+      <DisplayName>udo\eBenefitsScripts</DisplayName>
+      <UniqueName>udo_eBenefitsScripts</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_eBenefitsScripts2.html">
+      <DisplayName>udo\eBenefitsScripts2</DisplayName>
+      <UniqueName>udo_eBenefitsScripts2</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_education.html">
+      <DisplayName>udo\education</DisplayName>
+      <UniqueName>udo_education</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_embeddedbutton.html">
+      <DisplayName>udo\embeddedbutton</DisplayName>
+      <UniqueName>udo_embeddedbutton</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_emergency.htm">
+      <DisplayName>udo\emergency</DisplayName>
+      <UniqueName>udo_emergency</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_emergency.htm.html">
+      <DisplayName>udo\emergency.htm</DisplayName>
+      <UniqueName>udo_emergency.htm</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_emergencypagesilverlight.html">
+      <DisplayName>udo\emergencypagesilverlight</DisplayName>
+      <UniqueName>udo_emergencypagesilverlight</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_fiduciary.html">
+      <DisplayName>udo\fiduciary</DisplayName>
+      <UniqueName>udo_fiduciary</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD.html">
+      <DisplayName>udo\FNOD</DisplayName>
+      <UniqueName>udo_FNOD</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_BurialPlot.html">
+      <DisplayName>udo\FNOD_BurialPlot</DisplayName>
+      <UniqueName>udo_FNOD_BurialPlot</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_DeathRelatedChecklist.html">
+      <DisplayName>udo\FNOD_DeathRelatedChecklist</DisplayName>
+      <UniqueName>udo_FNOD_DeathRelatedChecklist</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_DIC.html">
+      <DisplayName>udo\FNOD_DIC</DisplayName>
+      <UniqueName>udo_FNOD_DIC</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_Flag.html">
+      <DisplayName>udo\FNOD_Flag</DisplayName>
+      <UniqueName>udo_FNOD_Flag</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_HeadStone.html">
+      <DisplayName>udo\FNOD_HeadStone</DisplayName>
+      <UniqueName>udo_FNOD_HeadStone</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_OverseasCemetaries.html">
+      <DisplayName>udo\FNOD_OverseasCemetaries</DisplayName>
+      <UniqueName>udo_FNOD_OverseasCemetaries</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_FNOD_WidowsPension.html">
+      <DisplayName>udo\FNOD_WidowsPension</DisplayName>
+      <UniqueName>udo_FNOD_WidowsPension</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_idVerification.html">
+      <DisplayName>udo\idVerification</DisplayName>
+      <UniqueName>udo_idVerification</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_incomeVerificationMatch.html">
+      <DisplayName>udo\incomeVerificationMatch</DisplayName>
+      <UniqueName>udo_incomeVerificationMatch</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_insurance.html">
+      <DisplayName>udo\insurance</DisplayName>
+      <UniqueName>udo_insurance</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_IRISNecessary.html">
+      <DisplayName>udo\IRISNecessary</DisplayName>
+      <UniqueName>udo_IRISNecessary</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ITFPeoplelist.html">
+      <DisplayName>udo\ITFPeoplelist</DisplayName>
+      <UniqueName>udo_ITFPeoplelist</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ivm.html">
+      <DisplayName>udo\ivm</DisplayName>
+      <UniqueName>udo_ivm</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_JurisdictionAndRouting.html">
+      <DisplayName>udo\JurisdictionAndRouting</DisplayName>
+      <UniqueName>udo_JurisdictionAndRouting</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_LetterRequest_RepeatCaller.html">
+      <DisplayName>udo\LetterRequest_RepeatCaller</DisplayName>
+      <UniqueName>udo_LetterRequest_RepeatCaller</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_letterspeoplelist.html">
+      <DisplayName>udo\letterspeoplelist</DisplayName>
+      <UniqueName>udo_letterspeoplelist</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_loanGuarantyIssues.html">
+      <DisplayName>udo\loanGuarantyIssues</DisplayName>
+      <UniqueName>udo_loanGuarantyIssues</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medical.html">
+      <DisplayName>udo\medical</DisplayName>
+      <UniqueName>udo_medical</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medicalFosterHomeCoordinator.html">
+      <DisplayName>udo\medicalFosterHomeCoordinator</DisplayName>
+      <UniqueName>udo_medicalFosterHomeCoordinator</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medical_eligibility.html">
+      <DisplayName>udo\medical_eligibility</DisplayName>
+      <UniqueName>udo_medical_eligibility</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medical_FeeBasis.html">
+      <DisplayName>udo\medical_FeeBasis</DisplayName>
+      <UniqueName>udo_medical_FeeBasis</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medical_medicalCenterDebts.html">
+      <DisplayName>udo\medical_medicalCenterDebts</DisplayName>
+      <UniqueName>udo_medical_medicalCenterDebts</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medical_patientAdvocate.html">
+      <DisplayName>udo\medical_patientAdvocate</DisplayName>
+      <UniqueName>udo_medical_patientAdvocate</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_medical_Prescriptions.html">
+      <DisplayName>udo\medical_Prescriptions</DisplayName>
+      <UniqueName>udo_medical_Prescriptions</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_nationalCemeteriesAdmin.html">
+      <DisplayName>udo\nationalCemeteriesAdmin</DisplayName>
+      <UniqueName>udo_nationalCemeteriesAdmin</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_noscript.html">
+      <DisplayName>udo\noscript</DisplayName>
+      <UniqueName>udo_noscript</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_notes_summary.html">
+      <DisplayName>udo\notes_summary</DisplayName>
+      <UniqueName>udo_notes_summary</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_notes_ui.html">
+      <DisplayName>udo\notes_ui</DisplayName>
+      <UniqueName>udo_notes_ui</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_notificationPhase.html">
+      <DisplayName>udo\notificationPhase</DisplayName>
+      <UniqueName>udo_notificationPhase</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_noVSO.html">
+      <DisplayName>udo\noVSO</DisplayName>
+      <UniqueName>udo_noVSO</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_otherVABenefits_adaptiveHousing.html">
+      <DisplayName>udo\otherVABenefits_adaptiveHousing</DisplayName>
+      <UniqueName>udo_otherVABenefits_adaptiveHousing</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_otherVABenefits_ClothingAllowance.html">
+      <DisplayName>udo\otherVABenefits_ClothingAllowance</DisplayName>
+      <UniqueName>udo_otherVABenefits_ClothingAllowance</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_otherVABenefits_VehicleAllowance.html">
+      <DisplayName>udo\otherVABenefits_VehicleAllowance</DisplayName>
+      <UniqueName>udo_otherVABenefits_VehicleAllowance</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_payDateEffectiveDate.html">
+      <DisplayName>udo\payDateEffectiveDate</DisplayName>
+      <UniqueName>udo_payDateEffectiveDate</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_Payments.html">
+      <DisplayName>udo\Payments</DisplayName>
+      <UniqueName>udo_Payments</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_paymentsLoadingMessage.htm">
+      <DisplayName>udo\paymentsLoadingMessage</DisplayName>
+      <UniqueName>udo_paymentsLoadingMessage</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_PaymentSmart.html">
+      <DisplayName>udo\PaymentSmart</DisplayName>
+      <UniqueName>udo_PaymentSmart</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_PaymentsNoPayeeSelected.htm">
+      <DisplayName>udo\PaymentsNoPayeeSelected</DisplayName>
+      <UniqueName>udo_PaymentsNoPayeeSelected</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_PaymentsNoPayeeSelected.html">
+      <DisplayName>udo\PaymentsNoPayeeSelected</DisplayName>
+      <UniqueName>udo_PaymentsNoPayeeSelected</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_payments_debts.html">
+      <DisplayName>udo\payments_debts</DisplayName>
+      <UniqueName>udo_payments_debts</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_payments_debtsDMC.html">
+      <DisplayName>udo\payments_debtsDMC</DisplayName>
+      <UniqueName>udo_payments_debtsDMC</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_payments_debtsNonRecieptCheckTracer.html">
+      <DisplayName>udo\payments_debtsNonRecieptCheckTracer</DisplayName>
+      <UniqueName>udo_payments_debtsNonRecieptCheckTracer</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_peoplelauncher.html">
+      <DisplayName>udo\peoplelauncher</DisplayName>
+      <UniqueName>udo_peoplelauncher</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_peoplelist.html">
+      <DisplayName>udo\peoplelist</DisplayName>
+      <UniqueName>udo_peoplelist</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_personsearch.html">
+      <DisplayName>udo\personsearch</DisplayName>
+      <UniqueName>udo_personsearch</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_progress.html">
+      <DisplayName>udo\progress</DisplayName>
+      <UniqueName>udo_progress</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_red.html">
+      <DisplayName>udo\red</DisplayName>
+      <UniqueName>udo_red</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_relatedrecords.html">
+      <DisplayName>udo\relatedrecords</DisplayName>
+      <UniqueName>udo_relatedrecords</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_SelectRequest.html">
+      <DisplayName>udo\SelectRequest</DisplayName>
+      <UniqueName>udo_SelectRequest</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ServiceRequestPayees.html">
+      <DisplayName>udo\ServiceRequestPayees</DisplayName>
+      <UniqueName>udo_ServiceRequestPayees</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIsssues_WomenVets.html">
+      <DisplayName>udo\specialIsssues_WomenVets</DisplayName>
+      <UniqueName>udo_specialIsssues_WomenVets</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues.html">
+      <DisplayName>udo\specialIssues</DisplayName>
+      <UniqueName>udo_specialIssues</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_elderlyVeterans.html">
+      <DisplayName>udo\specialIssues_elderlyVeterans</DisplayName>
+      <UniqueName>udo_specialIssues_elderlyVeterans</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_Homeless.html">
+      <DisplayName>udo\specialIssues_Homeless</DisplayName>
+      <UniqueName>udo_specialIssues_Homeless</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_minorityVets.html">
+      <DisplayName>udo\specialIssues_minorityVets</DisplayName>
+      <UniqueName>udo_specialIssues_minorityVets</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_NativeAmericanVets.html">
+      <DisplayName>udo\specialIssues_NativeAmericanVets</DisplayName>
+      <UniqueName>udo_specialIssues_NativeAmericanVets</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_OIF_OEF.html">
+      <DisplayName>udo\specialIssues_OIF_OEF</DisplayName>
+      <UniqueName>udo_specialIssues_OIF_OEF</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_Outreach.html">
+      <DisplayName>udo\specialIssues_Outreach</DisplayName>
+      <UniqueName>udo_specialIssues_Outreach</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_POW.html">
+      <DisplayName>udo\specialIssues_POW</DisplayName>
+      <UniqueName>udo_specialIssues_POW</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_specialIssues_PTSD.html">
+      <DisplayName>udo\specialIssues_PTSD</DisplayName>
+      <UniqueName>udo_specialIssues_PTSD</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_suicideCall.html">
+      <DisplayName>udo\suicideCall</DisplayName>
+      <UniqueName>udo_suicideCall</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_tabcontrol.html">
+      <DisplayName>udo\tabcontrol</DisplayName>
+      <UniqueName>udo_tabcontrol</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_tabcontrolSS.html">
+      <DisplayName>udo\tabcontrolSS</DisplayName>
+      <UniqueName>udo_tabcontrolSS</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_tabcontrolSS.min.html">
+      <DisplayName>udo\tabcontrolSS.min</DisplayName>
+      <UniqueName>udo_tabcontrolSS.min</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_tags.html">
+      <DisplayName>udo\tags</DisplayName>
+      <UniqueName>udo_tags</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_TestPayments.html">
+      <DisplayName>udo\TestPayments</DisplayName>
+      <UniqueName>udo_TestPayments</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_ThreatCall_bombThreat.html">
+      <DisplayName>udo\ThreatCall_bombThreat</DisplayName>
+      <UniqueName>udo_ThreatCall_bombThreat</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_threatCall_physicalThreat.html">
+      <DisplayName>udo\threatCall_physicalThreat</DisplayName>
+      <UniqueName>udo_threatCall_physicalThreat</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_uploadVBMS.html">
+      <DisplayName>udo\uploadVBMS</DisplayName>
+      <UniqueName>udo_uploadVBMS</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_VBMSDocumentDownload.html">
+      <DisplayName>udo\VBMSDocumentDownload</DisplayName>
+      <UniqueName>udo_VBMSDocumentDownload</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_vocationalRehab.html">
+      <DisplayName>udo\vocationalRehab</DisplayName>
+      <UniqueName>udo_vocationalRehab</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_VSO.html">
+      <DisplayName>udo\VSO</DisplayName>
+      <UniqueName>udo_VSO</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_VSO_Combined.html">
+      <DisplayName>udo\VSO_Combined</DisplayName>
+      <UniqueName>udo_VSO_Combined</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_VSO_f21_22.html">
+      <DisplayName>udo\VSO_f21_22</DisplayName>
+      <UniqueName>udo_VSO_f21_22</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_VSO_notPSO.html">
+      <DisplayName>udo\VSO_notPSO</DisplayName>
+      <UniqueName>udo_VSO_notPSO</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_VSO_PSO.html">
+      <DisplayName>udo\VSO_PSO</DisplayName>
+      <UniqueName>udo_VSO_PSO</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_walkin.html">
+      <DisplayName>udo\walkin</DisplayName>
+      <UniqueName>udo_walkin</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_WalkIn_ResolutionComplete.html">
+      <DisplayName>udo\WalkIn_ResolutionComplete</DisplayName>
+      <UniqueName>udo_WalkIn_ResolutionComplete</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\va_crm_udo_emergency_header_text.html">
+      <DisplayName>va_crm_udo_emergency_header_text</DisplayName>
+      <UniqueName>va_crm_udo_emergency_header_text</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\va_crm_udo_emergency_links_text.html">
+      <DisplayName>va_crm_udo_emergency_links_text</DisplayName>
+      <UniqueName>va_crm_udo_emergency_links_text</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\va_Emergency.html">
+      <DisplayName>va_Emergency</DisplayName>
+      <UniqueName>va_Emergency</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\va_Progress.htm">
+      <DisplayName>va_Progress</DisplayName>
+      <UniqueName>va_Progress</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\va_Progress.htm.html">
+      <DisplayName>va_Progress.htm</DisplayName>
+      <UniqueName>va_Progress.htm</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\va_udoEmergencypage.html">
+      <DisplayName>va_udoEmergencypage</DisplayName>
+      <UniqueName>va_udoEmergencypage</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\udo_viewnotes.html">
+      <DisplayName>udo\viewnotes</DisplayName>
+      <UniqueName>udo_viewnotes</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\Walkin\index.html">
+      <DisplayName>walkin\index</DisplayName>
+      <UniqueName>walkin_index</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+    <CRMWebResource Include="WebResources\HTML\Walkin\walkin.html">
+      <DisplayName>walkin\walkin</DisplayName>
+      <UniqueName>walkin_walkin</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </CRMWebResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WebResources\GIF\udo_CancelImage.gif" />
+    <Content Include="WebResources\GIF\udo_WindowIn.gif" />
+    <Content Include="WebResources\GIF\udo_WindowOut.gif" />
+    <Content Include="WebResources\PNG\udo_List.png" />
+    <Content Include="WebResources\PNG\udo_Number1.png">
+      <DisplayName>udo_Number1</DisplayName>
+      <UniqueName>udo_udo_Number1</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </Content>
+    <Content Include="WebResources\PNG\udo_Number2.png">
+      <DisplayName>udo_Number2</DisplayName>
+      <UniqueName>udo_udo_Number2</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </Content>
+    <Content Include="WebResources\PNG\udo_Number3.png">
+      <DisplayName>udo_Number3</DisplayName>
+      <UniqueName>udo_udo_Number3</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </Content>
+    <Content Include="WebResources\PNG\udo_Number6.png">
+      <DisplayName>udo_Number6</DisplayName>
+      <UniqueName>udo_udo_Number6</UniqueName>
+      <WebResourceType>PNG</WebResourceType>
+    </Content>
+    <Content Include="WebResources\PNG\Walkin\ui_bg_diagonals_small_0_687b7c_40x40.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_bg_diagonals_small_0_798d8f_40x40.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_bg_diagonals_small_0_d62c1a_40x40.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_bg_dots_medium_0_1a242f_4x4.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_bg_dots_small_0_2C3E50_2x2.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_bg_highlight_soft_0_95a5a6_1x100.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_bg_white_lines_0_f7f7ba_40x100.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_icons_1a242f_256x240.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_icons_f39c12_256x240.png" />
+    <Content Include="WebResources\PNG\Walkin\ui_icons_ffffff_256x240.png" />
+    <Content Include="WebResources\Script\Common\udo_Shared.js" />
+    <Content Include="WebResources\Script\crme_DependentMaintenanceOnChange.js" />
+    <Content Include="WebResources\Script\crme_DependentMaintenanceValidation.js">
+      <DisplayName>crme_DependentMaintenanceValidation</DisplayName>
+      <UniqueName>udo_crme_DependentMaintenanceValidation</UniqueName>
+      <WebResourceType>Script</WebResourceType>
+    </Content>
+    <Content Include="WebResources\Script\udo_AutoInitiateFnod.js" />
+    <Content Include="WebResources\Script\udo_callScript.js" />
+    <Content Include="WebResources\Script\udo_controlpanel.js" />
+    <Content Include="WebResources\Script\udo_customaction_onload_UCI.js" />
+    <Content Include="WebResources\Script\udo_CustomerSummaryOnLoad.js" />
+    <Content Include="WebResources\Script\udo_dependent_form_dateValidation.js" />
+    <Content Include="WebResources\Script\udo_Dependent_RBPSSupport.js" />
+    <Content Include="WebResources\Script\udo_download_UCI.js" />
+    <Content Include="WebResources\Script\udo_embeddedbutton_UCI.js" />
+    <Content Include="WebResources\Script\udo_InteractionDisposition.js" />
+    <Content Include="WebResources\Script\udo_jquery1.10.2.min.js" />
+    <Content Include="WebResources\Script\udo_MilitaryServiceOnLoad.js" />
+    <Content Include="WebResources\Script\udo_PeopleLauncher.js" />
+    <Content Include="WebResources\Script\udo_PersonSearchUCI.html" />
+    <Content Include="WebResources\Script\udo_PersonSearchUCI.js" />
+    <Content Include="WebResources\Script\udo_Request_USD.js" />
+    <Content Include="WebResources\Script\udo_SelectRequestUCI.js" />
+    <Content Include="WebResources\Script\udo_uploadVBMS_UCI.js" />
+    <Content Include="WebResources\Script\udo_VACOLSAppealsService.js" />
+    <Content Include="WebResources\Script\udo_vbms_lettergeneration.js" />
+    <Content Include="WebResources\Script\udo_VBMS_UCI.js" />
+    <Content Include="WebResources\Script\udo_VirtualVA.js" />
+    <Content Include="WebResources\Script\UpdateCallerDetails.js" />
+    <Content Include="WebResources\Script\UpdateRelationshipAsDependent.js" />
+    <Content Include="WebResources\Script\UpdateRelationshipAsFiduciary.js" />
+    <Content Include="WebResources\Script\UpdateRelationshipAsOther.js" />
+    <Content Include="WebResources\Script\UpdateRelationshipAsPoa.js" />
+    <Content Include="WebResources\Script\UpdateRelationshipAsSpouse.js" />
+    <Content Include="WebResources\Script\Walkin\udo_denial.js" />
+    <Content Include="WebResources\Script\Walkin\udo_queueitem.js" />
+    <Content Include="WebResources\Script\WebApiClient.min.js" />
+    <Content Include="WebResources\Script\udo_controlpanel.js" />
+    <Content Include="WebResources\Script\udo_IDProof.js" />
+    <Content Include="WebResources\Script\udo_PayeeCode.js" />
+    <Content Include="WebResources\Script\udo_PaymentDetail.js" />
+    <Content Include="WebResources\Script\udo_poi.js" />
+    <Content Include="WebResources\Script\udo_poi_onSave.js" />
+    <Content Include="WebResources\Script\udo_Shared.js" />
+    <Content Include="WebResources\Script\udo_AddressValidationService.js" />
+    <Content Include="WebResources\Script\udo_CCallWrapper.js" />
+    <Content Include="WebResources\Script\udo_legacypayment.js" />
+    <Content Include="WebResources\Script\udo_MapDDevelopmentNotesService.js" />
+    <Content Include="WebResources\Script\udo_process.js" />
+    <Content Include="WebResources\Script\udo_VACOLSAppealsService.js" />
+    <Content Include="WebResources\Script\Xrm.min.js" />
+    <Content Include="WebResources\udo_poi_onSave.js" />
+    <Content Include="WebResources\HTML\udo_AutoInitiateFnod.html" />
+    <Content Include="WebResources\HTML\udo_cadd_idproofcomplete_webresource.html" />
+    <Content Include="WebResources\HTML\udo_CADD_WebButtons.html" />
+    <Content Include="WebResources\HTML\udo_clearSchoolInfo_webbuttons.html" />
+    <Content Include="WebResources\HTML\udo_CADD_WebButtons.html" />
+    <Content Include="WebResources\HTML\udo_CallScriptUCI.html" />
+    <Content Include="WebResources\HTML\udo_controlpanel.html" />
+    <Content Include="WebResources\HTML\udo_DM_Message.html" />
+    <Content Include="WebResources\HTML\udo_embeddedbutton_UCI.html" />
+    <Content Include="WebResources\HTML\udo_Number1.html">
+      <DisplayName>udo_Number1</DisplayName>
+      <UniqueName>udo_udo_Number1</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+    <Content Include="WebResources\HTML\udo_PersonSearchUCI.html" />
+    <Content Include="WebResources\HTML\udo_PowerBILinks.html" />
+    <Content Include="WebResources\HTML\udo_School_webbuttons.html" />
+    <Content Include="WebResources\HTML\udo_SelectRequestUCI.html" />
+    <Content Include="WebResources\HTML\udo_uploadVBMS_UCI.html" />
+    <Content Include="WebResources\HTML\udo_Number2ManageDependents.html">
+      <DisplayName>udo_Number2AddDependents</DisplayName>
+      <UniqueName>udo_udo_Number2AddDependents</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+    <Content Include="WebResources\HTML\udo_Number3.html">
+      <DisplayName>udo_Number3</DisplayName>
+      <UniqueName>udo_udo_Number3</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+    <Content Include="WebResources\HTML\udo_Number6DPT.html">
+      <DisplayName>udo_Number6DPT</DisplayName>
+      <UniqueName>udo_udo_Number6DPT</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+    <Content Include="WebResources\HTML\udo_PreviousNext.html">
+      <DisplayName>udo_PreviousNext</DisplayName>
+      <UniqueName>udo_udo_PreviousNext</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+    <Content Include="WebResources\HTML\udo_PreviousNextSummary.html">
+      <DisplayName>udo_PreviousNextSummary</DisplayName>
+      <UniqueName>udo_udo_PreviousNextSummary</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+    <Content Include="WebResources\HTML\udo_SummaryText.html">
+      <DisplayName>udo_SummaryText</DisplayName>
+      <UniqueName>udo_udo_SummaryText</UniqueName>
+      <WebResourceType>WebPage</WebResourceType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--<Import Project="$(MSBuildExtensionsPath32)\Microsoft\CRM\Microsoft.CrmDeveloperTools.12.targets" />-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+			 Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

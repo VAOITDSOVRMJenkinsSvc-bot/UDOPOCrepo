@@ -1,0 +1,14 @@
+﻿<fetch>
+  <entity name="udo_lettergenerationdisability">
+    <attribute name="udo_lettergenerationdisabilityid" />
+    <attribute name="udo_percentage" />
+    <attribute name="udo_lettergenerationid" />
+    <attribute name="udo_effectivedate" />
+    <attribute name="udo_disability" />
+    <attribute name="udo_diagnosticcode" />
+    <order attribute="udo_percentage" descending="true" />
+    <filter type="and">
+      <condition attribute="udo_lettergenerationid" operator="eq" value="@LetterGenerationGUID" />
+    </filter>
+  </entity>
+</fetch>

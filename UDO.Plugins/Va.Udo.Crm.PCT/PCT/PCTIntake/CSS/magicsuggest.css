@@ -1,0 +1,322 @@
+/**
+ * Multiple Selection Component for Bootstrap
+ * Check nicolasbize.github.io/magicsuggest/ for latest updates.
+ *
+ * Author:       Nicolas Bize
+ * Created:      Feb 8th 2013
+ * Last Updated: Oct 16th 2014
+ * Version:      2.1.4
+ * Licence:      MagicSuggest is licenced under MIT licence (http://opensource.org/licenses/MIT)
+ */
+.ms-ctn
+{
+height: auto;
+min-height: 45px;
+padding: 5px 12px;
+position: relative;
+}
+.ms-inv
+{
+border: 1px solid #CC0000;
+}
+.ms-ctn-readonly
+{
+cursor: pointer;
+}
+.ms-ctn-disabled
+{
+background-color: #eeeeee;
+cursor: not-allowed;
+}
+.ms-ctn-bootstrap-focus,
+.ms-ctn-bootstrap-focus .ms-res-ctn
+{
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+border-color: rgba(82, 168, 236, 0.8) !important;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6) !important;
+}
+.ms-ctn-focus
+{
+border-color: #2c3e50;
+box-shadow: none;
+outline: 0;
+}
+.ms-ctn input
+{
+border: 0;
+box-shadow: none;
+display: block;
+line-height: 1.42857143;
+margin: 1px 0;
+outline: none;
+padding: 0;
+webkit-transition: none;
+width: 100%;
+}
+.ms-ctn .ms-sel-ctn input
+{
+float: left;
+}
+.ms-ctn-disabled input
+{
+background-color: #eeeeee;
+cursor: not-allowed;
+}
+.ms-ctn .ms-input-readonly
+{
+cursor: pointer;
+}
+.ms-ctn .ms-empty-text
+{
+color: #DDD;
+}
+.ms-ctn input:focus
+{
+background: #FFF;
+border: 0;
+box-shadow: none;
+webkit-transition: none;
+}
+.ms-ctn input::-ms-clear
+{
+height: 0;
+width: 0;
+}
+.ms-ctn .ms-trigger
+{
+background: transparent;
+border-left: 1px solid #CCC;
+cursor: pointer;
+height: 100%;
+position: absolute;
+right: 0;
+top: 0;
+width: 25px;
+}
+.ms-ctn .ms-trigger .ms-trigger-ico
+{
+border-left: 4px solid transparent;
+border-right: 4px solid transparent;
+border-top: 4px solid #333;
+content: "";
+display: inline-block;
+height: 0;
+margin-left: 8px;
+margin-top: 15px;
+vertical-align: top;
+width: 0;
+}
+.ms-ctn .ms-trigger:hover
+{
+background-color: #e6e6e6;
+}
+.ms-ctn .ms-trigger:hover .ms-trigger-ico
+{
+background-position: 0 -4px;
+}
+.ms-ctn-disabled .ms-trigger
+{
+background-color: #eeeeee;
+cursor: not-allowed;
+}
+.ms-ctn-bootstrap-focus
+{
+border-bottom: 1px solid #CCC;
+}
+.ms-res-ctn
+{
+display: block;
+overflow-y: auto;
+width: 100%;
+}
+.ms-res-ctn .ms-res-group
+{
+background: #f3edff;
+border-bottom: 1px dotted #CCC;
+border-top: 1px solid #CCC;
+color: #333;
+font-weight: bold;
+line-height: 23px;
+padding: 2px 5px;
+text-align: left;
+}
+.ms-res-ctn .ms-res-item
+{
+color: #666;
+cursor: pointer;
+line-height: 25px;
+padding: 2px 5px;
+text-align: left;
+}
+.ms-res-ctn .ms-res-item-grouped
+{
+padding-left: 15px;
+}
+.ms-res-ctn .ms-res-odd
+{
+background: #FAFAFA;
+}
+.ms-res-ctn .ms-res-item-active
+{
+background-color: #F5F5F5;
+}
+.ms-res-ctn .ms-res-item-disabled
+{
+color: #CCC;
+cursor: default;
+}
+.ms-sel-ctn
+{
+line-height: 23px;
+overflow: auto;
+padding-right: 25px;
+}
+.ms-no-trigger .ms-sel-ctn
+{
+padding-right: 0;
+}
+.ms-sel-ctn .ms-sel-item
+{
+background: #3498db;
+border: 1px solid #DDD;
+border-radius: 3px;
+color: #fff;
+float: left;
+font-size: 13px;
+margin: 3px 0px 1px 0;
+padding: 3px 5px;
+}
+.ms-sel-ctn .ms-sel-invalid
+{
+background: #e74c3c !important;
+border-color: rgb(248, 165, 165) !important;
+}
+.ms-sel-ctn .ms-sel-item:hover
+{
+border: 1px solid #BBB;
+}
+.ms-ctn .ms-sel-item
+{
+background: #3498db;
+border: 1px solid #DDD;
+border-radius: 3px;
+color: #fff;
+float: left;
+font-size: 13px;
+margin: 1px 5px 1px 0;
+padding: 0 5px;
+}
+.ms-ctn .ms-sel-item:hover
+{
+background-color: #217dbb;
+border: 1px solid transparent;
+}
+.ms-ctn-focus .ms-sel-item:hover
+{
+background-color: #217dbb;
+border: 1px solid #BBB;
+}
+.ms-sel-ctn .ms-sel-text
+{
+background: #FFF;
+color: #666;
+font-size: 14px;
+font-weight: normal;
+margin-left: 0;
+padding-right: 0;
+}
+.ms-as-string .ms-sel-text
+{
+border-color: transparent;
+}
+.ms-res-ctn .ms-res-item em
+{
+background: #565656;
+color: #FFF;
+font-style: normal;
+}
+.ms-sel-ctn .ms-sel-text:hover
+{
+background: #FFF;
+}
+.ms-sel-ctn .ms-sel-item-active
+{
+background: #757575;
+border: 1px solid red;
+}
+.ms-stacked .ms-sel-item
+{
+float: inherit;
+}
+.ms-sel-ctn .ms-sel-item .ms-close-btn
+{
+background-image: url(data:image/png;
+background-position: 0 -7px;
+cursor: pointer;
+float: right;
+height: 7px;
+margin: 6px 2px 0 10px;
+width: 7px;
+}
+.ms-sel-ctn .ms-sel-item .ms-close-btn:hover
+{
+background-position: 0 0;
+}
+.ms-stacked .ms-sel-item .ms-close-btn
+{
+margin-left: 0px;
+}
+.ms-helper
+{
+color: #AAA;
+font-size: 10px;
+position: absolute;
+right: 0;
+top: -17px;
+}
+.ms-ctn.input-lg .ms-trigger .ms-trigger-ico
+{
+margin-top: 17px;
+}
+.ms-ctn.input-sm .ms-trigger .ms-trigger-ico
+{
+margin-top: 13px;
+}
+.ms-ctn.input-lg .ms-sel-ctn .ms-sel-item
+{
+padding-bottom: 3px;
+padding-top: 2px;
+}
+.ms-ctn.input-sm .ms-sel-ctn
+{
+line-height: 15px;
+}
+.ms-ctn.input-sm .ms-sel-ctn .ms-sel-item
+{
+margin-bottom: 0;
+margin-top: 0;
+padding-bottom: 1px;
+padding-top: 1px;
+}
+.ms-ctn.input-sm .ms-sel-ctn .ms-sel-item .ms-close-btn
+{
+margin-top: 4px;
+}
+.ms-ctn .ms-sel-ctn
+{
+margin-left: -7px;
+}
+.ms-sel-item-active
+{
+background-color: #ED5700;
+color: #fff;
+}
+.ms-ctn .ms-trigger:hover
+{
+border-radius: 0 3px 3px 0;
+right: 1px;
+width: 24px;
+}

@@ -1,0 +1,2295 @@
+{
+  "webresources": [
+    {
+      "profile": "default,debug",
+      "root": "Webresources/",
+      "solution": null,
+      "files": [
+        {
+          "uniquename": "new_/js/somefile.js",
+          "file": "new_\\js\\somefile.js",
+          "description": "",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_otherVABenefits_adaptiveHousing.html",
+          "file": "/udo_otherVABenefits_adaptiveHousing.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneCall",
+          "file": "/va_PhoneCall.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "crme_style.css",
+          "file": "/crme_style.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "crme_SDK.REST.js",
+          "file": "/crme_SDK.REST.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_emergencysilver.js",
+          "file": "/udo_emergencysilver.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_chatsessionlog.js",
+          "file": "/udo_chatsessionlog.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notificationPhase.html",
+          "file": "/udo_notificationPhase.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_tcal.css",
+          "file": "/udo_tcal.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD.html",
+          "file": "/udo_FNOD.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_fiduciary.html",
+          "file": "/udo_fiduciary.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_tags.html",
+          "file": "/udo_tags.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneAndContactSharedFunctions_VIP_Search.js",
+          "file": "/va_PhoneAndContactSharedFunctions_VIP_Search.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_WebServices.js",
+          "file": "/va_WebServices.js",
+          "description": "Contains all instances of web services for retrieving veteran information",
+          "ts": null
+        },
+        {
+          "uniquename": "va_vrm_udo_vip_onload",
+          "file": "/va_vrm_udo_vip_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CorpMinSearch.js",
+          "file": "/va_CorpMinSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimEstablishReOpenIncreaseDependantsAandA.html",
+          "file": "/udo_claimEstablishReOpenIncreaseDependantsAandA.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Context_Search.js",
+          "file": "/va_Context_Search.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "crme_REST.js",
+          "file": "/crme_REST.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneAndContactSharedFunctions_VIP",
+          "file": "/va_PhoneAndContactSharedFunctions_VIP.js",
+          "description": "PhoneAndContactSharedFunctions_VIP for MVC VIP",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_tcal.js",
+          "file": "/udo_tcal.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "new_crm_udo_vt_getAttribs.js",
+          "file": "/new_crm_udo_vt_getAttribs.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "new_LoadReport",
+          "file": "/new_LoadReport.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_BurialPlot.html",
+          "file": "/udo_FNOD_BurialPlot.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ClaimEstablishment.js",
+          "file": "/udo_ClaimEstablishment.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimFullyDeveloped.html",
+          "file": "/udo_claimFullyDeveloped.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CorpSearch.js",
+          "file": "/va_CorpSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_noVSO.html",
+          "file": "/udo_noVSO.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_template.css",
+          "file": "/udo_template.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneCall_OnLoad_VIP",
+          "file": "/va_PhoneCall_OnLoad_VIP.js",
+          "description": "PhoneCall_OnLoad for new EXTJS MVC solution",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_otherVABenefits_ClothingAllowance.html",
+          "file": "/udo_otherVABenefits_ClothingAllowance.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_DeathRelatedChecklist.html",
+          "file": "/udo_FNOD_DeathRelatedChecklist.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_vrm_udo_test_script",
+          "file": "/va_vrm_udo_test_script.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_otherVABenefits_VehicleAllowance.html",
+          "file": "/udo_otherVABenefits_VehicleAllowance.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimestablishment_onload.js",
+          "file": "/udo_claimestablishment_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/npm.js",
+          "file": "/udo/walkin/js/npm.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.Create.js",
+          "file": "/udo/walkin/js/Sdk.Create.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.AddToQueue.js",
+          "file": "/udo/walkin/js/Sdk.AddToQueue.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "new_jquery_1.9.1.min",
+          "file": "/new_jquery_1.9.1.min",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_DIC.html",
+          "file": "/udo_FNOD_DIC.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/queues.js",
+          "file": "/udo/walkin/js/queues.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "new_testctrl.html",
+          "file": "/new_testctrl.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_XmlUtilities.js",
+          "file": "/va_XmlUtilities.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimOpenNoTrackedItems.html",
+          "file": "/udo_claimOpenNoTrackedItems.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneCall_OnSave_VIP",
+          "file": "/va_PhoneCall_OnSave_VIP.js",
+          "description": "PhoneCall_OnSave for new EXTJS MVC solution",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Payments.html",
+          "file": "/udo_Payments.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimOpenOpenTrackedItems.html",
+          "file": "/udo_claimOpenOpenTrackedItems.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_payDateEffectiveDate.html",
+          "file": "/udo_payDateEffectiveDate.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_TestPayments.html",
+          "file": "/udo_TestPayments.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_Flag.html",
+          "file": "/udo_FNOD_Flag.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claims",
+          "file": "/udo_claims.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_payments_debts.html",
+          "file": "/udo_payments_debts.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimOpenTrackItemsClosed.html",
+          "file": "/udo_claimOpenTrackItemsClosed.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneCallGlobalObjects",
+          "file": "/va_PhoneCallGlobalObjects.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Payments.js",
+          "file": "/udo_Payments.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_TestPayments.js",
+          "file": "/udo_TestPayments.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_HeadStone.html",
+          "file": "/udo_FNOD_HeadStone.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claims.html",
+          "file": "/udo_claims.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_PaymentsNoPayeeSelected.html",
+          "file": "/udo_PaymentsNoPayeeSelected.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_PCT_QueueItem.js",
+          "file": "/udo_PCT_QueueItem.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneCallGlobalObjects.js",
+          "file": "/va_PhoneCallGlobalObjects.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_testss.js",
+          "file": "/udo_testss.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_payments_debtsDMC.html",
+          "file": "/udo_payments_debtsDMC.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimStatus.html",
+          "file": "/udo_claimStatus.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_OverseasCemetaries.html",
+          "file": "/udo_FNOD_OverseasCemetaries.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.Delete.js",
+          "file": "/udo/walkin/js/Sdk.Delete.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.RetrieveAttribute.js",
+          "file": "/udo/walkin/js/Sdk.RetrieveAttribute.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.ReleaseToQueue.js",
+          "file": "/udo/walkin/js/Sdk.ReleaseToQueue.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.Metadata.js",
+          "file": "/udo/walkin/js/Sdk.Metadata.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/scripts/js/pcrScripts.js",
+          "file": "/udo/scripts/js/pcrScripts.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimsCombined.html",
+          "file": "/udo_claimsCombined.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_pcrScripts.js",
+          "file": "/udo_pcrScripts.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ThreatCall_bombThreat.html",
+          "file": "/udo_ThreatCall_bombThreat.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_peoplelauncher.html",
+          "file": "/udo_peoplelauncher.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PhoneCalls_DispositionControls",
+          "file": "/va_PhoneCalls_DispositionControls.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_payments_debtsNonRecieptCheckTracer.html",
+          "file": "/udo_payments_debtsNonRecieptCheckTracer.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_FNOD_WidowsPension.html",
+          "file": "/udo_FNOD_WidowsPension.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/UD/Scripts/CrmRestKit_2011.js",
+          "file": "/udo/UD/Scripts/CrmRestKit_2011.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimStatus.js",
+          "file": "/udo_claimStatus.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_udo_LinkDependentPayments.js",
+          "file": "/udo_udo_LinkDependentPayments.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_popup.js",
+          "file": "/udo_popup.js",
+          "description": "Popup Script Library\nContains:\n\nVa.Udo.Crm.Scripts.Popup.MsgBox(text,style,title) returns jquery deferred object\nVa.Udo.Crm.Scripts.Popup.InputBox(prompt,defaultValue,title) returns jquery deferred object\nVa.Udo.Crm.Scripts.Popup.Popup(prompt,content,options) returns jquery deferred object\n\nDeferred data for .done and .fail\ndata (argument 1) = {\n    Clicked: {\n        Name: \"Name of the Button\",\n        ButtonType: Va.Udo.Crm.Scripts.PopupButtonTypes number\n    },\n    Values: collection of values returned from input, select, or textara in a InputBox or Popup\n    {\n        popupText: value for default InputBox\n    }\n}\n\nEnums:\nVa.Udo.Crm.Scripts.Popup.ButtonTypes: return for button clicked type\n{\n        Ok:1,\n        Cancel:2,\n        Abort:3,\n        Retry:4,\n        Ignore:5,\n        Yes:6,\n        No:7\n}\n\nVa.Udo.Crm.Scripts.Popup.PopupStyles is an enum with what buttons to include and the visual style of the popup:\n{\n        OKOnly: 0,\n        OKCancel: 1,\n        AbortRetryIgnore: 2,\n        YesNoCancel: 3,\n        YesNo: 4,\n        RetryCancel: 5,\n        Normal: 0,\n        Critical: 16,\n        Question: 32,\n        Exclamation: 48,\n        Information: 64,\n        DefaultButton1: 0,\n        DefaultButton2: 256,\n        DefaultButton3: 512\n}",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimsDocumentDownload.html",
+          "file": "/udo_claimsDocumentDownload.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap.css",
+          "file": "/udo/walkin/css/bootstrap.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_threatCall_physicalThreat.html",
+          "file": "/udo_threatCall_physicalThreat.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Progress.htm",
+          "file": "/va_Progress.htm",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_peoplelist.html",
+          "file": "/udo_peoplelist.html",
+          "description": "people list",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_PaymentSmart.html",
+          "file": "/udo_PaymentSmart.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_getVVAURL.js",
+          "file": "/udo_getVVAURL.js",
+          "description": "return the URL or an error based on the VVA ID provided.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_COLA.html",
+          "file": "/udo_COLA.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CommonFunctions",
+          "file": "/udo_CommonFunctions.js",
+          "description": "This js file will contain the common functions which may be used by multiple entities",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Utility",
+          "file": "/udo_Utility.js",
+          "description": "Contains all the utility methods used across VA UDO",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_process.js",
+          "file": "/udo_process.js",
+          "description": "Script for running workflows and actions",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/scripts/jurisdictions_routing.html",
+          "file": "/udo/scripts/jurisdictions_routing.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_relatedrecords.html",
+          "file": "/udo_relatedrecords.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_QueryLogOnUnload",
+          "file": "/va_QueryLogOnUnload.js",
+          "description": "QueryLogOnUnload",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_UDO.Claims.Payments.js",
+          "file": "/udo_UDO.Claims.Payments.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_PersonSearch.html",
+          "file": "/udo_PersonSearch.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_combinedEvaltionCalculation.html",
+          "file": "/udo_combinedEvaltionCalculation.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_hidddenEntityId",
+          "file": "/udo_hidddenEntityId.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Utility.js",
+          "file": "/udo_Utility.js",
+          "description": "Contains scripts for formatting dates, phone numbers etc.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_processV2.js",
+          "file": "/udo_processV2.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ComputerDownScript.html",
+          "file": "/udo_ComputerDownScript.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_RatingService.js",
+          "file": "/va_RatingService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Request.js",
+          "file": "/udo_Request.js",
+          "description": "Request java scripts",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_servicerequestonsave",
+          "file": "/udo_servicerequestonsave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VBMSeFolder.js",
+          "file": "/udo_VBMSeFolder.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.Retrieve.js",
+          "file": "/udo/walkin/js/Sdk.Retrieve.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.ExecuteMultiple.js",
+          "file": "/udo/walkin/js/Sdk.ExecuteMultiple.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.PickFromQueue.js",
+          "file": "/udo/walkin/js/Sdk.PickFromQueue.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.RouteTo.js",
+          "file": "/udo/walkin/js/Sdk.RouteTo.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_red.html",
+          "file": "/udo_red.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ctrlkeytest.html",
+          "file": "/udo_ctrlkeytest.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_idVerification.html",
+          "file": "/udo_idVerification.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VBMS",
+          "file": "/udo_VBMS.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Contact.js",
+          "file": "/udo_Contact.js",
+          "description": "This file contains all the javascript associated with the contact entity.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_script_control.js",
+          "file": "/udo_script_control.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_RibbonActions.js",
+          "file": "/va_RibbonActions.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ServiceRequestPayees.html",
+          "file": "/udo_ServiceRequestPayees.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Veteran",
+          "file": "/udo_Veteran.js",
+          "description": "Veteran JS functions for the veteran data optimization forms",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_vbms_lettergeneration.js",
+          "file": "/udo_vbms_lettergeneration.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/UD/Scripts/jquery_1.10.2.min.js",
+          "file": "/udo/UD/Scripts/jquery_1.10.2.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_OIF_OEF.html",
+          "file": "/udo_specialIssues_OIF_OEF.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_correspondenceforms_RequestforForms.html",
+          "file": "/udo_correspondenceforms_RequestforForms.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ie11test.js",
+          "file": "/udo_ie11test.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/Styles/announcements.css",
+          "file": "/udo/Styles/announcements.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_customaction_onload",
+          "file": "/udo_customaction_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_SDK.JQuery.js",
+          "file": "/udo_SDK.JQuery.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Search.js",
+          "file": "/va_Search.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIsssues_WomenVets.html",
+          "file": "/udo_specialIsssues_WomenVets.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap.min.css",
+          "file": "/udo/walkin/css/bootstrap.min.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_correspondenceforms_VVALetters.html",
+          "file": "/udo_correspondenceforms_VVALetters.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_incomeVerificationMatch",
+          "file": "/udo_incomeVerificationMatch.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_Outreach.html",
+          "file": "/udo_specialIssues_Outreach.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VBMSDocumentDownload.html",
+          "file": "/udo_VBMSDocumentDownload.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_customactionloading",
+          "file": "/udo_customactionloading.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_vocationalRehab.html",
+          "file": "/udo_vocationalRehab.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_SelectRequest.html",
+          "file": "/udo_SelectRequest.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Search_OnLoad.js",
+          "file": "/va_Search_OnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/walkin.html",
+          "file": "/udo/walkin/walkin.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues.html",
+          "file": "/udo_specialIssues.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_insurance.html",
+          "file": "/udo_insurance.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VSO.html",
+          "file": "/udo_VSO.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_walkin.js",
+          "file": "/udo_walkin.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_POW.html",
+          "file": "/udo_specialIssues_POW.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_dd214.html",
+          "file": "/udo_dd214.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_countrylist.html",
+          "file": "/udo_countrylist.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_servicerequestcode",
+          "file": "/va_servicerequestcode.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_SelectRequest.js",
+          "file": "/udo_SelectRequest.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_abusiveCaller.html",
+          "file": "/udo_abusiveCaller.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_elderlyVeterans.html",
+          "file": "/udo_specialIssues_elderlyVeterans.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.SetState.js",
+          "file": "/udo/walkin/js/Sdk.SetState.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CreateNoteProcess.js",
+          "file": "/udo_CreateNoteProcess.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_DeathPension_AA_Housebound.html",
+          "file": "/udo_DeathPension_AA_Housebound.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Interaction",
+          "file": "/udo_Interaction.js",
+          "description": "This file contains all the scripts associated with the interaction entity.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VSO_Combined.html",
+          "file": "/udo_VSO_Combined.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_WalkIn_ResolutionComplete.html",
+          "file": "/udo_WalkIn_ResolutionComplete.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Constants.js",
+          "file": "/udo/walkin/js/XrmTable.Constants.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_PTSD.html",
+          "file": "/udo_specialIssues_PTSD.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ITFPeoplelist.html",
+          "file": "/udo_ITFPeoplelist.html",
+          "description": "People list for ITF",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/vetsearch.js",
+          "file": "/udo/walkin/js/vetsearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_Homeless.html",
+          "file": "/udo_specialIssues_Homeless.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_accountChange.html",
+          "file": "/udo_accountChange.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_servicerequestcode",
+          "file": "/udo_servicerequestcode.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_servicerequestonsave",
+          "file": "/va_servicerequestonsave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_jquery_1.9.1.min.js",
+          "file": "/udo_jquery_1.9.1.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VSO_f21_22.html",
+          "file": "/udo_VSO_f21_22.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_decisionPhase.html",
+          "file": "/udo_decisionPhase.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ivm.html",
+          "file": "/udo_ivm.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_suicideCall.html",
+          "file": "/udo_suicideCall.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_walkinregistration.html",
+          "file": "/udo_walkinregistration.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_IRISNecessary.html",
+          "file": "/udo_IRISNecessary.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CrmRestKit2011.js",
+          "file": "/udo_CrmRestKit2011.js",
+          "description": "Modified to support OrderBy tacked onto byQuery and byQueryAll",
+          "ts": null
+        },
+        {
+          "uniquename": "va_ShareStandardDataService.js",
+          "file": "/va_ShareStandardDataService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_jquery1.10.2.min.js",
+          "file": "/udo_jquery1.10.2.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_minorityVets.html",
+          "file": "/udo_specialIssues_minorityVets.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/UD/css/template.css",
+          "file": "/udo/UD/css/template.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_addressChange.html",
+          "file": "/udo_addressChange.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_servicerequestonload",
+          "file": "/udo_servicerequestonload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/UD/Scripts/udo_pcrScripts.js",
+          "file": "/udo/UD/Scripts/udo_pcrScripts.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_BenefitClaimWebService.js",
+          "file": "/va_BenefitClaimWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap_flatly.css",
+          "file": "/udo/walkin/css/bootstrap_flatly.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_DependentPayments.js",
+          "file": "/udo_DependentPayments.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Actions.js",
+          "file": "/va_Actions.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VSO_notPSO.html",
+          "file": "/udo_VSO_notPSO.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_json2.js",
+          "file": "/udo_json2.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_dependent.js",
+          "file": "/udo_dependent.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_tabcontrol",
+          "file": "/udo_tabcontrol.html",
+          "description": "This html module can be used to create a horizontal tab structure for CRM pages",
+          "ts": null
+        },
+        {
+          "uniquename": "va_ShowMessage.js",
+          "file": "/va_ShowMessage.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_LetterRequest_RepeatCaller.html",
+          "file": "/udo_LetterRequest_RepeatCaller.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_StationOfJurisdiction.js",
+          "file": "/va_StationOfJurisdiction.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_BlankFormsButton",
+          "file": "/va_BlankFormsButton.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_BirlsSearch.js",
+          "file": "/va_BirlsSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_specialIssues_NativeAmericanVets.html",
+          "file": "/udo_specialIssues_NativeAmericanVets.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_agentAttorneyRepresentation.html",
+          "file": "/udo_agentAttorneyRepresentation.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Actions_Deprecated.js",
+          "file": "/va_Actions_Deprecated.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VSO_PSO.html",
+          "file": "/udo_VSO_PSO.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_DirectDeposit.html",
+          "file": "/udo_DirectDeposit.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Silverlight.js",
+          "file": "/va_Silverlight.js",
+          "description": "JavaScript used by Silverlight",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_JurisdictionAndRouting.html",
+          "file": "/udo_JurisdictionAndRouting.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_DependentPayments.html",
+          "file": "/udo_DependentPayments.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_tabcontrolSS",
+          "file": "/udo_tabcontrolSS.html",
+          "description": "Tab Control in Body\n\nrequirements\n- Only one control can be inserted on the form.\n- this control should be put as web resource in the first tab.  The nameof the tab needs to be \"displaytabs\".  There shouldn't be any other fields present in the tab or section.\n- there has to be minimum of another tab with other fields on the form.\n- Hidden tabs should start with \"~hid~\"  for example \"~hid~ Hidden Fields\"",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_LettersButtonSR",
+          "file": "/udo_LettersButtonSR.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_agentOrange.html",
+          "file": "/udo_agentOrange.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_TestJScript1",
+          "file": "/va_TestJScript1.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CRMRestKit",
+          "file": "/va_CRMRestKit.js",
+          "description": "CRM REST Kit",
+          "ts": null
+        },
+        {
+          "uniquename": "va_CallScriptOnLoad",
+          "file": "/va_CallScriptOnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CRM_core_style",
+          "file": "/va_CRM_core_style.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/XrmSvcToolkit.js",
+          "file": "/udonotes/XrmSvcToolkit.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_AddressValidationService.js",
+          "file": "/va_AddressValidationService.js",
+          "description": "AddressValidationService.js",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_letterspeoplelist",
+          "file": "/udo_letterspeoplelist.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_letter_onload.js",
+          "file": "/udo_letter_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranBenefitClaimInformation.js",
+          "file": "/va_VeteranBenefitClaimInformation.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_holidays",
+          "file": "/va_holidays.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_directExpressDebitMasterCard.html",
+          "file": "/udo_directExpressDebitMasterCard.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_tag.js",
+          "file": "/udo_tag.js",
+          "description": "Generate a tag list using the CRMRestKit",
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDWorkAssignmentService.js",
+          "file": "/va_MapDWorkAssignmentService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.Soap.js",
+          "file": "/udo/walkin/js/Sdk.Soap.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_aidAttendanceHousebound.html",
+          "file": "/udo_aidAttendanceHousebound.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/walkinform.js",
+          "file": "/udo/walkin/js/walkinform.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.js",
+          "file": "/udo/walkin/js/XrmTable.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/carltontest.html",
+          "file": "/udo/walkin/carltontest.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_crm_udo_emergency_header_text.html",
+          "file": "/va_crm_udo_emergency_header_text.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_udoemergency.js",
+          "file": "/va_udoemergency.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes_summary.html",
+          "file": "/udo_notes_summary.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CCallWrapper.js",
+          "file": "/va_CCallWrapper.js",
+          "description": "CCallWrapper.js",
+          "ts": null
+        },
+        {
+          "uniquename": "va_CrmRestKit_2011",
+          "file": "/va_CrmRestKit_2011.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranBenefitClaimStatusInformation.js",
+          "file": "/va_VeteranBenefitClaimStatusInformation.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDWorkLoadServiceService.js",
+          "file": "/va_MapDWorkLoadServiceService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_IntentToFile",
+          "file": "/va_IntentToFile.js",
+          "description": "Intent To File page filled with JavaScript utitlity functions",
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranGeneralInformation.js",
+          "file": "/va_VeteranGeneralInformation.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_loanGuarantyIssues.html",
+          "file": "/udo_loanGuarantyIssues.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_displayVVADoc.html",
+          "file": "/udo_displayVVADoc.html",
+          "description": "displayVVADoc.html",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_letter_onsave.js",
+          "file": "/udo_letter_onsave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_AddressWebService.js",
+          "file": "/va_AddressWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_crm_udo_emergency_links_text.html",
+          "file": "/va_crm_udo_emergency_links_text.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes_ui.html",
+          "file": "/udo_notes_ui.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_announcements.html",
+          "file": "/udo_announcements.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_udoemergencynew.js",
+          "file": "/va_udoemergencynew.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_ChangeOfAddressOnLoad",
+          "file": "/va_ChangeOfAddressOnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CRMRestKit_New",
+          "file": "/va_CRMRestKit_New.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap_flatly.min.css",
+          "file": "/udo/walkin/css/bootstrap_flatly.min.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap_more.css",
+          "file": "/udo/walkin/css/bootstrap_more.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_AwardsSearch.js",
+          "file": "/va_AwardsSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Message.js",
+          "file": "/va_Message.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medical.html",
+          "file": "/udo_medical.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_download.js",
+          "file": "/udo_download.js",
+          "description": "Script to download base64 string files using javascript.",
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranContentions.js",
+          "file": "/va_VeteranContentions.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_IntentToFileWebService.js",
+          "file": "/va_IntentToFileWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranGeneralInformationPK.js",
+          "file": "/va_VeteranGeneralInformationPK.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_crm_udo_vt_getAttribs",
+          "file": "/va_crm_udo_vt_getAttribs.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_ChangeofAddressOnSave",
+          "file": "/va_ChangeofAddressOnSave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_udoEmergencypage.html",
+          "file": "/va_udoEmergencypage.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Date.js",
+          "file": "/va_Date.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes_ui.js",
+          "file": "/udo_notes_ui.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_announcements.js",
+          "file": "/udo_announcements.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_appeals.html",
+          "file": "/udo_appeals.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "crme_jquery1.4.1vsdoc.js",
+          "file": "/crme_jquery1.4.1vsdoc.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medical_eligibility.html",
+          "file": "/udo_medical_eligibility.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.css",
+          "file": "/udo/walkin/jqueryui/jquery_ui.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranGeneralInfoByAward.js",
+          "file": "/va_VeteranGeneralInfoByAward.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_eBenefitsGeneralInfo.html",
+          "file": "/udo_eBenefitsGeneralInfo.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_jquery_1.10.2.min.js",
+          "file": "/va_jquery_1.10.2.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranIdentifyIndividual.js",
+          "file": "/va_VeteranIdentifyIndividual.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_champVA_Tricare.html",
+          "file": "/udo_champVA_Tricare.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_ClaimantWebService.js",
+          "file": "/va_ClaimantWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_DisableButtonSR",
+          "file": "/va_DisableButtonSR.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_appealOpen.html",
+          "file": "/udo_appealOpen.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_udoemergencypagenew.html",
+          "file": "/va_udoemergencypagenew.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_appealSmart.html",
+          "file": "/udo_appealSmart.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medical_FeeBasis.html",
+          "file": "/udo_medical_FeeBasis.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_eBenefitsScript.html",
+          "file": "/udo_eBenefitsScript.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.min.css",
+          "file": "/udo/walkin/jqueryui/jquery_ui.min.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_ChangeOfAddress.html",
+          "file": "/udo_ChangeOfAddress.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Jquery_1.4.2",
+          "file": "/va_Jquery_1.4.2",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_EbenefitsBnftClaimStatusService.js",
+          "file": "/va_EbenefitsBnftClaimStatusService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_UserOnload",
+          "file": "/va_UserOnload.js",
+          "description": "Onload on user form",
+          "ts": null
+        },
+        {
+          "uniquename": "va_ClaimsSearch.js",
+          "file": "/va_ClaimsSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Column.js",
+          "file": "/udo/walkin/js/XrmTable.Column.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranIncomeInfoByAward.js",
+          "file": "/va_VeteranIncomeInfoByAward.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_appealPendingDROElection.html",
+          "file": "/udo_appealPendingDROElection.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medical_medicalCenterDebts.html",
+          "file": "/udo_medical_medicalCenterDebts.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_apportionments.html",
+          "file": "/udo_apportionments.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_eBenefitsScripts.html",
+          "file": "/udo_eBenefitsScripts.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.PagingInfo.js",
+          "file": "/udo/walkin/js/XrmTable.PagingInfo.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Emergency",
+          "file": "/va_Emergency.html",
+          "description": "HTML Page that will be shown on click of Emergency and Cancel Emergency buttons",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.Soap.min.js",
+          "file": "/udo/walkin/js/Sdk.Soap.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_jquery_1.6.4",
+          "file": "/va_jquery_1.6.4",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranOtherAwardInfoByAward.js",
+          "file": "/va_VeteranOtherAwardInfoByAward.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_appealPendingTraditionalReviewElection.html",
+          "file": "/udo_appealPendingTraditionalReviewElection.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/bootstrap2_toggle.js",
+          "file": "/udo/walkin/js/bootstrap2_toggle.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_openNewPhoneCall",
+          "file": "/va_openNewPhoneCall.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap_theme.css",
+          "file": "/udo/walkin/css/bootstrap_theme.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CommonFunctions",
+          "file": "/va_CommonFunctions.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medical_patientAdvocate.html",
+          "file": "/udo_medical_patientAdvocate.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Utilities",
+          "file": "/va_Utilities.js",
+          "description": "New Utilities js that might replace Common Functions",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_eBenefitsScripts2.html",
+          "file": "/udo_eBenefitsScripts2.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Emergency.html",
+          "file": "/va_Emergency.html",
+          "description": "Emergency Page",
+          "ts": null
+        },
+        {
+          "uniquename": "va_JSON2",
+          "file": "/va_JSON2.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VetRecordWebService.js",
+          "file": "/va_VetRecordWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PathwaysSearch.js",
+          "file": "/va_PathwaysSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medical_Prescriptions.html",
+          "file": "/udo_medical_Prescriptions.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CommonFunctions_VIP",
+          "file": "/va_CommonFunctions_VIP.js",
+          "description": "CommonFunctions_VIP",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_award.js",
+          "file": "/udo_award.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.js",
+          "file": "/udo/walkin/jqueryui/jquery_ui.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Emergency.js",
+          "file": "/va_Emergency.js",
+          "description": "Emergency page JavaScript",
+          "ts": null
+        },
+        {
+          "uniquename": "va_VACOLSAppealsService.js",
+          "file": "/va_VACOLSAppealsService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_medicalFosterHomeCoordinator.html",
+          "file": "/udo_medicalFosterHomeCoordinator.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_education.html",
+          "file": "/udo_education.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_LettersButtonSR",
+          "file": "/va_LettersButtonSR.js",
+          "description": "Web resource to add new button to SR.",
+          "ts": null
+        },
+        {
+          "uniquename": "va_ContactHelper.js",
+          "file": "/va_ContactHelper.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_vrm_udo_search_button_onLoad.js",
+          "file": "/va_vrm_udo_search_button_onLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PathwaysWebService.js",
+          "file": "/va_PathwaysWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CADD_OnLoad",
+          "file": "/udo_CADD_OnLoad.js",
+          "description": "Onload script for CADD",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Columns.js",
+          "file": "/udo/walkin/js/XrmTable.Columns.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_ContactPCRForm_VIP",
+          "file": "/va_ContactPCRForm_VIP.js",
+          "description": "Load code of Veteran/Contact for VIP version",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_embeddedbutton.html",
+          "file": "/udo_embeddedbutton.html",
+          "description": "The HTML web resource for a support on form button that binds using udo_embeddedbutton.js",
+          "ts": null
+        },
+        {
+          "uniquename": "va_emergencyOnLoad.js",
+          "file": "/va_emergencyOnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VacolsSearch.js",
+          "file": "/va_VacolsSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_PaymentHistoryService.js",
+          "file": "/va_PaymentHistoryService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Context.js",
+          "file": "/va_Context.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CADD_OnSave",
+          "file": "/udo_CADD_OnSave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/carltontest.js",
+          "file": "/udo/walkin/js/carltontest.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_nationalCemeteriesAdmin.html",
+          "file": "/udo_nationalCemeteriesAdmin.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Table.js",
+          "file": "/udo/walkin/js/XrmTable.Table.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/Sdk.WhoAmI.js",
+          "file": "/udo/walkin/js/Sdk.WhoAmI.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VAI_OnLoad",
+          "file": "/va_VAI_OnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_embeddedbutton.js",
+          "file": "/udo_embeddedbutton.js",
+          "description": "This should be used with udo_embeddedbutton.html as the html webresource button.  It is not a placeholder for html replacement, but instead a button that gets embedded.",
+          "ts": null
+        },
+        {
+          "uniquename": "va_EnvironmentConfiguration.js",
+          "file": "/va_EnvironmentConfiguration.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_LettersButtonSrVbms.js",
+          "file": "/va_LettersButtonSrVbms.js",
+          "description": "VBMS File Upload for Service Request using the Flyout Control Button on the ribbon",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_calendar.html",
+          "file": "/udo_calendar.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_noscript.html",
+          "file": "/udo_noscript.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.min.js",
+          "file": "/udo/walkin/jqueryui/jquery_ui.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap_theme.min.css",
+          "file": "/udo/walkin/css/bootstrap_theme.min.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VAI_OnSave",
+          "file": "/va_VAI_OnSave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_LettersButtonVAI",
+          "file": "/va_LettersButtonVAI.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_emergency.htm",
+          "file": "/udo_emergency.htm",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_FNOD",
+          "file": "/va_FNOD.js",
+          "description": "Functions that are called on FNOD entity. \nCreated by Catapult team",
+          "ts": null
+        },
+        {
+          "uniquename": "va_VAResponseXml.js",
+          "file": "/va_VAResponseXml.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_callScript.html",
+          "file": "/udo_callScript.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDClaimManagementService.js",
+          "file": "/va_MapDClaimManagementService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/fetchtable.css",
+          "file": "/udonotes/fetchtable.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_FNOD_OnLoad",
+          "file": "/va_FNOD_OnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_EmergencyPageSilverlight",
+          "file": "/udo_EmergencyPageSilverlight.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranAppealInfoByAppealKey.js",
+          "file": "/va_VeteranAppealInfoByAppealKey.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDContentionService.js",
+          "file": "/va_MapDContentionService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_FNOD_OnSave",
+          "file": "/va_FNOD_OnSave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/jquery.aria.js",
+          "file": "/udo/walkin/js/jquery.aria.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VeteranAwardInformation.js",
+          "file": "/va_VeteranAwardInformation.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/fetchtable.js",
+          "file": "/udonotes/fetchtable.js",
+          "description": "fetchtable.js is generates a filterable table using fetchxml and a set of configuration options.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.structure.css",
+          "file": "/udo/walkin/jqueryui/jquery_ui.structure.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/bootstrap2_toggle.css",
+          "file": "/udo/walkin/css/bootstrap2_toggle.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDDevelopmentNotesService.js",
+          "file": "/va_MapDDevelopmentNotesService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_veteranbenefitclaimhistoryinformation.js",
+          "file": "/va_veteranbenefitclaimhistoryinformation.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDDocumentService.js",
+          "file": "/va_MapDDocumentService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_GeneralInfoSearch.js",
+          "file": "/va_GeneralInfoSearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/viewnotes.html",
+          "file": "/udonotes/viewnotes.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDStandardDataService.js",
+          "file": "/va_MapDStandardDataService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_GetSystemUserProperties",
+          "file": "/va_GetSystemUserProperties.js",
+          "description": "Get System User Properties using crmRestKit",
+          "ts": null
+        },
+        {
+          "uniquename": "va_MapDTrackedItemService.js",
+          "file": "/va_MapDTrackedItemService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/jquery.magicsuggest.js",
+          "file": "/udo/walkin/js/jquery.magicsuggest.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/magicsuggest.css",
+          "file": "/udo/walkin/css/magicsuggest.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.structure.min.css",
+          "file": "/udo/walkin/jqueryui/jquery_ui.structure.min.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/css/walkin.css",
+          "file": "/udo/walkin/css/walkin.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/jquery.min.js",
+          "file": "/udo/walkin/js/jquery.min.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/external/jquery/jquery.js",
+          "file": "/udo/walkin/jqueryui/external/jquery/jquery.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.theme.css",
+          "file": "/udo/walkin/jqueryui/jquery_ui.theme.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/jquery.sortElements.js",
+          "file": "/udo/walkin/js/jquery.sortElements.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/jquery_ui.theme.min.css",
+          "file": "/udo/walkin/jqueryui/jquery_ui.theme.min.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/jquery_ui/index.html",
+          "file": "/udo/walkin/jqueryui/index.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/jquery.toXml.js",
+          "file": "/udo/walkin/js/jquery.toXml.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/bootstrap.js",
+          "file": "/udo/walkin/js/bootstrap.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/jquery_3.1.1.js",
+          "file": "/udo/walkin/js/jquery_3.1.1.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/bootstrap.min.js",
+          "file": "/udo/walkin/js/bootstrap.min.js",
+          "description": null,
+          "ts": null
+        }
+      ]
+    }
+  ],
+  "plugins": [
+    {
+      "profile": "default,debug",
+      "assemblypath": "bin\\Debug",
+      "classRegex": null
+    }
+  ],
+  "earlyboundtypes": [
+    {
+      "entities": "account,contact,quote",
+      "actions": "dev1_simpleaction",
+      "generateOptionsetEnums": true,
+      "generateGlobalOptionsets": false,
+      "generateStateEnums": true,
+      "filename": "EarlyBoundTypes.cs",
+      "classNamespace": "UDO.LCS",
+      "serviceContextName": "XrmSvc"
+    }
+  ],
+  "solutions": [
+    {
+      "profile": "default,debug",
+      "solution_uniquename": "spkltestsolution",
+      "packagepath": "package",
+      "solutionpath": "solution_{0}_{1}_{2}_{3}.zip",
+      "packagetype": "unmanaged",
+      "increment_on_import": false,
+      "map": [
+        {
+          "map": "path",
+          "from": "PluginAssemblies\\**\\*.*",
+          "to": "..\\..\\Plugins\\bin\\**"
+        },
+        {
+          "map": "path",
+          "from": "WebResources\\*.*",
+          "to": "..\\..\\Webresources\\Webresources\\**"
+        },
+        {
+          "map": "path",
+          "from": "WebResources\\**\\*.*",
+          "to": "..\\..\\Webresources\\Webresources\\**"
+        }
+      ]
+    }
+  ]
+}

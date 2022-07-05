@@ -1,0 +1,851 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Appeals</title>
+<link rel="stylesheet" type="text/css" href="css/template.css" />
+<script type="text/javascript" language="javascript" src="js/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" language="javascript" src="js/pcrScripts.js"></script> 
+<script type="text/javascript" language="javascript" src="js/va_CrmRestKit_2011.js"></script> 
+</head>
+
+<body  onload="LoadScriptData()">
+<script type="text/javascript" >
+
+    //Declare VIP and CRM from a page level
+    var VIP = null;
+    var CRM = null;
+    var Xrm = null;
+
+    if (parent.opener.Xrm) {
+        CRM = parent.opener;
+        Xrm = parent.opener.Xrm;
+    }
+    else if (parent.opener.parent.Xrm) {
+        CRM = parent.opener.parent;
+        VIP = parent.opener;
+        Xrm = parent.opener.parent.Xrm;
+    }
+
+    function LoadScriptData() {
+        if (!parent || !parent.opener) {
+            alert('Cannot update Appeal Script window with the selected data because parent window with cached Veteran information is not available.');
+            return null;
+        }
+        if (!VIP) {
+            alert("Cannot update Appeal Script because script wasn't opened from the Appeal tab in the veteran search.");
+            return null;
+        }
+
+        var corpRecord = null, appeal = null, appealDetailRecord = null, appealDates = null, nodDate = '', appealDiaries = null, statusCode = null, poaOrg = null,
+			poaName = null, appealDate = null, hearingReqScheduledDate = null, hearingRequestDate = null;
+        var RO = null, roType = '';
+        var poaText = '"';
+        if ((VIP._claimFolderLocation != undefined) && (VIP._claimFolderLocation)) {
+            RO = VIP._claimFolderLocation;
+            document.getElementById('soj').value = RO;
+            document.getElementById('soj2').value = RO;
+            roType = 'Claim Folder Location';
+        }
+
+        if ((VIP._selectedAppeal != undefined) && (VIP._selectedAppeal)) {
+            appeal = VIP._selectedAppeal;
+        }
+        var ln = document.getElementById('ln');
+
+        if ((VIP._corpData != undefined) && (VIP._corpData) && (VIP._corpData.length > 0)) {
+            corpRecord = VIP._corpData[0];
+            ln.innerHTML = corpRecord.get('fullName');
+            if (VIP._corpData.appeal != undefined) { appeal = VIP._corpData.appeal; }
+            if (VIP._corpData.poa != undefined) { poaOrg = VIP._corpData.poa; }
+        }
+
+        _appealStatusCode = null;
+
+        if (appeal != undefined && appeal) {
+            if (appeal.get('appealStatusCode') != undefined && appeal.get('appealStatusCode')) {
+                statusCode = appeal.get('appealStatusCode');
+                _appealStatusCode = statusCode;
+                status = '<br/>' + (appeal.get('actionTypeDescription').length > 0 ? appeal.get('actionTypeDescription') + ' - ' : '') +
+					appeal.get('appealStatusCode');
+            }
+            if (appeal.get('decisionDate') != undefined && appeal.get('decisionDate') && appeal.get('decisionDate').length > 0) {
+                status += ', ' + appeal.get('decisionDate');
+            }
+
+            if (appeal.appealDetailRecord != undefined && appeal.appealDetailRecord) {
+                appealDetailRecord = appeal.appealDetailRecord;
+                appealDate = appealDetailRecord.get('bvaReceivedDate');
+                if (appealDate && appealDate.length > 0) {
+                    document.getElementById('dateofappeal').innerHTML = appealDate;
+                    document.getElementById('bvacertdate1').innerHTML = appealDate;
+                    document.getElementById('bvacertdate2').innerHTML = appealDate;
+                    document.getElementById('bvacertdate3').innerHTML = appealDate;
+                    document.getElementById('dateofappeal2').innerHTML = appealDate;
+                }
+
+                if (appealDetailRecord.datesStore != undefined && appealDetailRecord.datesStore) {
+                    appealDates = appealDetailRecord.datesStore.data.items;
+                }
+                if (appealDetailRecord.diariesStore != undefined && appealDetailRecord.diariesStore) {
+                    appealDiaries = appealDetailRecord.diariesStore.data.items;
+                }
+
+                RO = appealDetailRecord.get('regionalOfficeCode');
+                if (RO && RO.length > 0) {
+                    document.getElementById('soj').value = RO;
+                    roType = 'Appeal Detail (RO Code)';
+                }
+
+                if (appealDetailRecord.hearingRequestStore && appealDetailRecord.hearingRequestStore.getCount() > 0) {
+                    hearingReqScheduledDate = appealDetailRecord.hearingRequestStore.getAt(0).get('hearingRequestScheduledDate_f');
+                    hearingRequestDate = appealDetailRecord.hearingRequestStore.getAt(0).get('hearingRequestRequestedDate_f');
+                }
+
+                // POA
+                poaName = appealDetailRecord.get('serviceOrganizationDescription');
+                if (poaName != null && poaName.length > 0) {
+                    poaText = '&nbsp;Our records indicate that <strong>' + poaName + '</strong> is currently on file as your POA.<br />You may also contact them with any questions you may have. Do you have their phone number?"<br />';
+                }
+            }
+        }
+        document.getElementById('clStatus').innerHTML = status;
+        document.getElementById('apcCom').innerHTML = 'Based on ' + roType;
+
+        nodStatusDate = null;
+        form9StatusDate = null;
+        socStatusDate = null;
+        // TODO: what is Form9 status date?
+
+        // analysis part: look at appeals dates and decide which section to show
+        var allDates = 'Dates (UNKNOWN)';
+        if (appealDates) {
+            allDates = 'Dates (' + appealDates.length + '): ';
+            for (var i = 0; i < appealDates.length; i++) {
+                var dateVal = appealDates[i].get('date_s');
+                var dt = new Date(dateVal);
+                var dateTypeCode = appealDates[i].get('dateTypeCode');
+                var dateTypeDescription = appealDates[i].get('dateTypeDescription');
+                allDates += (i > 0 ? '; ' : '') + dateTypeDescription + ': ' + dateVal;
+                if (dateTypeDescription == 'Notice of Disagreement Date' || dateTypeCode == 'NOD') {
+                    nodDate = appealDates[i].get('date_s');
+                    nodStatusDate = nodDate;
+                    document.getElementById('dateNod').innerHTML = nodDate;
+                    document.getElementById('dateNod1').innerHTML = nodDate;
+                    document.getElementById('dateNod2').innerHTML = nodDate;
+                    document.getElementById('dateNod3').innerHTML = nodDate;
+                    //
+                    document.getElementById('dateNod4').innerHTML = nodDate;
+                    document.getElementById('dateNod5').innerHTML = nodDate;
+                    document.getElementById('dateNod6').innerHTML = nodDate;
+                    document.getElementById('dateNod7').innerHTML = nodDate;
+                }
+                else if (dateTypeDescription == 'Form 9 Date' || dateTypeCode == 'FORM9') {
+                    form9StatusDate = appealDates[i].get('date_s');
+                }
+
+                else if (dateTypeDescription == 'SOC Date' || dateTypeCode == 'SOC') {
+                    socStatusDate = appealDates[i].get('date_s');
+                    document.getElementById('socDate').innerHTML = socStatusDate;
+                    document.getElementById('socDate1').innerHTML = socStatusDate;
+                }
+            }
+        }
+        document.getElementById('dates').innerHTML = allDates;
+
+        //Criteria to expand menus
+        var ssocExist = false;
+        var deNovoExist = false, deNovoLetterAssignDate = null, diariesHasEntriesWithoutClosedDate = false, eachDiaryHasClosedDates = false;
+        var allDiaries = 'Diaries (UNKNOWN)';
+        if (appealDiaries) {
+            allDiaries = 'Diaries (' + appealDiaries.length + '): ';
+            if (appealDiaries.length > 0) { eachDiaryHasClosedDates = true; }
+
+            for (var i = 0; i < appealDiaries.length; i++) {
+                var diaryDesc = appealDiaries[i].get('diaryDescription');
+                if (diaryDesc) { diaryDesc = diaryDesc.toString().toUpperCase(); }
+                var desc = appealDiaries[i].get('diaryCode') + '/' + diaryDesc;
+                var assignDt = appealDiaries[i].get('assignedToStaffMemberDate_f'); if (assignDt == '') { assignDt = 'N/A'; }
+                var clDt = appealDiaries[i].get('diaryClosedDate_f');
+                if (!clDt || clDt == '') {
+                    clDt = 'N/A';
+                    diariesHasEntriesWithoutClosedDate = true;
+                    eachDiaryHasClosedDates = false;
+                }
+                var dueDt = appealDiaries[i].get('diarySuspenseDueDate_f'); if (dueDt == '') { dueDt = 'N/A'; }
+                allDiaries += (i > 0 ? '; ' : '') + desc + ': assigned-' + assignDt + ', due-' + dueDt + ', closed-' + clDt;
+
+                if (diaryDesc == 'SSOC SENT') { ssocExist = true; }
+                if (diaryDesc == 'DE NOVO - LETTER') {
+                    deNovoExist = true;
+                    deNovoLetterAssignDate = appealDiaries[i].get('assignedToStaffMemberDate_f');
+                }
+            }
+        }
+        document.getElementById('diaries').innerHTML = allDiaries;
+
+        // Start on status values
+
+        // 1. ElectionPend
+        var displayElectionPend = false;
+        if ((statusCode == 'ADV') && ssocExist == false && deNovoExist == true && deNovoLetterAssignDate && deNovoLetterAssignDate.length > 0) {
+            var dt = new Date(deNovoLetterAssignDate);
+            var diff = Math.abs(DateDiff.inDays(dt, new Date()));
+            if (diff < 60) { displayElectionPend = true; }
+        }
+
+        // 2. NOD: DRO Election Received 
+        var displayDROElection = false;
+        if ((statusCode == 'ADV' || statusCode == 'NOD') && ssocExist == false && deNovoExist == true && deNovoLetterAssignDate && deNovoLetterAssignDate.length > 0) {
+            var dt = new Date(deNovoLetterAssignDate);
+            var diff = Math.abs(DateDiff.inDays(dt, new Date()));
+            if (diff >= 60) { displayDROElection = true; }
+        }
+
+        // 3. NOD: Traditional Election (or fee election made after 60 days) 
+        var displayTraditionElection = false;
+        if ((statusCode == 'ADV' || statusCode == 'NOD') && ssocExist == false) {
+            // TODO: how to get someDateFromHearingRequest?
+            // No Election within 60 days
+            // An “Election” is a choice of hearing type, so we would need to go from the date NOD received nodStatusDate 
+            // and if there has been no choice made, assume “fee” election.
+            var someDateFromHearingRequest = null;
+            if (someDateFromHearingRequest && nodStatusDate && nodStatusDate.length > 0) {
+                var diff = Math.abs(DateDiff.inDays(new Date(nodStatusDate), new Date(someDateFromHearingRequest)));
+                if (diff > 60) { displayTraditionElection = true; }
+            }
+        }
+
+        // 4. NOD: SOC issued 
+        var displayNODSOC = false;
+        if ((statusCode == 'ADV' || statusCode == 'NOD') && ssocExist == true) {
+            displayNODSOC = true;
+        }
+
+        // 5. Form9: Pending Hearing Dates, Diaries and/or Tracked Items 
+        // TODO: what are ADV 1-9  status codes?
+        var displayForm9PendHearing = false;
+        var closedDate = false;
+        if (diariesHasEntriesWithoutClosedDate && statusCode == 'ADV' && hearingReqScheduledDate && hearingReqScheduledDate.length > 0) {
+            if (new Date(hearingReqScheduledDate) > new Date()) { displayForm9PendHearing = true; }
+        }
+
+        // 6. Form9: No future hearing, all diaries/tracked items are closed 
+        // TODO: what are ADV 1-9  status codes?
+        var displayForm9NoFutureHearing = false;
+        if (statusCode == 'ADV' && eachDiaryHasClosedDates == true) {
+            if (!hearingReqScheduledDate || hearingReqScheduledDate.length == 0) {
+                displayForm9NoFutureHearing = true;
+            }
+            else if (new Date(hearingReqScheduledDate) <= new Date()) {
+                displayForm9NoFutureHearing = true;
+            }
+        }
+
+        // 7. Certified: Appeals No Hearing Requested
+        // TODO: what are these codes? 	BVA Cert     
+        // TODO: what is Cert Date on the Docket
+        var dispalyAppealsNoHearing = false;
+        var certDateOnDocket = null;
+        if ((!hearingRequestDate || hearingRequestDate.length == 0) &&
+			(statusCode == 'BVA CERT' || statusCode == 'ACT' || (certDateOnDocket && certDateOnDocket.length > 0))
+		  ) {
+            dispalyAppealsNoHearing = true;
+        }
+
+        // 8. Certified: Hearing Requested, Not Yet Conducted
+        // TODO: what are these codes? 	BVA Cert     
+        // TODO: what is Cert Date on the Docket
+        var displayAppealsHearing = false;
+        if (hearingRequestDate && hearingRequestDate.length > 0 &&
+			hearingReqScheduledDate && hearingReqScheduledDate.length > 0 &&
+			(statusCode == 'BVA CERT' || statusCode == 'ACT' || (certDateOnDocket && certDateOnDocket.length > 0)) &&
+			new Date(hearingReqScheduledDate) > new Date()
+			) {
+            dispalyAppealsNoHearing = true;
+        }
+
+        // 9. Appeals in Remand Status (REM)
+        var displayAppealsREM = (statusCode == 'REM');
+
+
+        // Toggle appropriate div
+        var tag = '';
+        if (displayElectionPend == true) { tag = 'ElectionPend'; }
+        else if (displayDROElection == true) { tag = 'DROElection'; }
+        else if (displayTraditionElection == true) { tag = 'traditionalElection'; }
+        else if (displayNODSOC == true) { tag = 'NODSOC'; }
+        else if (displayForm9PendHearing == true) { tag = 'Form9PendHearing'; }
+            //else if (displayForm9NoFutureHearing == true) { tag = 'Form9NoFutureHearing'; }
+        else if (dispalyAppealsNoHearing == true) { tag = 'RevisedCertifiedAppeals'; }  //TODO: the condition is probably incorrect
+            //else if (displayAppealsHearing == true) { tag = 'CertifiedHearingReq'; }
+        else if (displayAppealsREM == true) { tag = 'AppealsRemand'; }
+
+        if (tag.length > 0) { toggleDiv(tag); }
+
+        //////////////
+        // VAI
+        _NodDays = null; _Form9Days = null;
+        VAIRecommendation();
+    }
+
+    function UpdateNodVaiDayLabels() {
+        var s = 'UNKNOWN';
+        if (_NodDays && _NodDays.length > 0) {
+            s = _NodDays;
+        }
+
+        document.getElementById('noddays1').innerHTML = s;
+        document.getElementById('noddays2').innerHTML = s;
+        document.getElementById('noddays3').innerHTML = s;
+        document.getElementById('noddays4').innerHTML = s;
+        document.getElementById('noddays5').innerHTML = s;
+        document.getElementById('noddays6').innerHTML = s;
+        document.getElementById('noddays7').innerHTML = s;
+        document.getElementById('noddays8').innerHTML = s;
+
+        s = 'UNKNOWN';
+        if (_Form9Days && _Form9Days.length > 0) {
+            s = _Form9Days;
+        }
+        document.getElementById('form9days1').innerHTML = s;
+        //document.getElementById('form9days2').innerHTML = s;
+        //document.getElementById('form9days3').innerHTML = s;
+        //document.getElementById('form9days4').innerHTML = s;
+    }
+
+    function validateSoj(soj) {
+        var numberic = /^[0-9]+$/;
+        if (soj.match(numberic)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function validateAlphaNumeric(myString) {
+        var alphaExp = /^[0-9a-zA-Z]+$/;
+        if (myString.match(alphaExp)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    function VAIRecommendation() {
+        var vai = 'None: Appeal status (' + (_appealStatusCode ? _appealStatusCode : 'UNKNOWN') + ') is not NOD (ADV) and not Form9 (ACT).';
+        var daysMsg = '';
+
+        // if appeal reaches form9StatusDate, status is Form9
+        if (form9StatusDate && form9StatusDate.length > 0) { _appealStatusCode = 'ACT'; }
+
+        _NodDays = null; _Form9Days = null;
+        AverageClaimProcTimes(false);
+
+        if (_appealStatusCode == 'ADV' || _appealStatusCode == 'ACT') {
+            var statusDate = _appealStatusCode == 'ADV' ? nodStatusDate : form9StatusDate;
+
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+
+            var soj = document.getElementById('soj').value;
+
+            if (soj != null && soj.length > 0) {
+                if (statusDate != null) {
+                    // get days for soj 
+
+                    var days = _appealStatusCode == 'ADV' ? _NodDays : _Form9Days;
+
+                    if (days != null && days.length > 0) {
+                        daysMsg = 'Av. Proc. Time for Appeals in ' + _appealStatusCode + ': ' + days;
+                        var dayCount = parseInt(days) + 100;
+                        var statusDt = new Date(statusDate.toString().replace(new RegExp('-', 'g'), '/'));
+                        var datePlus = new Date(statusDt.getTime() + dayCount * 24 * 60 * 60 * 1000);
+
+                        var isReq = ((new Date()) > datePlus);
+                        vai = "<strong>VAI is " +
+						(isReq ? "" : "NOT ") +
+						"Recommended.</strong> Today's date is " +
+						(isReq ? "later" : "earlier") +
+						" than Appeal Status Date (" + statusDate + ") + average count of days for SOJ " + soj + " + 100 days.";
+                    }
+                    else {
+                        vai = "None: the Claim Processing Times table in CRM does not contain the data for days in '" + _appealStatusCode +
+					        "' status for the station '" + soj + "'.";
+                    }
+                }
+                else {
+                    vai = "None: the date Appeals entered '" + _appealStatusCode + "' is not available.";
+                }
+            }
+            else {
+                vai = "None: the SOJ is not specified. Please enter SOJ in the box on top of the screen and click 'VAI' button again.";
+            }
+        }
+
+        if (validateAlphaNumeric(_appealStatusCode)) {
+            document.getElementById('vairec').innerHTML = vai;
+        }
+        else {
+            alert('Invalid Appeal Status Code: ' + _appealStatusCode + ' should contain only numbers and letters.');
+        }
+        document.getElementById('vaiDays').innerHTML = daysMsg;
+
+        UpdateNodVaiDayLabels();
+    }
+
+    function CreateSR() {
+        if (CRM.Xrm.Page.ui.getFormType() == CRM.CRM_FORM_TYPE_CREATE) {
+            alert('Please save Phone Call prior to creating a new VAI Service Request\n\nIf Phone Call is not saved, it cannot be linked to new Service Request record.');
+            return;
+        }
+        var prompt = ' create a new VAI Service Request.';
+
+        var selection = {
+            "benefitClaimID": '',
+            "claimReceiveDate": '',
+            "claimTypeName": '',
+            "statusTypeCode": '',
+            "lastActionDate": '',
+            "organizationName": '',
+            "personOrOrganizationIndicator": '',
+            "programTypeCode": '',
+            "statusTypeCode": '',
+            "contentions": '',
+            "ptcpntId": ''
+        };
+
+        var doOpen = document.getElementById('openSR').checked;
+        var doAlert = !doOpen;
+
+        CRM._CreateClaimServiceRequest(selection, 'Appeals', false, 'VAI', 2, false, doOpen, doAlert);
+    }
+
+    function AverageClaimProcTimes(doAlert) {
+        var soj = document.getElementById('soj').value;
+        if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+        //parent.opener._DisplayClaimProcessingTimes(soj);
+        if (!parent || !parent.opener && !parent.opener.parent) {
+            alert('Phone Call screen is not available. Average Claim Processing Times cannot be retrieved.');
+            return;
+        }
+
+        var columns = ['va_name', 'va_AvgControlTime', 'va_AvgDaysAwaitingAuthorization', 'va_AvgDaysAwaitingAward', 'va_AvgDaysAwaitingDecision', 'va_AvgDaysAwaitingDevelopment', 'va_AvgDaysAwaitingEvidence', 'va_ROJName', 'va_RelatedClaimCodes',
+	'va_NOD', 'va_Form9', 'va_DevelopmentPhase', 'va_DecisionPhase', 'va_NotificationPhase', 'va_EPC'];
+        var sojCode = soj;
+        if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+        // if there's more than one result, try to find one that has claim type for current claim
+        var result = null, resInd = -1, s = '';
+
+        CrmRestKit2011.ByQueryAll('va_claimprocessingtimes', columns, "va_name eq '" + sojCode + "'", false)
+	    .fail(
+            function (err) {
+                errorRestKit(err, 'Failed to retrieve Claim Times information from table:');
+            })
+            .done(function (data) {
+                if ((data) && (data.length > 0)) {
+                    resInd = 0;
+                    // find res with NOD or Form9 data
+                    for (var i = 0; i < data.length; i++) {
+                        var curResult = data[i],
+                            curCodes = curResult.va_EPC;
+                        if ((curResult.va_NOD && curResult.va_NOD.length > 0) || (curResult.va_Form9 && curResult.va_Form9.length > 0)) {
+                            if (!curCodes || curCodes.length == 0) {
+                                resInd = i;
+
+                                var ROJName = (curResult.va_ROJName != null) ? curResult.va_ROJName : 'n/a';
+                                var DevelopmentPhase = (curResult.va_DevelopmentPhase != null) ? curResult.va_DevelopmentPhase : 'n/a';
+                                var DecisionPhase = (curResult.va_DecisionPhase != null) ? curResult.va_DecisionPhase : 'n/a';
+                                var NotificationPhase = (curResult.va_NotificationPhase != null) ? curResult.va_NotificationPhase : 'n/a';
+                                var Form9 = (curResult.va_Form9 != null) ? curResult.va_Form9 : 'n/a';
+                                var NOD = (curResult.va_NOD != null) ? curResult.va_NOD : 'n/a';
+
+                                s += 'ROJ Name: ' + ROJName + '\n' +
+                                            'Development Phase: ' + DevelopmentPhase + '\n' +
+                                            'Decision Phase: ' + DecisionPhase + '\n' +
+                                            'Notification Phase: ' + NotificationPhase + '\n' +
+                                            'Form 9: ' + Form9 + '\n' +
+                                            'NOD: ' + NOD + '\n\n';
+                            }
+                        }
+                    }
+                    result = data[resInd];
+                }
+
+                _NodDays = null;
+                _Form9Days = null;
+
+                if (result) {
+                    _NodDays = result.va_NOD;
+                    _Form9Days = result.va_Form9;
+                    if (doAlert) {
+                        alert(s);
+                    }
+                }
+            });
+    }
+
+    function toggleDiv(divid) {
+        if (document.getElementById(divid).style.display == 'none') {
+            document.getElementById(divid).style.display = 'block';
+        } else {
+            document.getElementById(divid).style.display = 'none';
+        }
+
+        var divs = ['traditionalElection', 'DROElection', 'ElectionPend', 'NODSOC', 'AppealsRemand', 'AppealsRemandSSOC', 'RevisedCertifiedAppeals', 'Form9PendHearing'];
+        for (var i in divs) {
+            if (divs[i] != divid) {
+                var curDiv = document.getElementById(divs[i]);
+                if (curDiv.style.display != 'none') { curDiv.style.display = 'none'; }
+            }
+        }
+    }
+
+    var DateDiff = {
+        inDays: function (d1, d2) {
+            var t2 = d2.getTime();
+            var t1 = d1.getTime();
+
+            return parseInt((t2 - t1) / (24 * 3600 * 1000));
+        }
+    };
+
+    function errorRestKit(err, message) {
+        var error = message + ':\r\nError: ' + err.statusText;
+        if (err.status === 400 && err.responseText)
+            error += '\r\n' + $.parseJSON(err.responseText).error.message.value;
+
+        alert(error);
+    }
+</script>
+<div class="container">
+
+	<div id="sidenav">
+		<img src="images/logo.bmp" alt="VRM Logo" align="center"; style="padding-left:25px; padding-top:10px" />
+		<h1 align="center">Reference</h1>
+		<ul>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000003285">Appeals FAQ</a></li>
+			<li><a href="http://vbrs.vba.va.gov/vbrs/doLink.do?path=Federal%20Benefits%20to%20Veterans%20and%20Dependents.Appeals.Appeal%20Process">Appeals Process in VBRS</a></li>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000004188">VACOLS Codes</a></li>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000004186">Appeals Management Center Need to Know Information</a></li>
+			<p align="center" style="color:white;">Board of Veteran Appeals (BVA) <br/> 
+				&nbsp; 811 Vermont Avenue, NW <br/> 
+				&nbsp; Washington, DC 20420 
+				<br/> Phone: 1-800-923-8387 or 
+				<br/> Phone: 202-565-5436 
+				<br/> Fax: 202-565-4720 <br/> 
+				<a href="mailto:BVAOmbudsman@mail.va.gov" style="color:white;"><font  style="color:white;">Email: BVAOmbudsman@mail.va.gov</font></a></p>
+				<p align="center" style="color:white;">Appeals Management Center (AMC)<br/> 
+				&nbsp; 1722 "Eye" Street, NW <br/> 
+				&nbsp; Washington, DC 20421
+			</p>
+		</ul>
+	</div>
+
+	<div id="content">
+	<div id="header" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; margin-top: 5px; margin-bottom: 5px" align="left">
+	<label id="ln"></label><label id="clStatus"></label>&nbsp;<br/>
+	<label id="dates"  style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;"></label><br />
+	<label id="diaries" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px;"></label>
+	<br /><br/>
+	<a id="acpt" onclick="AverageClaimProcTimes(true)"  
+			style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF; display: none;" 
+			title="Click to view Average Processing Times">Av. Proc Times for</a>&nbsp;<input 
+			id="soj" type="text" style="width: 40px; display: none;" />&nbsp;<label id="apcCom" style="font-size:9px; font-weight:normal; display: none;"></label>
+	<br/>
+	</div>  
+	<table>
+		<tr align="left"><td colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: bold">VAI</td></tr>
+		<tr align="left" valign="top">
+			<td  colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold"><label id="vairec"></label></td>
+		</tr>
+		<tr align="left" valign="top">
+			<td  colspan="2" style="font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight:normal"><label id="vaiDays"></label></td>
+		</tr>
+		<tr align="left" valign="top">
+			<td  colspan="2"><input type="button" title="Refresh VAI" value="Refresh VAI" onclick="VAIRecommendation()" style="width:180px" />&nbsp;
+			<input type="button" title="Create VAI Service Request" value="Create VAI Service Request" onclick="CreateSR()" style="width:180px" />&nbsp;
+			<input type="checkbox" id="openSR" title="Open New Service Request After Creation" value="Open New Service Request After Creation" checked="checked"  />&nbsp;<label>Open New SR After Creation</label> 
+			</td>
+		</tr>
+		<tr><td style="font-family: Arial, Helvetica, sans-serif; font-size: 9px; font-weight: bold"><a href='http://vbaw.vba.va.gov/bl/20/opai/pa/appealsmonthly/FY12/AppealsPending.xls' target=_blank>Appeals Pending Table</a></td></tr>
+	</table>
+	<br />
+		<a href="javascript:;" onmousedown="toggleDiv('ElectionPend');"
+			style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; font-weight: bold">NOD: Pending Election</a>
+	<div id="ElectionPend" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; display: none">
+	<h1>NOD: Pending Election</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.</ul>
+
+<ul><strong>Components:</strong><br/> 
+<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.
+	<ul type="disc">
+	<li>Date Notice of Disagreement (NOD) received on <b><label id="dateNod4">UNKNOWN</label></b>.</li>  
+    <li>There are 2 different ways appeal can be processed, Decision Review Officer process or Traditional Appeal process. </li> 
+    <li>Would you like to hear more information on either of these processes?</li> 
+    <li>We will contact you if additional information is needed</li> 
+    <li>Solicit election, reminder of 60 day time limit</li>  
+    <li>Online NOD time frames average about <b><label id='noddays5'>N/A</label></b> days.</li> 
+    <li>NOD processing time depends on specifics of your case and VA’s pending workload</li> 
+    </ul>
+</ul>
+<ul><strong>If caller request to hear more information on either process:</strong><br/> <br/>   
+	<strong>Explanation of the Decision Review Officer's (DRO) process</strong>
+	<ul>
+	<li>Reviewed by DRO (denovo review)</li>
+	<li>Ability to overturn decision without additional evidence</li>
+	</ul>
+	<strong>Explanation of Traditional Review process</strong>
+	<ul>
+	<li>Reviewed by VA staff member</li>
+	<li>Determine if new evidence is needed</li>
+	<li>New evidence is needed to amend, reverse, or modify a prior decision unless there is a clear and unmistakable error</li>
+	</ul>
+</ul>
+<br />
+<ul>
+<strong>Script:</strong><br/>
+
+    “We received your Notice of Disagreement on <b><label id="dateNod2">UNKNOWN</label></b>. At this time, there are two different ways that your appeal can be processed, the Decision Review Officer process or the Traditional Appeal process.  <br /><br/>
+    Would you like to hear more information on either of these processes?<br/><br/>
+    In either process, if it is determined that additional evidence is needed, we will contact you.<br /><br/>
+    Would you like to elect either process at this time? You only have 60 days from the date your election letter was sent.<br /> <br/>
+    “The processing of Notice of Disagreements average about <b><label id='noddays1'>N/A</label></b> days.<br /><br/>  
+    The length of time it takes to process your NOD depends on the specifics of your case and VA’s pending workload.”<br /><br />
+
+    <strong>If caller request to hear more information on either process:</strong><br /><br/>
+    “The DRO process requires that your file is reviewed by a Decision Review Officer.  This is commonly referred to as a denovo review.  The DRO is an experienced decision maker that has the authority to take a fresh look at your case and overturn the initial decision without the need for any additional evidence.<br/><br/>
+    The “Traditional” process provides a review of your claim by a VA staff member, who will review your claim and determine if additional evidence is needed.  In order to amend, reverse, or modify a prior decision, new evidence must be presented.  A prior decision cannot be changed on the same evidence of record unless there is a clear and unmistakable error.” <br/>
+    <br/>
+
+</ul> 
+	</div>
+
+	<br/><br/><a  href="javascript:;" onmousedown="toggleDiv('DROElection');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">NOD: DRO Election Received </a>
+	<div id="DROElection" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; display: none">
+	<h1>NOD: DRO Election Received</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.</ul>
+
+<ul><strong>Components:</strong><br/> 
+<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.
+    <ul type="disc">
+        <li>Date Notice of Disagreement (NOD) received  <label id="dateNod5">UNKNOWN</label></li>
+        <li>You have elected review by a Decision Review Officer (DRO)</li>
+        <li>Awaiting review</li>
+        <li><strong>Review and discuss any  pertinent Hearing Dates, Diaries, and Tracked Items.</strong></li>
+        <li>We will contact you if additional information is needed</li>
+        <li>If no additional information is needed, the DRO will make a decision</li>
+        <li>Online NOD time frames average about <b><label id="noddays6">N/A</label></b> days</li>
+        <li>NOD processing time depends on specifics of your case and VA’s pending workload</li>
+    </ul>
+</ul>
+<br />
+<ul>
+    <strong>Script:</strong><br/>
+     “We received your Notice of Disagreement on <b><label id="dateNod1">UNKNOWN</label></b>.   You elected a review by a Decision Review Officer process.  Right now, your appeal is awaiting that review.”<br /><br />
+    <b>Review and discuss any pertinent Hearing Dates, Diaries, and Tracked Items.</b><br /><br />
+    “If we need additional information, we'll notify you.  If we don't need any additional information, the Decision Review Officer will make a decision, and you'll receive written notification.<br /><br />
+    The processing of Notice of Disagreements average about <b><label id="noddays2">N/A</label></b> days.  <br /><br />
+    The length of time it takes to process your NOD depends on the specifics of your case and the VA’s pending workload.”<br />
+</ul> 
+	</div>
+
+	<br /><br /><a  href="javascript:;" onmousedown="toggleDiv('traditionalElection');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">NOD: Traditional Election (or no election made after 60 days)</a>
+	<div id="traditionalElection" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; display: none">
+	<h1>NOD: Traditional Election (or no election made after 60 days)</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.</ul>
+
+<ul><strong>Components:</strong><br/> 
+<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.
+	<ul type="disc">
+	    <li>Date Notice of Disagreement (NOD) received on <b><label id="dateNod6">UNKNOWN</label></b></li>  
+        <li>Awaiting review under the traditional appeals process</li>
+        <li><strong>Review and discuss any pertinent Hearing Dates, Diaries, and Tracked Items, if applicable.</strong></li>
+        <li>We will contact you if additional information is needed</li>
+        <li>Online NOD time frames average about <b><label id="noddays7">N/A</label></b> days</li>
+        <li>NOD processing time depends on specifics of your case and VA’s pending workload. </li>
+	</ul>
+</ul>
+<br />
+<ul>
+<strong>Script:</strong><br/>
+"We received your Notice of Disagreement on <b><label id="dateNod">UNKNOWN</label></b>.<br /><br /> 
+Your appeal will be reviewed under the traditional appeals process.  Right now, your appeal is awaiting that review.  If we need additional information, we will contact you. If we don’t need any additional information, a decision will be made and you will receive written notification.”<br /><br />
+<strong>Review and discuss any pertinent Hearing Dates, Diaries, and Tracked Items, if applicable.</strong><br /><br />
+ “The processing of Notice of Disagreements average about <b><label id="noddays3">N/A</label></b> days.  <br /><br />
+The length of time it takes to process your NOD depends on the specifics of your case and the VA’s pending workload.”<br /><br />
+</ul> 
+ </div>
+
+	<br /><br /><a href="javascript:;" onmousedown="toggleDiv('NODSOC');"
+			style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; font-weight: bold">NOD: SOC Issued </a>
+	<div id="NODSOC" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; display: none">
+	<h1>NOD: SOC Issued</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+    Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.<br/><br/>
+    <b>Please note: Requests for Form 9 extensions must be received in writing.</b></ul><br/>
+
+	<ul><strong>Components:</strong><br/>
+	<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>
+	    <ul type="disc">
+	        <li>Date Notice of Disagreement (NOD) received on <b><label id="dateNod7">UNKNOWN</label></b></li>
+	        <li>Date SOC sent <b><label id="socDate1">N/A</label></b>.</li>
+	        <li><strong>Review and discuss any pertinent Hearing Dates, Diaries, and Tracked Items.</strong></li>
+	        <li>VA Form 9 needed to continue appeal </li>
+	        <ul type="disc"><li>Returned SOJ within <b>1 year</b> of decision or within <b>60 days</b> from SOC (whichever is later)</li> </ul>
+	        <li>In most cases, appeal will be closed if Form 9 is not received timely</li>
+	        <li>Online NOD time frames average <b><label id='noddays8'>N/A</label></b> days</li>
+	        <li>NOD processing time depends on specifics of your case and VA’s pending workload.</li>
+	    </ul>
+	</ul>
+	
+	<ul>
+        <strong>Script:</strong><br/>
+        "We received your Notice of Disagreement on <b><label id="dateNod3">UNKNOWN</label></b> and We sent you a Statement of the Case on <b><label id="socDate">N/A</label></b>. The Statement of the Case provides a listing of the evidence we reviewed, the laws and regulations that we applied in making our decision, and our reasons for the decision made.”<br /><br />
+        <b>Review and discuss any pertinent Hearing Dates, Diaries, and Tracked Items</b><br/><br/>
+        "With your SOC, we included VA Form 9 "Appeal to Board of Veterans' Appeals." This is the form that you will use to continue your appeal. Your completed Form 9 should be returned to the Station of Jurisdiction <label id="soj2">N/A</label> within <b>1 year</b> from the date of the decision you are appealing, or within <b>60 days</b> from the date of your Statement of the Case, whichever is later. In most cases, if your Form 9 is not received within the appropriate time limit, your appeal will be closed.<br /><br />
+        The processing of Notice of Disagreements average about <b><label id='noddays4'>N/A</label></b> days.<br /><br />
+        The length of time it takes to process your NOD depends on the specifics of your case and the VA’s pending workload.”<br /><br />
+    </ul> 
+	</div>
+	<br /><br /><a href="javascript:;" onmousedown="toggleDiv('Form9PendHearing');"
+			style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; font-weight: bold">Appeals in Form 9 Status (ADV 1-9)</a>
+	<div id="Form9PendHearing" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; display: none">
+	<h1>Appeals in Form 9 Status (ADV 1-9)</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+	Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.</ul><br/>
+
+	<ul><strong>Components:</strong><br/>
+	<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.
+	<ul type="disc">
+        <li>Date Form 9 is received </li>
+        <li>Awaiting review for further action / necessary development</li>
+        <li><strong>Review and discuss any pending Hearing Dates, Diaries, and Tracked Items.</strong></li>
+        <li>If no further action is needed, your file will be certified to BVA</li>
+        <li>If any further action or development is needed, we will notify you</li>
+        <li>Online Form 9 time frames (average time from receipt of Form 9 to certification)</li>
+        <li>Form 9 processing time depends on specifics of your case and VA’s pending workload</li>
+	</ul>
+	</ul>
+	<ul>
+    <br/>
+	<strong>Script:</strong><br/>
+	"We received your Form 9, which formalized your appeal on <label id="dateofappeal">N/A</label><br/></br>
+    At this time your appeal is awaiting review for any further action or necessary development.”<br/><br/>
+	<strong>Review and discuss any pending Hearing Dates, Diaries, and Tracked Items.</strong><br/><br/>
+    “If no further action is necessary, your file will be certified to BVA for their decision on your appeal.  If any further action or development is needed, we will notify you.<br/><br/>
+	The processing of most Formalized Appeals takes an average of <b><label id="form9days1"></label></b>&nbsp; days. <br/><br/>
+    The length of time it takes to complete your appeal depends on the specifics of your case and VA's pending workload.”<br/><br/>
+	</ul>
+	</div>
+	<br /><br /><a href="javascript:;" onmousedown="toggleDiv('RevisedCertifiedAppeals');"
+			style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; font-weight: bold">Revised Certified Appeals</a>
+	<div id="RevisedCertifiedAppeals" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; display: none">
+	<h1>Revised Certified Appeal</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.</ul><br/>
+
+	<ul><strong>Components:</strong><br/>
+	<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.
+	<ul type="disc">
+        <li>Date appeal certified to Board of Veterans’ Appeals (BVA)  - <label id="bvacertdate3">BLANK</label></li>
+        <li>Phase  where BVA provides decision/ may or may not include hearing with member of board</li>
+        <li>If requested, you will be notified of hearing date and time by mail</li>
+        <li>Once completed, or if no hearing requested, a Judge will review appeal and provide decision </li>
+        <li>Unable to provide timeframe once appeal is certified</li>
+	</ul>
+	</ul><br/>
+	<ul>
+	    <strong>Script:</strong><br/>
+	    "Your appeal was certified to BVA on <label id="bvacertdate1">BLANK</label>.<br/><br/>
+        This is the phase of the appeals process where BVA provides a decision on your appeal.  This phase may, or may not, include a hearing with a member of the Board.<br/><br/>
+        If a BVA Hearing was requested and has not yet been held, you will be notified of the date and time by mail.  <br/><br/>
+        Once a requested hearing is held, or, if no hearing is requested, a BVA Judge will review your appeal and provide a decision.  <br/><br/>
+        We are unable to provide any timeframe on how long it will take to complete your appeal once it is certified to the BVA, as it is no longer within your local office's jurisdiction.”	<br/><br/>
+	</ul>	
+	</div>
+	<br /><br /><a href="javascript:;" onmousedown="toggleDiv('AppealsRemand');"
+			style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; font-weight: bold">Appeals in Remand Status (REM):  Open Tracked Items/No Recent SSOC</a>
+	<div id="AppealsRemand" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; display: none">
+	<h1>Appeals in Remand Status (REM):  Open Tracked Items/No Recent SSOC</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.</ul><br/>
+	<h3><i>Remand Pending</i></h3>
+	<i>Note: A remand is an appeal that has been returned to the station of jurisdiction or the Appeals Management Center for additional action.</i>
+
+	<ul><strong>Components:</strong><br/>
+	<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.<br/>
+	
+	<ul type="disc">
+        <li>Board of Veterans’ Appeals (BVA) has ordered additional action before making a final decision </li>
+        <li><b>Review and discuss any pertinent Diaries and/or Tracked Items </b></li>
+        <li>After all actions completed, your file will be reviewed </li>
+        <li>If more evidence is needed, we will contact you </li>
+        <li>VA will provide a supplemental decision and/or Supplemental Statement of the Case (SSOC) </li>
+        <li>Case will be returned to BVA for decision </li>
+        <li>No timeframes available once claim is certified </li>
+	</ul>
+
+	</ul>
+	<ul>
+	    <strong>Script:</strong><br/>
+        “The Board of Veterans’ Appeals has ordered that additional action is needed on your appeal before making a final decision. “<br/><br/>
+        <b>Review and discuss any pertinent Diaries and/or Tracked Items.</b><br/><br/>
+        “When all the required actions are completed, your file will be reviewed.<br/><br/>
+        If any further action or development is needed, we will contact you.  If not, you will be provided a supplemental decision or Supplemental Statement of the Case, prior to returning your appeal to the BVA for a decision.<br/><br/>
+        We are unable to provide any timeframe on how long it will take to complete your appeal once it is certified to the BVA, as it is no longer within your local office's jurisdiction and we do not have any control over BVA.”<br/><br/>
+	</ul>
+	</div>
+	<br /><br /><a href="javascript:;" onmousedown="toggleDiv('AppealsRemandSSOC');"
+			style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; font-weight: bold">Appeals in Remand Status (REM):  SSOC Recently Issued </a>
+	<div id="AppealsRemandSSOC" style="font-family: Arial, Helvetica, Sans-Serif; font-size: 12px; display: none">
+	<h1>Appeals in Remand Status (REM):  SSOC Recently Issued</h1>
+	<h2>Mandatory Components and Script</h2>
+	<ul>Issues on appeal only need to be named if there are multiple appeals opened.<br/><br/> 
+Please remember to provide an adequate explanation if using VA jargon or acronyms in simple understandable terms.<br/><br/>
+     <i><u>SSOC Sent/646 Requested</u></i><br/>
+     (MAP-D: Claims Status as Rating Decision Complete; Claim Level Suspense of SSOC)<br/></ul><br/>
+	<h3><i>Remand Pending</i></h3>
+	<i>Note: A remand is an appeal that has been returned to the station of jurisdiction or the Appeals Management Center for additional action.</i>
+
+	<ul><strong>Components:</strong><br/>
+	<i>As long as these bullets are all addressed, the mandatory script requirement is fulfilled</i>.<br/>
+	
+	<ul type="disc">
+        <li>Board of Veterans’ Appeals (BVA) has ordered additional action before making a final decision </li>
+        <li><b>Review and discuss any pertinent Diaries and/or Tracked Items </b></li>
+        <li>SSOC: legal document to update any additions or changes to your appeal</li>
+        <li>If no additional evidence, case will be returned BVA </li>
+        <li>Judge will review appeal and provide decision </li>
+        <li>No timeframes available once claim is certified </li>
+	</ul>
+
+	</ul>
+	<ul>
+	    <strong>Script:</strong><br/>
+        “The Board of Veterans’ Appeals has ordered that additional action is needed on your appeal before making a final decision. “<br/><br/>
+        <b>Review and discuss any pertinent Diaries and/or Tracked Items.</b><br/><br/>
+        “You were recently sent a Supplemental Statement of the Case.  This is a legal document to update any additions or changes to your appeal.  If no additional evidence is submitted, your file will be returned to BVA.  A BVA Judge will review your appeal and provide a decision.<br/><br/>
+        We are unable to provide any timeframe on how long it will take to complete your appeal once it is certified to the BVA, as it is no longer within your local office's jurisdiction.”<br/><br/>
+	</ul>
+	</div>
+</div>
+</div>
+</body>
+</html>

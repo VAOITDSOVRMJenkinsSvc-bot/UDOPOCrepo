@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="VIP" default=".help">
+    <!--
+    The build-impl.xml file imported here contains the guts of the build process. It is
+    a great idea to read that file to understand how the process works, but it is best to
+    limit your changes to this file.
+    -->
+    <import file="${basedir}/.sencha/app/build-impl.xml"/>
+
+
+  <target name="-init">
+    <taskdef resource="com/sencha/ant/antlib.xml" classpath="${cmd.dir}/sencha.jar"/>
+    <property file="${app.config.dir}/build.properties"/>
+
+    <if>
+      <equals arg1="${args.environment}" arg2="production"/>
+      <then>
+        <property name="build.css.compress" value="${build.css.compress.production}"/>
+        <property name="build.css.preprocess" value="${build.css.preprocess.production}"/>
+        <property name="build.css.preprocessor.opts" value="${build.css.preprocessor.opts.production}"/>
+        <property name="build.compression" value="${build.compression.production}"/>
+        <property name="build.operations" value="${build.operations.production}"/>
+        <property name="build.options" value="${build.options.production}"/>
+      </then>
+      <else>
+        <if>
+          <equals arg1="${args.environment}" arg2="testing"/>
+          <then>
+            <property name="build.css.compress" value="${build.css.compress.testing}"/>
+            <property name="build.css.preprocess" value="${build.css.preprocess.testing}"/>
+            <property name="build.css.preprocessor.opts" value="${build.css.preprocessor.opts.testing}"/>
+            <property name="build.compression" value="${build.compression.testing}"/>
+            <property name="build.operations" value="${build.operations.testing}"/>
+            <property name="build.options" value="${build.options.testing}"/>
+          </then>
+          <else>
+            <fail>The ExtJS SDK currently supports 'production' and 'testing' builds not ${args.environment}</fail>
+          </else>
+        </if>
+      </else>
+    </if>
+
+  </target>
+
+  <!--
+    Clean folder before
+    -->
+  <target name="-before-build">
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        <antcall target="clean"/>
+      </then>
+    </if>
+  </target>
+  
+  <!--
+    Build Page
+    -->
+  <target name="-page">
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        
+        <echo>copying template index.html</echo>
+        <copy todir="${build.dir}" overwrite="true">
+          <fileset dir="${app.dir}/build" includes="index.html" />
+        </copy>
+
+        <echo>generating jsb3</echo>
+        <exec executable="${compile.dir}/${compile.file}" >
+          <arg line="'${compile.dir}/${compile.script}' --app-entry ${compile.app.entry} --project '${app.dir}/${compile.jsb3.file}'"/>
+        </exec>
+
+        <echo>building jsb3</echo>
+        <x-sencha-command>
+          build
+          -p=${compile.jsb3.file}
+          -d=${build.dir}
+        </x-sencha-command>
+        
+      </then>
+    </if>
+    
+    <if>
+      <equals arg1="testing" arg2="${args.environment}"/>
+      <then>
+        
+        <echo>copying index.html</echo>
+        <copy todir="${build.dir}" preservelastmodified="true">
+          <fileset dir="${app.dir}" includes="index.html" />
+        </copy>
+        
+      </then>
+    </if>
+  </target>
+  
+  <target name="-after-page">
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        
+        <!-- Concatenate js -->
+        <echo>Concat ${app.ext.code}</echo>
+        <concat destfile="${build.classes.file}" append="yes" fixlastline="yes">
+          <filelist dir="${ext.dir}" files="${app.ext.code}"/>
+        </concat>
+
+        <echo>Concat vendor files</echo>
+        <concat destfile="${build.classes.file}" append="yes" fixlastline="yes">
+          <fileset dir="${app.dir}/vendor" includes="**/*.js"/>
+        </concat>
+
+        <echo>Concat app files</echo>
+        <concat destfile="${build.classes.file}" append="yes" fixlastline="yes">
+          <filelist dir="${build.dir}" files="${app.all.code}"/>
+        </concat>
+
+        <echo>Compiling app files ${build.classes.file}</echo>
+        <x-sencha-command>
+          fs
+          minify
+          ${build.compression}
+          -from=${build.classes.file}
+          -to=${build.classes.file}
+        </x-sencha-command>
+        
+      </then>
+    </if>
+
+    <if>
+      <equals arg1="testing" arg2="${args.environment}"/>
+      <then>
+        
+        <echo>Copying Extjs code</echo>
+        <copy todir="${build.dir}/ext" preservelastmodified="true" >
+          <fileset dir="${ext.dir}" includes="${app.ext.devcode}" />
+        </copy>
+        
+        <echo>Copying vendor code</echo>
+        <copy todir="${build.dir}/vendor" preservelastmodified="true" >
+          <fileset dir="${app.dir}/vendor" includes="**/*" />
+        </copy>
+
+        <echo>Copying app code</echo>
+        <copy todir="${build.dir}/app" preservelastmodified="true" >
+          <fileset dir="${app.dir}/app" includes="**/*" />
+        </copy>
+        
+      </then>
+    </if>
+  </target>
+  
+  <!--
+    Copy Resources
+    -->
+  <target name="copy-resources" depends="init" 
+            description="Copy theme resources to folder">
+    <antcall target="-before-copy-resources"/>
+
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        
+        <echo>Moving app images</echo>
+        <copy todir="${build.dir}/resources/images" overwrite="true">
+          <fileset dir="${vip.images.dir}" includes="**/*" />
+        </copy>
+
+        <echo>Moving ext images</echo>
+        <copy todir="${build.dir}/resources/themes/images/default" overwrite="true">
+          <fileset dir="${app.ext.images}" includes="**/*" />
+        </copy>
+        
+      </then>
+    </if>
+
+    <if>
+      <equals arg1="testing" arg2="${args.environment}"/>
+      <then>
+
+        <echo>Moving app images</echo>
+        <copy todir="${build.dir}/resources/images" preservelastmodified="true" >
+          <fileset dir="${vip.images.dir}" includes="**/*" />
+        </copy>
+
+        <echo>Moving ext images</echo>
+        <copy todir="${build.dir}/ext/resources/themes/images/default" preservelastmodified="true" >
+          <fileset dir="${app.ext.images}" includes="**/*" />
+        </copy>
+        
+      </then>
+    </if>
+     
+    <antcall target="-after-copy-resources"/>
+  </target>
+
+  <!--
+  Add the app.css to the vip-all css for compression
+    -->
+  <target name="-sass">
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        <echo>Concat ${build.dir}/resources/css/${app.name}-all.css</echo>
+        <concat destfile="${build.dir}/resources/css/${app.name}-all.css" append="yes" fixlastline="yes">
+          <filelist dir="${vip.out.css}" files="${vip.css}"/>
+        </concat>
+
+        <echo>Concat ${build.dir}/resources/css/${app.name}-all.css</echo>
+        <concat destfile="${build.dir}/resources/css/${app.name}-all.css" append="yes" fixlastline="yes">
+          <filelist dir="${app.ext.css.dir}" files="${app.ext.css}"/>
+        </concat>
+
+        <!-- Concatenate app.css with vip-all.css before they get compressed -->
+        <if>
+          <equals arg1="true" arg2="${build.css.preprocess}"/>
+          <then>
+            <echo>Preprocess ${build.dir}/resources/css/${app.name}-all.css with ${build.css.preprocessor.opts}</echo>
+            <x-css-preprocess
+                file="${build.dir}/resources/css/${app.name}-all.css"
+                tofile="${build.dir}/resources/css/${app.name}-all.css"
+                options="${build.css.preprocessor.opts}"/>
+          </then>
+        </if>
+
+        <if>
+          <equals arg1="true" arg2="${build.css.compress}"/>
+          <then>
+            <echo>Compressing ${build.dir}/resources/css/${app.name}-all.css to ${build.dir}/resources/css/${app.name}-all.css</echo>
+            <x-compress-css srcfile="${build.dir}/resources/css/${app.name}-all.css"
+                            outfile="${build.dir}/resources/css/${app.name}-all.css"/>
+          </then>
+        </if>
+      </then>
+    </if>
+
+    <if>
+      <equals arg1="testing" arg2="${args.environment}"/>
+      <then>
+
+        <echo>Copying ext css code</echo>
+        <copy todir="${build.dir}/ext/resources/css" preservelastmodified="true">
+          <fileset dir="${ext.dir}/resources/css" includes="${app.ext.css}" />
+        </copy>
+
+        <echo>Copying app css code</echo>
+        <copy todir="${build.dir}/resources/css" preservelastmodified="true">
+          <fileset dir="${app.dir}/resources/css" includes="${vip.css}" />
+        </copy>
+        
+      </then>
+    </if>
+  </target>
+ 
+  <!--
+  cleanup files
+    -->
+  <target name="-after-build">
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        <delete file="${build.dir}/${app.all.code}"/>
+        <delete file="${build.dir}/all-classes.js" />
+        <delete file="${app.dir}/app.jsb3" />
+      </then>
+    </if>
+
+  </target>
+
+  <!--
+  deployment files
+    -->
+
+  <target name="int">
+    <property name="args.deployment" value="int"/>
+  </target>
+
+  <target name="dev">
+    <property name="args.deployment" value="dev"/>
+  </target>
+
+  <target name="deploy3" depends="init, get-deploy-ip">
+
+        <if>
+          <equals arg1="production" arg2="${args.environment}"/>
+          <then>
+            
+            <echo>Coping file for \\${deployment.ip}\${deployment.path}\${app.out.base}.js</echo>
+            <copy todir="\\${deployment.ip}\${deployment.path}" overwrite="true" verbose="true">
+              <fileset dir="${build.dir}" includes="${app.out.base}.js" />
+            </copy>
+            
+          </then>
+        </if>
+
+        <if>
+          <equals arg1="testing" arg2="${args.environment}"/>
+          <then>
+
+            <echo>Coping all modified file for \\${deployment.ip}\${deployment.path}</echo>
+            <copy todir="\\${deployment.ip}\${deployment.path}/app" verbose="true" preservelastmodified="true">
+              <fileset dir="${build.dir}/app" includes="**/*" />
+            </copy>
+
+          </then>
+        </if>
+       
+  </target>
+
+  <target name="deploy2" depends="init, get-deploy-ip">
+
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        <echo>Coping file for \\${deployment.ip}\${deployment.path}\${app.out.base}.js</echo>
+        <copy todir="\\${deployment.ip}\${deployment.path}" overwrite="true" verbose="true">
+          <fileset dir="${build.dir}" includes="${app.out.base}.js" />
+        </copy>
+      </then>
+    </if>
+
+    <if>
+      <equals arg1="testing" arg2="${args.environment}"/>
+      <then>
+        <echo>Coping all modified file for \\${deployment.ip}\${deployment.path}</echo>
+        <exec executable="${node.path}" >
+          <arg line="${compile.dir}/${deploy.script} ${app.dir}\app \\${deployment.ip}\${deployment.path}\app  ${scm.path}"/>
+        </exec>
+      </then>
+    </if>
+
+  </target>
+
+  <target name="deploy" depends="init, get-deploy-ip">
+
+    <if>
+      <equals arg1="production" arg2="${args.environment}"/>
+      <then>
+        <echo>Coping file for \\${deployment.ip}\${deployment.path}\${app.out.base}.js</echo>
+        <copy todir="\\${deployment.ip}\${deployment.path}" overwrite="true" verbose="true">
+          <fileset dir="${build.dir}" includes="${app.out.base}.js" />
+        </copy>
+      </then>
+    </if>
+
+    <if>
+      <equals arg1="testing" arg2="${args.environment}"/>
+      <then>
+        <echo>Coping all modified file for \\${deployment.ip}\${deployment.path}</echo>
+        <exec executable="${bc3.path}" >
+          <arg line='@"${compile.dir}/${deploy.script.file}" "${build.dir}/app" "\\${deployment.ip}\${deployment.path}\app"'/>
+        </exec>
+        
+      </then>
+    </if>
+
+  </target>
+  
+  <target name="deploy-all" depends="init, get-deploy-ip">
+    
+      <echo>Deleting files for \\${deployment.ip}\${deployment.path}</echo>
+      <delete verbose="false">
+        <fileset dir="\\${deployment.ip}\${deployment.path}" includes="**/*" />
+      </delete>
+
+      <echo>Copying files to \\${deployment.ip}\${deployment.path}</echo>
+      <copy todir="\\${deployment.ip}\${deployment.path}" overwrite="true" verbose="true">
+        <fileset dir="${build.dir}" includes="**/*" />
+      </copy>
+      
+  </target>
+
+  <target name="get-deploy-ip">
+    <if>
+      <equals arg1="${args.deployment}" arg2="int"/>
+      <then>
+        <property name="deployment.ip" value="${deployment.ip.int}"/>
+      </then>
+      <else>
+        <property name="deployment.ip" value="${deployment.ip.dev}"/>
+      </else>
+    </if>
+    <echo>Acquired IP: ${deployment.ip}</echo>
+  </target>
+  
+</project>

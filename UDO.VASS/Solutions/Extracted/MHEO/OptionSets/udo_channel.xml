@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="udo_channel" localizedName="Interaction Channel" description="Lists the different channels through which a request is raised.">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>0.0.1.1</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Interaction Channel" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="Lists the different channels through which a request is raised." languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="752280000" ExternalValue="" Color="">
+      <labels>
+        <label description="Phone" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280001" ExternalValue="" Color="">
+      <labels>
+        <label description="Chat" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280002" ExternalValue="" Color="">
+      <labels>
+        <label description="Walk In" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280003" ExternalValue="" Color="">
+      <labels>
+        <label description="Inquiry Correspondence" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="VASS" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

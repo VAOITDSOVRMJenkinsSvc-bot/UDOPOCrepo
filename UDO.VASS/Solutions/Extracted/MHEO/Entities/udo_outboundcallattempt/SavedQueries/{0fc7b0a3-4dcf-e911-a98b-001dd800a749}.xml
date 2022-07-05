@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{0fc7b0a3-4dcf-e911-a98b-001dd800a749}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" icon="1" preview="1" select="1" jump="udo_name">
+      <row id="udo_outboundcallattemptid" name="result">
+        <cell name="a_fd5927b6b8c5e911a983001dd80081ad.udo_interactionmheointerval" width="100" disableSorting="1" />
+        <cell name="createdon" width="100" />
+        <cell name="udo_disposition" width="100" />
+        <cell name="udo_callnotes" width="300" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="udo_direction" width="100" />
+        <cell name="createdby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch mapping="logical" output-format="xml-platform" version="1.0">
+      <entity name="udo_outboundcallattempt">
+        <order descending="false" attribute="createdon" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="udo_callnotes" />
+        <attribute name="udo_disposition" />
+        <link-entity alias="a_fd5927b6b8c5e911a983001dd80081ad" name="udo_interaction" from="udo_interactionid" to="udo_interactionid" link-type="outer" visible="false">
+          <attribute name="udo_interactionmheointerval" />
+        </link-entity>
+        <attribute name="udo_direction" />
+        <attribute name="udo_outboundcallattemptid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Contact Subgrid" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

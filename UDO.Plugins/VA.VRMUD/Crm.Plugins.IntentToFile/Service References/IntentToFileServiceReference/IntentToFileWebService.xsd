@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://intenttofile.services.vetsnet.vba.va.gov/" targetNamespace="http://intenttofile.services.vetsnet.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MessageException" nillable="true" type="tns:messageFaultInfoBean" />
+  <xs:element name="findIntentToFileByPtcpntId" type="tns:findIntentToFileByPtcpntId" />
+  <xs:element name="findIntentToFileByPtcpntIdItfTypeCd" type="tns:findIntentToFileByPtcpntIdItfTypeCd" />
+  <xs:element name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimId" type="tns:findIntentToFileByPtcpntIdItfTypeCdBnftClaimId" />
+  <xs:element name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimIdResponse" type="tns:findIntentToFileByPtcpntIdItfTypeCdBnftClaimIdResponse" />
+  <xs:element name="findIntentToFileByPtcpntIdItfTypeCdResponse" type="tns:findIntentToFileByPtcpntIdItfTypeCdResponse" />
+  <xs:element name="findIntentToFileByPtcpntIdResponse" type="tns:findIntentToFileByPtcpntIdResponse" />
+  <xs:element name="insertIntentToFile" type="tns:insertIntentToFile" />
+  <xs:element name="insertIntentToFileResponse" type="tns:insertIntentToFileResponse" />
+  <xs:complexType name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="itfTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="bnftClaimId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IntentToFileDTO" type="tns:intentToFileDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="intentToFileDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="badAddrsInd" type="xs:string" />
+      <xs:element minOccurs="0" name="bnftClaimId" type="xs:long" />
+      <xs:element minOccurs="0" name="clmantAddrsOneTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantAddrsTwoTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantAddrsUnitNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantEmailAddrsTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantFirstNm" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantLastNm" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantMiddleNm" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantPhoneAreaNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantPhoneNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantSsn" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="clmantZipCd" type="xs:string" />
+      <xs:element minOccurs="0" name="cmpltdDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="createDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="everFiledInd" type="xs:string" />
+      <xs:element minOccurs="0" name="exprtnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="genderCd" type="xs:string" />
+      <xs:element minOccurs="0" name="incompReasonTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="intentToFileId" type="xs:long" />
+      <xs:element minOccurs="0" name="itfStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="itfTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnExtnlApplcnNm" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnExtnlKeyTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnExtnlUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntClmantId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntVetId" type="xs:long" />
+      <xs:element minOccurs="0" name="rcvdDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="signedDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="signtrInd" type="xs:string" />
+      <xs:element minOccurs="0" name="submtdDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="submtrApplcnTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="submtrPtcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="supresLetterInd" type="xs:string" />
+      <xs:element minOccurs="0" name="vetBrthdyDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="vetFileNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="vetFirstNm" type="xs:string" />
+      <xs:element minOccurs="0" name="vetLastNm" type="xs:string" />
+      <xs:element minOccurs="0" name="vetMiddleNm" type="xs:string" />
+      <xs:element minOccurs="0" name="vetSsnNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="vsoNm" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="messageFaultInfoBean">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findIntentToFileByPtcpntId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findIntentToFileByPtcpntIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IntentToFileDTO" type="tns:intentToFileDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertIntentToFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="intentToFileDTO" type="tns:intentToFileDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertIntentToFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IntentToFileDTO" type="tns:intentToFileDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findIntentToFileByPtcpntIdItfTypeCd">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ptcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="itfTypeCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findIntentToFileByPtcpntIdItfTypeCdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IntentToFileDTO" type="tns:intentToFileDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

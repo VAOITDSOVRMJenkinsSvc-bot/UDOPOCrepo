@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE39E28B-4385-48AF-ACDD-15D5892C6134}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Va.Udo.Crm.UserTool.Plugins</RootNamespace>
+    <AssemblyName>Va.Udo.Crm.UserTool.Plugins</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>UserTool.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy">
+      <HintPath>..\..\References\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk">
+      <HintPath>..\..\References\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\CustomActions.Plugins\Messages\HeaderInfo.cs">
+      <Link>Helpers\HeaderInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AIMessages.cs">
+      <Link>Helpers\AIMessages.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AppInsightsLogData.cs">
+      <Link>Helpers\AppInsightsLogData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AppInsightsLogger.cs">
+      <Link>Helpers\AppInsightsLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AuthExtensions.cs">
+      <Link>Helpers\AuthExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\AzureAccessToken.cs">
+      <Link>Helpers\AzureAccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\CRMAuthTokenConfiguration.cs">
+      <Link>Helpers\CRMAuthTokenConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\crmservicehelpers.cs">
+      <Link>Helpers\crmservicehelpers.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\ExceptionHelper.cs">
+      <Link>Helpers\ExceptionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\HttpHelper.cs">
+      <Link>Helpers\HttpHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\Initialize.cs">
+      <Link>Helpers\Initialize.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\JsonHelper.cs">
+      <Link>Helpers\JsonHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\LOBAPIDictionary.cs">
+      <Link>Helpers\LOBAPIDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\LogLevel.cs">
+      <Link>Helpers\LogLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\mcsExtensions.cs">
+      <Link>Helpers\mcsExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\MCSHelper.cs">
+      <Link>Helpers\MCSHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\MCSLogger.cs">
+      <Link>Helpers\MCSLogger.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\MCSSettings.cs">
+      <Link>Helpers\MCSSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\PluginRunner.cs">
+      <Link>Helpers\PluginRunner.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\SerializationHelper.cs">
+      <Link>Helpers\SerializationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\Utility.cs">
+      <Link>Helpers\Utility.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Helpers\UtilityFunctions.cs">
+      <Link>Helpers\UtilityFunctions.cs</Link>
+    </Compile>
+    <Compile Include="Entities\SecurityGroup\SecurityGroupPostAssociate.cs" />
+    <Compile Include="Entities\SecurityGroup\SecurityGroupPostAssociateRunner.cs" />
+    <Compile Include="Entities\SecurityRole\SecurityRolePreRetrieveMultiple.cs" />
+    <Compile Include="Entities\SecurityRole\SecurityRolePreRetrieveMultipleRunner.cs" />
+    <Compile Include="Entities\udo_Security\UDOSecurityPostUpdate.cs" />
+    <Compile Include="Entities\udo_Security\UDOSecurityPostUpdateRunner.cs" />
+    <Compile Include="Helpers\ExecuteMultipleHelper.cs" />
+    <Compile Include="Messages\UDOSecurityAssocRequest.cs" />
+    <Compile Include="Messages\UDOSecurityAssocResponse.cs" />
+    <Compile Include="Messages\UDOSecurityDisassocRequest.cs" />
+    <Compile Include="Messages\UDOSecurityDisassocResponse.cs" />
+    <Compile Include="Messages\UDOSecurityRequest.cs" />
+    <Compile Include="Messages\UDOSecurityResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\BuildVersion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuildVersion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\PluginVersion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UserTool.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\BuildVersion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BuildVersion.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

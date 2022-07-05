@@ -1,0 +1,2907 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Claim Status Script</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="expires" content="-1"/>
+<link rel="stylesheet" type="text/css" href="css/template.css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/va_CrmRestKit_2011.js"></script>
+<script type="text/javascript" language="javascript" src="js/pcrScripts.js"></script>
+</head>
+<body onload="LoadAll()" >
+    <script type="text/javascript">
+        var Xrm = parent.opener.parent.Xrm;
+        var nws = false;
+
+        function formatDate(value) {
+            return value.getMonth() + 1 + "/" + value.getDate() + "/" + value.getFullYear();
+        }
+
+        function LoadAll() {
+            var claim = LoadScriptData();
+
+            if (claim) {
+                var postLoadOps = new PostLoadOps();
+                var callwrapper = new CCallWrapper(postLoadOps, 1000, 'get', false, claim);
+                CCallWrapper.asyncExecute(callwrapper);
+            }
+        }
+
+        function LoadScriptData() {
+            if (!parent || !parent.opener) {
+                alert('Cannot update Claim Script window with the selected claim data because parent window with cached claim information is not available.');
+                return null;
+            }
+
+            //Claim Variables
+            var claim = parent.opener._selectedClaim,
+                contentions = '',
+                contentionsCount = 0,
+                trItCount = 0,
+                defaultSOJ = null;
+
+            //Tracked Items
+            if (claim.trackedItems) trItCount = claim.trackedItems.getCount();
+
+            //Contentions
+            if (claim.contentionsRecords && claim.contentionsRecords.getCount() > 0) {
+                var allCont = claim.contentionsRecords;
+                for (var i = 0; i < allCont.items.length; i++) {
+                    contentions += allCont.items[i].data.contentclass + '; ';
+                    contentionsCount++;
+                }
+                if (contentions.length > 1) {
+                    contentions = contentions.substr(0, contentions.length - 2);
+                }
+                else if (contentions.length == 0) {
+                    contentions = '(no contentions)'; contentionsCount = 0;
+                }
+            }
+
+            // Life Cycle Variables
+            var notDateRateDecComplete1 = document.getElementById('notDateRateDecComplete1'),
+                notDateRateDecComplete2 = document.getElementById('notDateRateDecComplete2'),
+                notDateRateDecCompleteVal = '(date of rating decision complete)',
+                lifeCycleOpenDate = '',
+                lifeCycleRecords = null,
+                basedOn = null;
+
+            //Set Life Cycle Records
+            if ((parent) && (parent.opener) && (parent.opener._claimDetailRecord)) {
+                if (parent.opener._claimDetailRecord.lifeCycleRecordsStore) {
+                    if (parent.opener._claimDetailRecord.lifeCycleRecordsStore.getCount() > 0) {
+                        lifeCycleRecords = parent.opener._claimDetailRecord.lifeCycleRecordsStore.data;
+                    }
+                }
+                else if (parent.opener._claimDetailRecord.lifeCycleRecords) {
+                    if (parent.opener._claimDetailRecord.lifeCycleRecords.getCount() > 0) {
+                        lifeCycleRecords = parent.opener._claimDetailRecord.lifeCycleRecords;
+                    }
+                }
+            }
+
+
+            //SOJ: 1. Get from Life Cycle (Latest Transferred In, then Original Open)
+            if (lifeCycleRecords) {
+                basedOn = 'based on Life Cycle SOJ<span id="epc"></span>';
+                //Lifecycle 1:M 					
+                if (lifeCycleRecords.items) {
+                    var latestTransferDate = null;
+
+                    for (var i = 0; i < lifeCycleRecords.items.length; i++) {
+                        var curLifeCycle = lifeCycleRecords.items[i].data.lifeCycleStatusTypeName;
+                        var curRecSOJ = lifeCycleRecords.items[i].data.stationOfJurisdiction;
+                        var curRecDate = (lifeCycleRecords.items[i].data.changedDate) ? (new Date(lifeCycleRecords.items[i].data.changedDate)) : null;
+
+                        switch (curLifeCycle) {
+                            case 'Open':
+                                if (!defaultSOJ) {
+                                    defaultSOJ = curRecSOJ;
+                                }
+                                break;
+                            case 'Rating Decision Complete':
+                                notDateRateDecCompleteVal = formatDate(new Date(curRecDate));
+                                break;
+                            case 'Transferred In':  //Get latest Transferred In 
+                                if ((!latestTransferDate) || (latestTransferDate >= curRecDate)) {
+                                    defaultSOJ = curRecSOJ;
+                                    latestTransferDate = curRecDate;
+                                }
+                                break;
+                        }
+                    }
+                }
+
+                document.getElementById('sojaddress1').value = defaultSOJ;
+                document.getElementById('sojaddress2').value = defaultSOJ;
+            }
+
+            //SOJ: 2. Get from Status
+            if (!defaultSOJ || defaultSOJ.length == 0) {
+                var statusChangeDate = null,
+                    changeDate = null,
+                    statusRecords = claim.statusRecords;
+
+                if (statusRecords && statusRecords.items) {
+                    basedOn = 'based on Status SOJ';
+                    for (var i = 0; i < statusRecords.items.length; i++) {
+                        changeDate = statusRecords.items[i].data.changedDate;
+                        var curSOJ = statusRecords.items[i].data.actionLocationId;
+                        if (new Date(changeDate) > new Date(statusChangeDate) || statusChangeDate == null) {
+                            statusChangeDate = changeDate;
+                            if (curSOJ && curSOJ.length > 0) { defaultSOJ = curSOJ; }
+                        }
+                    }
+                }
+            }
+
+            if (defaultSOJ && defaultSOJ != undefined && defaultSOJ.length > 0) {
+                document.getElementById('soj').value = defaultSOJ;
+                var apcCom = document.getElementById('apcCom');
+                apcCom.innerHTML = basedOn;
+            }
+
+            //notDateRateDecComplete1.innerHTML = '<b>' + notDateRateDecCompleteVal + '</b>';
+            //notDateRateDecComplete2.innerHTML = '<b>' + notDateRateDecCompleteVal + '</b>';
+
+            // Claim fields
+            var claimRecOpenOpen = document.getElementById('claimRecOpenOpen');
+            var clType1NotPhase = document.getElementById('clType1NotPhase');
+            var clDate1NotPhase = document.getElementById('clDate1NotPhase');
+            var clType2NotPhase = document.getElementById('clType2NotPhase');
+            var clDate2NotPhase = document.getElementById('clDate2NotPhase');
+            var claimRecOpNotr = document.getElementById('claimRecOpNotr');
+            var ln = document.getElementById('ln');
+            var vet = document.getElementById('vet');
+            var claimantFullName = claim.data.claimantLastName +
+                (claim.data.claimantFirstName ? ', ' + claim.data.claimantFirstName : '') +
+                (claim.data.claimantMiddleName ? ' ' + claim.data.claimantMiddleName : '') +
+                (claim.data.claimantSuffix ? ' ' + claim.data.claimantSuffix : '');
+
+            ln.innerHTML = claimantFullName;
+            vet.innerHTML = claimantFullName;
+
+            TrackedItemAnalysis(claim);
+            DecisionDevNoteNewEvidenceAnalysis(claim);
+            CalculateVAI(claim);
+            BroomeClosetTimeframe(claim);
+
+            return claim;
+        }
+
+        //Function: Toggle Display of Sections
+        function toggleDiv(divid) {
+            if (document.getElementById(divid).style.display == 'none') {
+                if (nws && (divid == 'claimReceived' || divid == 'underReview' || divid == 'gatheringOfEvidence' || divid == 'reviewOfEvidence' || divid == 'preparationForDecision' || divid == 'pendingDecisionApproval' || divid == 'preparationForNotification' || divid == 'complete')) {
+                    document.getElementById(divid + '_nws').style.display = 'block';
+                }
+                else {
+                    document.getElementById(divid).style.display = 'block';
+                }
+            } else {
+                if (nws && (divid == 'claimReceived' || divid == 'underReview' || divid == 'gatheringOfEvidence' || divid == 'reviewOfEvidence' || divid == 'preparationForDecision' || divid == 'pendingDecisionApproval' || divid == 'preparationForNotification' || divid == 'complete')) {
+                    document.getElementById(divid + '_nws').style.display = 'none';
+                }
+                else {
+                    document.getElementById(divid).style.display = 'block';
+                }
+            }
+
+            var divs = ['claimReceived', 'underReview', 'gatheringOfEvidence', 'reviewOfEvidence', 'pendingDecisionApproval', 'preparationForDecision', 'preparationForNotification', 'complete', 'apology', 'VAIPending', 'repeatCaller', 'hardshipFinClaimed', 'hardshipTermIllClaimed'];
+            for (var i in divs) {
+                if (divs[i] != divid && divid != 'vaitable') { //exclude VAI div.. it is independent from other divs
+                    var curDiv = document.getElementById(divs[i]);
+                    if (curDiv.style.display != 'none') { curDiv.style.display = 'none'; }
+                }
+            }
+        }
+
+        function AverageClaimProcTimes() {
+            var claim = parent.opener._selectedClaim;
+            if (claim) {
+                claimCode = claim.get('endProductTypeCode');
+            }
+
+            var soj = document.getElementById('soj').value;
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+            if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. Average Claim Processing Times cannot be retrieved.');
+                return;
+            }
+
+            var columns = ['va_name', 'va_ROJName', 'va_EPC', 'va_MinDaysforPhase', 'va_MaxDaysforPhase', 'va_MinDaysDurationforClaims', 'va_MaxDaysDurationforClaims', 'va_Phase'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+            CrmRestKit2011.ByQuery('va_claimprocessingtimes2', columns, "va_name eq '" + sojCode + "' and va_EPC eq '" + claimCode + "'")
+            .done(function (processing_time) {
+                if (processing_time == null || processing_time.d.results.length == 0) {
+                    AverageClaimProcTimesFor0();
+                    return;
+                }
+
+                // if there's more than one result, try to find one that has claim type for current claim
+                var result = null;
+                var anyCodeResult = null;
+                var s = '', ss = '';
+
+                if (processing_time.d.results.length > 0) {
+                    // get current claim type code
+                    var claimCode = null;
+                    var recordIndex = 0;
+
+                    //var claim = parent.opener._selectedClaim;
+                    //if (claim) {
+                    //    claimCode = claim.get('endProductTypeCode');
+                    //}
+                    // grab first empty record
+                    for (var i = 0; i < processing_time.d.results.length; i++) {
+                        var curResult = processing_time.d.results[i];
+                        var curCodes = curResult.va_EPC;
+
+                        if (curCodes || curCodes.length > 0) {
+                            //Entry Found
+
+                            var sojAddress;
+
+                            if (i > 0) {
+                                sojAddress = '';
+                            }
+                            else {
+                                var roId = soj;
+                                var columns = ['EmailAddress', 'va_Address1', 'va_Address2', 'va_Address3', 'va_City', 'va_FaxNumber', 'va_State', 'va_ZipCode', 'va_name', 'va_Alias'];
+                                var filter = "(va_name eq '" + soj + ' - ' + curResult.va_ROJName + "')";
+
+                                CrmRestKit2011.ByQuery('va_regionaloffice', columns, filter, false)
+                                .done(function (collection) {
+                                    //var r = collection.d.results[0];
+                                    if (collection.d.results && collection.d.results.length > 0) {
+                                        var r = collection.d.results[0];
+                                        sojAddress = 'ROJ Name: ' + (r.va_Alias && r.va_Alias.length > 0 ? r.va_Alias + '\n' : '') + (r.va_Address1 && r.va_Address1.length > 0 ? r.va_Address1 + '\n' : '') + (r.va_Address2 && r.va_Address2.length > 0 ? r.va_Address2 + '\n' : '') + (r.va_Address3 && r.va_Address3.length > 0 ? r.va_Address3 + '\n' : '') + (r.va_City && r.va_City.length > 0 ? r.va_City + ', ' : '') + (r.va_State && r.va_State.length > 0 ? r.va_State + ' ' : '') + (r.va_ZipCode && r.va_ZipCode.length > 0 ? r.va_ZipCode : '') + (r.va_FaxNumber && r.va_FaxNumber.length > 0 ? '\nFAX: ' + r.va_FaxNumber : '');
+                                    }
+                                    else {
+                                        sojAddress = 'ROJ Name: ' + curResult.va_ROJName;
+                                    }
+                                }).fail(function (err) {
+                                    errorRestKit(err, 'Failed to retrieve the regional office');
+                                });
+                            }
+
+                            recordIndex = i;
+                            //s += sojAddress + '\n\n' + curResult.va_ROJName + '\n' +
+                            //    'Development Phase: ' + curResult.va_DevelopmentPhase + '\n' +
+                            //    'Decision Phase: ' + curResult.va_DecisionPhase + '\n' +
+                            //    'Notification Phase: ' + curResult.va_NotificationPhase + '\n' +
+                            //    'Form 9: ' + curResult.va_Form9 + '\n' +
+                            //    'NOD: ' + curResult.va_NOD + '\n\n';
+
+                            var phase = '';
+                            if (curResult.va_Phase == '1') {
+                                phase = 'Claim Received';
+                            }
+                            else if (curResult.va_Phase == '2') {
+                                phase = 'Under Review';
+                            }
+                            else if (curResult.va_Phase == '3') {
+                                phase = 'Gathering of Evidence';
+                            }
+                            else if (curResult.va_Phase == '4') {
+                                phase = 'Review of Evidence';
+                            }
+                            else if (curResult.va_Phase == '5') {
+                                phase = 'Preparation for Decision';
+                            }
+                            else if (curResult.va_Phase == '6') {
+                                phase = 'Pending Decision Approved';
+                            }
+                            else if (curResult.va_Phase == '7') {
+                                phase = 'Preparation for Notification';
+                            }
+                            ss += "Phase: " + phase + "\n";
+                            ss += "Min for Phase: " + curResult.va_MinDaysforPhase + "\n";
+                            ss += "Max for Phase: " + curResult.va_MaxDaysforPhase + "\n";
+                            ss += "Min Duration for Claims: " + curResult.va_MinDaysDurationforClaims + "\n";
+                            ss += "Max Duration for Claims: " + curResult.va_MaxDaysDurationforClaims + "\n";
+                            ss += "\n";
+                        }
+                    }
+
+                    claimCode = " - " + claimCode;
+                    result = processing_time.d.results[recordIndex];
+                }
+
+                if (result) {
+                    alert('Claim processing times for ' + soj + ' (days)' + '\n\n' + ss);
+                }
+                else {
+                    alert('The Claim processing times lookup table does not have an entry for ROJ Code ' + soj);
+                }
+
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the claims processing times');
+            });
+        }
+
+        function validateSoj(soj) {
+            var numberic = /^[0-9]+$/;
+            if (soj.match(numberic)) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        function AverageClaimProcTimesFor0() {
+            var claim = parent.opener._selectedClaim;
+            if (claim) {
+                claimCode = claim.get('endProductTypeCode');
+                claimCode = claimCode.substr(0, 2) + '0';
+            }
+
+            var soj = document.getElementById('soj').value;
+            if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. Average Claim Processing Times cannot be retrieved.');
+                return;
+            }
+
+            var columns = ['va_name', 'va_ROJName', 'va_EPC', 'va_MinDaysforPhase', 'va_MaxDaysforPhase', 'va_MinDaysDurationforClaims', 'va_MaxDaysDurationforClaims', 'va_Phase'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+            CrmRestKit2011.ByQuery('va_claimprocessingtimes2', columns, "va_name eq '" + sojCode + "' and va_EPC eq '" + claimCode + "'")
+            .done(function (processing_time) {
+                if (processing_time == null || processing_time.d.results.length == 0) {
+                    alert('No data found');
+                    return;
+                }
+
+                // if there's more than one result, try to find one that has claim type for current claim
+                var result = null;
+                var anyCodeResult = null;
+                var s = '', ss = '';
+
+                if (processing_time.d.results.length > 0) {
+                    // get current claim type code
+                    var claimCode = null;
+                    var recordIndex = 0;
+
+                    //var claim = parent.opener._selectedClaim;
+                    //if (claim) {
+                    //    claimCode = claim.get('endProductTypeCode');
+                    //}
+                    // grab first empty record
+                    for (var i = 0; i < processing_time.d.results.length; i++) {
+                        var curResult = processing_time.d.results[i];
+                        var curCodes = curResult.va_EPC;
+
+                        if (curCodes || curCodes.length > 0) {
+                            //Entry Found
+
+                            var sojAddress;
+
+                            if (i > 0) {
+                                sojAddress = '';
+                            }
+                            else {
+                                var roId = soj;
+                                var columns = ['EmailAddress', 'va_Address1', 'va_Address2', 'va_Address3', 'va_City', 'va_FaxNumber', 'va_State', 'va_ZipCode', 'va_name', 'va_Alias'];
+                                var filter = "(va_name eq '" + soj + ' - ' + curResult.va_ROJName + "')";
+
+                                CrmRestKit2011.ByQuery('va_regionaloffice', columns, filter, false)
+                                .done(function (collection) {
+                                    //var r = collection.d.results[0];
+                                    if (collection.d.results && collection.d.results.length > 0) {
+                                        var r = collection.d.results[0];
+                                        sojAddress = 'ROJ Name: ' + (r.va_Alias && r.va_Alias.length > 0 ? r.va_Alias + '\n' : '') + (r.va_Address1 && r.va_Address1.length > 0 ? r.va_Address1 + '\n' : '') + (r.va_Address2 && r.va_Address2.length > 0 ? r.va_Address2 + '\n' : '') + (r.va_Address3 && r.va_Address3.length > 0 ? r.va_Address3 + '\n' : '') + (r.va_City && r.va_City.length > 0 ? r.va_City + ', ' : '') + (r.va_State && r.va_State.length > 0 ? r.va_State + ' ' : '') + (r.va_ZipCode && r.va_ZipCode.length > 0 ? r.va_ZipCode : '') + (r.va_FaxNumber && r.va_FaxNumber.length > 0 ? '\nFAX: ' + r.va_FaxNumber : '');
+                                    }
+                                    else {
+                                        sojAddress = 'ROJ Name: ' + curResult.va_ROJName;
+                                    }
+                                }).fail(function (err) {
+                                    errorRestKit(err, 'Failed to retrieve the regional office');
+                                });
+                            }
+
+                            recordIndex = i;
+                            //s += sojAddress + '\n\n' + curResult.va_ROJName + '\n' +
+                            //    'Development Phase: ' + curResult.va_DevelopmentPhase + '\n' +
+                            //    'Decision Phase: ' + curResult.va_DecisionPhase + '\n' +
+                            //    'Notification Phase: ' + curResult.va_NotificationPhase + '\n' +
+                            //    'Form 9: ' + curResult.va_Form9 + '\n' +
+                            //    'NOD: ' + curResult.va_NOD + '\n\n';
+
+                            var phase = '';
+                            if (curResult.va_Phase == '1') {
+                                phase = 'Claim Received';
+                            }
+                            else if (curResult.va_Phase == '2') {
+                                phase = 'Under Review';
+                            }
+                            else if (curResult.va_Phase == '3') {
+                                phase = 'Gathering of Evidence';
+                            }
+                            else if (curResult.va_Phase == '4') {
+                                phase = 'Review of Evidence';
+                            }
+                            else if (curResult.va_Phase == '5') {
+                                phase = 'Preparation for Decision';
+                            }
+                            else if (curResult.va_Phase == '6') {
+                                phase = 'Pending Decision Approved';
+                            }
+                            else if (curResult.va_Phase == '7') {
+                                phase = 'Preparation for Notification';
+                            }
+                            ss += "Phase: " + phase + "\n";
+                            ss += "Min for Phase: " + curResult.va_MinDaysforPhase + "\n";
+                            ss += "Max for Phase: " + curResult.va_MaxDaysforPhase + "\n";
+                            ss += "Min Duration for Claims: " + curResult.va_MinDaysDurationforClaims + "\n";
+                            ss += "Max Duration for Claims: " + curResult.va_MaxDaysDurationforClaims + "\n";
+                            ss += "\n";
+                        }
+                    }
+
+                    claimCode = " - " + claimCode;
+                    result = processing_time.d.results[recordIndex];
+                }
+
+                if (result) {
+                    alert('Claim processing times for ' + soj + ' (days)' + '\n\n' + ss);
+                }
+                else {
+                    alert('The Claim processing times lookup table does not have an entry for ROJ Code ' + soj);
+                }
+
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the claims processing times');
+            });
+        }
+
+        function BroomeClosetTimeframe(claim) {
+            var soj = document.getElementById('soj').value;
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+            if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. Average Claim Processing Times cannot be retrieved.');
+                return;
+            }
+
+            var columns = ['va_name', 'va_ROJName', 'va_EPC', 'va_Form9', 'va_NOD', 'va_DevelopmentPhase', 'va_DecisionPhase', 'va_NotificationPhase'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+            var result = null;
+            var anyCodeResult = null;
+
+            CrmRestKit2011.ByQuery('va_claimprocessingtimes', columns, "va_name eq '" + sojCode + "' and va_EPC eq null")
+            .done(function (processing_time) {
+                if (processing_time && processing_time.d && processing_time.d.results && processing_time.d.results.length > 0) {
+                    // get current claim type code
+                    var claimCode = null;
+                    var recordIndex = 0;
+
+                    var claim = parent.opener._selectedClaim;
+                    if (claim) {
+                        claimCode = claim.get('endProductTypeCode');
+                    }
+
+                    for (var i = 0; i < processing_time.d.results.length; i++) {
+                        var curResult = processing_time.d.results[i];
+                        var curCodes = curResult.va_EPC;
+
+                        if (!curCodes || curCodes.length == 0) {
+                            //Entry Found
+                            recordIndex = i;
+                            var varROJ = curResult.va_ROJName;
+                            var nptf = parseInt(curResult.va_NotificationPhase);
+                            var s = (parseInt(curResult.va_DevelopmentPhase) + parseInt(curResult.va_DecisionPhase) + parseInt(curResult.va_NotificationPhase));
+                            if (s >= 1) {
+                                break;
+                            }
+                        }
+                    }
+                    result = processing_time.d.results[recordIndex];
+                }
+
+                if (result) {
+                    var bcmonths = (Math.round(((parseFloat(s) / 30) + .5)));
+                    var nptfm = (Math.round(((parseFloat(nptf) / 30) + .5)));
+
+                    //Pluralization
+                    var sDay = s + ' day';
+                    var nptfDay = nptf + ' day';
+                    var bcmonthsMonth = bcmonths + ' month';
+                    var nptfmMonth = nptfm + ' month';
+
+                    if (s > 1) {
+                        sDay = sDay + 's';
+                    }
+                    if (nptf > 1) {
+                        nptfDay = nptfDay + 's';
+                    }
+                    if (bcmonths > 1) {
+                        bcmonthsMonth = bcmonthsMonth + 's';
+                    }
+                    if (nptfm > 1) {
+                        nptfmMonth = nptfmMonth + 's';
+                    }
+
+                    //document.getElementById('BCTF1').innerHTML = sDay;
+                    //document.getElementById('BCTF2').innerHTML = sDay;
+                    //document.getElementById('BCTF3').innerHTML = sDay;
+                    //document.getElementById('BCTF4').innerHTML = sDay;
+                    //document.getElementById('BCTF5').innerHTML = sDay;
+                    //document.getElementById('BCTF6').innerHTML = sDay;
+                    //document.getElementById('BCTF7').innerHTML = sDay;
+                    //document.getElementById('BCTF8').innerHTML = sDay;
+                    //document.getElementById('BCTF9').innerHTML = nptfDay;
+
+                    //document.getElementById('BCTFM1').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM2').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM3').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM4').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM5').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM6').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM7').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM8').innerHTML = bcmonthsMonth;
+                    //document.getElementById('BCTFM9').innerHTML = nptfmMonth;
+
+                    //document.getElementById('SSSOJ1').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ2').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ3').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ4').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ5').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ6').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ7').innerHTML = soj + ', ' + varROJ;
+                    //document.getElementById('SSSOJ8').innerHTML = soj + ', ' + varROJ;
+                }
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the claims processing times');
+            });
+        }
+
+        function CalculateVAI(claim) {
+            var soj = document.getElementById('soj').value;
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+            var epc = claim.data.endProductTypeCode;
+            //VAI
+            var vaiDec = "";
+            var vaiData = "0";
+
+            if (!soj || soj.length == 0) { return; }
+            if (!epc || epc.length == 0) { return; }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. VAI requirement cannot be determined.');
+                return;
+            }
+
+            // to properly match EPC code, we need to replace last digit of Claim's EPC code with 0 (124 -> 120)
+            //if (epc.length == 3 && epc[2] != '0') { epc = epc.toString().substring(0, 2) + '0'; }
+
+            //If any one of the below codes are present, look up QS & BDD entries instead.
+            //switch (epc) {
+            //    case "017":
+            //    case "117":
+            //    case "027":
+            //    case "297":
+            //        epc = "QS";
+            //        break;
+
+            //    case "011":
+            //    case "111":
+            //    case "021":
+            //        epc = "BDD";
+            //        break;
+
+            //    default:
+            //        break;
+            //}
+
+            var columns = ['va_name', 'va_ROJName', 'va_EPC', 'va_MinDaysforPhase', 'va_MaxDaysforPhase', 'va_MinDaysDurationforClaims', 'va_MaxDaysDurationforClaims', 'va_Phase'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+            CrmRestKit2011.ByQuery('va_claimprocessingtimes2', columns, "va_name eq '" + sojCode + "' and va_EPC eq '" + epc + "'")
+            .done(function (processing_time) {
+                if (processing_time == null || processing_time.d.results.length == 0) {
+                    CalculateVAIFor0(claim);
+                    return;
+                }
+
+                $('#epc').text(', EPC ' + epc);
+
+                var result = null;
+
+                //claim in status
+                var statusChangeDate = null;
+                var statusRecords = claim.statusRecords;
+                var changeDate = null;
+
+                if (statusRecords && statusRecords.items) {
+                    for (var i = 0; i < statusRecords.items.length; i++) {
+                        changeDate = statusRecords.items[i].data.changedDate;
+                        if (new Date(changeDate) > new Date(statusChangeDate) || statusChangeDate == null) {
+                            statusChangeDate = changeDate;
+                        }
+                    }
+                }
+
+                if (vaiData == "0") {
+                    document.getElementById('vaiYN').innerHTML = "- NO DATA";
+                }
+
+                if (!statusChangeDate) { statusChangeDate = claim.data.claimReceiveDate_f }
+
+                $('.change_date').text(claim.data.claimReceiveDate_f);
+
+                //var xxx = new Date(_claim.data.claimReceiveDate);
+
+                //$('.change_date').text(formatDate(xxx));
+
+                //for (var i = 0; i < processing_time.d.results.length; i++) {
+                //    if (processing_time.d.results[i].va_Phase == _phase.toString()) {
+                //        var yyy = new Date(xxx);
+                //        yyy.setDate(yyy.getDate() + parseInt(processing_time.d.results[i].va_MaxDaysDurationforClaims));
+                //        $('.completed_by').text(formatDate(yyy));
+
+                //        var zzz_fr = new Date(statusChangeDate);
+                //        zzz_fr.setDate(zzz_fr.getDate() + parseInt(processing_time.d.results[i].va_MinDaysforPhase));
+                //        $('.completed_by_fr').text(formatDate(zzz_fr));
+
+                //        var zzz_to = new Date(statusChangeDate);
+                //        zzz_to.setDate(zzz_to.getDate() + parseInt(processing_time.d.results[i].va_MaxDaysforPhase));
+                //        $('.completed_by_to').text(formatDate(zzz_to));
+
+                //        break;
+                //    }
+                //}
+
+                var claimStatus = claim.data.statusTypeCode;
+                var today = new Date();
+
+                if (processing_time && processing_time.d && processing_time.d.results && processing_time.d.results.length > 0) {
+                    result = processing_time.d.results[0];
+
+                    var epcArray1 = null,
+                        epcArray2 = null,
+                        extraDays = 0;
+
+                    //row 1 - development ********************************************************************************************
+                    var caseDt = new Date(statusChangeDate);
+
+                    extraDays = 10;
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingDevelopment) + extraDays);
+                    document.getElementById('days1').innerHTML = result.va_AvgDaysAwaitingDevelopment;
+                    document.getElementById('date1').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"];
+
+                    var trItCount = 0;
+                    if (claim.trackedItems) trItCount = claim.trackedItems.getCount();
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "PEND" && trItCount == 0) {
+                        document.getElementById('recommended1').innerHTML = "X";
+                        document.getElementById('notrecommended1').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended1').innerHTML = "";
+                        document.getElementById('notrecommended1').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 2 - evidence ***********************************************************************************************
+                    caseDt = new Date(statusChangeDate); // TODO: check all dates not claim date
+
+                    extraDays = 10;
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingEvidence) + extraDays);
+                    document.getElementById('days2').innerHTML = result.va_AvgDaysAwaitingEvidence;
+                    document.getElementById('date2').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"]
+
+                    var sixtyDaysAgoDate = new Date();
+                    sixtyDaysAgoDate.setDate(sixtyDaysAgoDate.getDate() - 60);
+
+                    var mostRecentTrItemDate = null;
+                    if (trItCount > 0) {
+                        for (i = 0; i < claim.trackedItems.items.length; i++) {
+                            var closed = claim.trackedItems.items[i].data.acceptDate;
+                            received = claim.trackedItems.items[i].data.receiveDate;
+                            var followup = claim.trackedItems.items[i].data.followupDate;
+                            var followup2 = claim.trackedItems.items[i].data.secondFollowUpDate;
+                            var err = claim.trackedItems.items[i].data.inErrorDate;
+                            var request = claim.trackedItems.items[i].data.requestDate;
+
+                            if (new Date(closed) > mostRecentTrItemDate) { mostRecentTrItemDate = closed; }
+                            if (new Date(received) > mostRecentTrItemDate) { mostRecentTrItemDate = received; }
+                            if (new Date(followup) > mostRecentTrItemDate) { mostRecentTrItemDate = followup; }
+                            if (new Date(followup2) > mostRecentTrItemDate) { mostRecentTrItemDate = followup2; }
+                            if (new Date(err) > mostRecentTrItemDate) { mostRecentTrItemDate = err; }
+                            if (new Date(request) > mostRecentTrItemDate) { mostRecentTrItemDate = request; }
+
+                        }
+                    }
+
+                    if (new Date(mostRecentTrItemDate) <= sixtyDaysAgoDate && jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "PEND" && trItCount > 0 && caseDt < new Date()) {
+                        document.getElementById('recommended2').innerHTML = "X";
+                        document.getElementById('notrecommended2').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended2').innerHTML = "";
+                        document.getElementById('notrecommended2').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 3 - map-d ***********************************************************************************************
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139"];
+
+                    var seventyFiveDaysAgoDate = new Date();
+                    seventyFiveDaysAgoDate.setDate(seventyFiveDaysAgoDate.getDate() - 75);
+
+                    var suspenseCount = claim.suspenseRecords.items.length;
+                    var mostRecentSuspenseDate = null, mapdDate = null;
+                    mostRecentTrItemDate = null;
+
+                    if (trItCount > 0) {
+                        for (i = 0; i < claim.trackedItems.items.length; i++) {
+                            var received = claim.trackedItems.items[i].data.receiveDate;
+                            if (received && new Date(received) > mostRecentTrItemDate) { mostRecentTrItemDate = received; }
+                        }
+                        mapdDate = mostRecentTrItemDate;
+                    }
+
+                    if (suspenseCount > 0) {
+                        for (i = 0; i < claim.suspenseRecords.items.length; i++) {
+                            var actioncompletedon = claim.suspenseRecords.items[i].data.suspenseActionDate;
+
+                            if (new Date(actioncompletedon) > mostRecentSuspenseDate) { mostRecentSuspenseDate = actioncompletedon; }
+                        }
+                        if (mostRecentSuspenseDate) {
+                            if (!mapdDate) {
+                                mapdDate = mostRecentSuspenseDate;
+                            }
+                            else if (new Date(mostRecentSuspenseDate) > new Date(mapdDate)) {
+                                mapdDate = mostRecentSuspenseDate;
+                            }
+                        }
+                    }
+
+                    document.getElementById('days3').innerHTML = "75";
+
+                    if (mapdDate) {
+                        var displayDate = new Date(mapdDate);
+                        displayDate.setDate(displayDate.getDate() + 75);
+                        document.getElementById('date3').innerHTML = formatDate(new Date(displayDate));
+                    }
+
+                    if (jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "PEND" && (trItCount > 0 || suspenseCount > 0) &&
+                        mapdDate && new Date(mapdDate) < seventyFiveDaysAgoDate) {
+                        document.getElementById('recommended3').innerHTML = "X";
+                        document.getElementById('notrecommended3').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended3').innerHTML = "";
+                        document.getElementById('notrecommended3').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 4 - decision ***********************************************************************************************
+                    caseDt = new Date(statusChangeDate);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139"];
+                    epcArray2 = ["160", "130", "150", "154", "155"];
+
+                    if (jQuery.inArray(epc, epcArray1) > -1) {
+                        extraDays = 20;
+                    }
+
+                    if (jQuery.inArray(epc, epcArray2) > -1) {
+                        extraDays = 10;
+                    }
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingDecision) + extraDays);
+                    document.getElementById('days4').innerHTML = result.va_AvgDaysAwaitingDecision;
+                    document.getElementById('date4').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139 150", "154", "155"];
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && (claimStatus == "RFD" || claimStatus == "SRFD" || claimStatus == "RI")) {
+                        document.getElementById('recommended4').innerHTML = "X";
+                        document.getElementById('notrecommended4').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended4').innerHTML = "";
+                        document.getElementById('notrecommended4').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 5 - award *************************************************************************************************
+                    caseDt = new Date(statusChangeDate);
+
+                    extraDays = 10;
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingAward) + extraDays);
+                    document.getElementById('days5').innerHTML = result.va_AvgDaysAwaitingAward;
+                    document.getElementById('date5').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"];
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && (claimStatus == "RC" || claimStatus == "RDC")) {
+                        document.getElementById('recommended5').innerHTML = "X";
+                        document.getElementById('notrecommended5').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended5').innerHTML = "";
+                        document.getElementById('notrecommended5').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 6 - authorization *******************************************************************************************
+                    caseDt = new Date(statusChangeDate);
+
+                    extraDays = 10;
+
+                    epcArray1 = ["150", "154", "155"];
+
+                    if (jQuery.inArray(epc, epcArray1) > -1) {
+                        extraDays = 20;
+                    }
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingAuthorization) + extraDays);
+                    document.getElementById('days6').innerHTML = result.va_AvgDaysAwaitingAuthorization;
+                    document.getElementById('date6').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"];
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "AUTH") {
+                        document.getElementById('recommended6').innerHTML = "X";
+                        document.getElementById('notrecommended6').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended6').innerHTML = "";
+                        document.getElementById('notrecommended6').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //VAI
+                    if (vaiData == "0") {
+                        document.getElementById('vaiYN').innerHTML = "- NO DATA";
+                    }
+
+                    if (vaiDec != "YES") {
+                        document.getElementById('vaiYN').innerHTML = "- NO";
+                    }
+
+                    if (vaiDec == "YES") {
+                        document.getElementById('vaiYN').innerHTML = "- YES";
+                    }
+                }
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the claim processing times');
+            });
+        }
+
+        function CalculateVAIFor0(claim) {
+            var soj = document.getElementById('soj').value;
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+            var epc = claim.data.endProductTypeCode;
+            epc = epc.substr(0, 2) + '0';
+            //VAI
+            var vaiDec = "";
+            var vaiData = "0";
+
+            if (!soj || soj.length == 0) { return; }
+            if (!epc || epc.length == 0) { return; }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. VAI requirement cannot be determined.');
+                return;
+            }
+
+            // to properly match EPC code, we need to replace last digit of Claim's EPC code with 0 (124 -> 120)
+            //if (epc.length == 3 && epc[2] != '0') { epc = epc.toString().substring(0, 2) + '0'; }
+
+            //If any one of the below codes are present, look up QS & BDD entries instead.
+            //switch (epc) {
+            //    case "017":
+            //    case "117":
+            //    case "027":
+            //    case "297":
+            //        epc = "QS";
+            //        break;
+
+            //    case "011":
+            //    case "111":
+            //    case "021":
+            //        epc = "BDD";
+            //        break;
+
+            //    default:
+            //        break;
+            //}
+
+            var columns = ['va_name', 'va_ROJName', 'va_EPC', 'va_MinDaysforPhase', 'va_MaxDaysforPhase', 'va_MinDaysDurationforClaims', 'va_MaxDaysDurationforClaims', 'va_Phase'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+            CrmRestKit2011.ByQuery('va_claimprocessingtimes2', columns, "va_name eq '" + sojCode + "' and va_EPC eq '" + epc + "'")
+            .done(function (processing_time) {
+                //if (processing_time == null || processing_time.d.results.length == 0) {
+                //    alert('No data found');
+                //    return;
+                //}
+
+                $('#epc').text(', EPC ' + epc);
+
+                var result = null;
+
+                //claim in status
+                var statusChangeDate = null;
+                var statusRecords = claim.statusRecords;
+                var changeDate = null;
+
+                if (statusRecords && statusRecords.items) {
+                    for (var i = 0; i < statusRecords.items.length; i++) {
+                        changeDate = statusRecords.items[i].data.changedDate;
+                        if (new Date(changeDate) > new Date(statusChangeDate) || statusChangeDate == null) {
+                            statusChangeDate = changeDate;
+                        }
+                    }
+                }
+
+                if (vaiData == "0") {
+                    document.getElementById('vaiYN').innerHTML = "- NO DATA";
+                }
+
+                if (!statusChangeDate) { statusChangeDate = claim.data.claimReceiveDate_f }
+
+                $('.change_date').text(claim.data.claimReceiveDate_f);
+
+                //var xxx = new Date(_claim.data.claimReceiveDate);
+
+                //$('.change_date').text(formatDate(xxx));
+
+                //for (var i = 0; i < processing_time.d.results.length; i++) {
+                //    if (processing_time.d.results[i].va_Phase == _phase.toString()) {
+                //        var yyy = new Date(xxx);
+                //        yyy.setDate(yyy.getDate() + parseInt(processing_time.d.results[i].va_MaxDaysDurationforClaims));
+                //        $('.completed_by').text(formatDate(yyy));
+
+                //        var zzz_fr = new Date(statusChangeDate);
+                //        zzz_fr.setDate(zzz_fr.getDate() + parseInt(processing_time.d.results[i].va_MinDaysforPhase));
+                //        $('.completed_by_fr').text(formatDate(zzz_fr));
+
+                //        var zzz_to = new Date(statusChangeDate);
+                //        zzz_to.setDate(zzz_to.getDate() + parseInt(processing_time.d.results[i].va_MaxDaysforPhase));
+                //        $('.completed_by_to').text(formatDate(zzz_to));
+
+                //        break;
+                //    }
+                //}
+
+                var claimStatus = claim.data.statusTypeCode;
+                var today = new Date();
+
+                if (processing_time && processing_time.d && processing_time.d.results && processing_time.d.results.length > 0) {
+                    result = processing_time.d.results[0];
+
+                    var epcArray1 = null,
+                        epcArray2 = null,
+                        extraDays = 0;
+
+                    //row 1 - development ********************************************************************************************
+                    var caseDt = new Date(statusChangeDate);
+
+                    extraDays = 10;
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingDevelopment) + extraDays);
+                    document.getElementById('days1').innerHTML = result.va_AvgDaysAwaitingDevelopment;
+                    document.getElementById('date1').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"];
+
+                    var trItCount = 0;
+                    if (claim.trackedItems) trItCount = claim.trackedItems.getCount();
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "PEND" && trItCount == 0) {
+                        document.getElementById('recommended1').innerHTML = "X";
+                        document.getElementById('notrecommended1').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended1').innerHTML = "";
+                        document.getElementById('notrecommended1').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 2 - evidence ***********************************************************************************************
+                    caseDt = new Date(statusChangeDate); // TODO: check all dates not claim date
+
+                    extraDays = 10;
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingEvidence) + extraDays);
+                    document.getElementById('days2').innerHTML = result.va_AvgDaysAwaitingEvidence;
+                    document.getElementById('date2').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"]
+
+                    var sixtyDaysAgoDate = new Date();
+                    sixtyDaysAgoDate.setDate(sixtyDaysAgoDate.getDate() - 60);
+
+                    var mostRecentTrItemDate = null;
+                    if (trItCount > 0) {
+                        for (i = 0; i < claim.trackedItems.items.length; i++) {
+                            var closed = claim.trackedItems.items[i].data.acceptDate;
+                            received = claim.trackedItems.items[i].data.receiveDate;
+                            var followup = claim.trackedItems.items[i].data.followupDate;
+                            var followup2 = claim.trackedItems.items[i].data.secondFollowUpDate;
+                            var err = claim.trackedItems.items[i].data.inErrorDate;
+                            var request = claim.trackedItems.items[i].data.requestDate;
+
+                            if (new Date(closed) > mostRecentTrItemDate) { mostRecentTrItemDate = closed; }
+                            if (new Date(received) > mostRecentTrItemDate) { mostRecentTrItemDate = received; }
+                            if (new Date(followup) > mostRecentTrItemDate) { mostRecentTrItemDate = followup; }
+                            if (new Date(followup2) > mostRecentTrItemDate) { mostRecentTrItemDate = followup2; }
+                            if (new Date(err) > mostRecentTrItemDate) { mostRecentTrItemDate = err; }
+                            if (new Date(request) > mostRecentTrItemDate) { mostRecentTrItemDate = request; }
+
+                        }
+                    }
+
+                    if (new Date(mostRecentTrItemDate) <= sixtyDaysAgoDate && jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "PEND" && trItCount > 0 && caseDt < new Date()) {
+                        document.getElementById('recommended2').innerHTML = "X";
+                        document.getElementById('notrecommended2').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended2').innerHTML = "";
+                        document.getElementById('notrecommended2').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 3 - map-d ***********************************************************************************************
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139"];
+
+                    var seventyFiveDaysAgoDate = new Date();
+                    seventyFiveDaysAgoDate.setDate(seventyFiveDaysAgoDate.getDate() - 75);
+
+                    var suspenseCount = claim.suspenseRecords.items.length;
+                    var mostRecentSuspenseDate = null, mapdDate = null;
+                    mostRecentTrItemDate = null;
+
+                    if (trItCount > 0) {
+                        for (i = 0; i < claim.trackedItems.items.length; i++) {
+                            var received = claim.trackedItems.items[i].data.receiveDate;
+                            if (received && new Date(received) > mostRecentTrItemDate) { mostRecentTrItemDate = received; }
+                        }
+                        mapdDate = mostRecentTrItemDate;
+                    }
+
+                    if (suspenseCount > 0) {
+                        for (i = 0; i < claim.suspenseRecords.items.length; i++) {
+                            var actioncompletedon = claim.suspenseRecords.items[i].data.suspenseActionDate;
+
+                            if (new Date(actioncompletedon) > mostRecentSuspenseDate) { mostRecentSuspenseDate = actioncompletedon; }
+                        }
+                        if (mostRecentSuspenseDate) {
+                            if (!mapdDate) {
+                                mapdDate = mostRecentSuspenseDate;
+                            }
+                            else if (new Date(mostRecentSuspenseDate) > new Date(mapdDate)) {
+                                mapdDate = mostRecentSuspenseDate;
+                            }
+                        }
+                    }
+
+                    document.getElementById('days3').innerHTML = "75";
+
+                    if (mapdDate) {
+                        var displayDate = new Date(mapdDate);
+                        displayDate.setDate(displayDate.getDate() + 75);
+                        document.getElementById('date3').innerHTML = formatDate(new Date(displayDate));
+                    }
+
+                    if (jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "PEND" && (trItCount > 0 || suspenseCount > 0) &&
+                        mapdDate && new Date(mapdDate) < seventyFiveDaysAgoDate) {
+                        document.getElementById('recommended3').innerHTML = "X";
+                        document.getElementById('notrecommended3').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended3').innerHTML = "";
+                        document.getElementById('notrecommended3').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 4 - decision ***********************************************************************************************
+                    caseDt = new Date(statusChangeDate);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139"];
+                    epcArray2 = ["160", "130", "150", "154", "155"];
+
+                    if (jQuery.inArray(epc, epcArray1) > -1) {
+                        extraDays = 20;
+                    }
+
+                    if (jQuery.inArray(epc, epcArray2) > -1) {
+                        extraDays = 10;
+                    }
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingDecision) + extraDays);
+                    document.getElementById('days4').innerHTML = result.va_AvgDaysAwaitingDecision;
+                    document.getElementById('date4').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139 150", "154", "155"];
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && (claimStatus == "RFD" || claimStatus == "SRFD" || claimStatus == "RI")) {
+                        document.getElementById('recommended4').innerHTML = "X";
+                        document.getElementById('notrecommended4').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended4').innerHTML = "";
+                        document.getElementById('notrecommended4').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 5 - award *************************************************************************************************
+                    caseDt = new Date(statusChangeDate);
+
+                    extraDays = 10;
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingAward) + extraDays);
+                    document.getElementById('days5').innerHTML = result.va_AvgDaysAwaitingAward;
+                    document.getElementById('date5').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"];
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && (claimStatus == "RC" || claimStatus == "RDC")) {
+                        document.getElementById('recommended5').innerHTML = "X";
+                        document.getElementById('notrecommended5').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended5').innerHTML = "";
+                        document.getElementById('notrecommended5').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //row 6 - authorization *******************************************************************************************
+                    caseDt = new Date(statusChangeDate);
+
+                    extraDays = 10;
+
+                    epcArray1 = ["150", "154", "155"];
+
+                    if (jQuery.inArray(epc, epcArray1) > -1) {
+                        extraDays = 20;
+                    }
+
+                    caseDt.setDate(caseDt.getDate() + Number(result.va_AvgDaysAwaitingAuthorization) + extraDays);
+                    document.getElementById('days6').innerHTML = result.va_AvgDaysAwaitingAuthorization;
+                    document.getElementById('date6').innerHTML = formatDate(caseDt);
+
+                    epcArray1 = ["110", "111", "112", "113", "114", "115", "116", "117", "118", "119", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028", "029", "140", "141", "141", "143", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "180", "190", "160", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "150", "154", "155"];
+
+                    if (caseDt < new Date() && jQuery.inArray(epc, epcArray1) > -1 && claimStatus == "AUTH") {
+                        document.getElementById('recommended6').innerHTML = "X";
+                        document.getElementById('notrecommended6').innerHTML = "";
+                        //VAI
+                        vaiDec = "YES";
+                        vaiData = "1";
+                    } else {
+                        document.getElementById('recommended6').innerHTML = "";
+                        document.getElementById('notrecommended6').innerHTML = "X";
+                        vaiData = "2";
+                    }
+
+                    //VAI
+                    if (vaiData == "0") {
+                        document.getElementById('vaiYN').innerHTML = "- NO DATA";
+                    }
+
+                    if (vaiDec != "YES") {
+                        document.getElementById('vaiYN').innerHTML = "- NO";
+                    }
+
+                    if (vaiDec == "YES") {
+                        document.getElementById('vaiYN').innerHTML = "- YES";
+                    }
+                }
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the claim processing times');
+            });
+        }
+
+        function LoadSOJAddress(ind) {
+            var soj = document.getElementById('sojaddress' + ind).value;
+            if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. SOJ Address cannot be retrieved.');
+                return;
+            }
+
+            var columns = ['va_name', 'va_Alias', 'va_Address1', 'va_Address2', 'va_Address3', 'va_City', 'va_State', 'va_ZipCode', 'va_FaxNumber',
+                'va_SpecialIssueJurisdiction'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+
+            CrmRestKit2011.ByQuery('va_regionaloffice', columns, "va_Code eq '" + sojCode + "'")
+            .done(function (processing_time) {
+                if (processing_time && processing_time.d && processing_time.d.results && processing_time.d.results.length > 0) {
+                    var res = processing_time.d.results[0];
+                    var addr = '<br/>';
+                    if (res.va_Alias && res.va_Alias.length > 0) addr += res.va_Alias + '<br/>';
+                    if (res.va_Address1 && res.va_Address1.length > 0) addr += res.va_Address1 + '<br/>';
+                    if (res.va_Address2 && res.va_Address2.length > 0) addr += ' ' + res.va_Address2 + '<br/>';
+                    if (res.va_Address3 && res.va_Address3.length > 0) addr += ' ' + res.va_Address3 + '<br/>';
+                    if (res.va_City && res.va_City.length > 0) addr += res.va_City;
+                    if (res.va_State && res.va_State.length > 0) addr += ', ' + res.va_State;
+                    if (res.va_ZipCode && res.va_ZipCode.length > 0) addr += ' ' + res.va_ZipCode;
+                    if (res.va_FaxNumber && res.va_FaxNumber.length > 0) addr += '<br/>Fax: ' + res.va_FaxNumber;
+                    if (res.va_SpecialIssueJurisdiction && res.va_SpecialIssueJurisdiction.length > 0) addr += '<br/>Special Issue Jurisdiction: ' + res.va_SpecialIssueJurisdiction;
+
+                    document.getElementById('soj' + ind).innerHTML = addr;
+                }
+                else {
+                    alert('SOJ lookup table does not have an entry for ROJ Code ' + soj);
+                }
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the regional office');
+            });
+        }
+
+        function RefreshScript() {
+            var soj = document.getElementById('soj').value;
+            if (validateSoj(document.getElementById('soj').value) == false) {
+                return;
+            }
+            if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+            if (!parent || !parent.opener && !parent.opener.parent) {
+                alert('Phone Call screen is not available. SOJ and Claim information cannot be retrieved.');
+                return;
+            }
+            var columns = ['va_name'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+            CrmRestKit2011.ByQuery('va_regionaloffice', columns, "va_Code eq '" + sojCode + "'")
+            .done(function (validsoj) {
+                if (validsoj && validsoj.d && validsoj.d.results && validsoj.d.results.length > 0) {
+                    var claim = parent.opener._selectedClaim;
+                    if (claim) {
+                        CalculateVAI(claim);
+                        BroomeClosetTimeframe(claim);
+                    }
+                }
+                else {
+                    alert('SOJ lookup table does not have an entry for ' + soj + '. Please enter a valid SOJ.');
+                }
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve the regional office');
+            });
+        }
+
+        function TrackedItemAnalysis(claim, calculatedStatus) {
+            // top level table section
+            var whatWeNeedFromYou = document.getElementById('whatWeNeedFromYou'), whatWeNeedFromYouVal = '',
+                whatWeNeedFromYou2 = document.getElementById('whatWeNeedFromYou2'), whatWeNeedFromYouVal2 = '',
+                whatWeNeedFromYou3 = document.getElementById('whatWeNeedFromYou3'), whatWeNeedFromYouVal3 = '',
+                whatWeRecSOl = document.getElementById('whatWeRecSOl'), whatWeRecSOlVal = '',
+                whatWeRecNotSOl = document.getElementById('whatWeRecNotSOl'), whatWeRecNotSOlVal = '',
+                whatWeNeverRecSOl = document.getElementById('whatWeNeverRecSOl'), whatWeNeverRecSOlVal = '',
+                whatWeNeedFromOthers = document.getElementById('whatWeNeedFromOthers'), whatWeNeedFromOthersVal = '',
+                suspensesVal = '', firstSuspense = '', useclaimReOpenOrig = false;
+
+            try {
+                // claim - establish
+                if (parent.opener.parent.Xrm.Page.getAttribute('va_disposition').getValue() == 953850001 && parent.opener.parent.Xrm.Page.getAttribute('va_dispositionsubtype').getValue() == 953850024) {
+                    useclaimReOpenOrig = true;
+                }
+            }
+            catch (cre) { }
+
+            var suspenses = null;
+            if (parent.opener._claimDetailRecord) { suspenses = parent.opener._claimDetailRecord.suspenseRecordsStore; }
+            if (suspenses && suspenses.data.items) {
+                for (var i = 0; i < suspenses.data.items.length; i++) {
+                    var susdtO = suspenses.data.items[i].data.suspenseDate,
+                        susdt = '';
+                    if (susdtO && susdtO != undefined) { susdt = susdtO.toString('M/dd/yyyy'); }
+                    suspensesVal = suspensesVal + suspenses.data.items[i].data.suspenseReasonText + (E(susdt) ? '' : ' (' + susdt + ')') + '; ';
+                    if (i == 0) { firstSuspense = suspenses.data.items[0].data.suspenseReasonText.toUpperCase(); }
+                }
+            }
+
+            // Substatus values
+            var claimReceivedSub = document.getElementById('claimReceivedSub'), claimReceivedSubVal = '',
+                underReviewSub = document.getElementById('underReviewSub'), underReviewSubVal = '',
+                gatheringOfEvidenceSub = document.getElementById('gatheringOfEvidenceSub'), gatheringOfEvidenceSubVal = '',
+                reviewOfEvidenceSub = document.getElementById('reviewOfEvidenceSub'), reviewOfEvidenceSubVal = '',
+                preparationForDecisionSub = document.getElementById('preparationForDecisionSub'), preparationForDecisionSubVal = '',
+                preparationForNotificationSub = document.getElementById('preparationForNotificationSub'), preparationForNotificationSubVal = '',
+                pendingDecisionApprovalSub = document.getElementById('pendingDecisionApprovalSub'), pendingDecisionApprovalSubVal = '',
+                completeSub = document.getElementById('completeSub'), completeSubVal = '',
+                //closedClaimSub = document.getElementById('closedClaimSub'), closedClaimSubVal = '',
+                defaultDiv = '', mostRecentLifeCycle = '', lifeCycleRecordsStore = null;
+
+            if (parent.opener._claimDetailRecord) { lifeCycleRecordsStore = parent.opener._claimDetailRecord.lifeCycleRecordsStore; }
+            if (lifeCycleRecordsStore && lifeCycleRecordsStore.data && lifeCycleRecordsStore.data.items && lifeCycleRecordsStore.data.items.length > 0) {
+                mostRecentLifeCycle = lifeCycleRecordsStore.data.items[0].data.lifeCycleStatusTypeName;
+                if (mostRecentLifeCycle) { mostRecentLifeCycle = mostRecentLifeCycle.toString().toUpperCase(); }
+            }
+
+            // script selections
+            var openNoTrItems_ClaimRec = (claim.data.statusTypeCode == 'PEND' && (!claim.trackedItems.items || claim.trackedItems.items.length == 0) && (!claim.contentionsRecords || claim.contentionsRecords.length == 0));
+            var openNoTrItems_ContExist = (claim.data.statusTypeCode == 'PEND' && (!claim.trackedItems.items || claim.trackedItems.items.length == 0) && claim.contentionsRecords && claim.contentionsRecords.length > 0);
+            var decisionCorr = (claim.data.statusTypeCode == 'RC');
+            var notifRateDecComplete = (claim.data.statusTypeCode == 'RDC');
+            var decisionRI = (claim.data.statusTypeCode == 'RI');
+            var decisionReady = (claim.data.statusTypeCode == 'RFD');
+            var notifRTND = (claim.data.statusTypeCode == 'RTND');
+            var decisionSRFD = (claim.data.statusTypeCode == 'SRFD');
+            var notifRTW = (claim.data.statusTypeCode == 'RTW');
+            var cleared = (claim.data.statusTypeCode == 'CLR');
+            var canceled = (claim.data.statusTypeCode == 'CAN');
+
+            var gotStatus = (openNoTrItems_ClaimRec || openNoTrItems_ContExist || decisionCorr || notifRateDecComplete || decisionRI || decisionReady || notifRTND || decisionSRFD || notifRTW || canceled || cleared);
+
+            var notifPendingAuth = (!gotStatus && claim.data.statusTypeCode == 'PEND' && firstSuspense == 'PENDING AUTHORIZATION'); // how? Claim Suspense Reason (under Suspenses tab) = Pending Authorization
+            var notifPendingConcur = (!gotStatus && claim.data.statusTypeCode == 'RDC' && mostRecentLifeCycle == 'PENDING'); // how? Life Cycle Status = Pending
+            var notifSelfRet = (!gotStatus && claim.data.statusTypeCode == 'RDC' && mostRecentLifeCycle == 'SELF RETURNED'); // how? AND Life Cycle Status = Self Returned
+            gotStatus = (gotStatus || notifPendingAuth || notifPendingConcur || notifSelfRet);
+
+            var openAllTrItemsClosed_ReviewOfEv = (gotStatus ? false : true);
+            var openOpenTrItems_GatherEvidence = false;
+
+            var today = new Date();
+            // go through tracked items and analyze output
+            if (claim && claim.trackedItems.items.length > 0) {
+                for (var i = 0; i < claim.trackedItems.items.length; i++) {
+                    var trItem = claim.trackedItems.items[i].data.shortName;
+                    var closed = claim.trackedItems.items[i].data.acceptDate;
+                    var received = claim.trackedItems.items[i].data.receiveDate;
+                    var followup = claim.trackedItems.items[i].data.followupDate;
+                    var followup2 = claim.trackedItems.items[i].data.secondFollowUpDate;
+                    var suspVal = claim.trackedItems.items[i].data.suspenseDate; var suspDate = null;
+                    var err = claim.trackedItems.items[i].data.inErrorDate;
+                    var recip = claim.trackedItems.items[i].data.recipient;
+                    var reqDateO = claim.trackedItems.items[i].data.requestDate; var reqDate = '';
+                    var recDateO = claim.trackedItems.items[i].data.receiveDate; var recDate = '';
+                    var closedO = claim.trackedItems.items[i].data.acceptDate; var closedDate = '';
+                    var followup2O = claim.trackedItems.items[i].data.secondFollowUpDate; var followup2Date = '';
+
+                    if (reqDateO && reqDateO != undefined) { reqDate = reqDateO.toString('M/dd/yyyy'); }
+                    if (recDateO && recDateO != undefined) { recDate = recDateO.toString('M/dd/yyyy'); }
+                    if (closedO && closedO != undefined) { closedDate = closedO.toString('M/dd/yyyy'); }
+                    if (followup2O && followup2O != undefined) { followup2Date = followup2O.toString('M/dd/yyyy'); }
+                    if (!E(suspVal)) { suspDate = new Date(claim.trackedItems.items[i].data.suspenseDate); }
+
+                    if (recip && recip.length > 0 && recip.lastIndexOf('   null   ') > 0) { recip = recip.substring(0, recip.lastIndexOf('   null   ')); }
+
+                    //Scenario 1: Tracked items associated to the claim that do NOT have a date entry in the Closed OR Received OR In Error columns
+                    if (E(closed) && E(received) && E(err)) {
+                        whatWeNeedFromYouVal = whatWeNeedFromYouVal + NoticeLn(trItem, recip, reqDate, 'req');
+                        whatWeNeedFromYouVal2 = whatWeNeedFromYouVal2 + NoticeLn(trItem, recip, reqDate, 'req');
+                        whatWeNeedFromYouVal3 = whatWeNeedFromYouVal3 + NoticeLn(trItem, recip, reqDate, 'req');
+                    }
+
+                    //Scenario 2: Tracked items that HAVE a date entry in Received column AND a date in the Follow Up OR 2nd Follow Up column
+                    if (!E(received) && (!E(followup) || !E(followup2))) { whatWeRecSOlVal = whatWeRecSOlVal + NoticeLn(trItem, recip, recDate, 'rec'); }
+
+                    //Scenario 3: Tracked items that HAVE a date in the Follow Up OR 2nd Follow Up column AND do NOT have a date in the Received column
+                    if (E(received) && (!E(followup) || !E(followup2))) { whatWeNeverRecSOlVal = whatWeNeverRecSOlVal + NoticeLn(trItem, recip, closedDate, 'closed'); }
+
+                    //Scenario 4: Items do not have a date entry in the Closed OR Received OR In Error columns AND a date in the 2nd Follow Up column
+                    if (E(closed) && E(received) && E(err) && !E(followup2)) { whatWeNeedFromOthers = whatWeNeedFromOthers + NoticeLn(trItem, recip, followup2Date, 'flw2'); }
+
+                    // **************************
+                    // analyze claim script selection
+                    if (!gotStatus && openAllTrItemsClosed_ReviewOfEv &&
+                        !(claim.data.statusTypeCode == 'PEND' && E(err) && (!E(closed) || !E(received) ||
+                            (!E(suspDate) && suspDate < today)))) { openAllTrItemsClosed_ReviewOfEv = false; } // all must satisfy condition
+                    if (!gotStatus && !openOpenTrItems_GatherEvidence && claim.data.statusTypeCode == 'PEND' && today < suspDate &&
+                        (E(closed) || E(received) || E(err))) { openOpenTrItems_GatherEvidence = true; gotStatus = true; }
+
+                    //Tracked Items dynamic table
+                    var trackedItemsTableValues = '<table align="left" border="1" cellpadding="2">';
+
+                    //Column Names
+                    trackedItemsTableValues += '<tr><th colspan="9">Tracked Items</th></tr></br>';
+                    trackedItemsTableValues += '<tr><th>Recipient</th>';
+                    trackedItemsTableValues += '<th>Development Action</th>';
+                    trackedItemsTableValues += '<th>Request Date</th>';
+                    trackedItemsTableValues += '<th>Suspense Date</th>';
+                    trackedItemsTableValues += '<th>Receive Date</th>';
+                    trackedItemsTableValues += '<th>Closed Date</th>';
+                    trackedItemsTableValues += '<th>In Error</th>';
+                    trackedItemsTableValues += '<th>Follow Up</th>';
+                    trackedItemsTableValues += '<th>2nd Follow Up</th>';
+                    trackedItemsTableValues += '</tr>';
+
+                    var fnDtFormat = function (varDate) {
+                        var varOrig = varDate;
+                        var varModify = null;
+
+                        if (varOrig != null) {
+                            varOrig = new Date(varOrig);
+                            varModify = (varOrig.getMonth() + 1) + '/' + varOrig.getDate() + '/' + varOrig.getFullYear();
+                        }
+                        return varModify;
+                    }
+
+                    for (i = 0; i < claim.trackedItems.items.length; i++) {
+                        //Convert Long Dates to Short Date format
+                        var varReqDate = fnDtFormat(claim.trackedItems.items[i].data.requestDate);
+                        var varSusDate = fnDtFormat(claim.trackedItems.items[i].data.suspenseDate);
+                        var varRecDate = fnDtFormat(claim.trackedItems.items[i].data.receiveDate);
+                        var varAccDate = fnDtFormat(claim.trackedItems.items[i].data.acceptDate);
+                        var varErrDate = fnDtFormat(claim.trackedItems.items[i].data.inErrorDate);
+                        var varFolDate = fnDtFormat(claim.trackedItems.items[i].data.followupDate);
+                        var var2FolDate = fnDtFormat(claim.trackedItems.items[i].data.secondFollowUpDate);
+
+                        //Tracked Item table
+                        trackedItemsTableValues += '<tr><td>' + '' + (claim.trackedItems.items[i].data.recipient || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (claim.trackedItems.items[i].data.shortName || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (varReqDate || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (varSusDate || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (varRecDate || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (varAccDate || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (varErrDate || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (varFolDate || '&nbsp;') + '</td>';
+                        trackedItemsTableValues += '<td>' + (var2FolDate || '&nbsp;') + '</td></tr><br />';
+                    }
+                    trackedItemsTableValues += '</table>';
+                    //Set html tracked item table into page
+                    document.getElementById('trackedItemsTableValues').innerHTML = trackedItemsTableValues;
+                }
+            }
+            else {
+                //No Tracked Items found
+                trackedItemsTableValues = '<table align="left" border="1" cellpadding="2"><tr><th colspan="2">No Tracked Items found.</th><tr></table>';
+                //Set html tracked item table into page
+                document.getElementById('trackedItemsTableValues').innerHTML = trackedItemsTableValues;
+            }
+
+            //BAS provided logic 8/29/13
+            var statusStore = '',
+                calculatedStatus = '';
+
+            if ((claim) && (claim.statusRecords)) {
+                statusStore = claim.statusRecords;
+            }
+
+            //Create ranking of status by placement in array
+            var statusRanks = new Array('ClaimReceived', 'UnderReview', 'GatheringOfEvidence', 'ReviewofEvidence', 'PreparationforDecision', 'PendingDecisionApproval', 'PreparationForNotification', 'ClosedClaim', 'Cancelled', 'Closed');
+
+            if ((statusStore) && (statusStore.items) && (statusStore.items.length > 0)) {
+                var lastRelevantDate = null;
+
+                for (var i = 0; i < statusStore.items.length; i++) {
+                    var curRecordStatus = statusStore.items[i].data.claimLocationStatusTypeName;
+
+                    /*
+	                var curRecordDateTime = (statusStore.items[i].data.changedDate) ? (new Date(statusStore.items[i].data.changedDate)) : null;
+	                var curRecordDate = null;
+
+	                //Strip time out of date, so can compare out of time-sequenced entries
+	                if (curRecordDateTime) {
+	                    curRecordDate = new Date(curRecordDateTime.getMonth() + 1 + '/ ' + curRecordDateTime.getDate() + '/' + curRecordDateTime.getYear());
+	                } 
+                    */
+                    //*****Use above code to change to sort same day statuses regardless of time, instead of next line below. ****
+                    var curRecordDate = (statusStore.items[i].data.changedDate) ? (new Date(statusStore.items[i].data.changedDate)) : null;
+
+                    //Record Prior to TTO - Transferred Out, TTO - Transferred In, Brokered Out, Brokered In
+                    if ((curRecordStatus != 'TTO - Transferred Out') && (curRecordStatus != 'TTO - Transferred In') && (curRecordStatus != 'Brokered Out') && (curRecordStatus != 'Brokered In')) {
+                        ////if ((curRecordDate >= lastRelevantDate) || (lastRelevantDate == null)) {
+                        //IF not one of these and more recent, then set the status
+                        /*
+                        if (calculatedStatus.length > 0) {
+                            //Check Status in priority order if date/time are the same
+                            if (curRecordDate.toString() == lastRelevantDate.toString()) {
+                                //Find rankings for calculatedStatus and curRecordStatus
+                                var calculatedStatusRank = 0,
+                                    curRecordStatusRank = 0;
+
+                                for (var j = 0; j < statusRanks.length; j++) {
+                                    if (statusRanks[j] == calculatedStatus) {
+                                        calculatedStatusRank = j;
+                                    }
+                                }
+                                for (var k = 0; k < statusRanks.length; k++) {
+                                    if (statusRanks[k] == curRecordStatus) {
+                                        curRecordStatusRank = k;
+                                    }
+                                }
+                                //Compare and take current Status if ranked higher
+                                if (calculatedStatusRank < curRecordStatusRank) {
+                                    calculatedStatus = curRecordStatus;
+                                }
+                            }
+                            else {
+                                lastRelevantDate = curRecordDate;
+                                calculatedStatus = curRecordStatus;
+                            }
+                        }
+                        else {
+                            lastRelevantDate = curRecordDate;
+                            calculatedStatus = curRecordStatus;
+                        }
+                        */
+
+                        lastRelevantDate = curRecordDate;
+                        calculatedStatus = curRecordStatus;
+
+                        ////}
+                    }
+                }
+            }
+
+            var imgPath = '',
+                    picPath = '';
+
+            var phaseType;
+
+            if (claim.ebsRecords) {
+                var phaseTypes = ['Claim Received', 'Under Review', 'Gathering of Evidence', 'Review of Evidence', 'Preparation for Decision', 'Pending Decision Approval', 'Preparation for Notification', 'Complete'];
+                var k = 0;
+
+                for (var i = 0; i < claim.ebsRecords.length; i++) {
+                    for (var j = 0; j < phaseTypes.length; j++) {
+                        if (j >= k && phaseTypes[j] == claim.ebsRecords[i].data.phaseType) {
+                            phaseType = claim.ebsRecords[i].data.phaseType;
+                            k = j;
+                        }
+                    }
+                }
+
+                var completed_by = $($.parseXML(claim.ebsXml)).find('BenefitClaimDetailsDTO > maxEstClaimCompleteDt').text();
+                var completed_by_fr = $($.parseXML(claim.ebsXml)).find('BenefitClaimDetailsDTO > minEstClaimCompleteDt').text();
+                var completed_by_to = $($.parseXML(claim.ebsXml)).find('BenefitClaimDetailsDTO > maxEstClaimCompleteDt').text();
+
+                if (completed_by != null && completed_by != '') {
+                    var d_completed_by = new Date(completed_by.substr(5, 2) + '/' + completed_by.substr(8, 2) + '/' + completed_by.substr(0, 4));
+                    completed_by = (d_completed_by.getMonth() + 1) + '/' + d_completed_by.getDate() + '/' + d_completed_by.getFullYear();
+
+                    if (d_completed_by > new Date()) {
+                        $('.not_past_due').show();
+                        $('.past_due').hide();
+                    }
+                    else {
+                        $('.not_past_due').hide();
+                        $('.past_due').show();
+                    }
+                }
+                else {
+                    completed_by = '<no ws value>';
+                    nws = true;
+                }
+
+                if (completed_by_fr != null && completed_by_fr != '') {
+                    var d_completed_by = new Date(completed_by_fr.substr(5, 2) + '/' + completed_by_fr.substr(8, 2) + '/' + completed_by_fr.substr(0, 4));
+                    completed_by_fr = (d_completed_by.getMonth() + 1) + '/' + d_completed_by.getDate() + '/' + d_completed_by.getFullYear();
+                }
+                else {
+                    completed_by_fr = '<no ws value>';
+                }
+
+
+                if (completed_by_to != null && completed_by_to != '') {
+                    var d_completed_by = new Date(completed_by_to.substr(5, 2) + '/' + completed_by_to.substr(8, 2) + '/' + completed_by_to.substr(0, 4));
+                    completed_by_to = (d_completed_by.getMonth() + 1) + '/' + d_completed_by.getDate() + '/' + d_completed_by.getFullYear();
+                }
+                else {
+                    completed_by_to = '<no ws value>';
+                }
+
+                $('.completed_by').text(completed_by);
+                $('.completed_by_fr').text(completed_by_fr);
+                $('.completed_by_to').text(completed_by_to);
+
+                $('.phase_type_cr').text('Claim Received');
+                $('.phase_type_ur').text('Under Review');
+                $('.phase_type_goe').text('Gathering of Evidence');
+                $('.phase_type_roe').text('Review of Evidence');
+                $('.phase_type_pfd').text('Preparation for Decision');
+                $('.phase_type_pda').text('Pending Decision Approval');
+                $('.phase_type_pfn').text('Preparation for Notification');
+                $('.phase_type_c').text('Complete');
+
+                switch (phaseType.toUpperCase()) {
+                    case 'CLAIM RECEIVED':
+                        $('.phase_type_cr').text(phaseType);
+                        ClaimReceivedSubVal = ' Claim Received';
+                        defaultDiv = 'claimReceived';
+                        imgPath = "images/ClaimStatusProcesses/ClaimReceived.jpg";
+                        break;
+                    case 'UNDER REVIEW':
+                        $('.phase_type_ur').text(phaseType);
+                        UnderReviewSubVal = ' Under Review';
+                        defaultDiv = 'underReview';
+                        imgPath = "images/ClaimStatusProcesses/UnderReview.jpg";
+                        break;
+                    case 'GATHERING OF EVIDENCE':
+                        $('.phase_type_goe').text(phaseType);
+                        GatheringofEvidenceSubVal = ' Gathering of Evidence';
+                        defaultDiv = 'gatheringOfEvidence';
+                        imgPath = "images/ClaimStatusProcesses/GatheringofEvidence.jpg";
+                        break;
+                    case 'REVIEW OF EVIDENCE':
+                        $('.phase_type_roe').text(phaseType);
+                        ReviewofEvidenceSubVal = ' Review of Evidence';
+                        defaultDiv = 'reviewOfEvidence';
+                        imgPath = "images/ClaimStatusProcesses/ReviewofEvidence.jpg";
+                        break;
+                    case 'PREPARATION FOR DECISION':
+                        $('.phase_type_pfd').text(phaseType);
+                        preparationForDecisionSubVal = ' Preparation for Decision';
+                        defaultDiv = 'preparationForDecision';
+                        imgPath = "images/ClaimStatusProcesses/PreparationforDecision.jpg";
+                        break;
+                    case 'PENDING DECISION APPROVAL':
+                        $('.phase_type_pda').text(phaseType);
+                        pendingDecisionApprovalSubVal = ' Pending Decision Approval';
+                        defaultDiv = 'pendingDecisionApproval';
+                        imgPath = "images/ClaimStatusProcesses/PendingDecisionApproval.jpg";
+                        break;
+                    case 'PREPARATION FOR NOTIFICATION':
+                        $('.phase_type_pfn').text(phaseType);
+                        preparationForNotificationSubVal = ' Preparation for Notification';
+                        defaultDiv = 'preparationForNotification';
+                        imgPath = "images/ClaimStatusProcesses/PreparationForNotification.jpg";
+                        break;
+                    case 'COMPLETE':
+                        $('.phase_type_c').text(phaseType);
+                        completeSubVal = ' Complete';
+                        defaultDiv = 'complete';
+                        imgPath = "images/ClaimStatusProcesses/Complete.jpg";
+                        break;
+                    default:
+                        $('.phase_type_c').text('<no ws value>');
+                        completeSubVal = ' Complete';
+                        defaultDiv = 'complete';
+                        imgPath = "images/ClaimStatusProcesses/Complete.jpg";
+                        break;
+                }
+
+                if (!E(defaultDiv)) {
+                    toggleDiv(defaultDiv);
+                }
+            }
+            else {
+                imgPath = "images/ClaimStatusProcesses/DefaultStatus.jpg";
+            }
+
+            picPath = '<img src="' + imgPath + ' ' + '"alt="Claim Status Process"/>';
+            document.getElementById('processIMG').innerHTML = picPath;
+
+            // analyze evidence
+            var evidenceStore = null,
+                ptc = '';
+
+            if (claim) { evidenceStore = claim.evidenceRecords; }
+            if (claim && claim.data) { ptc = claim.data.payeeTypeCode; }
+            if (claim && claim.data && ptc == '00') {
+                if (evidenceStore && evidenceStore.items) {
+                    // Anything that is entered on the Evidence Tab
+                    for (var i = 0; i < evidenceStore.items.length; i++) {
+                        var name = evidenceStore.items[i].data.descriptionText;
+                        var receivedO = evidenceStore.items[i].data.receivedDate; var received = '';
+                        if (receivedO && receivedO != undefined) { received = receivedO.toString('M/dd/yyyy'); }
+                        if (!E(name)) { whatWeRecNotSOlVal = whatWeRecNotSOlVal + name + (E(received) ? '' : ' (' + received + ')') + '; '; }
+                    }
+                }
+            }
+            else { whatWeRecNotSOlVal = 'Evidence Retrieval for Spouse is not yet implemented.'; }
+
+            //whatWeNeedFromYou2.innerHTML = whatWeNeedFromYouVal2;
+            //whatWeNeedFromYou3.innerHTML = whatWeNeedFromYouVal3;
+
+            claimReceivedSub.innerHTML = claimReceivedSubVal;
+            underReviewSub.innerHTML = underReviewSubVal;
+            gatheringOfEvidenceSub.innerHTML = gatheringOfEvidenceSubVal;
+            reviewOfEvidenceSub.innerHTML = reviewOfEvidenceSubVal;
+            preparationForDecisionSub.innerHTML = preparationForDecisionSubVal;
+            preparationForNotificationSub.innerHTML = preparationForNotificationSubVal;
+            pendingDecisionApprovalSub.innerHTML = pendingDecisionApprovalSubVal;
+            completeSub.innerHTML = completeSubVal;
+            //closedClaimSub.innerHTML = closedClaimSubVal;
+
+            // same subcaptions in script text
+            document.getElementById('claimReceivedSub2').innerHTML = FormatScriptSub(claimReceivedSubVal);
+            document.getElementById('underReviewSub2').innerHTML = FormatScriptSub(underReviewSubVal);
+            document.getElementById('gatheringOfEvidenceSub2').innerHTML = FormatScriptSub(gatheringOfEvidenceSubVal);
+            document.getElementById('reviewOfEvidenceSub2').innerHTML = FormatScriptSub(reviewOfEvidenceSubVal);
+            document.getElementById('preparationForDecisionSub2').innerHTML = FormatScriptSub(preparationForDecisionSubVal);
+            document.getElementById('preparationForNotificationSub2').innerHTML = FormatScriptSub(preparationForNotificationSubVal);
+            document.getElementById('pendingDecisionApprovalSub2').innerHTML = FormatScriptSub(pendingDecisionApprovalSubVal);
+            document.getElementById('completeSub2').innerHTML = FormatScriptSub(completeSubVal);
+            //document.getElementById('closedClaimSub2').innerHTML = FormatScriptSub(closedClaimSubVal);
+        }
+        function FormatScriptSub(s) {
+            if (E(s)) return s;
+            return ' (' + s + ' )';
+        }
+
+        function DecisionDevNoteNewEvidenceAnalysis(claim) {
+            var DecNoticeSent = document.getElementById('DecNoticeSent');
+            var DevLetterSent = document.getElementById('DevLetterSent');
+            var NewEvidenceRec = document.getElementById('NewEvidenceRec');
+            var lifeCycle = document.getElementById('lifeCycle');
+
+            // life cycle analysis
+            var lf = '';
+            var lifeCycleRecordsStore = null;
+
+            //Technical Debt: Change to IF THEN
+            try {
+                lifeCycleRecordsStore = parent.opener._claimDetailRecord.lifeCycleRecords();
+                if (lifeCycleRecordsStore) { lifeCycleRecordsStore = lifeCycleRecordsStore.data; }
+            }
+            catch (lce) {
+                if (parent.opener._claimDetailRecord) { lifeCycleRecordsStore = parent.opener._claimDetailRecord.lifeCycleRecords; }
+            }
+
+            if (lifeCycleRecordsStore && lifeCycleRecordsStore.items) {
+                // Anything that is entered on the Evidence Tab
+                for (var i = 0; i < lifeCycleRecordsStore.items.length; i++) {
+                    var name = lifeCycleRecordsStore.items[i].data.lifeCycleStatusTypeName;
+                    var receivedO = lifeCycleRecordsStore.items[i].data.changedDate; var received = '';
+                    if (receivedO && receivedO != undefined) { received = receivedO.toString('M/dd/yyyy'); }
+                    if (!E(name)) { lf = lf + name + (E(received) ? '' : ' (' + received + ')') + '; '; }
+                }
+            }
+        }
+
+        function E(val) { return (!val || val == undefined || val.length == 0); }
+
+        function NoticeLn(trItem, recip, dateVal, dateDesc) {
+            return (E(recip) ? '' : recip + ': ') + trItem + (E(dateVal) ? '' : ' (' + dateDesc + ' ' + dateVal + ')') + '; ';
+        }
+
+        function LastCallFromSameVet(claim) {
+            var res = '';
+            var pid = '';
+            var ssn = '';
+            if (claim && claim.data) {
+                if (!E(claim.data.ssn)) { ssn = claim.data.ssn; }
+                if (parent.opener._claimDetailRecord && !E(parent.opener._claimDetailRecord.data.participantClaimantID)) {
+                    pid = parent.opener._claimDetailRecord.data.participantClaimantID;
+                }
+                else {
+                    var ptc = claim.data.payeeTypeCode;
+                    if (ptc == '00') {
+                        try { pid = parent.opener.parent.Xrm.Page.getAttribute('va_participantid').getValue(); } catch (gpe) { }
+                    }
+                }
+            }
+            if (E(ssn) && E(pid)) return res;
+
+            var columns = ['Subject', 'ActivityId', 'CreatedOn'];
+            var thisCallId = parent.opener.parent.Xrm.Page.data.entity.getId();
+
+            var filter = (E(ssn) ? "va_ParticipantID eq '" + pid : "va_SSN eq '" + ssn) + "'";
+            if (thisCallId) { filter += " and ActivityId ne guid'" + thisCallId + "'"; }
+
+            var uri = parent.opener.parent.GetServerUrl() + '/XRMServices/2011/OrganizationData.svc/PhoneCallSet?$select=' + columns.join(',') +
+                '&$filter=' + filter + '&$orderby=CreatedOn desc,Subject asc';
+            var calls = null;
+            CrmRestKit2011.ByQueryUrl(uri, false)
+            .done(function (data) {
+                if (data && data.d) {
+                    calls = data.d;
+                }
+            }).fail(function (err) {
+                errorRestKit(err, 'Failed to retrieve phone calls');
+            });
+            var id = '';
+
+            if (calls && calls.results && calls.results.length > 0) {
+                for (var i = 0; i < calls.results.length; i++) {
+                    id = calls.results[i].ActivityId;
+                    var fieldValue = eval(calls.results[i].CreatedOn);
+                    var dt = new Date(parseInt(fieldValue.toString().replace("/Date(", "").replace(")/", "")));
+
+                    // TODO: also check for record id
+                    // ignore first call within 45 min of the current time
+                    var oldness = ((new Date()).getTime() - dt.getTime()) / 1000;
+                    if (oldness <= 2700 && i == 0) { continue; } // up to 45 min
+
+                    var dateValue = dt.toString(); //  dt.format("MM/dd/yyyy hh:mm");
+                    res = /*'Last Call regarding Claimant: ' +*/dateValue + (E(calls.results[i].Subject) ? '' : '; Subject: ' + calls.results[0].Subject) + ' (click to open in new window)';
+                    break;
+                }
+            }
+
+            if (!E(res)) {
+                document.getElementById('lastCallRow').style.display = 'block';
+                var url = parent.opener.parent.GetServerUrl() + "/main.aspx?etc=4210&id=" + id + "&pagetype=entityrecord";
+                var ref = '<a id="relCallLink" style="text-decoration: underline; cursor: pointer;" href="' + url +
+                    '" target="_blank" title="Click to Open Prior Call Record">' + res + '</a>';
+                document.getElementById('LastCallReClaimantCell').innerHTML = ref;
+            }
+            return res;
+        }
+
+        function RatingAwardLastChanges(claim) {
+            var res = '';
+            var lastAward = '';
+            var lastRating = '';
+
+            // Get Award Store
+            var awStore = parent.opener.Ext.data.StoreManager.lookup('AwardsStore');
+
+            if (awStore && awStore.data && awStore.data.items && awStore.data.items.length > 0) {
+                for (var i = 0; i < awStore.data.items.length; i++) {
+                    if (awStore.data.items[i].data.payeeCd != claim.data.payeeTypeCode && awStore.data.items[i].data.payeeTypeCode != claim.data.payeeTypeCode) { continue; }
+                    var beneTC = awStore.data.items[i].data.awardBeneTypeCd;
+                    if (beneTC == undefined) { beneTC = awStore.data.items[i].data.benefitTypeCode; }
+                    if (beneTC == undefined) { beneTC = ''; }
+                    else { beneTC = '/' + beneTC; }
+                    lastAward = lastAward + awStore.data.items[i].data.awardTypeCd + beneTC + '; ';
+                }
+                if (lastAward.length > 0) { lastAward = 'Awards: ' + lastAward; }
+            }
+
+            // Get Rating Store
+            try { store = parent.opener.Ext.data.StoreManager.lookup('disabilityRatingStore'); } catch (per) { }
+            if (store && store.data && store.data.items && store.data.items.length > 0) {
+                var pc = store.data.items[0].data.diagnosticPercent;
+                lastRating = 'Rating: ' + store.data.items[0].data.diagnosticText +
+                    (pc && pc.length > 0 ? '-' + pc + '%' : '') + '-' + store.data.items[0].data.disabilityDecisionTypeName;
+                var receivedO = store.data.items[0].data.beginDateFormatted; var received = '';
+                if (receivedO && receivedO != undefined) { received = receivedO.toString('M/dd/yyyy'); }
+                lastRating = lastRating + (E(received) ? '' : ' (' + received + ')') + '; ';
+            }
+
+            res = lastRating + lastAward;
+
+            if (!E(res)) {
+                document.getElementById('rateAwardChangeRow').style.display = 'block';
+                document.getElementById('ratingAwardLastChangeDate').innerHTML = res;
+            }
+        }
+
+        function CCallWrapper(aObjectReference, aDelay, aMethodName, aArgument0, aArgument1, aArgument2, aArgument3, aArgument4, aArgument5, aArgument6, aArgument7, aArgument8, aArgument9) {
+            this.mId = 'CCallWrapper_' + (CCallWrapper.mCounter++);
+            this.mObjectReference = aObjectReference;
+            this.mDelay = aDelay;
+            this.mTimerId = 0;
+            this.mMethodName = aMethodName;
+            this.mArgument0 = aArgument0; this.mArgument1 = aArgument1; this.mArgument2 = aArgument2;
+            this.mArgument3 = aArgument3; this.mArgument4 = aArgument4; this.mArgument5 = aArgument5;
+            this.mArgument6 = aArgument6; this.mArgument7 = aArgument7; this.mArgument8 = aArgument8;
+            this.mArgument9 = aArgument9;
+            CCallWrapper.mPendingCalls[this.mId] = this;
+        }
+
+        CCallWrapper.prototype.execute = function () {
+            this.mObjectReference[this.mMethodName](this.mArgument0, this.mArgument1, this.mArgument2, this.mArgument3,
+                this.mArgument4, this.mArgument5, this.mArgument6, this.mArgument7, this.mArgument8, this.mArgument9);
+            delete CCallWrapper.mPendingCalls[this.mId];
+        };
+
+        CCallWrapper.prototype.cancel = function () {
+            clearTimeout(this.mTimerId);
+            delete CCallWrapper.mPendingCalls[this.mId];
+        };
+
+        CCallWrapper.asyncExecute = function (/* CCallWrapper */callwrapper) {
+            CCallWrapper.mPendingCalls[callwrapper.mId].mTimerId = setTimeout('CCallWrapper.mPendingCalls["' + callwrapper.mId + '"].execute()', callwrapper.mDelay);
+        };
+
+        CCallWrapper.mCounter = 0;
+        CCallWrapper.mPendingCalls = {};
+
+        function PostLoadOps(par) {
+            this.par = par;
+        }
+        //This syntax below looks off.
+        PostLoadOps.prototype.get =
+            function (doAlert, claim) {
+                var res = LastCallFromSameVet(claim);
+                if (doAlert && !E(res)) alert(res);
+
+                RatingAwardLastChanges(claim);
+                return 0;
+            };
+
+        function errorRestKit(err, message) {
+            var error = message + ':\r\nError: ' + err.statusText;
+            if (err.status === 400 && err.responseText)
+                error += '\r\n' + $.parseJSON(err.responseText).error.message.value;
+
+            alert(error);
+        }
+
+        function toggleX(className) {
+            $(className).toggle();
+            return false;
+        }
+    </script>
+<div id="main" class="container">
+
+		<div id="sidenav" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">
+		<img src="images/logo.bmp" alt="VRM Logo" align="center"; style="padding-left:25px; padding-top:10px" />
+		<h1 align="center" style="color:White">Reference</h1>
+        <br /><br />
+        	<a id="acpt" onclick="AverageClaimProcTimes()"  
+			style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: bold; color:White; display: none;" 
+			title="Click to view Average Processing Times">Av. Proc Times for</a>&nbsp;<input 
+			id="soj" type="text" style="width: 40px; display: none;" />&nbsp;<label id="apcCom" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color:White; display: none;"></label>
+        <br />
+        <br />
+        <ul>
+   			<li><input type="button" title="Refresh Script" value="Refresh Script" onclick="RefreshScript()" style="width:180px; display: none;" /></li><br />
+        </ul>
+        <br />
+		<ul>
+			<li><a style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color:White;" href="http://vaww.vrm.km.va.gov">Knowledge Management System</a></li>
+		</ul>
+	</div>
+
+	<div id="content">
+		<div id="header" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; margin-top: 5px; margin-bottom: 5px" align="left">
+	<label id="ln"></label>
+	</div>    
+
+		<table align="left" border="0" style="border: thin solid #C0C0C0">
+	<tr align="left" valign="top" ><td colspan="2" style="font-weight:bold; font-size: 13px"></td></tr>
+		  	
+	 <tr id="lastCallRow" style="display: none">
+		<td  style="font-weight:bold; font-size: 11px" >Last Call Regarding Claimant</td>
+		<td><label id="LastCallReClaimantCell"></label></td>
+	</tr>  	    
+	 <tr id="rateAwardChangeRow" style="display: none">
+		<td  style="font-weight:bold; font-size: 11px" >Last Rating Change, Awards</td>
+		<td><label id="ratingAwardLastChangeDate"></label></td>
+	</tr>
+    <tr>
+        <td colspan="2">
+        <a href="javascript:;" onmousedown="toggleDiv('trackeditemstable');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold"><h1>Tracked Items Table</h1></a>
+        <div id="trackeditemstable" style="display: none">
+        <span id="trackedItemsTableValues"></span>
+        </div>
+    </td>
+    </tr>
+
+	<tr>
+	<td colspan="2"><label id="processIMG"></label></td>
+	</tr>
+
+	<tr>
+		<td colspan="2">
+		<a href="javascript:;" onmousedown="toggleDiv('vaitable');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold"><h1>Should I initiate a VAI for <label id="vet"></label>?<label id="vaiYN"></label></h1></a>
+
+		<div id="vaitable" style="display: none">
+		<table border="0" cellpadding="5">
+		<tr><th>Setup a VAI after the below amount of days</th><th width="50">Days</th><th width="80">Max End Date</th><th width="80">VAI Recommended</th><th width="80">VAI NOT Recommended</th></tr>
+		<tr><td>Claims Awaiting Development</td><td align=center><label id="days1"/></td><td align=center><label id="date1"/></td><td align=center><label id="recommended1"/></td><td align=center><label id="notrecommended1"/></td></tr>
+		<tr><td>Claims Awaiting Evidence</td><td align=center><label id="days2"/></td><td align=center><label id="date2"/></td><td align=center><label id="recommended2"/></td><td align=center><label id="notrecommended2"/></td></tr>
+		<tr><td>MAP-D Records Not Updated</td><td align=center><label id="days3"/></td><td align=center><label id="date3"/></td><td align=center><label id="recommended3"/></td><td align=center><label id="notrecommended3"/></td></tr>
+		<tr><td>Claims Awaiting Decision</td><td align=center><label id="days4"/></td><td align=center><label id="date4"/></td><td align=center><label id="recommended4"/></td><td align=center><label id="notrecommended4"/></td></tr>
+		<tr><td>Claims Awaiting Promulgation</td><td align=center><label id="days5"/></td><td align=center><label id="date5"/></td><td align=center><label id="recommended5"/></td><td align=center><label id="notrecommended5"/></td></tr>
+		<tr><td>Claims Pending Authorization</td><td align=center><label id="days6"/></td><td align=center><label id="date6"/></td><td align=center><label id="recommended6"/></td><td align=center><label id="notrecommended6"/></td></tr>
+		</table>
+		</div> 
+		</td>
+	</tr>
+	<tr>
+	<td colspan="2">
+    <hr />	
+        	<a href="javascript:;" onmousedown="toggleDiv('claimReceived');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+        <label id="claimReceivedSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+        <span class="phase_type_cr"></span>; Open, No contentions and no tracked items exist
+	</a>
+	<div id="claimReceived" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><label id="claimReceivedSub2" style="display: none;"></label><span class="phase_type_cr"></span>; Open, No contentions and no tracked items exist</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul class="not_past_due">
+            <li>Your claim was received on <b><label class="change_date"></label></b></li>
+            <li>If we determine we need additional information, we will notify you.</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        <!--
+        <ul class="past_due">
+            <li>Your claim was received on <b><label class="change_date"></label></b></li>
+        </ul>
+        <a href="#" onclick="return toggleX('.claimReceived_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="claimReceived_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        -->
+        <ul class="past_due">
+            <li>Your claim was received on <b><label class="change_date"></label></b></li>
+            <li>If we determine we need additional information, we will notify you.</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <!--<span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>-->
+        <!--<ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        -->
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim was received on <b><label class="change_date"></label></b>. If we determine we need additional information, we will notify you.</p>
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <!--<p class="not_past_due"><i>If caller requests information in reference to phase completion information that is available in eBenefits:</i></p>
+            <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>. Please understand that these dates are only estimates.</p>
+            -->
+        </ul>
+        <ul class="past_due">
+            <p>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <p><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+    </div>
+	<div id="claimReceived_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_cr"></span>; Open, No contentions and no tracked items exist</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Your claim was received on <b><label class="change_date"></label></b></li>
+            <li>If we determine we need additional information, we will notify you.</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim was received on <b><label class="change_date"></label></b>. If we determine we need additional information, we will notify you.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+    </div>
+    <br />
+
+	<a  href="javascript:;" onmousedown="toggleDiv('underReview');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+        <label id="underReviewSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+        <span class="phase_type_ur"></span>; Open, One or more contentions exist AND no tracked items exist
+    </a>
+	<div id="underReview" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><label id="underReviewSub2" style="display: none;"></label><span class="phase_type_ur"></span>; Open, One or more contentions exist AND no tracked items exist</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul class="not_past_due">
+            <!--<li>Your claim was received on <b><label class="change_date"></label></b></li>-->
+            <li>Your claim was assigned to a Representative</li>
+            <li>Representative will gather all evidence needed to make a decision on your claim</li>
+            <li>If we determine we need additional information, we will notify you</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b></li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        <!--
+        <ul class="past_due">
+        </ul>
+        <a href="#" onclick="return toggleX('.underReview_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="underReview_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        -->
+        <ul class="past_due">
+            <!--<li>Your claim was received on <b><label class="change_date"></label></b></li>-->
+            <li>Your claim was assigned to a Representative</li>
+            <li>Representative will gather all evidence needed to make a decision on your claim</li>
+            <li>If we determine we need additional information, we will notify you</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <!--
+        <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+        <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        -->
+
+        <br />
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <!--
+        <ul>
+            <p>Your claim was received on <b><label class="change_date"></label></b>&nbsp;and we have assigned a Representative to your claim. The Representative will gather all of the evidence we need in order to make a decision on your claim. We will review your claim and notify you of any additional information that is needed.</p>
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <p class="not_past_due">If caller requests information in reference to phase completion information that is available in eBenefits:</p>
+            <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+            <p class="not_past_due">If the Veteran sounds frustrated with the timeframes:</p>
+            <p class="not_past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+        <ul class="past_due">
+            <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+            <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+        -->
+        <ul>
+            <p>We have assigned a Representative to your claim. The Representative will gather all of the evidence we need in order to make a decision on your claim. We will review your claim and notify you of any additional information that is needed.</p>
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload. </p>
+            <p class="past_due">Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <p><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+            <p class="past_due"><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p class="past_due">The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim</p>
+        </ul>
+	</div>
+	<div id="underReview_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_ur"></span>; Open, One or more contentions exist AND no tracked items exist</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Your claim was assigned to a Representative</li>
+            <li>Representative will gather all evidence needed to make a decision on your claim</li>
+            <li>If we determine we need additional information, we will notify you</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>We have assigned a Representative to your claim. The Representative will gather all of the evidence we need in order to make a decision on your claim. We will review your claim and notify you of any additional information that is needed.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+    </div>
+    <br />
+
+	<a href="javascript:;" onmousedown="toggleDiv('gatheringOfEvidence');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+        <label id="gatheringOfEvidenceSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+        <span class="phase_type_goe"></span>; Open, One or more tracked items exist
+    </a>
+	<div id="gatheringOfEvidence" style="display:none">
+	    <h1><label id="gatheringOfEvidenceSub2" style="display: none;"></label><span class="phase_type_goe"></span>; Open, One or more tracked items exist</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+        <ul class="not_past_due">
+            <li>Claim is in development phase of processing</li>
+            <li>We are waiting for (discuss open tracked items)</li>
+            <li>We will contact you if additional evidence is needed</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        <ul class="past_due">
+            <li>Claim is in development phase of processing</li>
+            <li>We are waiting for (discuss open tracked items)</li>
+            <li>We will contact you if additional evidence is needed</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <!--
+        <a href="#" onclick="return toggleX('.gatheringOfEvidence_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="gatheringOfEvidence_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        <ul class="past_due">
+            <li>We are waiting for (discuss open tracked items)</li>
+            <li>We will contact you if additional evidence is needed</li>
+        </ul>
+        -->
+        <!--
+        <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+        <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        <br />
+        -->
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <!--
+        <ul>
+            <p>Your claim is currently in the development phase of processing.  During this phase, we will gather the evidence needed to decide your claim.  We are currently waiting for (tracked items).  Your claim will be reviewed and we will contact you if additional information is needed.</p>
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <p class="not_past_due">If caller requests information in reference to phase completion information that is available in eBenefits:</p>
+            <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+            <p class="not_past_due">If the Veteran sounds frustrated with the timeframes:</p>
+            <p class="not_past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+        <ul class="past_due">
+            <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+            <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+        -->
+        <ul>
+            <p>Your claim is currently in the development phase of processing. During this phase, we will gather the evidence needed to decide your claim. We are currently waiting for (<b>tracked items</b>). Your claim will be reviewed and we will contact you if additional information is needed.</p>
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload. </p>
+            <p class="past_due">Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <p><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+            <p class="past_due"><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p class="past_due">The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+	</div>
+	<div id="gatheringOfEvidence_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_goe"></span>; Open, One or more tracked items exist</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Claim is in development phase of processing</li>
+            <li>We are waiting for (discuss open tracked items)</li>
+            <li>We will contact you if additional evidence is needed</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is currently in the development phase of processing. During this phase, we will gather the evidence needed to decide your claim. We are currently waiting for (tracked items).  Your claim will be reviewed and we will contact you if additional information is needed.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+    </div>
+    <br />
+
+	<a href="javascript:;" onmousedown="toggleDiv('reviewOfEvidence');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+        <label id="reviewOfEvidenceSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+        <span class="phase_type_roe"></span>; Open, One or more tracked items exist AND all tracked items are either 'Closed' or 'Received'
+    </a>
+	<div id="reviewOfEvidence" style="display:none">
+	    <h1><label id="reviewOfEvidenceSub2" style="display: none;"></label><span class="phase_type_roe"></span>; Open, One or more tracked items exist AND all tracked items are either 'Closed' or 'Received'</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+        <ul class="not_past_due">
+            <li>Claim is in development phase of processing</li>
+            <li>We have received all requested evidence</li>
+            <li>We will contact you if additional evidence is needed</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        <ul class="past_due">
+            <li>Claim is in development phase of processing</li>
+            <li>We have received all requested evidence</li>
+            <li>We will contact you if additional evidence is needed</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <!--
+        <a href="#" onclick="return toggleX('.reviewOfEvidence_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="reviewOfEvidence_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        <ul class="past_due">
+            <li>We have received all requested evidence</li>
+            <li>We will contact you if additional evidence is needed</li>
+        </ul>
+        <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+        <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+        </ul>
+        <br />
+        -->
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is currently in the development phase of processing. During this phase, we gather the evidence needed to decide your claim.  We have received all requested evidence. Your claim will be reviewed and we will contact you if additional information is needed.</p>
+            <p class="past_due">Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <!--<p class="past_due"><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+            <p class="past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+            -->
+            <p class="past_due"><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p class="past_due">The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <p class="not_past_due"><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+            <p class="not_past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+            <!--
+            <p class="not_past_due"><i>If caller requests information in reference to phase completion information that is available in eBenefits:</i></p>
+            <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+            -->
+        </ul>
+	</div>
+	<div id="reviewOfEvidence_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_roe"></span>; Open, One or more tracked items exist AND all tracked items are either 'Closed' or 'Received'</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Claim is in development phase of processing</li>
+            <li>We have received all requested evidence</li>
+            <li>We will contact you if additional evidence is needed</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <li>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is currently in the development phase of processing.  During this phase, we gather the evidence needed to decide your claim.  We have received all requested evidence. Your claim will be reviewed and we will contact you if additional information is needed.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+    </div>
+    <br />
+
+	<a href="javascript:;" onmousedown="toggleDiv('preparationForDecision');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold"><span class="phase_type_pfd"></span>;
+	    <label id="preparationForDecisionSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px"></label>
+    </a>
+	<div id="preparationForDecision" style="display:none">
+	    <h1><span class="phase_type_pfd"></span>; <label id="preparationForDecisionSub2"></label></h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul class="not_past_due">
+            <li>Your claim is in the decision phase.</li>
+            <li>If no additional information is needed, we will prepare a decision on your claim</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>Please understand that this date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <ul class="past_due">
+            <li>Your claim is in the decision phase.</li>
+            <li>If no additional information is needed, we will prepare a decision on your claim</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <!--
+        <a href="#" onclick="return toggleX('.preparationForDecision_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="preparationForDecision_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        <ul class="past_due">
+            <li>If no additional information is needed, we will prepare a decision on your claim</li>
+        </ul>
+        <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+        <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>Please understand that this date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <br />
+        -->
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is currently in the decision phase of processing. If no further information or evidence is needed a decision will be made and you will be notified in writing.</p>
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <!--<p class="not_past_due">If caller requests information in reference to phase completion information that is available in eBenefits:</p>
+            <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+            -->
+            <!--
+            <p class="not_past_due">If the Veteran sounds frustrated with the timeframes:</p>
+            <p class="not_past_due">"I apologize for the length of time it is taking to make a decision on your claim; however, we are currently experiencing a backlog of claims.  The decision phase can sometimes be a lengthy process because we want to make sure every claim has a thorough review, as well as a fair and accurate decision."</p>
+            -->
+
+            <p class="past_due">Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <p><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+            <p>"I apologize for the length of time it is taking to make a decision on your claim; however, we are currently experiencing a backlog of claims. The decision phase can sometimes be a lengthy process because we want to make sure every claim has a thorough review, as well as a fair and accurate decision."</p>
+            <p class="past_due"><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p class="past_due">The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+        <!--
+        <ul class="past_due">
+            <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+            <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+        -->
+	</div>
+	<div id="preparationForDecision_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_pfd"></span>; <label id="Label3"></label></h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Your claim is in the decision phase.</li>
+            <li>If no additional information is needed, we will prepare a decision on your claim</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <li>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is currently in the decision phase of processing. If no further information or evidence is needed a decision will be made and you will be notified in writing.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+    </div>
+    <br />
+
+	<a href="javascript:;" onmousedown="toggleDiv('pendingDecisionApproval');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold"><span class="phase_type_pda"></span>;
+	    <label id="pendingDecisionApprovalSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px"></label>
+    </a>
+	<div id="pendingDecisionApproval" style="display:none">
+	    <h1><span class="phase_type_pda"></span>; <label id="pendingDecisionApprovalSub2"></label></h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+        <ul class="not_past_due">
+            <li>Your claim is pending final review</li>
+            <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+            <li>Your claim's status may change if additional information is required.</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <ul class="past_due">
+            <li>Your claim is pending final review</li>
+            <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+            <li>Your claim's status may change if additional information is required.</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <!--
+        <a href="#" onclick="return toggleX('.pendingDecisionApproval_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="pendingDecisionApproval_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        <ul class="past_due">
+            <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+            <li>Your claim's status may change if additional information is required.</li>
+        </ul>
+        <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+        <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <br />
+        -->
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p class="not_past_due">Your claim is pending final review.  VA will process the decision, review it for accuracy, and notify you by mail. Your claim's status may change if additional information is required.</p>
+            <p class="past_due">Your claim is pending final review.  VA will process the decision, review it for accuracy, and notify you by mail. Your claim's status may change if additional information is required. <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.-->Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <!--<p>Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>-->
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <p>May I verify your mailing address?</p>
+            <p class="not_past_due"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></p>
+            <p class="not_past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+            <p><i>If the Veteran asks what the decision is:</i></p>
+            <p>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+            <p class="past_due"><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p class="past_due">The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+            <!--<p>If caller requests information in reference to phase completion information that is available in eBenefits:</p>-->
+            <!--<p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates .</p>
+            <p class="not_past_due">If the Veteran asks what the decision is:</p>
+            <p class="not_past_due">"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+            -->
+        </ul>
+        <!--
+        <ul class="past_due">
+            <p><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+        -->
+	</div>
+	<div id="pendingDecisionApproval_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_pda"></span>;</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Your claim is pending final review</li>
+            <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+            <li>Your claim's status may change if additional information is required.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <li>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is pending final review. VA will process the decision, review it for accuracy, and notify you by mail. Your claim's status may change if additional information is required.</p>
+            <p>May I verify your mailing address?</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran asks what the decision is:</i></ul>
+        <ul>
+            <p>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+        </ul>
+    </div>
+    <br />
+
+	<a href="javascript:;" onmousedown="toggleDiv('preparationForNotification');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold"><span class="phase_type_pfn"></span>;
+	    <label id="preparationForNotificationSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px"></label>
+    </a>
+	<div id="preparationForNotification" style="display:none">
+	    <h1><span class="phase_type_pfn"></span>; <label id="preparationForNotificationSub2"></label></h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+	    <ul class="not_past_due">
+            <li>Your claim is in the final stages</li>
+            <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+            <li>Your claim's status may change if additional information is required.</li>
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>May I verify your mailing address?</li>
+	    </ul>
+        <ul class="past_due">
+            <li>Your claim is in the final stages</li>
+            <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+            <li>Your claim's status may change if additional information is required.</li>
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <!--
+        <a href="#" onclick="return toggleX('.pendingDecisionApproval_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+        <div class="pendingDecisionApproval_col" style="display: none;">
+            <ul class="past_due">
+                <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                <p>If the components/script sentences above are eliminated, include:</p>
+                <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+            </ul>
+        </div>
+        <ul class="past_due">
+            <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+            <li>Your claim's status may change if additional information is required.</li>
+        </ul>
+        <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+        <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+        <ul class="past_due">
+            <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+        </ul>
+        <span class="past_due"><b>(OR)</b></span>
+        <br />
+        <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+        <ul class="past_due">
+            <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <br />
+        -->
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p class="not_past_due">Your claim is currently in the final stages waiting for approval by a VA authorizer. Your claim's status may change if additional information is required.</p>
+            <p class="past_due">Your claim is currently in the final stages waiting for approval by a VA authorizer. Your claim's status may change if additional information is required. <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.-->Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+            <!--<p>Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>-->
+            <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+            <p>May I verify your mailing address?</p>
+            <p class="not_past_due"><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+            <p class="not_past_due">"I apologize for the length of time it is taking to make a decision on your claim; however, we are currently experiencing a backlog of claims. The decision phase can sometimes be a lengthy process because we want to make sure every claim has a thorough review, as well as a fair and accurate decision."</p>
+            <p><i>If the Veteran asks what the decision is:</i></p>
+            <p>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+            <p class="past_due"><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+            <p class="past_due">The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+
+            <!--<p>If caller requests information in reference to phase completion information that is available in eBenefits:</p>-->
+            <!--<p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+            <p class="not_past_due">If the Veteran asks what the decision is:</p>
+            <p class="not_past_due">"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+                -->
+        </ul>
+        <!--
+        <ul class="past_due">
+            <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+            <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+        </ul>
+        -->
+	</div>
+	<div id="preparationForNotification_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_pfn"></span>;</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Your claim is in the final stages</li>
+            <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+            <li>Your claim's status may change if additional information is required.</li>
+            <li>May I verify your mailing address?</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <li>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is currently in the final stages waiting for approval by a VA authorizer. Your claim's status may change if additional information is required.</p>
+            <p>May I verify your mailing address?</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran asks what the decision is:</i></ul>
+        <ul>
+            <p>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the claimant requests a timeframe or an estimate of when claim will be completed:</i></ul>
+        <ul>
+            <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran sounds frustrated with the length of time it is taking to process his/her claim:</i></ul>
+        <ul>
+            <p>"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+        </ul>
+        <!--
+        <ul style="margin-left: 20px;">If the Veteran asks what the decision is:</ul>
+        <ul>
+            <li>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</li>
+        </ul>
+        -->
+    </div>
+    <br />
+
+    <a href="javascript:;" onmousedown="toggleDiv('complete');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+        <label id="completeSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+        <span class="phase_type_c"></span>; Closed
+    </a>
+	<div id="complete" style="display:none">
+	    <h1><label id="completeSub2" style="display: none;"></label><span class="phase_type_c"></span>; Closed</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+	    <ul>
+            <li>Your claim is complete.</li>
+            <li>We sent you a decision packet in the mail explaining the decision on (date of letter in VVA/VBMS).</li>
+            <li>May I verify your mailing address?</li>
+            <li>Please allow at least 10 mailing days for the packet to arrive.</li>
+	    </ul>
+        <br />
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is complete.  VA has made a decision on your claim and a packet of detailed information explaining your decision was sent on (date of letter in VVA).</p>
+            <p>May I verify your mailing address?</p>
+            <p>Please allow at least 10 mailing days for your notification packet to arrive.</p>
+            <p><i>If the Veteran asks what the decision is:</i></p>
+            <p>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+            <p><i>If the Veteran wants a copy of the letter faxed/emailed:</i></p>
+            <p>"I'm sorry but we are required to allow time for the notification package to be received through US Mail; however, if you have not received your notification letter after 10 mailing days have passed, please call us back and we can fax or mail you another copy."</p>
+        </ul>
+	</div>
+	<div id="complete_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+	    <h1><span class="phase_type_c"></span>; Closed</h1>
+
+	    <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+        <ul>
+            <li>Your claim is complete.</li>
+            <li>We sent you a decision packet in the mail explaining the decision on (date of letter in VVA/VBMS).</li>
+            <li>May I verify your mailing address?</li>
+            <li>Please allow at least 10 mailing days for the packet to arrive</li>
+        </ul>
+        <br />
+        <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+        <ul>
+            <p>Your claim is complete.  VA has made a decision on your claim and a packet of detailed information explaining your decision was sent on (date of letter in VVA).</p>
+            <p>May I verify your mailing address?</p>
+            <p>Please allow at least 10 mailing days for your notification packet to arrive.</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran asks what the decision is:</i></ul>
+        <ul>
+            <p>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+        </ul>
+        <ul style="margin-left: 20px;"><i>If the Veteran wants a copy of the letter faxed/emailed:</i></ul>
+        <ul>
+            <p>"I'm sorry but we are required to allow time for the initial notification package to be received through US Mail; however, if you have not received your notification letter after 10 mailing days have passed, please call us back and we can fax or mail you another copy."</p>
+        </ul>
+    </div>
+    <br />
+
+	<hr />
+
+         <a href="javascript:;" onmousedown="toggleDiv('VAIPending');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">VAI Pending</a>
+	<label id="Label33" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px"></label>
+	<div id="VAIPending" style="display:none">
+	<h1>VAI Pending <label id="Label44"></label></h1>
+
+	<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script:</div>
+    <ul>I apologize for the delay in responding to your inquiry.  The 7-10 business day timeframe we provide when we initiate an inquiry is the goal, but please understand the time it takes to respond depends on the workload of the Regional Office.  I do show that your claim is still in the (Insert Claim Phase) and there have not been any updates to the claim status since the inquiry was submitted.  I will add a note to the inquiry to let your Regional Office know you are still waiting for a response.  May I verify your (telephone, email, address,  - selected method of contact).</ul>  
+<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script Components:</div>
+<ul><li>Apologize for delay in responding to inquiry</li>
+<li>Advise 7-10 days for response is the goal; however, it can take longer based upon the workload of the Regional Office</li>
+<li>Advise claim is still in the appropriate phase (development, decision, etc.)</li> 
+<li>Advise there have not been any updates</li>
+<li>Advise will add note to inquiry</li>
+<li>Confirm method of contact</li></ul>
+
+	</div><br />
+
+	<a  href="javascript:;" onmousedown="toggleDiv('apology');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Apology (generic) Due to Complaints on How Long It's Taking to Process Claim During "any" Stage </a>
+	<div id="apology" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; display: none"><ul>
+	I'm sorry. I can understand why you may be frustrated. We are currently processing a large volume of claims and we are doing our best to process these as quickly as possible. We generally process claims in the order received. Note: If caller indicates a hardship exists, PCR should advise the caller to send/FAX documentation of the hardship (eviction/foreclosure notice; past due utility bill, etc). See Financial Hardship Claimed or Terminal Illness Hardship Claimed script.</ul>
+    </div><br />
+
+
+    <a href="javascript:;" onmousedown="toggleDiv('repeatCaller');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Repeat Caller</a>
+	<label id="Label1" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px"></label>
+	<div id="repeatCaller" style="display:none">
+	<h1>Repeat Caller <label id="Label2"></label></h1>
+	<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script Notes:</div>
+    <ul><li>System of record clearly indicates that caller has contacted the VA within the last 30 days requesting information on the same issue.</li>
+    <li>There have been no new actions (i.e. - tracked items, diaries, etc.) since last documented call in which a status was provided.</li>
+    <li>This is an <b>optional</b> script, but must be read in full if used.</li>
+If script qualifications are met, PCRs can use this script in replacement of the standard Status of Claim/Appeal scripts <i>with the exception of the</i> <b>NOD Status: SOC Issued script.</b></ul>
+	
+    <br />
+	
+	<div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Components (mandatory):</div>
+	<ul><li>Date of previous contact</li> 
+	<li>Confirm case is still in the same status</li>
+	<li>Advise there has not been any additional updates since last contact</li>
+	</ul>
+    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script (optional):</div>
+    <ul>At this time, your case is in the same status and there have not been any updates since your last call.<br />
+    <i>If the Veteran sounds frustrated with receiving the same information:</i>
+    <li>PCR is required provide the status per the appropriate Status of Claim/Appeal script.</li> </ul>
+    </div>
+
+    <br /><br /><br />
+
+	<a  href="javascript:;" onmousedown="toggleDiv('hardshipFinClaimed');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Hardship, Financial, Claimed</a>
+	<div id="hardshipFinClaimed" style="display:none">
+	<ul>I'm sorry you're experiencing financial difficulty. In order for us to expedite your claim, please send us copies of any past due utility bills, eviction/foreclosure notice, or repossession notice - something that we can use to help us help you. 
+<br />
+<br />
+<b>Note to PCR:</b> Give ROJ's fax number and/or ROJ's address and ask claimant to annotate the document "Financial Hardship." <br />
+<a id="sojad1" onclick="LoadSOJAddress(1)"  
+			style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF;" 
+			title="Click to load SOJ Address">Load SOJ Address for</a>&nbsp;
+			<input id="sojaddress1" type="text" style="width: 40px" />&nbsp;<label id="soj1" style="font-size:12px; font-weight:normal"></label>
+</ul>
+	</div>
+	<br />
+	<a  href="javascript:;" onmousedown="toggleDiv('hardshipTermIllClaimed');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Hardship, Terminal Illness, Claimed</a>
+	<div id="hardshipTermIllClaimed" style="display:none">
+	<ul>I'm sorry to hear that you're going through this difficult time. In order for us to expedite your claim, please send medical evidence or a doctor's statement of your prognosis. Please understand that we need this in order to help you. 
+<br />
+<br />
+<b>Note to PCR:</b> Give ROJ's fax number and/or ROJ's address and ask claimant to annotate the document "Terminal Illness Hardship." <br />
+<a id="sojad2" onclick="LoadSOJAddress(2)"  
+			style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF;" 
+			title="Click to load SOJ Address">Load SOJ Address for</a>&nbsp;
+			<input id="sojaddress2" type="text" style="width: 40px" />&nbsp;<label id="soj2" style="font-size:12px; font-weight:normal"></label>
+</ul>
+	</div>
+	</td>
+	</tr>
+	</table>
+	</div>
+
+</div>
+</body>

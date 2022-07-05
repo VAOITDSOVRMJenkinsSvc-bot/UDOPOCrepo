@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <LocalizedNames>
+    <LocalizedName description="VASS National Dashboard" languagecode="1033" />
+  </LocalizedNames>
+  <FormId>{140d66d0-35c8-e911-a983-001dd80081ad}</FormId>
+  <IsCustomizable>1</IsCustomizable>
+  <IsDefault>0</IsDefault>
+  <FormXml>
+    <forms type="dashboard">
+      <form>
+        <tabs>
+          <tab id="{08b0f630-86e9-46c2-adba-88c0c094cab8}" showlabel="false" verticallayout="true">
+            <labels>
+              <label description="Tab" languagecode="1033" />
+            </labels>
+            <columns>
+              <column width="100%">
+                <sections>
+                  <section id="{17779066-4a46-4c52-9fef-f3c793550c22}" showlabel="false" showbar="false" columns="1111">
+                    <labels>
+                      <label description="Section" languagecode="1033" />
+                    </labels>
+                    <rows>
+                      <row>
+                        <cell id="{11770b9a-2f71-4019-80e4-84871cfe129d}" rowspan="21" showlabel="false" colspan="4" auto="false">
+                          <labels>
+                            <label description="Interaction Assignments" languagecode="1033" />
+                          </labels>
+                          <control id="Component9e84db8" uniqueid="{88539253-aed3-d800-92de-62d27cd30977}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>udo_mheointeractionassignment</TargetEntityType>
+                              <ChartGridMode>Grid</ChartGridMode>
+                              <EnableQuickFind>true</EnableQuickFind>
+                              <EnableViewPicker>true</EnableViewPicker>
+                              <EnableJumpBar>true</EnableJumpBar>
+                              <RecordsPerPage>17</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{8A05A854-45E5-E911-A993-001DD800B582}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{5C6A2F08-FF68-4E7D-B467-C357A8BF2B10},{8A05A854-45E5-E911-A993-001DD800B582}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId />
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row>
+                        <cell id="{31c3336d-1560-4fd8-879f-63cc81a0e7e4}" rowspan="12" showlabel="false" colspan="2" auto="false">
+                          <labels>
+                            <label description="Interactions" languagecode="1033" />
+                          </labels>
+                          <control id="Component41ca232" uniqueid="{99c86625-555e-6361-e52c-05994b7ca171}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>udo_interaction</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{16A1E8E1-9AC9-E911-A984-001DD8009F4B}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{6870E7EE-B5C5-E911-A983-001DD80081AD},{7D91D104-D412-E611-943D-0050568DF261},{EA7CEB58-AEC5-E911-A983-001DD80081AD},{16A1E8E1-9AC9-E911-A984-001DD8009F4B},{76A57A67-9310-E611-943D-0050568DF261}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{C4D6B7B6-DFC8-E911-A98F-001DD800B582}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                        <cell id="{55686738-7ea1-4701-b0e6-ba2906ae765a}" rowspan="12" showlabel="false" colspan="2" auto="false">
+                          <labels>
+                            <label description="Interactions" languagecode="1033" />
+                          </labels>
+                          <control id="Componentcfe9415" uniqueid="{1bb721c7-a33d-d561-454d-a6499e360cc0}" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                            <parameters>
+                              <TargetEntityType>udo_interaction</TargetEntityType>
+                              <ChartGridMode>Chart</ChartGridMode>
+                              <EnableQuickFind>false</EnableQuickFind>
+                              <EnableViewPicker>false</EnableViewPicker>
+                              <EnableJumpBar>false</EnableJumpBar>
+                              <RecordsPerPage>12</RecordsPerPage>
+                              <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                              <ViewId>{2836A0FD-E0C8-E911-A98F-001DD800B582}</ViewId>
+                              <IsUserView>false</IsUserView>
+                              <ViewIds>{76A57A67-9310-E611-943D-0050568DF261}</ViewIds>
+                              <AutoExpand>Fixed</AutoExpand>
+                              <VisualizationId>{080C2ACC-E0C8-E911-A98F-001DD800B582}</VisualizationId>
+                              <IsUserChart>false</IsUserChart>
+                              <EnableChartPicker>false</EnableChartPicker>
+                              <RelationshipName />
+                            </parameters>
+                          </control>
+                        </cell>
+                      </row>
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                      <row />
+                    </rows>
+                  </section>
+                </sections>
+              </column>
+            </columns>
+          </tab>
+        </tabs>
+        <controlDescriptions />
+        <DisplayConditions FallbackForm="true">
+          <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+          <Role Id="{E81B5A3D-68E0-E911-A994-001DD800951B}" />
+        </DisplayConditions>
+      </form>
+    </forms>
+  </FormXml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsTabletEnabled>0</IsTabletEnabled>
+</Dashboard>

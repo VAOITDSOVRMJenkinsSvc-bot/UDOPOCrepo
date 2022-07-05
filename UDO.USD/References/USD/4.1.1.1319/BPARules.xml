@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rules>
+	<rulecategory name = "Machine">
+		<configuration name = "SystemRAM">
+			<!-- To measure the RAM available in MB -->
+			<unit>GB</unit>
+			<recommendedValue>4 GB or more</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>DOUBLE</datatype>
+					<operation>lt</operation>
+					<warning>4</warning>
+					<error>2</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AvailableRAM">
+			<unit>GB</unit>
+			<recommendedValue>1 GB or more</recommendedValue>
+			<!-- To measure the RAM available in MB -->
+			<condition type = "">
+				<rule>
+					<datatype>DOUBLE</datatype>
+					<operation>lt</operation>
+					<warning>1</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "OSVersion">
+			<recommendedValue>Windows 10</recommendedValue>
+			<!-- Measures the version of the operating system -->
+			<condition type = "OR">
+				<rule>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<required>Windows 10</required>
+				</rule>
+				<rule>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<required>Windows 8.1</required>
+				</rule>
+				<rule>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<required>Windows 8.0</required>
+				</rule>
+				<rule>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<required>Windows 8</required>
+				</rule>
+				<rule>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<required>Windows 7</required>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AvailableDisk">
+			<unit>GB</unit>
+			<recommendedValue>12 GB or more</recommendedValue>
+			<!-- To measure the disk space available in MB -->
+			<condition type = "">
+				<rule>
+					<datatype>DOUBLE</datatype>
+					<operation>lt</operation>
+					<error>12</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "USDVersion">
+			<recommendedValue>4.0</recommendedValue>
+			<!-- To measure the version of the Unified Service Desk -->
+			<condition type = "">
+				<rule>
+					<datatype>version</datatype>
+					<operation>lt.eq</operation>
+					<warning>3.2</warning>
+					<error>2.2</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "USDUptime">
+			<unit>hours</unit>
+			<recommendedValue>Less than 8 hours</recommendedValue>
+			<!-- To measure the time Unified Service Desk has been working in hours-->
+			<condition type = "">
+				<rule>
+					<datatype>DOUBLE</datatype>
+					<operation>gt.eq</operation>
+					<warning>8</warning>
+					<error>12</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "MemoryByUSDProcess">
+			<!-- To measure the memory used by USD Process in MB-->
+			<unit>MB</unit>
+			<recommendedValue>Less than 500 MB</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>DOUBLE</datatype>
+					<operation>gt</operation>
+					<warning>500</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "MandatoryKBUpdates">
+			<!-- To check if the KB Updates are mandatory or not-->
+			<recommendedValue>KB3092627 for Windows 7</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>STRING</datatype>
+					<operation>contains</operation>
+					<required>KB3092627:Windows 7</required>
+				</rule>
+			</condition>
+		</configuration>
+	</rulecategory>
+	<rulecategory name = "InternetExplorer">
+		<configuration name = "TabProcGrowth">
+			<!-- To measure the rate at which IE creates new tab processes -->
+			<recommendedValue>16</recommendedValue>
+			<condition type = "OR">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Internet Explorer\Main"/>
+					<datatype>String</datatype>
+					<operation>eq</operation>
+					<error></error>
+					<required>16</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Internet Explorer\Main"/>
+					<datatype>String</datatype>
+					<operation>eq</operation>
+					<error></error>
+					<required>16</required>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "TabShutdownDelay">
+			<!-- To measure the time in which the tab processes will be destroyed as IE navigates away from it. -->
+			<recommendedValue>0</recommendedValue>
+			<condition type = "OR">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Internet Explorer\Main"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Internet Explorer\Main"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<required>0</required>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name="isolation">
+			<!-- To check if the enhanced protected mode is enabled or disabled -->
+			<recommendedValue>PMIL / Disable</recommendedValue>
+			<condition type = "OR">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Internet Explorer\Main"/>
+					<datatype>string</datatype>
+					<operation>eq</operation>
+					<required>PMIL</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Internet Explorer\Main"/>
+					<datatype>string</datatype>
+					<operation>eq</operation>
+					<required>PMIL</required>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AutoRecover">
+			<!-- To check if the auto-recovery is enabled or disabled -->
+			<recommendedValue>2 / Disable</recommendedValue>
+			<condition type = "OR">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Internet Explorer\Recovery"/>
+					<datatype>dword</datatype>
+					<operation>nt.eq</operation>
+					<error>2</error>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Internet Explorer\Recovery"/>
+					<datatype>dword</datatype>
+					<operation>nt.eq</operation>
+					<error>2</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "2500">
+			<!-- To check the value of protection mode for all security zones -->
+			<recommendedValue>0 / Enable</recommendedValue>
+			<condition type = "AND">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\1"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\4"/>
+					<datatype>DWORD</datatype>
+					<operation>eq</operation>
+					<warning></warning>
+					<error></error>
+					<required>0</required>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "Cleanup HTCs">
+			<!-- To check if CleanUPHTC is enabled or disabled -->
+			<recommendedValue>Yes</recommendedValue>
+			<condition type = "OR">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "SOFTWARE\Microsoft\Internet Explorer"/>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<error></error>
+					<required>yes</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "SOFTWARE\Microsoft\Internet Explorer"/>
+					<datatype>STRING</datatype>
+					<operation>eq</operation>
+					<error></error>
+					<required>yes</required>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "version">
+			<!-- To check Internet Explorer version -->
+			<recommendedValue>Internet Explorer 11</recommendedValue>
+			<condition type = "OR">
+				<rule>
+					<path registrykeyhive = "HKCU" subkey = "SOFTWARE\Microsoft\Internet Explorer"/>
+					<datatype>version</datatype>
+					<operation>gt.eq</operation>
+					<required>11.0</required>
+				</rule>
+				<rule>
+					<path registrykeyhive = "HKLM" subkey = "SOFTWARE\Microsoft\Internet Explorer"/>
+					<datatype>version</datatype>
+					<operation>gt.eq</operation>
+					<required>11.0</required>
+				</rule>
+			</condition>
+		</configuration>
+	</rulecategory>
+	<rulecategory name = "ServerConfiguration">
+		<configuration name = "WPFConfiguration">
+			<!-- To check if the configuration has any WPF controls. Note : Some OOB Controls are by default IE. Exempt them. -->
+			<recommendedValue>False</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfActionCallsInPageLoadCompleteEvent">
+			<!-- To count the number of action calls in page load complete event -->
+			<recommendedValue>0</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>0</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfActionCallsInDesktopReadyEvent">
+			<!-- To count the number of action calls in desktop ready event-->
+			<recommendedValue>10 or less</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>10</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfActionCallsInSessionNewEvent">
+			<!-- To count the number of action calls in session new event-->
+			<recommendedValue>10 or less</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>10</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfActionCallsInSessionActivatedEvent">
+			<!-- To count the number of action calls in session activated event-->
+			<recommendedValue>10 or less</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>10</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfActionCallsInSessionDeactivatedEvent">
+			<!-- To count the number of action calls in session deactivated event-->
+			<recommendedValue>10 or less</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>10</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfActionCallsInSessionClosedEvent">
+			<!-- To count the number of action calls in session closed event-->
+			<recommendedValue>10 or less</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>10</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "NumberOfNavigationRules">
+			<!-- To count the number of navigation rules -->
+			<recommendedValue>50 or less</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>50</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "ShowScriptErrors">
+			<!-- Specify whether to display or suppress script errors in webpages displayed in USD -->
+			<recommendedValue>False</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "CachingEnabled">
+			<!-- To check if caching is enabled or not -->
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<error>True</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "MaxSessionCount">
+			<!-- Indicates the maximum number of simultaneous sessions that each user can open using USD client -->
+			<recommendedValue>1 - 3</recommendedValue>
+			<condition type = "AND">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<warning>3</warning>
+					<error>5</error>
+				</rule>
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>eq</operation>
+					<error>0</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "HelpImproveUSD">
+			<!-- Enables the organization-wide setting that allows user agents to send improvement program information to Microsoft -->
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "IEPooling">
+			<!-- To check if option for IE Pooling is enabled or not -->
+			<introducedusdversion>3.2</introducedusdversion>
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AuditFlag-ActivityTrackingEnabled">
+			<!-- To check for activity tracking enabled option in audit and diagnostics settings -->
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AuditFlag-DiagnosticsTrackingEnabled">
+			<!-- To check for diagnostics tracking enabled option in audit and diagnostics settings -->
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AuditFlag-EnableExitMonitoring">
+			<!-- To check for exit monitoring enabled option in audit and diagnostics settings -->
+			<introducedusdversion>3.0</introducedusdversion>
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "AuditFlag-EnableCrashDumpGeneration">
+			<!-- To check for crash dump generation enabled option in audit and diagnostics settings -->
+			<introducedusdversion>3.0</introducedusdversion>
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>nt.eq</operation>
+					<warning>True</warning>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name = "ProcessTerminationThreshold">
+			<!-- Indicates the timeout period for the duration (in milliseconds) that the USD monitoring process waits before terminating an unresponsive IE process, which also causes USD to become unresponsive. -->
+			<recommendedValue>0 - 30000</recommendedValue>
+			<condition type = "AND">
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>gt</operation>
+					<error>30000</error>
+				</rule>
+				<rule>
+					<datatype>INTEGER</datatype>
+					<operation>eq</operation>
+					<error>0</error>
+				</rule>
+			</condition>
+		</configuration>
+		<configuration name="IEWebPageRecovery">
+			<!-- To check if USD Auto Recovery is enabled or disabled -->
+			<introducedusdversion>3.2</introducedusdversion>
+			<recommendedValue>True</recommendedValue>
+			<condition type = "">
+				<rule>
+					<datatype>BOOLEAN</datatype>
+					<operation>eq</operation>
+					<error>False</error>
+				</rule>
+			</condition>
+		</configuration>
+	</rulecategory>
+</rules>

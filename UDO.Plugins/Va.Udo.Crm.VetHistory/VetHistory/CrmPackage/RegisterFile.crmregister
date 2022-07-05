@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<Register xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/crm/2011/tools/pluginregistration">
+  <Solutions>
+    <Solution Assembly="Claims.Plugins.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="Sandbox" SourceType="Database" />
+    <Solution Assembly="Claims.Workflow.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="None" SourceType="Database" />
+    <Solution Assembly="Va.Udo.Crm.Claims.Plugins.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="Sandbox" SourceType="Database">
+      <PluginTypes>
+        <Plugin Description="Plug-in to PostIdProofCreate" FriendlyName="PostIdProofCreate" Name="Va.Udo.Crm.Claims.Plugins.PostIdProofCreate" Id="00000000-0000-0000-0000-000000000000" TypeName="Va.Udo.Crm.Claims.Plugins.PostIdProofCreate">
+          <Steps>
+            <clear />
+            <Step CustomConfiguration="" Name="PostIdProofCreate" Description="Post-Operation of Id Proof Create" Id="00000000-0000-0000-0000-000000000000" MessageName="Create" Mode="Asynchronous" PrimaryEntityName="udo_idproof" Rank="1" SecureConfiguration="" Stage="PostOutsideTransaction" SupportedDeployment="ServerOnly">
+              <Images />
+            </Step>
+          </Steps>
+        </Plugin>
+      </PluginTypes>
+    </Solution>
+  </Solutions>
+  <XamlWorkflows />
+</Register>

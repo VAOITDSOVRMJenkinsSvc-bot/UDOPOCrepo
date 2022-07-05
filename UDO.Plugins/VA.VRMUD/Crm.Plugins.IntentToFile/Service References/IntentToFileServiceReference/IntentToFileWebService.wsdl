@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://intenttofile.services.vetsnet.vba.va.gov/" name="IntentToFileWebService" targetNamespace="http://intenttofile.services.vetsnet.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://linktestbepbenefits.vba.va.gov:80/IntentToFileWebServiceBean/IntentToFileWebService?xsd=1" namespace="http://intenttofile.services.vetsnet.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="findIntentToFileByPtcpntId">
+    <part name="parameters" element="tns:findIntentToFileByPtcpntId" />
+  </message>
+  <message name="findIntentToFileByPtcpntIdResponse">
+    <part name="parameters" element="tns:findIntentToFileByPtcpntIdResponse" />
+  </message>
+  <message name="MessageException">
+    <part name="fault" element="tns:MessageException" />
+  </message>
+  <message name="findIntentToFileByPtcpntIdItfTypeCd">
+    <part name="parameters" element="tns:findIntentToFileByPtcpntIdItfTypeCd" />
+  </message>
+  <message name="findIntentToFileByPtcpntIdItfTypeCdResponse">
+    <part name="parameters" element="tns:findIntentToFileByPtcpntIdItfTypeCdResponse" />
+  </message>
+  <message name="insertIntentToFile">
+    <part name="parameters" element="tns:insertIntentToFile" />
+  </message>
+  <message name="insertIntentToFileResponse">
+    <part name="parameters" element="tns:insertIntentToFileResponse" />
+  </message>
+  <message name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimId">
+    <part name="parameters" element="tns:findIntentToFileByPtcpntIdItfTypeCdBnftClaimId" />
+  </message>
+  <message name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimIdResponse">
+    <part name="parameters" element="tns:findIntentToFileByPtcpntIdItfTypeCdBnftClaimIdResponse" />
+  </message>
+  <portType name="IntentToFileWebService">
+    <operation name="findIntentToFileByPtcpntId">
+      <input message="tns:findIntentToFileByPtcpntId" />
+      <output message="tns:findIntentToFileByPtcpntIdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findIntentToFileByPtcpntIdItfTypeCd">
+      <input message="tns:findIntentToFileByPtcpntIdItfTypeCd" />
+      <output message="tns:findIntentToFileByPtcpntIdItfTypeCdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="insertIntentToFile">
+      <input message="tns:insertIntentToFile" />
+      <output message="tns:insertIntentToFileResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+    <operation name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimId">
+      <input message="tns:findIntentToFileByPtcpntIdItfTypeCdBnftClaimId" />
+      <output message="tns:findIntentToFileByPtcpntIdItfTypeCdBnftClaimIdResponse" />
+      <fault name="MessageException" message="tns:MessageException" />
+    </operation>
+  </portType>
+  <binding name="IntentToFileWebServicePortBinding" type="tns:IntentToFileWebService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findIntentToFileByPtcpntId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findIntentToFileByPtcpntIdItfTypeCd">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertIntentToFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findIntentToFileByPtcpntIdItfTypeCdBnftClaimId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageException">
+        <soap:fault use="literal" name="MessageException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="IntentToFileWebService">
+    <port name="IntentToFileWebServicePort" binding="tns:IntentToFileWebServicePortBinding">
+      <soap:address location="http://linktestbepbenefits.vba.va.gov:80/IntentToFileWebServiceBean/IntentToFileWebService" />
+    </port>
+  </service>
+</definitions>

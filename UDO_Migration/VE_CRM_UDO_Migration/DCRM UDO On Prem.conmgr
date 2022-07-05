@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DCRM UDO On Prem"
+  DTS:DTSID="{9BF3E9DF-85DD-45BE-9329-A96B24A1963F}"
+  DTS:CreationName="DynamicsCRM">
+  <DTS:PropertyExpression
+    DTS:Name="CrmServerUrl">@[$Project::DCRMUDOOnPrem_ServerURL]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::DCRMUDOOnPrem_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::DCRMUDOOnPrem_UserName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <CrmConnectionManager
+      ConnectionString="AuthenticationType=Federation;ServiceEndpoint=Soap2011;DiscoveryServerUrl=https://internalcrm.np15.crm.vrm.vba.va.gov/QACRMUDO2;UserName=vrmcloud\tbrown;Domain=;OrganizationName=QACRMUDO2;CrmServerUrl=https://internalcrm.np15.crm.vrm.vba.va.gov/QACRMUDO2;ProxyUsername=;ProxyMode=NoProxy;ProxyServer=;ProxyServerPort=0;BypassProxyOnLocal=False;HomeRealmUri=;ApiVersion=;ServiceTimeout=120;RetryOnIntermittentErrors=True;IgnoreCertificateErrors=False">
+      <Password
+        Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0RC76B/b0USBqhzfTBKcbAAAAAACAAAAAAADZgAAwAAAABAAAABsch7ocw6/m5mdchNx43lMAAAAAASAAACgAAAAEAAAALwyKSA7CJUvSioDfeQiCq5gAAAA48s2GEMrkz4PA/zMzwM+Y0s9XLY4yvwc+4BsXrBfTwzcYjiFVSye1jrTymP8VUBn58S3KLnpFoQNJOr/qo3++613q33cr0pHVxhdKj+ehCoIv+Q2oAoko1VmIVMCE9FRFAAAAH7L29QVxU9qMoi3qODgKdOvDUtj</Password>
+    </CrmConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

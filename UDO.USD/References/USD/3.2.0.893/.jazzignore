@@ -1,0 +1,65 @@
+### Jazz Ignore 0
+# The property core.ignore specifies a list of file patterns that will be
+# ignored in this directory. 
+#
+# The value of core.ignore.recursive will be ignored.
+#
+# Ignore properties should contain a space separated list of filename patterns.
+# Each pattern is case sensitive and surrounded by braces ('{' and '}'). 
+# "*" matches zero or more characters, and "?" matches single characters. 
+#
+#   e.g: {*.sh} {\.*}    ignores shell scripts and hidden files
+
+# NOTE: modifying ignore files will not change the ignore status of derived 
+# resources.
+
+core.ignore.recursive= 
+
+core.ignore= \
+	{Resources} \
+	{ar-sa} \
+	{bg-BG} \
+	{ca-ES} \
+	{cs-CZ} \
+	{da-DK} \
+	{de-de} \
+	{el-GR} \
+	{es-es} \
+	{et-EE} \
+	{eu-ES} \
+	{fi-FI} \
+	{fr-fr} \
+	{gl-ES} \
+	{he-IL} \
+	{hi-IN} \
+	{hr-HR} \
+	{hu-HU} \
+	{id-ID} \
+	{it-IT} \
+	{ja-jp} \
+	{kk-KZ} \
+	{ko-KR} \
+	{lt-LT} \
+	{lv-LV} \
+	{ms-MY} \
+	{nb-NO} \
+	{nl-nl} \
+	{pl-PL} \
+	{pt-BR} \
+	{pt-pt} \
+	{ro-RO} \
+	{ru-ru} \
+	{sk-SK} \
+	{sl-SI} \
+	{sr-Cyrl-CS} \
+	{sr-Cyrl-RS} \
+	{sr-Latn-CS} \
+	{sr-Latn-RS} \
+	{sv-SE} \
+	{th-TH} \
+	{tr-TR} \
+	{uk-UA} \
+	{vi-VN} \
+	{zh-CN} \
+	{zh-HK} \
+	{zh-tw} 

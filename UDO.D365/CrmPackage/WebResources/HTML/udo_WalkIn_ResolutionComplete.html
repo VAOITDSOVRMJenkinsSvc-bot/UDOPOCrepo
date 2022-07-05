@@ -1,0 +1,217 @@
+﻿<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>New Interaction Disposition</title>
+    <script src="/webresources/ClientGlobalContext.js.aspx" type="text/jscript"></script>
+
+    <style type="text/css">
+        body {
+            font-family: 'Segoe UI',Tahoma,Arial;
+        }
+
+        table {
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Segoe UI',Tahoma,Arial;
+            font-weight: 100;
+            color: #262626;
+            font-size: 36px;
+            line-height: 24px;
+        }
+
+        label {
+            margin-left: 5px;
+            font-size: 15px;
+            width: 246px;
+        }
+
+        p {
+            margin-left: 5px;
+            font-size: 15px;
+        }
+
+        select {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 80px;
+        }
+
+        option {
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-size: 11px;
+            height: 28px;
+            overflow: hidden;
+            padding-bottom: 0;
+            padding-left: 10px;
+            padding-top: 0;
+        }
+
+        option:hover {
+            background-color: #b1d6f0;
+        }
+
+        button {
+            height: 25px;
+            width: 140px;
+            margin-right: 10px;
+            font-family: Calibri;
+            font-size: 12pt;
+            font-weight: 200;
+            background-color: ghostwhite;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        input {
+            background-color: rgb(0,32,80);
+            border-color: rgb(255,255,255);
+            border-style: none;
+            border-width: 0px;
+            color: rgb(255,255,255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+            font-size: 14.06px;
+            height: 30px;
+            line-height: 20px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 5px;
+        }
+
+        input:disabled {
+            background-color: gray;
+            color: rgb(255, 255, 255);
+        }
+
+        div#tmpDialog {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 50px;
+            margin: -101px 0 0 -251px;
+            background: rgb(255, 255, 255);
+            border: 1px solid black;
+        }
+
+        div#tmpDialog img {
+            float: left;
+            height: 45px;
+            width: 45px;
+            padding: 5px 10px 5px 5px;
+            text-align: left;
+        }
+
+        div#tmpDialog p {
+            padding: 5px;
+            margin: 15px 5px 5px 5px;
+            text-align: left;
+            font-size: 11px;
+        }
+    </style>
+
+</head>
+<body>
+    <script type="text/javascript">
+
+        function ClickOK() {
+            
+            var ddlShelters_Contacted = document.getElementById("ddlShelters_Contacted");
+            var ddlAgencies_Contacted = document.getElementById("ddlAgencies_Contacted");
+            var ddlReferredHCMI = document.getElementById("ddlReferredHCMI");
+            var ddlSeeking_Assistance = document.getElementById("ddlSeeking_Assistance");
+
+            var returnValues = {
+                CreateDisposition: true,
+                Shelters_Contacted: ddlShelters_Contacted.options[ddlShelters_Contacted.selectedIndex].value,
+                Agencies_Contacted: ddlAgencies_Contacted.options[ddlAgencies_Contacted.selectedIndex].value,
+                ReferredHCMI: ddlReferredHCMI.options[ddlReferredHCMI.selectedIndex].value,
+                Seeking_Assistance: ddlSeeking_Assistance.options[ddlSeeking_Assistance.selectedIndex].value,
+                refresh: true
+            };
+
+            Mscrm.Utilities.setReturnValue(returnValues);
+
+            try {
+                closeWindow(true);
+            }
+            catch (e) { }
+        }
+
+        function ClickCancel() {
+
+            var ddlShelters_Contacted = document.getElementById("ddlShelters_Contacted");
+            var ddlAgencies_Contacted = document.getElementById("ddlAgencies_Contacted");
+            var ddlReferredHCMI = document.getElementById("ddlReferredHCMI");
+            var ddlSeeking_Assistance = document.getElementById("ddlSeeking_Assistance");
+
+            var returnValues = {
+                CreateDisposition: false,
+                Shelters_Contacted: ddlShelters_Contacted.options[ddlShelters_Contacted.selectedIndex].value,
+                Agencies_Contacted: ddlAgencies_Contacted.options[ddlAgencies_Contacted.selectedIndex].value,
+                ReferredHCMI: ddlReferredHCMI.options[ddlReferredHCMI.selectedIndex].value,
+                Seeking_Assistance: ddlSeeking_Assistance.options[ddlSeeking_Assistance.selectedIndex].value,
+                refresh: false
+            };
+
+            Mscrm.Utilities.setReturnValue(returnValues);
+
+            try {
+                closeWindow(true);
+            }
+            catch (e) { }
+        }
+    </script>
+        <h1>New Interaction Disposition</h1>
+        <h2>General</h2>
+        <table>
+            <tr>
+                <td>
+                    <label>Shelters Contacted</label></td>
+                <td>
+                    <select id="ddlShelters_Contacted" name="ddlShelters_Contacted">
+                        <option value="0" selected="selected">No</option>
+                        <option value="1">Yes</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Agencies Contacted</label></td>
+                <td>
+                    <select id="ddlAgencies_Contacted" name="ddlAgencies_Contacted">
+                        <option value="0" selected="selected">No</option>
+                        <option value="1">Yes</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Referred HCMI and DDL Programs</label></td>
+                <td>
+                    <select id="ddlReferredHCMI" name="ddlReferredHCMI">
+                        <option value="0" selected="selected">No</option>
+                        <option value="1">Yes</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Seeking Assistance from RO</label></td>
+                <td>
+                    <select id="ddlSeeking_Assistance" name="ddlSeeking_Assistance" >
+                        <option value="0" selected="selected">No</option>
+                        <option value="1">Yes</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input id="btnOk" type="button" value="OK" onclick="ClickOK();" />
+                    <input id="btnCancel" type="button" value="Cancel" onclick="ClickCancel();" />
+                </td>
+            </tr>
+        </table>
+</body>
+</html>

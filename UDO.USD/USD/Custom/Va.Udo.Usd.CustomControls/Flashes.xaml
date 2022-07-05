@@ -1,0 +1,57 @@
+﻿<shared:BaseHostedControlCommon  x:Class="Va.Udo.Usd.CustomControls.Flashes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:USD="clr-namespace:Microsoft.Crm.UnifiedServiceDesk.Dynamics;assembly=Microsoft.Crm.UnifiedServiceDesk.Dynamics"
+             xmlns:shared="clr-namespace:Va.Udo.Usd.CustomControls.Shared"
+             mc:Ignorable="d" HorizontalAlignment="Stretch" Margin="2,3,2,3">
+    <USD:DynamicsBaseHostedControl.Resources>
+        <Style x:Key="FlashPanelStyle" TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="ScrollViewer.PanningMode" Value="HorizontalOnly"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        </Style>
+    </USD:DynamicsBaseHostedControl.Resources>
+        <ScrollViewer Name="flashesScrollViewer" HorizontalScrollBarVisibility="Auto" CanContentScroll="True" Height="Auto" VerticalScrollBarVisibility="Hidden" >
+            <StackPanel Orientation="Horizontal" Name="FlashPanel" Style="{StaticResource FlashPanelStyle}" Height="Auto" CanHorizontallyScroll="True" CanVerticallyScroll="False">
+                <StackPanel.Resources>
+                    <Style x:Key="Flash" TargetType="TextBox">
+                        <Setter Property="Height" Value="auto"/>
+                        <Setter Property="VerticalAlignment" Value="Top"/>
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="FontWeight" Value="SemiBold"/>
+                        <Setter Property="Padding" Value="10,2,10,2"/>
+                        <Setter Property="Margin" Value="0,0,4,0"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="true">
+                                <Setter Property="BorderBrush" Value="White"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#000000"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="false">
+                                <Setter Property="BorderBrush">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#00243d"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#007ACC"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </ScrollViewer>
+</shared:BaseHostedControlCommon>

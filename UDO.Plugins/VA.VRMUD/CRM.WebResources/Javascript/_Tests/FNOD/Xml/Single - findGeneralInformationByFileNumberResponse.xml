@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<findGeneralInformationByFileNumberResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+			<return>
+				<additionalServiceIndicator>N</additionalServiceIndicator>
+				<authznChangeClmantAddrsInd>
+				</authznChangeClmantAddrsInd>
+				<authznPoaAccessInd>
+				</authznPoaAccessInd>
+				<awardTypeCode>CPL</awardTypeCode>
+				<benefitTypeCode>CPL</benefitTypeCode>
+				<benefitTypeName>Compensation/Pension Live</benefitTypeName>
+				<clothingAllowanceTypeCode/>
+				<clothingAllowanceTypeName/>
+				<cnsldtPymtCd>
+				</cnsldtPymtCd>
+				<cnsldtPymtNm>
+				</cnsldtPymtNm>
+				<competencyDecisionTypeCode>ICC</competencyDecisionTypeCode>
+				<competencyDecisionTypeName>Incompetent by Court</competencyDecisionTypeName>
+				<convertedCaseIndicator>N</convertedCaseIndicator>
+				<currentMonthlyRate>0</currentMonthlyRate>
+				<desertShieldIndicator>N</desertShieldIndicator>
+				<directDepositAccountID/>
+				<enteredOnDutyDate>04041942</enteredOnDutyDate>
+				<fiduciaryDecisionTypeCode>F</fiduciaryDecisionTypeCode>
+				<fiduciaryDecisionTypeName>Fiduciary</fiduciaryDecisionTypeName>
+				<fundsDueIncompetentBalance/>
+				<guardianFolderLocation>317 - St. Petersburg</guardianFolderLocation>
+				<gulfWarRegistryIndicator/>
+				<mailingAddressID>650763</mailingAddressID>
+				<militaryBranch>Army</militaryBranch>
+				<numberOfAwardBenes>1</numberOfAwardBenes>
+				<numberOfDiaries>0</numberOfDiaries>
+				<numberOfEvrs>1</numberOfEvrs>
+				<numberOfFlashes>0</numberOfFlashes>
+				<nursingHomeIndicator>N</nursingHomeIndicator>
+				<nursingHomeName/>
+				<paidThroughDate>11302012</paidThroughDate>
+				<paraplegicHousingNumber/>
+				<payStatusTypeCode>AUTH</payStatusTypeCode>
+				<payStatusTypeName>Authorized</payStatusTypeName>
+				<payeeBirthDate>05051925</payeeBirthDate>
+				<payeeName>RESUME                        RICKY</payeeName>
+				<payeeSSN>545221010</payeeSSN>
+				<payeeSex>M</payeeSex>
+				<payeeTypeCode>00</payeeTypeCode>
+				<payeeTypeIndicator>P</payeeTypeIndicator>
+				<payeeTypeName>Veteran</payeeTypeName>
+				<paymentAddressID>650764</paymentAddressID>
+				<personalFundsOfPatientBalance/>
+				<powerOfAttorney/>
+				<ptcpntBeneID>13360943</ptcpntBeneID>
+				<ptcpntRecipID>13360943</ptcpntRecipID>
+				<ptcpntVetID>13360943</ptcpntVetID>
+				<releasedActiveDutyDate>09151945</releasedActiveDutyDate>
+				<returnCode>SHAR 9999</returnCode>
+				<returnMessage>Records found.</returnMessage>
+				<stationOfJurisdiction>317 - St. Petersburg</stationOfJurisdiction>
+				<statusReasonDate>12012007</statusReasonDate>
+				<statusReasonTypeCode/>
+				<statusReasonTypeName/>
+				<vetBirthDate>05051925</vetBirthDate>
+				<vetDeathDate/>
+				<vetFirstName>RICKY</vetFirstName>
+				<vetLastName>RESUME</vetLastName>
+				<vetMiddleName/>
+				<vetSSN>545221010</vetSSN>
+				<vetSex>M</vetSex>
+				<evr>
+					<evrs>
+						<control>
+						</control>
+						<exempt>
+						</exempt>
+						<lastReported>
+						</lastReported>
+						<status>
+						</status>
+						<type>
+						</type>
+					</evrs>
+				</evr>
+				<flash/>
+				<diary/>
+			</return>
+		</findGeneralInformationByFileNumberResponse>
+	</Body>
+</Envelope>

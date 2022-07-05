@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <!--Debug Fields-->
+  <item id="udo_VirtualVALogTimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_VirtualVALogSOap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_VirtualVA">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_VetHistory">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_vbmslogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_vbmslogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_VBMSeFolderLogTimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_VBMSeFolderLogSOAP">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_VBMSeFolder">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_vbmsdebug">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_Usertool">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ssrslogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ssrslogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ssrsdebug">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_servicerequest">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_Security">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_SearchLogTiming">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_SearchLogSoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_searchdebug">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ratingslogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ratingslogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ratings">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_queueitem">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_people">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_PaymentLogTimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_PaymentLogSoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_payment">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_payeecode">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_noteslogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_notes">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_MVICheck">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_militaryservicelogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_letter">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_itflogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_itflogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ITF">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_interaction">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_idproof">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_fnodlogtiming">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_fnodlogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_fnod">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_FlashLogTimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_FlashLogSoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_Flash">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ExamLogTimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ExamLogSoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_Exam">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_dependent">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_deniallogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_deniallogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_denial">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_claimlogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_claimlogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_claim">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_chat">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_bypassmvi">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_birlslogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_BIRLSLogSoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_birls">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_awardlogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_awardlogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_Award">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_appeallogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_appeallogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_appeal">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_AddPerson">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_vetsnapshotlogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_vetsnapshotlogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_vetsnapshot">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_PhoneCall">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_noteslogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_militaryservicelogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_militaryservice">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_legacypaymentslogtimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_legacypaymentslogsoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_legacypayments">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_enablenotes">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ContactLogTimer">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_ContactLogSoap">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <item id="udo_contact">
+    <Value value="False"/>
+    <Type value="bool"/>
+  </item>
+  <!--Timeout Fields-->
+  <item id="udo_VetSnapshotVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_TrackedItemsVIMTTImeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_RatingsVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_PaymentVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_MilitaryInformationVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_LifeCyclesVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_LegacyPaymentsVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_FlashVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_EvidenceVIMTTImeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_DiariesVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_denialVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_DeductionsVIMITTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_ContentionVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_ClothingAllowanceVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_ClaimVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_ClaimSuspenseVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_ClaimStatusVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_AwardVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_AwardLinesVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_AppealVIMTTimeout">
+    <Value value="15"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_VBMSeFolderVIMTTimeout">
+    <Value value="30"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_ExamVIMTTimeout">
+    <Value value="30"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_contacttimeout">
+    <Value value="30"/>
+    <Type value="int"/>
+  </item>
+  <item id="udo_VirtualVAVIMTTimeout">
+    <Value value="45"/>
+    <Type value="int"/>
+  </item>
+</items>

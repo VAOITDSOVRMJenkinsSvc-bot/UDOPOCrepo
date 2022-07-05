@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{69da3686-46e5-e911-a993-001dd800b582}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" preview="1" icon="1">
+      <row id="udo_mheointeractionassignmentid" name="result">
+        <cell name="udo_contactid" width="100" />
+        <cell name="udo_city" width="100" />
+        <cell name="udo_state" width="100" />
+        <cell name="udo_releasedfromactivedutydate" width="100" />
+        <cell name="udo_characterofdischarge" width="100" />
+        <cell name="udo_vasspriorityindicator" width="100" />
+        <cell name="a_fd73b66841e5e911a993001dd800b582.udo_ssn" width="100" disableSorting="1" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="udo_mheointeractionassignment">
+        <attribute name="udo_state" />
+        <attribute name="udo_city" />
+        <attribute name="ownerid" />
+        <attribute name="udo_contactid" />
+        <order attribute="udo_state" descending="false" />
+        <order attribute="udo_contactid" descending="false" />
+        <filter type="and">
+          <condition attribute="ownerid" operator="eq-userteams" />
+        </filter>
+        <link-entity name="team" from="teamid" to="owningteam" alias="aa">
+          <filter type="and">
+            <condition value="VASS%" attribute="name" operator="like" />
+            <condition value="VASS National" attribute="name" operator="ne" />
+          </filter>
+        </link-entity>
+        <link-entity name="contact" from="contactid" to="udo_contactid" alias="a_fd73b66841e5e911a993001dd800b582" visible="false" link-type="outer">
+          <attribute name="udo_ssn" />
+        </link-entity>
+        <attribute name="udo_releasedfromactivedutydate" />
+        <attribute name="udo_characterofdischarge" />
+        <attribute name="udo_vasspriorityindicator" />
+        <attribute name="udo_mheointeractionassignmentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>10.02.2019.01</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="Call Center View - Not Yet Routed" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

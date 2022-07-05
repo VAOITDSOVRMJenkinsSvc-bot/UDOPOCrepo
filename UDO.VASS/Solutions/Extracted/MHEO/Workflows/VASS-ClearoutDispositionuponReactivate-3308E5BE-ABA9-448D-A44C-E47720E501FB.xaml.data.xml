@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{3308e5be-aba9-448d-a44c-e47720e501fb}" Name="VASS - Clear out Disposition upon Reactivate">
+  <XamlFileName>/Workflows/VASS-ClearoutDispositionuponReactivate-3308E5BE-ABA9-448D-A44C-E47720E501FB.xaml</XamlFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>0</Category>
+  <Mode>1</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnUpdateAttributeList>statecode</TriggerOnUpdateAttributeList>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>1</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <UpdateStage>40</UpdateStage>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>10.02.2019.01</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <PrimaryEntity>udo_interaction</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="VASS - Clear out Disposition upon Reactivate" />
+  </LocalizedNames>
+</Workflow>

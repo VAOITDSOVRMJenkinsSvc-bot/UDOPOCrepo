@@ -1,0 +1,625 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="../udo_Xrm.min.js" type="text/javascript"></script>
+    <script src="../udo_jquery1.10.2.min.js" type="text/javascript"></script>
+    <script src="../va_JSON2" type="text/javascript"></script>
+    <script src="../udo_popup.js" type="text/javascript"></script>
+    <script src="../udo_CRMCommonJS.js" type="text/javascript"></script>
+    <script src="../udo_Shared.js" type="text/javascript"></script>
+    <script src="fetchtable.js" type="text/javascript"></script>
+    <link href="fetchtable.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+
+        window.LOCID_JUMP_TO_RIBBON = "[";
+        window.top.LOCID_JUMP_TO_RIBBON_CONTROL = "]";
+
+        // Needs the id proof guid
+        //https://dvagov-udo-dev.crm9.dynamics.com/WebResources/udo_notes/viewnotes.html?data=id%3D%2781EE8787-493C-EA11-A99B-001DD800951B%27
+        var Globals = {};
+        Globals.idproof = "";
+        Globals.loadingstatus = "";
+        Globals.people = [];
+        Globals.peopleloaded = 0;
+        Globals.peopletoload = 100;
+        Globals.table = null;
+        Globals.refreshing = false;
+        Globals.load = false;
+        Globals.retrieveStack = [];
+        Globals.veteranid = '';
+        Globals.trace = false;
+        Globals.traceLog = [];
+        Globals.isVet = false;
+        Globals.vetPersonId = null;
+        Globals.isAutoRefreshed = false;
+        Globals.RetryAttempts = 0;
+        var context;
+        var version;
+        var webApi;
+        window["ENTITY_SET_NAMES"] = window["ENTITY_SET_NAMES"] || JSON.stringify({
+            "udo_person": "udo_persons",
+            "udo_note": "udo_notes"
+        });
+
+        window["ENTITY_PRIMARY_KEYS"] = window["ENTITY_PRIMARY_KEYS"] || JSON.stringify({
+            "udo_person": "udo_personid",
+            "udo_note": "udo_noteid"
+        });
+
+        /********** Telemetry Tracking **************/
+        var trace = function (message, caller) {
+            if (!Globals.trace) return;
+            var now = new Date();
+
+            Globals.traceLog.push({
+                time: now,
+                message: message,
+                caller: caller
+            });
+        };
+
+        var showTrace = function () {
+            if (!Globals.trace) return;
+            var start = Globals.traceLog[0].time;
+            var content = "";
+            for (var i in Globals.traceLog) {
+                var entry = Globals.traceLog[i];
+
+                content += "<tr>";
+                var d = entry.time;
+                var timestamp = [d.getHours(), d.getMinutes(), d.getSeconds(), d.getMilliseconds()].join(':');
+                content += "<td>" + timestamp + "</td><td>" + entry.caller + "</td><td>" + entry.message + "</td>";
+                content += "</tr>";
+            }
+            content = "<div style='z-index:200; background-color:white; position:absolute; bottom: 0px; width: 500px; overflow:scroll;height:300px;' ><table>" + content + "</table></div>";
+            $(document.body).append(content);
+        }
+
+        /********** URL Param Functions *************/
+        var getPageCache = 0;
+        var getPage = function () {
+            if (getPageCache === 0) {
+                var search = location.search;
+                var url = location.href;
+                var page = "";
+                if (search === "") {
+                    var pos = url.toLowerCase().indexOf("%3f");
+                    if (pos > -1) {
+                        search = "?" + decodeURIComponent(url.substring(pos + 3));
+                        page = url.substring(0, pos);
+                        url = page + search;
+                    }
+                } else {
+                    page = url.substring(0, url.indexOf("?"));
+                }
+                getPageCache = {
+                    page: page,
+                    search: search,
+                    url: url
+                };
+            }
+            return getPageCache;
+        };
+
+        var popup = function (msg, title) {
+            $("#tmpDialog").hide();
+
+            UDO.Shared.openAlertDialog(msg, title, 250, 400).then(
+                function success(result) {
+                },
+                function (error) {
+                    console.log("Error displaying alert dialog: " + error.message);
+                }
+            );
+        }
+
+        var getUrlParamsCache = 0;
+        var getUrlParams = function () {
+            if (getUrlParamsCache === 0) {
+                var result = {};
+                var search = getPage().search;
+                var pArr = search.substr(1).split("&");
+
+                for (var i = 0; i < pArr.length; i++) {
+                    var p = pArr[i].split('=');
+                    if (p[0].toLowerCase() !== "data") {
+                        result[p[0].toLowerCase()] = decodeURIComponent(p[1]);
+                    } else {
+                        var dResult = {};
+                        var data = p[1];
+                        if (p.length > 2) {
+                            data = "";
+                            for (var n = 1; n < p.length; n = n + 2) {
+                                data = data + p[n] + "=" + p[n + 1] + "&";
+                            }
+                            data = data.substring(0, data.length - 1);
+                        }
+                        var dArr = decodeURIComponent(data).split("&");
+                        for (var k = 0; k < dArr.length; k++) {
+                            var d = dArr[k].split('=');
+                            dResult[d[0].toLowerCase()] = d[1];
+                        }
+                        result["data"] = dResult;
+                    }
+                }
+                getUrlParamsCache = result;
+            }
+            return getUrlParamsCache;
+        };
+
+        /******* Notes Configuration Setup **********/
+
+        var RunMySetup = function () {
+
+            //var initializeLibraries = function () {
+
+            //    context = GetGlobalContext();
+            //    version = context.getVersion();
+            //    webApi = new CrmCommonJS.WebApi(version);
+            //};
+
+            var gotIdProof = function (id) {
+                console.log("Start", "gotIdProof");
+                Globals.idproof = id;
+                getPeople(id);
+            };
+
+            var getIdProof = function () {
+                console.log("Start", "getIdProof");
+                var params = getUrlParams();
+                var id = "";
+                if (params.hasOwnProperty("id")) {
+                    id = params.id;
+                } else if (params.hasOwnProperty("data") && params.data.hasOwnProperty("id")) {
+                    id = params.data.id;
+                }
+                gotIdProof(id.toString());
+            };
+
+            var gotStatus = function (data) {
+                console.log("Start", "gotStatus");
+                if (Globals.table === null) {
+                    setTimeout(getStatus, 1000);
+                    return; // During initialization only
+                }
+                var progress = [];
+                for (var i = 0; i < data.length; i++) {
+                    var entity = data[i];
+                    if (entity.udo_notesstatus === null || entity.udo_notesstatus !== 752280002) {
+                        progress[progress.length] = i
+                    }
+                }
+                var status = progress.join(",");
+                if (status === "") {
+                    status = "All Notes Loaded, Please Refresh"
+                    if (Globals.refreshing) status = "All Notes Loaded";
+                    Globals.table.SetStatus({ status: status, 'class': "info loaded", onrefresh: "All Notes Loaded" });
+                    if (!Globals.isAutoRefreshed) {
+                        Globals.isAutoRefreshed = true;
+                        Globals.table.Refresh();
+                    }
+                } else {
+                    Globals.table.SetStatus("Loading...");
+                    if (!Globals.refreshing) { setTimeout(getStatus, 5000); } // This is to avoid repeat calls from manual refreshes
+                }
+                Globals.refreshing = false;
+                console.log("End", "gotStatus");
+            };
+
+            var getStatus = function () {
+                console.log("Start", "getStatus");
+                //var columns = ["udo_personid", "udo_notesstatus"]
+                var filter = "?$select=udo_personid,udo_notesstatus&$filter=_udo_idproofid_value eq " + Globals.idproof.toString().replace("{", "").replace("}", "");
+                Xrm.WebApi.retrieveMultipleRecords("udo_person", filter)
+                    .then(function (data) { gotStatus(data.value); })
+                    .catch(function (error) {
+                        popup(error.message, "Error Retrieving Person");
+                        console.log("Error: " + error.message);
+                    });
+            };
+
+            var gotPeople = function (data) {
+                var complete = true;
+                var getNotes = function (data) {
+                    return new Promise(function (resolve, reject) {
+                        Globals.people = [];
+                        Globals.peopletoload = data.length;
+                        for (var i = 0; i < data.length; i++) {
+                            var entity = data[i];
+                            if (entity.udo_notesstatus === null || entity.udo_notesstatus !== 752280002) {
+                                complete = false;
+                                // start retrieve of notes for this person...
+                                if (entity.udo_notesstatus === null ||
+                                    (entity.udo_notesstatus !== null && entity.udo_notesstatus === 752280000)) {
+
+                                    if (entity.udo_type === 752280000) {
+                                        Globals.veteranid = entity.udo_personid;
+                                        Globals.isVet = true;
+                                    }
+
+                                    // status is false (Loading/Not Loaded)
+                                    var requestObj = {
+                                        ParentEntityReference: { udo_personid: entity.udo_personid, "@odata.type": "Microsoft.Dynamics.CRM.udo_person" },
+
+                                        getMetadata: function () {
+                                            return {
+                                                boundParameter: null,
+                                                operationName: "udo_InitiateNotes",
+                                                operationType: 0,
+                                                parameterTypes: {
+                                                    "ParentEntityReference": {
+                                                        "typeName": "mscrm.crmbaseentity",
+                                                        "structuralProperty": 5
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    console.log("Retrieving [" + entity.udo_name + ": " + entity.udo_personid + "]", "Notes");
+                                    Xrm.WebApi.online.execute(requestObj)
+                                        .then(function (data) {
+                                            Globals.peopleloaded++;
+                                            console.log("People Notes Initialized: " + Globals.peopleloaded + " of " + Globals.peopletoload, "Notes");
+                                        },
+                                        function (err) {
+                                            return reject(err.message);
+                                        });
+                                }
+                            }
+                            setName(entity, false);
+                        }
+                        return resolve(Globals.people);
+                    });
+                }
+
+                getNotes(data).then(function (people) {
+                    var loader = function () {
+                        if (Globals.load) {
+                            console.log("LOADED", "loader");
+                            Globals.table = setupFetchTable(Globals.people, complete);
+                        } else {
+                            console.log("loading...", "loader");
+                            setTimeout(loader, 100);
+                        }
+                    };
+                    var continueLoad = function () {
+                        if (complete) { Globals.load = true; }
+
+                        setTimeout(loader, 100);
+
+                        if (!complete) {
+                            setTimeout(getStatus, 5000);
+                        }
+                        console.log("End", "gotPeople");
+                    };
+
+                    var pollVetNotes = function (vetId) {
+                        Xrm.WebApi.retrieveMultipleRecords("udo_note", "?$select=udo_noteid&$filter=_udo_personid_value eq " + vetId.toString().replace("{", "").replace("}", ""))
+                            .then(function (notesData) {
+                                Xrm.WebApi.retrieveMultipleRecords("udo_person", "?$select=udo_notesstatus&$filter=udo_personid eq " + vetId.toString().replace("{", "").replace("}", ""))
+                                    .then(function (personData) {
+                                        if (notesData.value.length > 0 || personData.value[0].udo_notesstatus === 752280002) {
+                                            Globals.load = true;
+                                            continueLoad();
+                                        }
+                                        else {
+                                            Globals.RetryAttempts++;
+
+                                            if (Globals.RetryAttempts > 10) {
+                                                console.log("Unable to retrieve Person Notes from the VA system at this time.");
+                                                console.log("notesData.length = " + notesData.value.length);
+                                                console.log("VetID: " + vetId.toString());
+                                                console.log("personData[0].udo_notesstatus = " + personData.value[0].udo_notesstatus);
+
+                                                Globals.load = true;
+                                                continueLoad();
+                                            }
+                                            else {
+                                                setTimeout(pollVetNotes(vetId), 1000);
+                                            }
+                                        }
+                                    })
+                                    .catch(function (err) {
+                                        popup("Error retrieving person " + err.message, "Error Retrieving Person");
+                                        console.log(err.message);
+
+                                        // Continue to load notes for dependents
+                                        setTimeout(function () {
+                                            console.log("Done Waiting", "Timeout");
+                                            Globals.load = true;
+                                        }, 20000);
+                                        continueLoad();
+                                    });
+                            }).catch(function (err) {
+                                popup("Error polling notes " + err.message, "Error Polling Notes");
+                                console.log(err.message);
+
+                                // Continue to load notes for dependents
+                                setTimeout(function () {
+                                    console.log("Done Waiting", "Timeout");
+                                    Globals.load = true;
+                                }, 20000);
+                                continueLoad();
+                            });
+                    };
+                    // Wait to display until veteran notes are loaded
+                    if (Globals.isVet) {
+                        pollVetNotes(Globals.veteranid)
+                    }
+                    else {
+                        setTimeout(function () {
+                            console.log("Done Waiting", "Timeout");
+                            Globals.load = true;
+                        }, 20000); // give it 20 seconds then force the initial load - this is only because on any person's successful note load it will return data.
+                        // If there is only a vet, it will return the first 100 records.
+                        continueLoad();
+                    }
+                }).catch(function (error) {
+                    popup(error.message, "Error Retrieving Notes");
+                    console.log("Error: " + error.message);
+                });
+            };
+
+            var setName = function (entity, calledAsCallback) {
+
+                var person = {};
+                switch (entity.udo_type) {
+                    case 752280000:
+                        person.TypeName = "Veteran";
+                        Globals.isVet = true;
+                        Globals.veteranid = entity.udo_personid;
+                        break;
+                    case 752280001:
+                        person.TypeName = "Dependent";
+                        break;
+                    case 752280002:
+                        person.TypeName = "Beneficiary";
+                        break;
+                }
+                person.RealName = entity.udo_name;
+                //REQUIRED: NAME & VALUE
+                person.Name = "(" + person.TypeName + ") " + person.RealName;
+                person.Value = entity.udo_personid;
+                person.PtcpntId = entity.udo_ptcpntid;
+                person.Type = entity.udo_type;
+                person.VeteranId = entity._udo_veteranid_value;
+                Globals.people[Globals.people.length] = person;
+                if (calledAsCallback) {
+                    if (Globals.peopleloaded >= Globals.peopletoload) {
+                        return resolve(Globals.people);
+                    }
+                }
+            }
+
+            var getPeople = function (id) {
+                console.log("Start", "getPeople");
+
+                var columns = ["udo_personid", "udo_name", "udo_notesstatus", "udo_type", "udo_ptcpntid", "_udo_veteranid_value"];
+                var filter = "?$select=" + columns.join(",") + "&$filter=_udo_idproofid_value eq " + id.toString().replace("{", "").replace("{", "");
+                Xrm.WebApi.retrieveMultipleRecords("udo_person", filter)
+                    .then(function (data) { gotPeople(data.value); })
+                    .catch(function (error) {
+                        popup("Error Loading People for Veteran\r\n\r\n" + error.message, "Error Retrieving People");
+                        console.log("Error: " + error.message);
+                    });
+
+                console.log("End", "getPeople");
+            }
+
+            var setupFetchTable = function (people, loaded) {
+                console.log("Start", "FetchTable");
+                if (people === null || people.length === 0) {
+                    popup("There was a problem loading the people linked to this veteran. Please try closing and reopening the notes tab again", "Error Retrieving Linked People");
+                    console.log("Error: " + error.message);
+                    return;
+                }
+
+                var peopleids = [];
+                var defaultSelected = [];
+                var selectedValue = [];
+                for (var j = 0; j < people.length; j++) {
+                    peopleids[j] = people[j].Value;
+
+                    if (people[j].Type === 752280000 && defaultSelected.length === 0) {
+                        defaultSelected[0] = people[j].Value;
+                        selectedValue[0] = j.toString();
+                    }
+                }
+
+                var requiredfilter = { attribute: 'udo_personid', operator: 'in', value: peopleids };
+                var defaultPersonFilter = [{ attribute: 'udo_personid', operator: 'in', value: defaultSelected }];
+
+                var HeaderLoaded = false;
+                var statusarea = {
+                    id: 'statusarea',
+                    'class': 'info',
+                    status: 'Loading...'
+                };
+
+                if (loaded) {
+                    statusarea['class'] += ' loaded';
+                    statusarea.status = 'All Notes Loaded';
+                }
+
+                console.log("Building FetchTable", "FetchTable");
+                Globals.table = new FetchTable({
+                    table: "NotesTable",
+                    requiredconditions: [requiredfilter],
+                    entityname: "udo_note",
+                    innerscroll: true,
+                    paginginfo: { count: 100 },
+                    statusarea: statusarea,
+                    columns: [
+                        { index: 0, fieldname: 'udo_dttime', displayname: 'Created On', datatype: 'datetime', sort: 'desc' },
+                        { index: 1, fieldname: 'udo_user', displayname: 'Created By' },
+                        { index: 2, fieldname: 'udo_personid', displayname: 'Person', datatype: 'lookup', filter: { options: people, conditions: defaultPersonFilter, selected: selectedValue } },
+                        { index: 3, fieldname: 'udo_ro', displayname: 'RO' },
+                        { index: 4, fieldname: 'udo_type', displayname: 'Type' },
+                        { index: 5, fieldname: 'udo_claimid', displayname: 'Claim Id' },
+                        { index: 6, fieldname: 'udo_notetext', detailfield: true, search: 'Note Text contains: ', detailclass: 'floatright' },
+                        { index: 7, fieldname: 'udo_noteid', visible: false, sortable: false, datatype: 'guid' },
+                        { index: 8, fieldname: 'udo_name', visible: false },
+                        {
+                            index: 9, fieldname: 'udo_editable', visible: false, render: function (rows, value, entity) {
+                                if (value !== null && value !== "" && value === true) {
+                                    var tr = rows[0];
+                                    var td = $(tr).find("td:first");
+                                    var editbutton = $("<span id='editnote' class='button'>Edit</span>");
+                                    editbutton.click(function () {
+                                        // It is implemented because the user should not click edit button before all notes are being created & loaded
+                                        if (!Globals.isAutoRefreshed) {
+                                            popup("Notes are still loading. Please try again after all notes are loaded.", "Notes Still Loading");
+                                            console.log("Notes are still loading...");
+                                            return;
+                                        }
+                                        var notetext = $("<textarea rows='5' cols='50' name='body'/>");
+                                        notetext.text((entity["udo_notetext"]).replace(/\r\n|\r|\n/g, "&#13;&#10;"));
+
+                                        var noteid = $("<input type='hidden' name='noteid' value='" + entity["udo_noteid"] + "'/>");
+
+                                        var content = $("<div/>");
+                                        content.append(notetext, noteid);
+
+                                        Va.Udo.Crm.Scripts.Popup.Popup("Edit Note", content.html().replace(/&/gi, '%').replace(/%amp;/gi, '&'), {
+                                            width: 450, height: 180, modal: true,
+                                            buttons: Va.Udo.Crm.Scripts.Popup.PopupStyles.OKCancel + Va.Udo.Crm.Scripts.Popup.PopupStyles.Question
+                                        })
+                                            .then(function (data) {
+                                                var noteid = data.Values.noteid;
+                                                var note = {
+                                                    udo_notetext: data.Values.body
+                                                };
+
+                                                Xrm.WebApi.updateRecord("udo_note", noteid, note)
+                                                    .then(function (data) {
+                                                        Globals.table.Refresh();
+                                                    })
+                                                    .catch(function (err) {
+                                                        popup("Editing Failed", "Error Updating Note");
+                                                        console.log("Error: " + error.message);
+                                                    });
+                                            });
+
+                                    });
+                                    $(td).append(editbutton);
+                                }
+                            }
+                        }],
+                    onupdate: function (table, filterheader, stage) {
+                        if (stage === 'post') {
+                            Globals.refreshing = true;
+                            getStatus();
+                        }
+                        else if (stage === 'beforerefresh') {
+                            // Signal Create Notes for each person included in filter??
+                        }
+                        if (stage !== 'filterheader') return;
+                        var newnote = $("<div style='clear:right;float:right;'></div>")
+
+                        var newnotebutton = $("<span id='newnote' class='button'>Create Note</span>");
+                        newnotebutton.click(function () {
+                            var content = $("<div/>");
+
+                            // People Selection
+                            var ddl = $("<select name='person'></select>");
+                            if (Globals.people.length === 0) {
+                                Va.Udo.Crm.Scripts.Popup.Popup("Error: No People",
+                                    "<span>Error: There are no people available for which to create a note.</span>",
+                                    {
+                                        width: 450, height: 140, modal: true,
+                                        buttons: Va.Udo.Crm.Scripts.Popup.PopupStyles.OKOnly + Va.Udo.Crm.Scripts.Popup.PopupStyles.Exclamation
+                                    });
+                            }
+                            for (var i = 0; i < Globals.people.length; i++) {
+                                var person = Globals.people[i];
+
+                                if (person.Type === 752280000) {
+                                    ddl.append("<option value='" + i + "' selected=Selected>" + person.Name + "</option>");
+                                } else {
+                                    ddl.append("<option value='" + i + "'>" + person.Name + "</option>");
+                                }
+
+                            }
+                            content.append("<span class='label'>Add Note for: </span>", ddl);
+
+                            // Note Text
+                            var notetext = $("<textarea rows='5' cols='50' name='body'/>");
+                            content.append("<br/><span class='label'>Note Body:</span><br/>", notetext);
+
+                            Va.Udo.Crm.Scripts.Popup.Popup("Create Note", content.html(), {
+                                width: 450, height: 220, modal: true,
+                                buttons: Va.Udo.Crm.Scripts.Popup.PopupStyles.OKCancel + Va.Udo.Crm.Scripts.Popup.PopupStyles.Question
+                            })
+                                .then(function (data) {
+                                    var id = data.Values.person;
+                                    if (id === null || id === '') {
+                                        Va.Udo.Crm.Scripts.Popup.Popup("Error: Person Not Selected",
+                                            "<span>Error: A person was not selected for which to create the note.</span>",
+                                            {
+                                                width: 450, height: 140, modal: true,
+                                                buttons: Va.Udo.Crm.Scripts.Popup.PopupStyles.OKOnly + Va.Udo.Crm.Scripts.Popup.PopupStyles.Exclamation
+                                            });
+                                        return;
+                                    }
+                                    var person = Globals.people[id];
+
+                                    var note = {};
+                                    note["udo_personid@odata.bind"] = "/udo_persons(" + person.Value + ")";
+                                    note["udo_veteranid@odata.bind"] = "/contacts(" + person.VeteranId + ")";
+                                    note.udo_participantid = person.PtcpntId;
+                                    note.udo_fromudo = true;
+                                    note.udo_notetext = data.Values.body;
+                                    note.udo_name = "New Note";
+                                    note.udo_datetime = new Date();
+                                    Xrm.WebApi.createRecord("udo_note", note).then(
+                                        function success(result) {
+                                            var newEntityId = result.id;
+                                            Globals.table.Refresh();
+                                        },
+                                        function (error) {
+                                            popup(error.message, "Error Creating Note");
+                                            console.log("Error: " + error.message);
+                                        }
+                                    );
+                                });
+                        });
+                        newnote.append(newnotebutton);
+                        filterheader.append(newnote);
+                    }
+                });
+                console.log("FetchTable Built", "FetchTable");
+
+                if (loaded) {
+                    Globals.table.SetStatus('All Notes Loaded', 'info loaded');
+                }
+
+                return Globals.table;
+            };
+
+            var init = function () {
+                console.log("Start", "init");
+                //initializeLibraries();
+                getIdProof(); // Start Chain Reaction to Load Table
+                console.log("End", "init");
+            }
+
+            init();
+        }
+        $(document).ready(function () {
+            console.log("Start", "DocumentReady");
+            RunMySetup();
+            console.log("End", "DocumentReady");
+        });
+    </script>
+    <meta charset="utf-8">
+</head>
+<body style="height: 100%;">
+    <div id="tmpDialog">
+        <img alt="Loading Image" src="../udo_/images/search/loading.gif">
+        <p>Working on it. Please wait...</p>
+    </div>
+    <table class="fetchTable" id="NotesTable"></table>
+</body>
+</html>

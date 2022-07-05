@@ -1,0 +1,51 @@
+<fetch>
+  <entity name="udo_servicerequest">
+    <attribute name="udo_state" alias="CallerState" />
+    <attribute name="udo_eveningphone" alias="EveningPhone" />
+    <attribute name="udo_description" />
+    <attribute name="udo_address1" alias="CallerStreet1" />
+    <attribute name="udo_zipcode" alias="CallerZip" />
+    <attribute name="udo_mailing_address1" alias="VetAddress1" />
+    <attribute name="udo_firstname" alias="CallerFirstName" />
+    <attribute name="udo_mailing_state" alias="VetState" />
+    <attribute name="udo_lastname" alias="CallerLastName" />
+    <attribute name="udo_dayphone" alias="DayPhone" />
+    <attribute name="udo_phone" alias="CallerPhone" />
+    <attribute name="udo_mailing_city" alias="VetCity" />
+    <attribute name="udo_sremail" alias="VetEmail" />
+    <attribute name="udo_reqnumber" />
+    <attribute name="udo_address2" alias="CallerStreet2" />
+    <attribute name="udo_poadata" alias="POA" />
+    <attribute name="udo_mailing_address2" alias="VetAddress2" />
+    <attribute name="udo_city" alias="CallerCity" />
+    <attribute name="udo_address3" alias="CallerStreet3" />
+    <attribute name="udo_mailing_address3" alias="VetAddress3" />
+    <attribute name="udo_country" alias="CallerCountry" />
+    <attribute name="udo_mailingcountry" alias="VetCountry" />
+    <attribute name="udo_readscript" alias="ReadScript" />
+    <attribute name="udo_mailing_zip" alias="VetZip" />
+    <attribute name="udo_filenumber" />
+    <attribute name="udo_readscriptname" alias="ReadScriptName" />
+    <attribute name="udo_servicerequestsid" />
+    <filter type="and">
+      <condition attribute="udo_servicerequestid" operator="eq" value="DB4C05AB-47C4-E511-942E-00155D14D840" />
+    </filter>
+    <link-entity name="udo_interaction" from="udo_interactionid" to="udo_originatinginteractionid" link-type="inner">
+      <attribute name="udo_interactionid" />
+    </link-entity>
+    <link-entity name="systemuser" from="systemuserid" to="udo_pcrofrecordid" link-type="inner">
+      <attribute name="siteidname" alias="UserOffice" />
+      <attribute name="va_stationnumber" />
+      <attribute name="va_replyreferto" alias="ReplyRefer" />
+      <attribute name="lastname" alias="UserLastName" />
+      <attribute name="title" alias="UserTitle" />
+      <attribute name="firstname" alias="UserFirstName" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer">
+      <attribute name="fullname" />
+      <attribute name="lastname" />
+      <attribute name="middlename" />
+      <attribute name="firstname" />
+    </link-entity>
+  </entity>
+</fetch>

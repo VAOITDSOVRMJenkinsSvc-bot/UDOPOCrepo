@@ -1,0 +1,75 @@
+<fetch mapping="logical" output-format="xml-platform" version="1.0" distinct="false">
+  <entity name="va_fnod">
+    <attribute name="va_poa" alias="udo_haspoa"/>
+    <attribute name="va_filenumber" alias="udo_filenumber"/>
+    <attribute name="udo_callerzipcode" alias="CallerZip"/>
+    <attribute name="udo_callerstate" alias="CallerState"/>
+    <attribute name="udo_callerlastname" alias="CallerLastName"/>
+    <attribute name="udo_callerfirstname" alias="CallerFirstName"/>
+    <attribute name="udo_callerdayphone" alias="CallerPhone"/>
+    <attribute name="udo_callercountry" alias="udo_country"/>
+    <attribute name="udo_callercity" alias="CallerCity"/>
+    <attribute name="udo_calleraddress3" alias="CallerStreet3"/>
+    <attribute name="udo_calleraddress2" alias="CallerStreet2"/>
+    <attribute name="udo_calleraddress1" alias="CallerStreet1" />
+    <attribute name="udo_readscript" />
+    <attribute name="udo_callerfirstname" alias="udo_srfirstname"/>
+    <attribute name="udo_callerlastname" alias="udo_srlastname"/>
+    <attribute name="udo_calleremail" alias="VetEmail"/>
+    <attribute name="udo_typeofcontact"/>
+    <attribute name="va_dateofdeath" alias="DOD"/>
+    <attribute name="udo_enroutetova" />
+    <attribute name="udo_placeofdeath" />
+    <attribute name="va_dateofbirth" alias="DOBDeceased"/>
+    <attribute name="udo_dependentnames" />
+    <attribute name="udo_dependentaddresses" alias="DependentAddresses"/>
+    <attribute name="udo_0820aquestionone" alias="udo_benefitsstopped"/>
+    <attribute name="udo_0820aquestiontwo" alias="DeathChecklist"/>
+    <attribute name="udo_0820aquestionthree" alias="udo_lookedupvetrecord"/>
+    <attribute name="udo_0820aquestionfour" alias="ProcessedFnod"/>
+    <attribute name="udo_0820aexplanation" alias="ProcessedFnodExp"/>
+    <attribute name="udo_pmc" alias="PMC"/>
+    <attribute name="udo_nokletter" />
+    <attribute name="udo_401330" />
+    <attribute name="udo_21534" />
+    <attribute name="udo_21530" />
+    <attribute name="udo_0820aexplanationtwo" alias="OtherSpec"/>
+    <attribute name="udo_otherpleasespecify" alias="Other"/>
+    <attribute name="va_spousezipcode" alias="DependentZip"/>
+    <attribute name="va_spousestate" alias="DependentState"/>
+    <attribute name="va_spousessn" alias="DependentSSN"/>
+    <attribute name="va_spouselastname" alias="DependentLastName"/>
+    <attribute name="va_spousefirstname" alias="DependentFirstName"/>
+    <attribute name="va_spousedob" alias="DependentDOB"/>
+    <attribute name="va_spousecity" alias="DependentCity"/>
+    <attribute name="va_spouseaddress1" alias="DependentAddress"/>
+    <attribute name="udo_locationofdeath"/>
+       <filter type="and">
+      <condition value="{0}" attribute="va_fnodid" operator="eq" uitype="va_fnod" />
+    </filter>
+    <link-entity name="udo_person" from="udo_personid" to="udo_deceasedperson" visible="false" link-type="outer" alias="dp">
+      <attribute name="udo_state"  alias="VetState"/>
+      <attribute name="udo_zip"  alias="VetZip"/>
+      <attribute name="udo_country"  alias="udo_mailingcountry"/>
+      <attribute name="udo_city"  alias="VetCity" />
+      <attribute name="udo_address3" alias="VetAddress3" />
+      <attribute name="udo_address2" alias="VetAddress2"/>
+      <attribute name="udo_address1" alias="VetAddress1"/>
+      <attribute name='udo_dayphone' alias='DayPhone' />
+      <attribute name='udo_eveningphone' alias='EveningPhone' />
+    </link-entity>
+    <link-entity name="systemuser" from="systemuserid" to="modifiedby" visible="false" link-type="outer" alias="u" >
+      <attribute name="siteidname" alias="UserOffice" />
+      <attribute name="va_stationnumber" alias="StationNumber" />
+      <attribute name="va_replyreferto" alias="ReplyRefer" />
+      <attribute name="lastname" alias="UserLastName" />
+      <attribute name="title" alias="UserTitle" />
+      <attribute name="firstname" alias="UserFirstName" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="va_veterancontactid" visible="false" link-type="outer" alias="vet">
+      <attribute name="lastname" alias="vet_lastname" />
+      <attribute name="middlename" alias="vet_middlename" />
+      <attribute name="firstname" alias="vet_firstname" />
+    </link-entity>
+  </entity>
+</fetch>

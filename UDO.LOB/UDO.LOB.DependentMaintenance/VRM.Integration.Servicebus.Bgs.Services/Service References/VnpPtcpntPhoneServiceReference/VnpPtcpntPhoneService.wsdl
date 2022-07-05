@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ptcpntPhoneService.services.vonapp.vba.va.gov/" name="VnpPtcpntPhoneService" targetNamespace="http://ptcpntPhoneService.services.vonapp.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VnpPtcpntPhoneWebServiceBean/VnpPtcpntPhoneService?xsd=1" namespace="http://ptcpntPhoneService.services.vonapp.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="vnpPtcpntPhoneUpdate">
+    <part name="parameters" element="tns:vnpPtcpntPhoneUpdate" />
+  </message>
+  <message name="vnpPtcpntPhoneUpdateResponse">
+    <part name="parameters" element="tns:vnpPtcpntPhoneUpdateResponse" />
+  </message>
+  <message name="MessageFaultException">
+    <part name="fault" element="tns:MessageFaultException" />
+  </message>
+  <message name="vnpPtcpntPhoneCreate">
+    <part name="parameters" element="tns:vnpPtcpntPhoneCreate" />
+  </message>
+  <message name="vnpPtcpntPhoneCreateResponse">
+    <part name="parameters" element="tns:vnpPtcpntPhoneCreateResponse" />
+  </message>
+  <message name="vnpPtcpntPhoneRemove">
+    <part name="parameters" element="tns:vnpPtcpntPhoneRemove" />
+  </message>
+  <message name="vnpPtcpntPhoneRemoveResponse">
+    <part name="parameters" element="tns:vnpPtcpntPhoneRemoveResponse" />
+  </message>
+  <message name="findPhoneAllAsArray">
+    <part name="parameters" element="tns:findPhoneAllAsArray" />
+  </message>
+  <message name="findPhoneAllAsArrayResponse">
+    <part name="parameters" element="tns:findPhoneAllAsArrayResponse" />
+  </message>
+  <message name="vnpPtcpntPhoneFindByPrimaryKey">
+    <part name="parameters" element="tns:vnpPtcpntPhoneFindByPrimaryKey" />
+  </message>
+  <message name="vnpPtcpntPhoneFindByPrimaryKeyResponse">
+    <part name="parameters" element="tns:vnpPtcpntPhoneFindByPrimaryKeyResponse" />
+  </message>
+  <portType name="VnpPtcpntPhoneService">
+    <operation name="vnpPtcpntPhoneUpdate">
+      <input message="tns:vnpPtcpntPhoneUpdate" />
+      <output message="tns:vnpPtcpntPhoneUpdateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPtcpntPhoneCreate">
+      <input message="tns:vnpPtcpntPhoneCreate" />
+      <output message="tns:vnpPtcpntPhoneCreateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPtcpntPhoneRemove">
+      <input message="tns:vnpPtcpntPhoneRemove" />
+      <output message="tns:vnpPtcpntPhoneRemoveResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="findPhoneAllAsArray">
+      <input message="tns:findPhoneAllAsArray" />
+      <output message="tns:findPhoneAllAsArrayResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPtcpntPhoneFindByPrimaryKey">
+      <input message="tns:vnpPtcpntPhoneFindByPrimaryKey" />
+      <output message="tns:vnpPtcpntPhoneFindByPrimaryKeyResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+  </portType>
+  <binding name="VnpPtcpntPhoneServicePortBinding" type="tns:VnpPtcpntPhoneService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vnpPtcpntPhoneUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPtcpntPhoneCreate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPtcpntPhoneRemove">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPhoneAllAsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPtcpntPhoneFindByPrimaryKey">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VnpPtcpntPhoneService">
+    <port name="VnpPtcpntPhoneServicePort" binding="tns:VnpPtcpntPhoneServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VnpPtcpntPhoneWebServiceBean/VnpPtcpntPhoneService" />
+    </port>
+  </service>
+</definitions>

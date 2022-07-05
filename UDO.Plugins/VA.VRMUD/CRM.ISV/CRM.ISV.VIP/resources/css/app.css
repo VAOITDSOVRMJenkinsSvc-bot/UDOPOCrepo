@@ -1,0 +1,126 @@
+﻿
+/* VIP app css */
+
+.appStatus .status-text {
+    padding-left: 25px !important;
+    background-repeat: no-repeat;
+    background-position: 3px 0;
+}
+
+/* Icons */
+/* #1 */
+.icon-add {
+    background-image: url(../images/add16.gif);
+}
+/* #2 */
+.icon-refresh {
+    background-image: url(../images/arrow_refresh.png);
+}     
+/* #3 */
+.icon-request {
+    background-image: url(../images/award_star_gold_1.png);
+}
+/* #4 */
+.icon-clock {
+    background-image: url(../images/clock.png);
+}
+/* #5 */
+.icon-delete {
+    background-image: url(../images/delete16.gif);
+}
+/* #6 */
+.icon-download {
+    background-image: url(../images/download16.gif);
+}
+/* #7 */
+.icon-edit {
+    background-image: url(../images/edit16.gif);
+}
+/* #8 */
+.icon-view {
+    background-image: url(../images/group16.gif);
+}
+/* #9 */
+.icon-addrView {
+    background-image: url(../images/house.png);
+}
+/* #10 */
+.icon-addrChange {
+    background-image: url(../images/house_go.png);
+}
+/* #11 */
+.icon-note {
+    background-image: url(../images/note.png);
+}
+/* #12 */
+.icon-noteAdd {
+    background-image: url(../images/note_add.png);
+}
+/* #13 */
+.icon-noteEdit {
+    background-image: url(../images/note_edit.png);
+}
+/* #14 */
+.icon-docDownload {
+    background-image: url(../images/page_white_put.png);
+}
+/* #15 */
+.icon-script {
+    background-image: url(../images/script.png);
+}
+/* #16 */
+.icon-doc {
+    background-image: url(../images/scriptnew.png);
+}
+/* #17 */
+.icon-time {
+    background-image: url(../images/time.png);
+}
+/* #18 */
+.icon-user {
+    background-image: url(../images/user_green.png);
+}
+/* #19 */
+.icon-contact {
+    background-image: url(../images/vcard.png);
+}
+/* #20 */
+.icon-addName {
+    background-image: url(../images/vcard_add.png);
+}
+/* #21 */
+.icon-deleteName {
+    background-image: url(../images/vcard_delete.png);
+}
+/* #22 */
+.icon-editName {
+    background-image: url(../images/vcard_edit.png);
+}
+/* #23 */
+.icon-status-ok {
+    background-image: url(../images/success_icon.png);   
+}
+/* #24 */
+.icon-status-error {
+    background-image: url(../images/error_icon.gif)
+}
+/* #25 */
+.icon-status-busy {
+    background-image: url(../images/loading.gif)
+}
+/* #26 */
+.icon-status-warning {
+    background-image: url(../images/warning-icon_16by16.png)
+}
+/* #27 */
+.icon-systemMonitor {
+    background-image: url(../images/system-monitor.png)
+}
+/* #28 */
+.icon-viewWindow {
+    background-image: url(../images/viewwindow_16by16.png)
+}
+/* #29 */
+.icon-vai {
+    background-image: url(../images/vai.png)
+}

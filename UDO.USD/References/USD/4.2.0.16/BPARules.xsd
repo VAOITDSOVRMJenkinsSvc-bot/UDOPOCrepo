@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="rules">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" name="rulecategory">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="unbounded" name="configuration">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element minOccurs="0" name="introducedusdversion" type="xs:string" />
+										<xs:element minOccurs="0" name="unit" type="xs:string" />
+										<xs:element minOccurs="0" name="recommendedValue" type="xs:string" />
+										<xs:element minOccurs="1" name="condition">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="rule">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element minOccurs="0" name="path">
+																	<xs:complexType>
+																		<xs:attribute name="registrykeyhive" type="xs:string" use="required" />
+																		<xs:attribute name="subkey" type="xs:string" use="required" />
+																	</xs:complexType>
+																</xs:element>
+																<xs:element minOccurs="1" name="datatype" type="xs:string" />
+																<xs:element minOccurs="1" name="operation" type="xs:string" />
+																<xs:element minOccurs="0" name="warning" type="xs:string" />
+																<xs:element minOccurs="0" name="error" type="xs:string" />
+																<xs:element minOccurs="0" name="required" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="type" type="xs:string" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

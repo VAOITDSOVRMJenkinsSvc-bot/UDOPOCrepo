@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{34ad8427-7ced-4f55-a952-156e548b8540}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="400">
+    <tabs>
+      <tab id="{31771482-73eb-4fdc-9637-e10f895a275a}" name="tab_1" showlabel="false">
+        <labels>
+          <label description="Tab" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{f9eb8f61-cadc-468c-ba37-177e028c6c3f}" name="tab_1_column_1_section_1" showlabel="false" IsUserDefined="0" showbar="false" columns="1">
+                <labels>
+                  <label description="section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{49d05a74-b237-086b-6e1d-1c9ba51b70e0}" showlabel="false" rowspan="7" auto="false" colspan="1">
+                      <labels>
+                        <label description="Call Attempts" languagecode="1033" />
+                      </labels>
+                      <control id="OutboundCallAttempts" uniqueid="{de853767-441a-6931-c8cc-69b291a2ed98}" indicationOfSubgrid="true" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{0FC7B0A3-4DCF-E911-A98B-001DD800A749}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_contact_udo_outboundcallattempt</RelationshipName>
+                          <TargetEntityType>udo_outboundcallattempt</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{6E7B0D9C-FC21-474A-9DF2-0DED38908FB6},{0FC7B0A3-4DCF-E911-A98B-001DD800A749}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <VisualizationId>{DC648EC1-F9C8-E911-A98F-001DD800B582}</VisualizationId>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                          <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                  <row></row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions Order="7">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="VASS Prior Call Attempts" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

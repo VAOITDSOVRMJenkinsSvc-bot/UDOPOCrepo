@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{ba883d2a-9c6c-4304-8847-70359207c69e}</formid>
+  <IntroducedVersion>10.01.19</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab id="{197f06a3-df71-4a11-b438-239984c658ad}" IsUserDefined="1" verticallayout="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{bd3adce4-0e85-4d48-97e9-ba5a1904bed4}" name="{bd3adce4-0e85-4d48-97e9-ba5a1904bed4}" IsUserDefined="0" celllabelposition="Left" celllabelalignment="Left" labelwidth="130" locklevel="0" columns="11" showbar="false" showlabel="false">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{72c46cda-d68a-74aa-80db-c26b6827a037}" locklevel="0" showlabel="true" colspan="1">
+                      <labels>
+                        <label description="Veteran" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_contactid" datafieldname="udo_contactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" uniqueid="{9e006c94-cc6b-9b8d-8904-68a95932462a}">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{A2D479C5-53E3-4C69-ADDD-802327E67A0D}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{648231a5-1bd9-b58e-9849-157ce9772be2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Released from Active Duty Date" languagecode="1033" />
+                      </labels>
+                      <control id="udo_releasedfromactivedutydate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_releasedfromactivedutydate" disabled="true" uniqueid="{32a11ee5-150e-ed65-399d-6ee660179c8a}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7195bd42-8738-90b8-8178-19b5a13e059d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Character of Discharge" languagecode="1033" />
+                      </labels>
+                      <control id="udo_characterofdischarge" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_characterofdischarge" disabled="true" uniqueid="{edd6aad7-3917-20a5-c8eb-381c6c54ca57}" />
+                    </cell>
+                    <cell id="{463d7299-ccd6-aa9b-1062-9bc94c453a4a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Branch of Service" languagecode="1033" />
+                      </labels>
+                      <control id="udo_branchofservice" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_branchofservice" disabled="true" uniqueid="{2d19e09d-3763-2073-5074-570475ba4a94}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9e68cd36-b508-9917-e5a3-2a419abe036b}" locklevel="0" showlabel="true">
+                      <labels>
+                        <label description="City" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_city" datafieldname="udo_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{55318363-3cc0-b18d-7396-42061248ad66}" />
+                    </cell>
+                    <cell id="{3867926b-4e0a-337c-ba7a-8a3156e47599}" locklevel="0" showlabel="true">
+                      <labels>
+                        <label description="State" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_state" datafieldname="udo_state" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{1902dde0-20d7-074a-c70e-e91e2d2aea03}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bcca9937-4423-4ae7-6627-aac1b79195e1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Phone 1" languagecode="1033" />
+                      </labels>
+                      <control id="udo_phone1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_phone1" disabled="true" uniqueid="{03c72692-baa4-737e-26e6-19a498759541}" />
+                    </cell>
+                    <cell id="{042cd29c-d17c-a5b0-4c8c-aabc629bd56a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Phone 2" languagecode="1033" />
+                      </labels>
+                      <control id="udo_phone2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_phone2" disabled="true" uniqueid="{11157137-a819-0498-e965-34d36c7323d2}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{accdc47c-a32f-41a5-9f61-09fd810c91c7}" locklevel="0" showlabel="true" visible="false">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_name" datafieldname="udo_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{4e94e9d8-1968-696b-1dd9-ba35cdb2a108}" />
+                    </cell>
+                    <cell id="{cceb7eb5-ab68-0b2e-a2ac-c94d934caab8}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VASS Priority Indicator" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vasspriorityindicator" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="udo_vasspriorityindicator" disabled="true" uniqueid="{2d41d986-b967-b7e9-b28b-b104b716ce35}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{33a7cc0a-6e27-19c5-0d00-374c65e60d4b}" showlabel="false" rowspan="6" auto="false" colspan="2">
+                      <labels>
+                        <label description="Interactions (VASSP Interaction Assignment)" languagecode="1033" />
+                      </labels>
+                      <control id="Interactions" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" uniqueid="{321e93b1-b112-042e-8ab2-83a3b922e508}" indicationOfSubgrid="true">
+                        <parameters>
+                          <ViewId>{B0F4D848-CAE3-E911-A987-001DD800BA25}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_mheointeractionassignment_udo_interaction</RelationshipName>
+                          <TargetEntityType>udo_interaction</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{76A57A67-9310-E611-943D-0050568DF261},{B0F4D848-CAE3-E911-A987-001DD800BA25}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>Grid</ChartGridMode>
+                          <VisualizationId>{080C2ACC-E0C8-E911-A98F-001DD800B582}</VisualizationId>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>false</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                          <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <header id="{36f32f5c-a869-4f65-8086-57c4ce0fc4b7}" columns="111">
+      <rows>
+        <row>
+          <cell id="{1d4c6921-8272-4323-9be9-b90a3f2edfd5}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{ceb9641f-a4eb-4895-bd0e-7d367beff66c}" showlabel="false">
+            <labels>
+              <label description="" languagecode="1033" />
+            </labels>
+          </cell>
+          <cell id="{7eeba69e-68dc-214e-9054-3ca956138899}" showlabel="true" locklevel="0">
+            <labels>
+              <label description="Owner" languagecode="1033" />
+            </labels>
+            <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
+          </cell>
+        </row>
+      </rows>
+    </header>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title Text="Common" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title Text="Sales" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title Text="Service" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title Text="Marketing" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title Text="Process Sessions" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <controlDescriptions />
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

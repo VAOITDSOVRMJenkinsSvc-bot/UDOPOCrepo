@@ -1,0 +1,267 @@
+<html>
+<head>
+    <script src="../../../ClientGlobalContext.js.aspx" type="text/javascript"></script>
+    <link href="../Styles/SubgridStyleSheet.css" rel="stylesheet" type="text/css">
+    <script>
+
+        var _esrObj = null;
+        var esrEndpoint = "";
+        var ICN = "";
+        var subscriptionSouthId = "";
+        var subscriptionEastId = "";
+        var subscriptionId = "";
+        var formContext = null;
+
+        function setContext(context) {
+            formContext = context;
+            doPageLoad();
+        }
+
+        function doPageLoad() {
+            var context = GetGlobalContext();
+            //fetch ESREndPoint
+            var queryESREndPointOption = "?$select=va_description&$filter=(va_name eq 'ESREndPoint')";
+            Xrm.WebApi.retrieveMultipleRecords("va_systemsettings", queryESREndPointOption).then(
+
+                function success(result) {
+                    //window.parent.Xrm.Page.ui.setFormNotification("Retrieving Eligibility Info. Please wait.", "INFORMATION", "1");
+                    console.log("Retrieving Eligibility Info. Please wait.");
+                    esrEndpoint = result.entities[0].va_description;
+                    //var SSN = window.parent.Xrm.Page.getAttribute("udo_veteranssn").getValue();
+                    //var firstName = window.parent.Xrm.Page.getAttribute("udo_veteranfirstname").getValue();
+                    //var lastName = window.parent.Xrm.Page.getAttribute("udo_veteranlastname").getValue();
+                    //var dob = window.parent.Xrm.Page.getAttribute("udo_veterandob").getValue();
+
+                    var SSN = formContext.getAttribute("udo_veteranssn").getValue();
+                    var firstName = formContext.getAttribute("udo_veteranfirstname").getValue();
+                    var lastName = formContext.getAttribute("udo_veteranlastname").getValue();
+                    var dob = formContext.getAttribute("udo_veterandob").getValue();
+
+                    var queryICNOption = "?$select=*&$filter=crme_firstname eq '" + firstName + "' and crme_lastname eq '" + lastName + "' and crme_dobstring eq '" + dob + "' and crme_ssn eq '" + SSN + "' and crme_searchtype eq 'CombinedSearchByIdentifier' and crme_isattended eq true";
+
+                    Xrm.WebApi.retrieveMultipleRecords("crme_person", queryICNOption).then(
+                        function success(result) {
+                            if (result.entities[0].crme_icn != null && result.entities[0].crme_icn != "") {
+                                ICN = result.entities[0].crme_icn;
+                            }
+                            else {
+                                //window.parent.Xrm.Page.ui.setFormNotification("This veteran does not have a valid ICN.", "INFORMATION", "2");
+                                console.log("This veteran does not have a valid ICN.");
+                            }
+                            esrEndpoint = esrEndpoint.replace("{0}", ICN);
+
+                            //fetch apim subscriptionkeys
+                            Xrm.WebApi.retrieveMultipleRecords("mcs_setting", "?$select=*").then(
+                                function success(result) {
+                                    subscriptionId = result.entities[0].udo_ocpapimsubscriptionkey;
+                                    subscriptionEastId = result.entities[0].udo_ocpapimsubscriptionkeyeast;
+                                    subscriptionSouthId = result.entities[0].udo_ocpapimsubscriptionkeysouth;
+
+                                    if (esrEndpoint != "") {
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.open('GET', esrEndpoint);
+                                        xhr.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionId);
+                                        xhr.setRequestHeader("Ocp-Apim-Subscription-Key-E", subscriptionEastId);
+                                        xhr.setRequestHeader("Ocp-Apim-Subscription-Key-S", subscriptionSouthId);
+                                        xhr.timeout = 4000;
+                                        xhr.responseType = "json";
+                                        xhr.onreadystatechange = handler;
+                                        xhr.send();
+                                    }
+                                }, function (error) { console.log(error); });
+                        }, function (error) { console.log(error); });
+                }, function (error) { console.log(error); });
+        }
+
+
+        function handler() {
+            if (this.readyState === this.DONE) {
+                console.log(" This is the response " + (this.response));
+                if (this.status === 200) {
+                    _esrObj = typeof this.response === 'string' ? JSON.parse(this.response) : this.response;
+                    // _esrObj = JSON.parse(this.response);
+                    outputData();
+                    //window.parent.Xrm.Page.ui.clearFormNotification("1");
+                }
+                else {
+                    _esrObj = null;
+                    //window.parent.Xrm.Page.ui.setFormNotification("No Eligibility info found.", "INFORMATION", "3");
+                    console.log("No Eligibility info found.");
+                }
+            }
+        }
+
+        function outputData() {
+            //set display fields
+            if (_esrObj != null) {
+
+                if (!_esrObj.ErrorOccurred) {
+                    if ("EnrollmentDeterminationInfo" in _esrObj.Data) {
+                        if (_esrObj.Data.EnrollmentDeterminationInfo != null) {
+                            if (_esrObj.Data.EnrollmentDeterminationInfo.ApplicationDate != null) {
+                                var formattedApplicationDate = _esrObj.Data.EnrollmentDeterminationInfo.ApplicationDate.substr(5, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.ApplicationDate.substr(8, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.ApplicationDate.substr(0, 4);
+                                document.getElementById("EnrollmentApplicationDate").innerText = formattedApplicationDate;
+                            }
+                            if (_esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward != null && _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.ServiceConnectedPercentage) {
+                                if (_esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.ServiceConnectedPercentage != null) { document.getElementById("ServiceConnectedPercent").innerText = _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.ServiceConnectedPercentage; }
+                                if (_esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.CombinedServiceConnectedPercentageEffectiveDate != null) {
+                                    var calledobject = _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.CombinedServiceConnectedPercentageEffectiveDate;
+                                    var formattedEvalDate = calledobject.substr(4, 2) + "/" + calledobject.substr(6, 2) + "/" + calledobject.substr(0, 4);
+                                    document.getElementById("EffectiveDateofCombinedEvaluation").innerText = formattedEvalDate;
+                                }
+
+                            }
+                        }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.Veteran != null) { document.getElementById("VeteranIndicator").innerText = _esrObj.Data.EnrollmentDeterminationInfo.Veteran; }
+                    }
+
+                    if ("PrisonerOfWarInfo" in _esrObj.Data) {
+
+                        if (_esrObj.Data.PrisonerOfWarInfo.PowIndicator != null) { document.getElementById("PrisonerofWarIndicator").innerText = _esrObj.Data.PrisonerOfWarInfo.PowIndicator; }
+                    }
+
+                    if ("EligibilityVerificationInfo" in _esrObj.Data) {
+
+                        if (_esrObj.Data.EligibilityVerificationInfo.EligibilityStatus != null) { document.getElementById("EligibilityStatus").innerText = _esrObj.Data.EligibilityVerificationInfo.EligibilityStatus; }
+                        if (_esrObj.Data.EligibilityVerificationInfo.EligibilityStatusDate != null) {
+                            var formattedStatusDate = _esrObj.Data.EligibilityVerificationInfo.EligibilityStatusDate.substr(4, 2) + "/" + _esrObj.Data.EligibilityVerificationInfo.EligibilityStatusDate.substr(6, 2) + "/" + _esrObj.Data.EligibilityVerificationInfo.EligibilityStatusDate.substr(0, 4);
+                            document.getElementById("EligibilityStatusDate").innerText = formattedStatusDate;
+                        }
+                        if (_esrObj.Data.EligibilityVerificationInfo.VerificationMethod != null) { document.getElementById("EligibilityVerificationMethod").innerText = _esrObj.Data.EligibilityVerificationInfo.VerificationMethod; }
+                    }
+
+
+                    if ("EnrollmentDeterminationInfo" in _esrObj.Data) {
+                        if (_esrObj.Data.EnrollmentDeterminationInfo != null && "OtherEligibilities" in _esrObj.Data.EnrollmentDeterminationInfo) {
+                            if (_esrObj.Data.EnrollmentDeterminationInfo.OtherEligibilities != null && "Eligibilities" in _esrObj.Data.EnrollmentDeterminationInfo.OtherEligibilities) {
+                                for (var i = 0; i < _esrObj.Data.EnrollmentDeterminationInfo.OtherEligibilities.Eligibilities.length; ++i) {
+                                    var IndicatorVar = _esrObj.Data.EnrollmentDeterminationInfo.OtherEligibilities.Eligibilities[i].Indicator;
+                                    var TypeVar = _esrObj.Data.EnrollmentDeterminationInfo.OtherEligibilities.Eligibilities[i].Type;
+                                    document.getElementById('othereligibilityfactorstable').insertRow().innerHTML = "<tr><td>" + IndicatorVar + "</td><td>" + TypeVar + "</td></tr>"
+                                }
+                            }
+                        }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo != null && "ServiceConnectionAward" in _esrObj.Data.EnrollmentDeterminationInfo) {
+                            if (_esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward != null && "RatedDisabilities" in _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward) {
+                                if (_esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.RatedDisabilities != null && "RatedDisability" in _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.RatedDisabilities) {
+                                    for (var i = 0; i < _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.RatedDisabilities.RatedDisability.length; ++i) {
+                                        var ratedDisability = _esrObj.Data.EnrollmentDeterminationInfo.ServiceConnectionAward.RatedDisabilities.RatedDisability[i];
+                                        document.getElementById('rateddisabilitiestable').insertRow().innerHTML = "<tr><td>" + ratedDisability.Disability + "</td><td>" + ratedDisability.DisabilityCode + "</td><td>" + ratedDisability.Percentage + "</td><td>" + ratedDisability.ServiceConnected + "</td></tr>";
+                                    }
+                                }
+                            }
+                        }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EnrollmentCategoryName != null) { document.getElementById("EnrollmentCategory").innerText = _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentCategoryName; }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EnrollmentStatus != null) { document.getElementById("EnrollmentStatus").innerText = _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentStatus; }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate != null) {
+                            var formattedEnrollmentDate = _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate.substr(5, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate.substr(8, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate.substr(0, 4);
+                            document.getElementById("EnrollmentDate").innerText = formattedEnrollmentDate;
+                        }
+
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate != null) {
+                            var formattedEnrollmentEffectiveDate = _esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate.substr(5, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate.substr(8, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate.substr(0, 4);
+                            document.getElementById("EnrollmentEffectiveDate").innerText = formattedEnrollmentEffectiveDate;
+
+                        }
+
+                    }
+                    if ("Demographics" in _esrObj.Data) {
+                        if (_esrObj.Data.Demographics.PreferredFacility != null) { document.getElementById("PreferredFacility").innerText = _esrObj.Data.Demographics.PreferredFacility; }
+                    }
+                }
+            }
+        }
+
+        //window.onload = doPageLoad();
+
+    </script>
+
+    <meta charset="utf-8">
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+</head>
+<body lang="en-US" style="overflow-wrap: break-word;" dir="LTR" onfocusout="parent.setEmailRange();">
+    <div class="panel panel-primary" id="container">
+        <div class="panel-heading">Eligibility</div>
+        <div class="panel-body">
+            <div class="column-left" style="width: 50%; float: left;">
+                <div class="row-div"><span class="attribute-label">Service Connected %:</span> <span class="attribute-value" id="ServiceConnectedPercent">--</span></div>
+                <div class="row-div"><span class="attribute-label">Effective Date of Combined Evaluation:</span> <span class="attribute-value" id="EffectiveDateofCombinedEvaluation">--</span></div>
+                <div class="row-div"><span class="attribute-label">Eligibility Status:</span> <span class="attribute-value" id="EligibilityStatus">--</span></div>
+                <div class="row-div"><span class="attribute-label">Eligibility Status Date:</span> <span class="attribute-value" id="EligibilityStatusDate">--</span></div>
+            </div>
+            <div class="column-right" style="width: 50%; float: left;">
+                <div class="row-div"><span class="attribute-label">Enrollment Application Date:</span> <span class="attribute-value" id="EnrollmentApplicationDate">--</span></div>
+                <div class="row-div"><span class="attribute-label">Eligibility Verification Method:</span> <span class="attribute-value" id="EligibilityVerificationMethod">--</span></div>
+                <div class="row-div"><span class="attribute-label">Veteran Indicator:</span> <span class="attribute-value" id="VeteranIndicator">--</span></div>
+                <div class="row-div"><span class="attribute-label">Prisoner of War Indicator:</span> <span class="attribute-value" id="PrisonerofWarIndicator">--</span></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="panel panel-primary" id="container">
+        <div class="panel-heading">Rated SC Disabilities</div>
+        <div class="panel-body">
+            <table class="table table-condensed table-striped" id="rateddisabilitiestable" style="padding: 15px; border: 1px solid black; border-image: none; text-align: left;">
+                <thead>
+                    <tr>
+                        <th>Disability</th>
+                        <th>Disability Code</th>
+                        <th>Percentage</th>
+                        <th>Service Connected</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-primary" id="container">
+        <div class="panel-heading">Other Eligibility Factors</div>
+        <div class="panel-body">
+            <table class="table table-condensed table-striped" id="othereligibilityfactorstable" style="padding: 15px; border: 1px solid black; border-image: none; text-align: left;">
+                <thead>
+                    <tr>
+                        <th>Indicator</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-primary" id="container">
+        <div class="panel-heading">Enrollment</div>
+        <div class="panel-body">
+            <div class="column-left">
+                <div class="row-div"><span class="attribute-label">Enrollment Category:</span> <span class="attribute-value" id="EnrollmentCategory">--</span></div>
+                <div class="row-div"><span class="attribute-label">Enrollment Status:</span> <span class="attribute-value" id="EnrollmentStatus">--</span></div>
+                <div class="row-div"><span class="attribute-label">Preferred Facility:</span> <span class="attribute-value" id="PreferredFacility">--</span></div>
+            </div>
+            <div class="column-right">
+                <div class="row-div"><span class="attribute-label">Enrollment Date:</span> <span class="attribute-value" id="EnrollmentDate">--</span></div>
+                <div class="row-div"><span class="attribute-label">Enrollment Effective Date:</span> <span class="attribute-value" id="EnrollmentEffectiveDate">--</span></div>
+                <div class="row-div">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

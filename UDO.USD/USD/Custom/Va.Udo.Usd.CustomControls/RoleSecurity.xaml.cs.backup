@@ -1,0 +1,222 @@
+﻿using Microsoft.Crm.UnifiedServiceDesk.CommonUtility;
+using Microsoft.Crm.UnifiedServiceDesk.Dynamics;
+using Microsoft.Crm.UnifiedServiceDesk.Dynamics.Utilities;
+using Microsoft.Uii.Desktop.Cti.Core;
+using Microsoft.Uii.Desktop.SessionManager;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Va.Udo.Usd.CustomControls
+{
+    /// <summary>
+    /// Interaction logic for RoleSecurity.xaml
+    /// </summary>
+    public partial class RoleSecurity : DynamicsBaseHostedControl
+    {
+        /// <summary>
+        /// Log writer
+        /// </summary>
+        private TraceLogger logWriter = null;
+
+        private static readonly ColumnSet RoleColumns = new ColumnSet(new[] {
+            "roleid", 
+            "name", 
+            "businessunitid", 
+            "organizationid", 
+            "solutionid", 
+            "componentstate", 
+            "createdon", 
+            "modifiedon"
+        });
+
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="applicationName"></param>
+        /// <param name="initXml"></param>
+        public RoleSecurity(Guid id, string applicationName, string initXml) :
+            base(id, applicationName, initXml)
+        {
+            InitializeComponent();
+            logWriter = new TraceLogger();           
+        }
+
+        protected override void DesktopReady()
+        {
+            base.DesktopReady();
+
+        }
+
+        protected override void DoAction(Microsoft.Uii.Csr.RequestActionEventArgs args)
+        {
+            if (string.Compare(args.Action, "SetUserRoles", true) == 0)
+            {
+                var parms = Utility.SplitLines(args.Data, CurrentContext, localSession);
+                var userid = Utility.GetAndRemoveParameter(parms, "userid");
+
+                if (!string.IsNullOrEmpty(userid))
+                {
+                    var userRoles = SetUserRoles(new Guid(userid));
+                   
+                    var lri = new LookupRequestItem();
+                    lri.Key = "UserRoles";
+                    lri.Value = userRoles;
+
+                    var lriList = new List<LookupRequestItem>();
+                    lriList.Add(lri);
+                  
+                    var dcr = (DynamicsCustomerRecord)((AgentDesktopSession)localSessionManager.ActiveSession).Customer.DesktopCustomer;
+                    dcr.MergeReplacementParameter("$Return", lriList, true);                    
+
+                    logWriter.Log(string.Format("User Roles: {0}", userRoles));
+                }
+                else
+                {
+                    logWriter.Log("WARNING: No User ID found.  No User Roles Set");
+                }
+
+            }
+            base.DoAction(args);
+        }
+
+
+        private string SetUserRoles(Guid userGuid)
+        {
+            StringBuilder sb = new StringBuilder();
+            int roleCount = 0;
+
+            var userroles = new List<userrole>();
+
+            var userRoleCollection = GetUserRoles(userGuid);
+            foreach (var role in userRoleCollection.Entities)
+            {
+                var userrole = new userrole();
+                userrole.roleid = role.GetAttributeValue<Guid>("roleid").ToString();
+                userrole.name = role.GetAttributeValue<string>("name");
+                userroles.Add(userrole);
+                roleCount++;
+            }
+
+            sb.Append("{\"userroles\": ");
+            sb.Append(ObjectToJSonString(userroles));
+            sb.Append(string.Format(", \"rolecount\": {0} ", roleCount.ToString()));
+            sb.Append(" }");
+
+            return sb.Replace("\"", "'").ToString();
+        }
+
+        /// <summary>
+        /// Get User Roles
+        /// </summary>
+        /// <param name="userGuid">User Guid</param>
+        /// <returns>Returns an Entity Collection of User Assigned Roles</returns>
+        private EntityCollection GetUserRoles(Guid userGuid)
+        {
+            //Create Query Expression to fetch Role Entity 
+            var queryExpression = new QueryExpression
+            {
+                EntityName = "role",
+                //Setting the link entity condition and filter condition criteria/ 
+                LinkEntities =
+                    {
+                        new LinkEntity
+                        {
+                            LinkFromEntityName = "role",
+                            LinkFromAttributeName = "roleid",
+                            LinkToEntityName = "systemuserroles",
+                            LinkToAttributeName = "roleid",
+                            LinkCriteria = new FilterExpression
+                            {
+                                FilterOperator = LogicalOperator.And,
+                                Conditions =
+                                {
+                                    new ConditionExpression
+                                    {
+                                        AttributeName = "systemuserid",
+                                        Operator = ConditionOperator.Equal,
+                                        Values = {userGuid}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                ColumnSet = RoleColumns
+            };
+
+            // Obtain results from the query expression. 
+            var userRoles = this._client.CrmInterface.OrganizationServiceProxy.RetrieveMultiple(queryExpression);
+
+            return userRoles;
+        }
+        
+        /// <summary>
+        /// Convert object to MemoryStream in Json.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        private static string ObjectToJSonString(object obj)
+        {
+            string jsonString;
+            MemoryStream memStream = new MemoryStream();
+
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(obj.GetType());
+  
+            using (var ms = new MemoryStream())
+            {
+
+                ser.WriteObject(ms, obj);
+                var sw = new StreamWriter(ms);
+                sw.Flush();
+
+                ms.Position = 0;
+                var sr = new StreamReader(ms);
+
+                jsonString = sr.ReadToEnd();
+
+            }
+
+            return jsonString;
+        }
+    }
+
+
+    [DataContract]
+    public class userrole
+    {
+        [DataMember(Name = "roleid")]
+        public string roleid
+        {
+            get;
+            set;
+        }
+        [DataMember(Name = "name")]
+        public string name
+        {
+            get;
+            set;
+        }
+    }
+  
+
+}

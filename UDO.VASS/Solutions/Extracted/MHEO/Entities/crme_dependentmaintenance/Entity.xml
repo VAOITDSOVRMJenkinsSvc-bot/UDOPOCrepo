@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Dependent Maintenance" OriginalName="Dependent Maintenance">crme_dependentmaintenance</Name>
+  <EntityInfo>
+    <entity Name="crme_dependentmaintenance" unmodified="1">
+      <attributes />
+    </entity>
+  </EntityInfo>
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

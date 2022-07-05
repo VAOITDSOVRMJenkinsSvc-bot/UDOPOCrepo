@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{865e12d0-95e3-e911-a994-001dd800951b}</WebResourceId>
+  <Name>udo_mheo/usd/img/home.png</Name>
+  <DisplayName>udo_mheo/usd/img/home.png</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>09.30.19</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/udo_mheousdimghomepng865E12D0-95E3-E911-A994-001DD800951B</FileName>
+</WebResource>

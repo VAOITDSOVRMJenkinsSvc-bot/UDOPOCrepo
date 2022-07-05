@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item id="0" name="Level 0">
+    <udo_veteransensitivitylevel value="752280000"/>
+    <va_veteransensitivitylevel value="0"/>
+    <crme_veteransensitivitylevel value="935950000"/>
+  </item>
+  <item id="1" name="Level 1">
+    <udo_veteransensitivitylevel  value="752280001"/>
+    <va_veteransensitivitylevel value="1"/>
+    <crme_veteransensitivitylevel value="1"/>
+  </item>
+  <item id="2" name="Level 2">
+    <udo_veteransensitivitylevel  value="752280002"/>
+    <va_veteransensitivitylevel value="2"/>
+    <crme_veteransensitivitylevel value="2"/>
+  </item>
+  <item id="3" name="Level 3">
+    <udo_veteransensitivitylevel>
+      <attributes value ="752280003"/>
+    </udo_veteransensitivitylevel>
+    <va_veteransensitivitylevel value="3"/>
+    <crme_veteransensitivitylevel value="3"/>
+  </item>
+  <item id="4" name="Level 4">
+    <udo_veteransensitivitylevel  value="752280004"/>
+    <va_veteransensitivitylevel value="4"/>
+    <crme_veteransensitivitylevel value="4"/>
+  </item>
+  <item id="5" name="Level 5">
+    <udo_veteransensitivitylevel value="752280005"/>
+    <va_veteransensitivitylevel value="5"/>
+    <crme_veteransensitivitylevel value="5"/>
+  </item>
+  <item id="6" name="Level 6">
+    <udo_veteransensitivitylevel  value="752280006"/>
+    <va_veteransensitivitylevel value="6"/>
+    <crme_veteransensitivitylevel value="6"/>
+  </item>
+  <item id="7" name="Level 7">
+    <udo_veteransensitivitylevel  value="752280007"/>
+    <va_veteransensitivitylevel value="7"/>
+    <crme_veteransensitivitylevel value="7"/>
+  </item>
+  <item id="8" name="Level 8">
+    <udo_veteransensitivitylevel  value="752280008"/>
+    <va_veteransensitivitylevel value="8"/>
+    <crme_veteransensitivitylevel value="8"/>
+  </item>
+  <item id="9" name="Level 9">
+    <udo_veteransensitivitylevel  value="752280009"/>
+    <va_veteransensitivitylevel value="9"/>
+    <crme_veteransensitivitylevel value="9"/>
+  </item>
+</items>

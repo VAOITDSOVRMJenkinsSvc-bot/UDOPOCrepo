@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VRM.CRME.AddDependent.Plugins", "VRM.CRME.AddDependent.Plugins.csproj", "{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		INT|Any CPU = INT|Any CPU
+		PERF|Any CPU = PERF|Any CPU
+		PREPROD|Any CPU = PREPROD|Any CPU
+		PROD|Any CPU = PROD|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+		TRAIN|Any CPU = TRAIN|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.INT|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.INT|Any CPU.Build.0 = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.PERF|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.PERF|Any CPU.Build.0 = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.PREPROD|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.PREPROD|Any CPU.Build.0 = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.PROD|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.PROD|Any CPU.Build.0 = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.QA|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.QA|Any CPU.Build.0 = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.TRAIN|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C668EE-B0B8-44CC-8ADD-96B37F2E9674}.TRAIN|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2D82301-6A43-4D4A-A607-FF26452A8918}
+	EndGlobalSection
+EndGlobal

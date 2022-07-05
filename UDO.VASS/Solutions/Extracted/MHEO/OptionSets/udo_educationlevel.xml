@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<optionset Name="udo_educationlevel" localizedName="Education Level">
+  <OptionSetType>picklist</OptionSetType>
+  <IsGlobal>1</IsGlobal>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <ExternalTypeName></ExternalTypeName>
+  <displaynames>
+    <displayname description="Education Level" languagecode="1033" />
+  </displaynames>
+  <Descriptions>
+    <Description description="" languagecode="1033" />
+  </Descriptions>
+  <options>
+    <option value="752280000" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Less than high school diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280001" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Attending high school, junior or less" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280002" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Attending high school, senior" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280003" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Secondary school credential near completion" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280004" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Test-based equivalency diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280005" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Occupational program certificate" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280006" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Correspondence school diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280007" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="High school certificate of attendance" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280008" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Home study diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280009" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Adult education diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280010" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="ARNG Challenge Program GED Certificate" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280011" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Other Non-Traditional High School Credential" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280012" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="High school diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280013" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Completed High School (No diploma)" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280014" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Completed one semester of college, no high school diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280015" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="One year of college certificate of equivalency" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280016" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="1-2 years college, no degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280017" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Associate degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280018" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Professional nursing diploma" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280019" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="3-4 year college, no degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280020" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Baccalaureate" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280021" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="1 or more years of graduate school, no degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280022" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Master Degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280023" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Post Master Degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280024" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="First professional degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280025" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Doctorate Degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280026" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Post doctorate degree" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+    <option value="752280027" ExternalValue="" Color="#0000ff">
+      <labels>
+        <label description="Unknown" languagecode="1033" />
+      </labels>
+      <Descriptions>
+        <Description description="" languagecode="1033" />
+      </Descriptions>
+    </option>
+  </options>
+</optionset>

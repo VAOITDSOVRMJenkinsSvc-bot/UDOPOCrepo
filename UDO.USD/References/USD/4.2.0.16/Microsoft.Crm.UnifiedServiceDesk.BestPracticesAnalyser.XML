@@ -1,0 +1,1616 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_CATEGORY_INTERNET_EXPLORER_SETTINGS">
+            <summary>
+              Looks up a localized string similar to Internet Explorer Settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_CATEGORY_SCORE">
+            <summary>
+              Looks up a localized string similar to Score.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_CATEGORY_SERVER_CONFIGURATION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk Configurations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_CATEGORY_START_TIME">
+            <summary>
+              Looks up a localized string similar to Analysis Start Time.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_CATEGORY_SYSTEM_SETTINGS">
+            <summary>
+              Looks up a localized string similar to System Configurations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_DOWNLOADS_TEXT">
+            <summary>
+              Looks up a localized string similar to Downloads.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_ERROR_MESSAGE">
+            <summary>
+              Looks up a localized string similar to Error while starting Best Practices Analyzer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_ERROR_MESSAGE_DESCRIPTION_RESTART">
+            <summary>
+              Looks up a localized string similar to Restart Unified Service Desk and try again..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_ERROR_MESSAGE_DESCRIPTION_UPGRADE">
+            <summary>
+              Looks up a localized string similar to Upgrade to latest version of Best Practices Analyzer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_InvalidValue">
+            <summary>
+              Looks up a localized string similar to Invalid Value for Parameter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_LOADING_TEXT">
+            <summary>
+              Looks up a localized string similar to Please wait. Your report is being generated..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_Null_VALUE">
+            <summary>
+              Looks up a localized string similar to Value Is Blank.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ActivityTrackingEnabled_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Activity Tracking Enabled options enables you to track all the events for audit and diagnostic purpose..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ActivityTrackingEnabled_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Activity Tracking Enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ActivityTrackingEnabled_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Enable Activity Tracking Enabled option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ActivityTrackingEnabled_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Audit and Diagnostics Settings and\nIn the Audit Settings section, select Activity Tracking Enabled check box.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ActivityTrackingEnabled_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/configure-auditing-diagnostics-unified-service-desk#auditing::Auditing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_AvailableDisk_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when hard disk space is 12 GB or more..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_AvailableDisk_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Hard Disk Space.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_AvailableDisk_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Delete old or unnecessary files to free space for Unified Service Desk..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_AvailableRAM_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Available Memory (RAM) is the remaining Memory (RAM) on your computer after the Memory (RAM) consumed by existing processes.\nUnified Service Desk works best when Available Memory (RAM) is 1 GB or more..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_AvailableRAM_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Available Memory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_AvailableRAM_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Close other inactive processes to free up Available Memory to 1 GB or more..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_CleanupHTC_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when Cleanup HTCs option is set to Yes..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_CleanupHTC_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Cleanup HTCs.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_CleanupHTC_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set Cleanup HTCs option to Yes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_CleanupHTC_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Open C:/ &gt; Windows &gt; regedit.\nGo to Computer\HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer.\nRight-click on Cleanup HTCs and select Modify option.\nSpecify Yes in the Value data field.\nClick OK..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_CleanupHTC_MITIGATION2">
+            <summary>
+              Looks up a localized string similar to Right-click on the blank area and select New &gt; String Value. You can see new file.\nType Cleanup HTCs as file name, and Modify.\nPerform steps 4 and 5 from the above procedure..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_CleanupHTC_MITIGATION2_HEADER">
+            <summary>
+              Looks up a localized string similar to Note: If the key is not present, create the key..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ClientCaching_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Client caching enables you to reduce the amount of bandwidth required at the startup of the Unified Service Desk..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ClientCaching_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Client Caching.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ClientCaching_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Enable Client Caching..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ClientCaching_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nClick New on the command bar to create a new option.\nFor the new option, type ClientCacheVersionNumber in the Name box, and an alphanumeric number in the Value box. The alphanumeric value is used as the cache key for Unified Service Desk.The alphanumeric value can be of any value but unique for each time you change.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ClientCaching_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/configure-client-caching-unified-service-desk#enable-client-caching::Enable client caching.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DeprecatedHostedControls_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to CCA or Interactive Service Hub hosted control is configured in Unified Service Desk.\nCCA and Interactive Service Hub hosted controls are deprecated..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DeprecatedHostedControls_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Deprecated Hosted Controls.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DeprecatedHostedControls_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to It is recommended to migrate your business workflow to new hosted controls..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DesktopReady_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to DesktopReady event occurs on startup when all the desktop initialization has completed and the connections to Dynamics 365 have been established.\nUnified Service Desk works best when 10 or less Actions Calls are associated with DesktopReady Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DesktopReady_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Action Calls in DesktopReady Event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DesktopReady_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Optimize the Action Calls to 10 or less associated with DesktopReady Event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DiagnosticTrackingEnabled_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Diagnostic Tracking Enabled enables you to record operational events and errors in the Unified Service Desk to log files..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DiagnosticTrackingEnabled_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Diagnostic Tracking Enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DiagnosticTrackingEnabled_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Enable Diagnostic Tracking Enabled option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DiagnosticTrackingEnabled_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Audit and Diagnostics Settings.\nIn the Diagnostic Settings section, select Diagnostic Tracking Enabled check box.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_DiagnosticTrackingEnabled_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/configure-auditing-diagnostics-unified-service-desk#diagnostics::Diagnostics.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableAutomaticCrashRecovery_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Enable automatic crash recovery is a feature that allows you to restore your previous browsing session in the event of crash.\nUnified Service Desk works best when Enable automatic crash recovery option is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableAutomaticCrashRecovery_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Enable Automatic Crash Recovery.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableAutomaticCrashRecovery_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Disable &apos;Enable automatic crash recovery&apos; option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableAutomaticCrashRecovery_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Open Internet Explorer.\nClick Tools &gt; Internet Options &gt; Advanced tab.\nClear the Enable automatic crash recovery Mode check box under Browsing section.\nClick Apply and then click OK..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableCrashDumpGeneration_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Enable Crash Dump Generation enables you to collect dump files during fatal exception of Unified Service Desk..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableCrashDumpGeneration_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Enable Crash Dump Generation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableCrashDumpGeneration_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Enable the option Enable Crash Dump generation..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableCrashDumpGeneration_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Audit and Diagnostics Settings.\nIn the Diagnostic Settings section, select Enable Crash Dump Generation check box.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableCrashDumpGeneration_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/configure-auditing-diagnostics-unified-service-desk#diagnostics::Diagnostics.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableEnhancedProtectedMode_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when Enable Enhanced Protected Mode option is disabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableEnhancedProtectedMode_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Enable Enhanced Protected Mode.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableEnhancedProtectedMode_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Disable &apos;Enable Enhanced Protected Mode&apos; option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableEnhancedProtectedMode_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Open Internet Explorer.\nClick Tools &gt; Internet Options &gt; Advanced tab.\nClear the Enable Enhanced Protected Mode check box under Security section.\nClick Apply and then click OK..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableExitMonitoring_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Enable Exit Monitoring collects diagnostics logs and exit logs in the event of an exception in the Unified Service Desk client..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableExitMonitoring_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Enable Exit Monitoring.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableExitMonitoring_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Enable Exit Monitoring option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableExitMonitoring_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Audit and Diagnostics Settings.\nIn the Diagnostic Settings section, select Enable Exit Monitoring check box.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableExitMonitoring_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/configure-auditing-diagnostics-unified-service-desk#diagnostics::Diagnostics.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableProtectedMode_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Enable Protected Mode option is a security feature where Internet Explorer provides multiple layers of defense from untrustworthy access to the Internet Explorer process. Unified Service Desk works best when Enable Protected Mode option is enabled..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableProtectedMode_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Enable Protected Mode.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableProtectedMode_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Enable &apos;Enable Protected Mode&apos; option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_EnableProtectedMode_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Open Internet Explorer.\nClick Tools &gt; Internet Options &gt; Security tab.\nSelect a zone to change the security settings.\nFollowing are the zones:Internet, Local intranet, Trusted sites, and Restricted sites.\nSelect the Enable Protected Mode check box for the all the zones.\nClick Apply and then click OK..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HEADER_CATEGORY">
+            <summary>
+              Looks up a localized string similar to Category.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HEADER_CURRENT_VALUE">
+            <summary>
+              Looks up a localized string similar to Current Value:.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HEADER_EXPECTED_VALUE">
+            <summary>
+              Looks up a localized string similar to Recommended Value:.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HEADER_PARAMETER">
+            <summary>
+              Looks up a localized string similar to Parameter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HEADER_RESULT">
+            <summary>
+              Looks up a localized string similar to Result.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HelpImproveUSD_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Enables the organization-wide setting that allows user agents to send improvement program information to Microsoft.\nActivate (set to true) HelpImproveUSD to enable the option..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HelpImproveUSD_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Help Improve USD.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HelpImproveUSD_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set HelpImproveUSD to true..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HelpImproveUSD_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nClick New on the command bar to create a new option.\nOn the New Option page, select HelpImproveUSD in the Global Options list.\nSpecify true in the Value field.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_HelpImproveUSD_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/configure-client-caching-unified-service-desk#enable-client-caching::Enable client caching.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_IEWebPageRecovery_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to IEWebPageRecovery is an UII option that a system administrator can modify. The option helps recovering an unresponsive Internet Explorer webpage. Unified Service Desk works best when IEWebPageRecovery option is set to true..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_IEWebPageRecovery_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Internet Explorer Webpage Recovery.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_IEWebPageRecovery_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set IEWebPageRecovery option to true..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_IEWebPageRecovery_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nChoose IEWebPageRecovery option from the list of options.\nSpecify true in the Value field.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_IEWebPageRecovery_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/manage-options-unified-service-desk::Manage Options for Unified Service Desk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerPooling_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to InternetExplorerPooling enhances performance of CRM entity page loading in Unified Service Desk. Unified Service Desk works best when InternetExplorerPooling option is set to true. You must configure the InternetExplorerPooling option to set it to true..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerPooling_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Internet Explorer Pooling.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerPooling_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set InternetExplorerPooling to true..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerPooling_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nclick New on the Active UII Options page.\nChoose Others for the Global Option field.\nType InternetExplorerPooling for the Name field.\nSet true for the Value field.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerPooling_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/performance-enhancement-crm-entity-page-loads#enable-internet-explorer-pooling::Enable Internet Explorer pooling.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerversion_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best with latest version of Internet Explorer..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerversion_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Internet Explorer version.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerversion_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Use the latest version of Internet Explorer.\nIf you are running Windows 8.1 or Windows 10, you already have Internet Explorer 11. \nIf you are running Windows 7 or lower version, visit the Internet Explorer Downloads to download Internet Explorer 11..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_InternetExplorerversion_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads::Internet Explorer Downloads.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MandatoryKBupdates_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when Windows KB3092627 update is installed on your computer..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MandatoryKBupdates_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Windows KB updates.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MandatoryKBupdates_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Install Windows KB3092627 update on your computer.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MandatoryKBupdates_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://support.microsoft.com/en-us/help/3092627/september-2015-update-to-fix-windows-or-application-freezes-after-you::KB3092627.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MaximumNumberofSessions_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to maxNumberOfSesions indicates the maximum number of simultaneous sessions that each user can open using Unified Service Desk.\nUnified Service Desk works best when maxNumberOfSesions value is less than or equal to 3..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MaximumNumberofSessions_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Maximum Number of Sessions.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MaximumNumberofSessions_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set maxNumberOfSesions value between 0 - 3..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MaximumNumberofSessions_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nChoose maxNumberOfSesions option from the list of options.\nSpecify 3 in the Value field.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MaximumNumberofSessions_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/manage-options-unified-service-desk::Manage Options for Unified Service Desk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MemorybyUSDprocess_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to The memory consumption of Unified Service Desk process increases when you host browser hosted controls in internal WPF mode.\nHosting browser hosted control in IE process significantly reduces the memory footprint of Unified Service Desk process.\nHence, Unified Service Desk works best when you use Internet Explorer process for hosting browser hosted controls..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MemorybyUSDprocess_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Memory by Unified Service Desk process.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_MemorybyUSDprocess_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Review and move any browser hosted controls in Internal WPF mode or Hybrid mode (IE and Internal WPF) to Internet Explorer mode..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_NO_REPORTS">
+            <summary>
+              Looks up a localized string similar to No Reports to Display.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_NumberofNavigationRules_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when  50 or less navigation rules are configured..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_NumberofNavigationRules_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Number of Navigation Rules.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_OSVersion_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Supported operating system version is Windows 10, Windows 8.1, Windows 8, or Windows 7.\nUnified Service Desk works best with latest version of operating system..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_OSVersion_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Operating System version.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_OSVersion_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Upgrade your system to latest version of operating system..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_PageLoadComplete_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Action Calls are associated with PageLoadComplete Event. This event occurs several times per page load when an iFrame or frame is used on the page.\nUSD works best when PageLoadComplete is replaced with BrowserDocumentComplete or DataReady event if you are using this event for CRM entity forms..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_PageLoadComplete_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Action Calls in PageLoadComplete Event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_PageLoadComplete_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Replace PageLoadDocument event with BrowserDocumentComplete event or DataReady event If you are using it for CRM entity forms.\nNote: DataReady event is available for use in Unified Service Desk 3.0 or higher version.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ProcessTerminationThreshold_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to ProcessTerminationThreshold Indicates the timeout period for the duration (in milliseconds) that the Unified Service Desk monitoring process (usdmp.exe) waits before terminating an unresponsive Internet Explorer process, which also causes Unified Service Desk to become unresponsive.  Unified Service Desk works best when ProcessTerminationThreshold option is set between the range 0 and 30000..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ProcessTerminationThreshold_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Process Termination Threshold.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ProcessTerminationThreshold_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set ProcessTerminationThreshold value between the range 0 and 30000..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ProcessTerminationThreshold_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nChoose ProcessTerminationThreshold option from the list of options.\nSpecify a value between 0 and 30000 in the Value field.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ProcessTerminationThreshold_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/manage-options-unified-service-desk::Manage Options for Unified Service Desk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionActivated_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to SessionActivated is an event that occurs when a new session is activated.\nUnified Service Desk works best when 10 or less Actions Calls are associated with SessionActivated Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionActivated_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Action Calls in SessionActivated event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionActivated_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Optimize the Action Calls to 10 or less associated with SessionActivated Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionClosed_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to SessionClosed is an event that occurs when a session is closed.\nUnified Service Desk works best when 10 or less Actions Calls are associated with SessionClosed Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionClosed_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Action Calls in SessionClosed event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionClosed_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Optimize the Action Calls to 10 or less associated with SessionClosed Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionDeactivated_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to SessionDeactivated is an event that occurs when a new session is deactivated.\nUnified Service Desk works best when 10 or less Actions Calls are associated with SessionDeactivated Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionDeactivated_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Action Calls in SessionDeactivated event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionDeactivated_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Optimize the Action Calls to 10 or less associated with SessionDeactivated Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionNew_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to SessionNew is an event that occurs when a new session is created.\nUnified Service Desk works best when 10 or less Actions Calls are associated with SessionNew Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionNew_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Action Calls in SessionNew Event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SessionNew_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Optimize the Action Calls to 10 or less associated with SessionNew Event..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ShowScriptErrors_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to When you enable Show Script Errors option, you often see pop-up displaying the errors.\nSetting Show Script Errors option to false enables you to work without interruption..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ShowScriptErrors_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Show Script Errors.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ShowScriptErrors_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set ShowScriptErrors to false..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ShowScriptErrors_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Options.\nChoose ShowScriptErrors option from the list of options.\nSpecify false in the Value field.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_ShowScriptErrors_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/manage-options-unified-service-desk::Manage Options for Unified Service Desk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SystemRAM_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when memory (RAM) is 4 GB or more..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SystemRAM_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Memory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_SystemRAM_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Upgrade memory (RAM) to 4 GB or more..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabProcGrowth_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Tab Process Growth (TabProcGrowth) is the rate at which Internet Explorer creates new tab processes.  Unified Service Desk works best when the value is 16..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabProcGrowth_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Tab Process Growth.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabProcGrowth_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set TabProcGrowth (Tab Process Growth) value to 16..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabProcGrowth_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Open C:/ &gt; Windows &gt; regedit.\nGo to Computer\HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main.\nRight-click on TabProcGrowth and select Modify option.\nSpecify 16 in the Value data field.\nClick OK..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabProcGrowth_MITIGATION2">
+            <summary>
+              Looks up a localized string similar to Right-click on the blank area and select New &gt; DWORD (32-bit) Value. You can see new file.\nType TabProcGrowth as file name, and Modify.\nPerform steps 4 and 5 from the above procedure..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabProcGrowth_MITIGATION2_HEADER">
+            <summary>
+              Looks up a localized string similar to Note: If the key is not present, create the key..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabShutdownDelay_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to TabShutdownDelay is a key which causes Internet Explorer processes to terminate on demand. Setting the value other than zero means the TabShutdownDelay is enabled.\nUnified Service Desk works best when TabShutdownDelay is disabled (value is set to zero)..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabShutdownDelay_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Tab Shutdown Delay.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabShutdownDelay_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Set TabShutdownDelay (Tab Shutdown Delay) value to zero..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabShutdownDelay_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Open C:/ &gt; Windows &gt; regedit.\nGo to Computer\HKEY_CURRENT_USER\Software\Microsoft\Internet Explorer\Main.\nRight-click on TabShutdownDelay and select Modify option.\nSpecify 0 in the Value data field.\nChoose Decimal in the Base group box.\nClick OK..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabShutdownDelay_MITIGATION2">
+            <summary>
+              Looks up a localized string similar to Right-click on the blank area and select New &gt; DWORD (32-bit) Value. You can see new file.\nType TabShutdownDelay as file name, and Modify.\nPerform steps 4 to 6 from the above procedure..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_TabShutdownDelay_MITIGATION2_HEADER">
+            <summary>
+              Looks up a localized string similar to Note: If the key is not present, create the key..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_USDUPTIME_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk works best when you restart Unified Service Desk after an active time of 8 hours..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_USDUPTIME_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk Up time.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_USDUPTIME_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Restart Unified Service Desk after an active time of 8 hours..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_USDVersion_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Unified Service Desk version.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_USDVersion_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to Download and Upgrade to latest version of Unified Service Desk. .
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_USDVersion_MORE_INFO">
+            <summary>
+              Looks up a localized string similar to https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/download-unified-service-desk::Download Unified Service Desk.\n https://docs.microsoft.com/en-us/dynamics365/customer-engagement/unified-service-desk/admin/install-upgrade-unified-service-desk-client#upgrade-the-unified-service-desk-client-using-the-setup-wizard::Upgrade the Unified Service Desk.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_WPFConfiguration_DESCRIPTION">
+            <summary>
+              Looks up a localized string similar to Internal WPF hosting type hosted controls are configured in Unified Service Desk..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_WPFConfiguration_DISPLAY_NAME">
+            <summary>
+              Looks up a localized string similar to Internal WPF Hosting Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_WPFConfiguration_MITIGATION_HEADER">
+            <summary>
+              Looks up a localized string similar to For all the hosted controls of component type CRM page or Standard web application, It is recommended to move Hosting Type from Internal WPF to IE process..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_REPORT_WPFConfiguration_MITIGATION1">
+            <summary>
+              Looks up a localized string similar to Sign in to Dynamics 365.\nGo to Settings &gt; Unified Service Desk &gt; Hosted Controls.\nSelect the applicable hosted controls from the list.\nYou can change only for CRM Page and Standard web application hosted controls.\nSelect IE Process from the Hosting Type list.\nClick Save..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_RESULTS_ERROR">
+            <summary>
+              Looks up a localized string similar to Error.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_RESULTS_MITIGATION_STEPS">
+            <summary>
+              Looks up a localized string similar to Mitigation Steps.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_RESULTS_PASSED">
+            <summary>
+              Looks up a localized string similar to Passed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_RESULTS_UNDEFINED">
+            <summary>
+              Looks up a localized string similar to Undefined.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_RESULTS_WARNING">
+            <summary>
+              Looks up a localized string similar to Warning.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_RULE_ERROR">
+            <summary>
+              Looks up a localized string similar to Error evaluating parameter.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_START_TEXT">
+            <summary>
+              Looks up a localized string similar to Start Analysis.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_SUMMARY_ANALYSIS_TIME">
+            <summary>
+              Looks up a localized string similar to Analysis Time.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Properties.Resources.BPA_SUMMARY_COMPUTER_NAME">
+            <summary>
+              Looks up a localized string similar to Computer Name.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.BPAConstants.EnableCrashDump">
+            <summary>
+            USD constant for  msdyusd_CrashDumpEnabled
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.BPAConstants.EnableExitMonitoring">
+            <summary>
+            USD constant for  msdyusd_ExitMonitoringEnabled
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode">
+            <summary>
+            ID of the activity performed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.CRMDialog">
+            <summary>
+            CRM Dialog
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.CRMGlobalManager">
+            <summary>
+            CRM Global Manager
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.NonCRMWindow">
+             <summary>
+            Non CRM Window
+             </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.CRMPage">
+            <summary>
+            CRM Page
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDWebApplication">
+            <summary>
+            Standard Web Application
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDHostedCobntrol">
+             <summary>
+            USD Hosted Control
+             </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDAgentScript">
+            <summary>
+            Agent Script
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDRibbonHostedControl">
+            <summary>
+            Ribbon Hosted Control
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDToolbarContainer">
+            <summary>
+            Toolbar Container
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDSessionTabs">
+            <summary>
+            Session Tabs
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDUserNotes">
+            <summary>
+            User Notes
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.CRMConnection">
+            <summary>
+            CRM Connection Manager
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDSessionLines">
+             <summary>
+            Session Lines
+             </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDTreeBar">
+            <summary>
+            Treebar Hosted control
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.CTIDesktopManager">
+            <summary>
+            Desktop Manager
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDPanel">
+            <summary>
+            Panel Layout
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDDebugger">
+            <summary>
+            Debugger Hosted Control
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.USDTodoList">
+             <summary>
+            USD Todo List
+             </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.SSO">
+            <summary>
+            SSO
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.KMControl">
+            <summary>
+            KM Control
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.ListenerHostedControl">
+            <summary>
+            Listener Type Hosted Control
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.InteractiveServiceHubPage">
+            <summary>
+            ISH Hosted Control
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HCComponentTypeCode.PopupNotification">
+            <summary>
+            PopupNotification Hosted Control
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility">
+            <summary>
+            utility function for BPA
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.IsWritePermitted(System.String)">
+            <summary>
+            checks write access for a particular path
+            </summary>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.GetAttribute(Microsoft.Xrm.Sdk.Entity,System.String)">
+            <summary>
+            Getting attribute value from entity
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.ExtractValueFromAttribute(System.Object)">
+            <summary>
+            Extracting value from attribute
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.LogBasePath">
+            <summary>
+            Base path for storing logs
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.LogFolderName">
+            <summary>
+            Folder name for log
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.LogDirectoryRootFolderPath">
+            <summary>
+            Directory root folder path for storing logs
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.DirectoryPath">
+            <summary>
+            Directory path for storing Diagnostic information
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.TimeStamp">
+            <summary>
+            To get timestamp
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.getUSDVersion">
+            <summary>
+            Gets the USD Version
+            </summary>
+            <returns>usd version</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.isValidUSDVersionForParam(System.String,System.String)">
+            <summary>
+            checks if introducedUSDVersion for config param is valid
+            </summary>
+            <param name="presentUSDVersion">CurrentUSDVersion</param>
+            <param name="introducedVersionForParam">IndroducedUSDVersion for param</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.CheckIfAnyControlIsWPFHosted">
+            <summary>
+             checks if any of the Controls is WPF hosted
+             </summary>
+             <returns>boolean</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.HelperUtility.CheckIfIEFHostedAndFilterHostType">
+            <summary>
+             checks if any of the Controls is IE hosted and Window Host Type is CRM Page/ Standard Web Application
+             </summary>
+             <returns>boolean</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportGenerator.GenerateHTML(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}},System.Nullable{System.DateTime},System.Double,System.String,System.String)">
+            <summary>
+            Generate the html file from the result
+            </summary>
+            <param name="result"></param>
+            <param name="startTime"></param>
+            <param name="executionTimeInSeconds"></param>
+            <param name="messageOnPage"></param>
+            <param name="messageDescription"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportGenerator.WriteBasicTagsForHTML(System.Boolean,System.String,System.Double,System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            Write the basic tags of HTML wth html open, style, head and title
+            </summary>
+            <param name="isResult"></param>
+            <param name="machineName"></param>
+            <param name="executionTimeInSeconds"></param>
+            <param name="startTime"></param>
+            <param name="passCount"></param>
+            <param name="totalCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportGenerator.WriteStyle(System.Boolean)">
+            <summary>
+            Function to write the style script for the html
+            </summary>
+            <param name="isResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportGenerator.WriteScriptForHTML">
+            <summary>
+            Writes the JS needed for the html report
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.WriteSummaryForParameter(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Write the html div for the Summary of a parameter
+            </summary>
+            <param name="parameter"></param>
+            <param name="category"></param>
+            <param name="resultValue"></param>
+            <param name="systemValue"></param>
+            <param name="recommendedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetResxStringForResults(System.String)">
+            <summary>
+            Gets the resx string of Result value
+            </summary>
+            <param name="resultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetSpanSubClass(System.String)">
+            <summary>
+            Function to fetch the subclass for the Span based on result value
+            </summary>
+            <param name="resultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetMoreInfoStringForParameter(System.String)">
+            <summary>
+            Function to construct the string for More information tag
+            </summary>
+            <param name="moreInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetResxStringForCategories(System.String)">
+            <summary>
+            Function to get the strings from resources file for the categories
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetMitigationStepsForParameter(System.String)">
+            <summary>
+            Returns the mitigation steps in li to be written in the html
+            </summary>
+            <param name="resString">Resource string for the parameter's mitigation steps</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetDescriptionResourceStringForParameter(System.String)">
+            <summary>
+            Returns the description of the parameter in different lines
+            </summary>
+            <param name="resString">Resource string for the parameter's description</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetColorForFont(System.String)">
+            <summary>
+            Get the color of the button based on the result
+            </summary>
+            <param name="resultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.ReportHelperUtility.GetParameterDetails(System.String)">
+            <summary>
+            Gets the resource strings description and mitigation steps for the parameter in an string dictionary in that order
+            </summary>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Utility.XsdValidator.IsValid(System.String,System.String)">
+            <summary>
+            Perform the XSD validation against the specified XML document
+            </summary>
+            <param name="xsdPath">The full file path of xsd file</param>
+            <param name="xmlPath">The full file path of the file to be validated</param>
+            <returns>True if the XML file conforms to the schemas, else false</returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.BestPracticesAnalyser">
+            <summary>
+            Main class for the BestPracticesAnalyser
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.DataValidator">
+            <summary>
+            Data validator class for the data vaidation and computation of results
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.DataValidator.Validate(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rules}},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Method to validate the values from the system with the values on system as per the BestPractices XML
+            </summary>
+            <param name="dictionaryOfRulesWithValuesForDifferentConditions">Values of Parameters from the BestPractices XML</param>
+            <param name="valuesForRuleParametersOnSystem">Values of paramters fetched from the current system</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.DataValidator.ConstructRuleForKBUpdates(Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule,System.String)">
+            <summary>
+            For some parameters the rule needs to be modified, this function takes care of that
+            </summary>
+            <param name="rule"></param>
+            <param name="osVersion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.DataValidator.ApplyConditionOperatorOnRuleResult(System.Collections.Generic.Dictionary{System.String,Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rules},System.String,System.Collections.Generic.List{Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule},Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result,Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result)">
+            <summary>
+            Private method to apply the condition operator on the result from all the individual rules
+            </summary>
+            <param name="rulesWithParameters"></param>
+            <param name="parameterName"></param>
+            <param name="ruleList"></param>
+            <param name="resultForparameter"></param>
+            <param name="resultForRule"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.DataValidator.GetResultForRule(Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule,System.String,System.String,System.String,System.String)">
+            <summary>
+            Private method to compute the result value for individual rules
+            </summary>
+            <param name="rule"></param>
+            <param name="valueOnSystem"></param>
+            <param name="parameterName"></param>
+            <param name="unit"></param>
+            <param name="recommendedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result">
+            <summary>
+            Class to define the result value for each rule in BPA
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result.#ctor(Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.ResultValue,System.String,System.String,System.String)">
+            <summary>
+            Public constructor for the Result class
+            </summary>
+            <param name="resultValue"></param>
+            <param name="message"></param>
+            <param name="currentValue"></param>
+            <param name="recommendedValue"></param>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result.resultValue">
+            <summary>
+            Result value for the result 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result.message">
+            <summary>
+            Message for the result
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result.currentValue">
+            <summary>
+            Current value of the parameter in the system
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Result.recommendedValue">
+            <summary>
+            Recommended value for the parameter
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.ResultValue">
+            <summary>
+            Result value enum to demonstrate the result value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule">
+            <summary>
+            Rule class Node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule.dataType">
+            <summary>
+            dataType value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule.operation">
+            <summary>
+            operation value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule.warning">
+            <summary>
+            warning value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule.error">
+            <summary>
+            error value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule.required">
+            <summary>
+            required value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rule.path">
+            <summary>
+            registrykeypath value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.XMLParser">
+            <summary>
+            XML parser class for parsing the BPA rules xml
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.XMLParser.CreateConfigurationFromXML(System.String)">
+            <summary>
+            Creates the configRules dictionary from the BPARules xml
+            </summary>
+            <param name="filePath">file path of the Xml file</param>
+            <returns>Dictionary of the configuration rules</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.XMLParser.populateRulesForConfigurationType(System.Xml.XmlNode,System.Collections.Generic.Dictionary{System.String,Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rules})">
+            <summary>
+            populate the config param rules dictionary
+            </summary>
+            <param name="ruleCategoryNode">rule category node</param>
+            <param name="configParameterRules">configuration param rules list</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.XMLParser.getConditionNodeForConfigParam(System.Xml.XmlNode,System.String,System.String,System.String)">
+            <summary>
+            Returns the Condition Node
+            </summary>
+            <param name="parameterNode">parameter node</param>
+            <param name="introducedUsdVersion">usdVersion node</param>
+            <param name="unit">usdVersion node</param>
+            <param name="recommendedValueNode">usdVersion node</param>
+            <returns>Condition Node list</returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.XMLParser.getRulesList(System.Xml.XmlNodeList,System.Collections.Generic.List{Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule})">
+            <summary>
+            Returns the rules list
+            </summary>
+            <param name="ruleNodes">rules node</param>
+            <param name="rulesList">rules list</param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.RegistryKeyPath">
+            <summary>
+            RegistryKeyPath class node
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.RegistryKeyPath.registrykeyhive">
+            <summary>
+            registrykeyhive value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.RegistryKeyPath.subkey">
+            <summary>
+            subkey value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.AggregateDataCollector">
+            <summary>
+            Class for getting data from different collectors and aggregating them
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.CRMDataCollector">
+            <summary>
+            Class to fetch the data related to USD configuration on CRM
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.CRMDataCollector.CollectData(System.Collections.Generic.Dictionary{System.String,Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rules},System.String)">
+            <summary>
+            Function to collect data for the CRM configurations
+            </summary>
+            <param name="dictionaryOfParameters">Dictionary of configuration type "CRM" as key and parameters to be retrieved from the system as value</param>
+            <param name="currentUSDVersion">Current USD version</param>
+            <returns>Dictionary which stores the parameter as a key and it's value from the system</returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.IESettingsDataCollector">
+            <summary>
+            Data collector class for collecting data related to IE settings
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.IESettingsDataCollector.GetRegistryHive(System.String)">
+            <summary>
+            get the registry key hive from the string we received from the XML
+            </summary>
+            <param name="registrykeyhive"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.MachineDataCollector">
+            <summary>
+            Data collector class for collecting data related to USD client machine
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.DataCollectors.MachineDataCollector.CollectData(System.Collections.Generic.Dictionary{System.String,Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Core.Rules},System.String)">
+            <summary>
+            Function to collect data for the machine configurations
+            </summary>
+            <param name="dictionaryOfParameters">Dictionary of configuration type "Machine" as key and parameters to be retrieved from the system as value</param>
+            <param name="currentUSDVersion">Current USD version</param>
+            <returns>Dictionary which stores the parameter as a key and it's value from the system</returns>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule.dataType">
+            <summary>
+            data type of the rule value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule.operation">
+            <summary>
+            operator in the rule
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule.warning">
+            <summary>
+            warning value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule.error">
+            <summary>
+            error value
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.Interfaces.IRule.required">
+            <summary>
+            required value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl">
+             <summary>
+            BestPracticesAnalyser USD custom hosted control class to trigger the BestPracticesAnalyser
+             </summary>
+            <summary>
+            BestPracticesAnalyserControl
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.LogWriter">
+            <summary>
+            Log writer for USD 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.#ctor(System.Guid,System.String,System.String)">
+            <summary>
+            UII Constructor 
+            </summary>
+            <param name="appID">ID of the application</param>
+            <param name="appName">Name of the application</param>
+            <param name="initString">Initializing XML for the application</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.DesktopReady">
+            <summary>
+            Raised when the Desktop Ready event is fired. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.DoAction(Microsoft.Uii.Csr.RequestActionEventArgs)">
+            <summary>
+            Raised when an action is sent to this control
+            </summary>
+            <param name="args">args for the action</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.NotifyContextChange(Microsoft.Uii.Csr.Context)">
+            <summary>
+            Raised when a context change occurs in USD
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.start_button_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Raised when start button is clicked
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">RoutedEventArgs</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.invokeBestPracticesAnalyser(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Called when DoWork event is fired for BackGround worker thread
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">DoWorkEventArgs</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.updateUI(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Called when RunWorkerCompleted event is fired for BackGround worker thread
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">RunWorkerCompletedEventArgs</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.BPA_Window_Loaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when BPA Custom host control is loaded
+            </summary>
+            <param name="sender">sender</param>
+            <param name="e">RoutedEventArgs</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.GetLatestWrittenFileFileInDirectory(System.IO.DirectoryInfo)">
+            <summary>
+            Gets the latest written file in the BPA report directory
+            </summary>
+            <param name="directoryInfo">DirectoryInfo object</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.BestPracticesAnalyserControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.OverlayWindow">
+            <summary>
+            Interaction logic for ChildWindow.xaml
+            </summary>
+            <summary>
+            OverlayWindow
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.OverlayWindow.#ctor">
+            <summary>
+            ChildWindow constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.OverlayWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar">
+            <summary>
+            Interaction logic for CircularProgressBar.xaml
+            </summary>
+            <summary>
+            CircularProgressBar
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.StartupDelayProperty">
+            <summary>
+            Startup time in miliseconds, default is a second.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.RotationsPerMinuteProperty">
+            <summary>
+            Spinning Speed. Default is 60, that's one rotation per second.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.animationTimer">
+            <summary>
+            Timer for the Animation.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.originalCursor">
+            <summary>
+            Mouse Cursor.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.#ctor">
+            <summary>
+            Initializes a new instance of the CircularProgressBar class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.StartupDelay">
+            <summary>
+            Gets or sets the startup time in miliseconds, default is a second.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.RotationsPerMinute">
+            <summary>
+            Gets or sets the spinning speed. Default is 60, that's one rotation per second.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.StartDelay">
+            <summary>
+            Startup Delay.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.StartSpinning(System.Object,System.EventArgs)">
+            <summary>
+            Start Spinning.
+            </summary>
+            <param name="sender">Sender of the event.</param>
+            <param name="e">Event Arguments.</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.StopSpinning">
+            <summary>
+            The control became invisible: stop spinning (animation consumes CPU).
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.HandleAnimationTick(System.Object,System.EventArgs)">
+            <summary>
+            Apply a single rotation transformation.
+            </summary>
+            <param name="sender">Sender of the Event: the Animation Timer.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.HandleLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Control was loaded: distribute circles.
+            </summary>
+            <param name="sender">Sender of the Event: I wish I knew.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.SetPosition(System.Windows.Shapes.Ellipse,System.Double)">
+            <summary>
+            Calculate position of a circle.
+            </summary>
+            <param name="ellipse">The circle.</param>
+            <param name="sequence">Sequence number of the circle.</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.HandleUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Control was unloaded: stop spinning.
+            </summary>
+            <param name="sender">Sender of the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.HandleVisibleChanged(System.Object,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            Visibility property was changed: start or stop spinning.
+            </summary>
+            <param name="sender">Sender of the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.BestPracticesAnalyser.UserControl.CircularProgressBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{4dbe555c-e42e-45d3-b22e-fa6ca5ac3f01}</formid>
+  <IntroducedVersion>09.19.19</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form shownavigationbar="true" showImage="false" maxWidth="1920">
+    <tabs>
+      <tab verticallayout="true" id="{b487011f-e226-44dd-90f3-e39e9ee584ff}" IsUserDefined="1" labelid="{c0b4e9c9-166a-4be6-8f9c-75ae783c3960}">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{597b7a9c-6b53-436b-be4f-86ff7c636bd4}" labelid="{d42096ce-71f2-4747-b755-6f0e623a275d}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{5ee9f8e3-7a07-4148-b93a-6d7e6737ba61}" labelid="{896a32b8-b457-4c46-b149-44add80d56a0}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="mcs_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="mcs_name" />
+                    </cell>
+                    <cell id="{732da074-7000-232b-d427-084252e59dd4}" showlabel="true" locklevel="0" labelid="{f6338d19-c35b-4055-85d5-b08f7ae50a1a}">
+                      <labels>
+                        <label description="Transactional Timing" languagecode="1033" />
+                      </labels>
+                      <control id="mcs_transactionaltiming" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="mcs_transactionaltiming" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c570652e-0266-c27a-054d-8d5b6813d69d}" showlabel="true" locklevel="0" labelid="{2e77a35f-266f-4677-b5a1-ad990820da64}">
+                      <labels>
+                        <label description="Finesse Endpoint" languagecode="1033" />
+                      </labels>
+                      <control id="udo_finesseendpoint" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_finesseendpoint" disabled="false" />
+                    </cell>
+                    <cell id="{d8d12eda-e1a9-cea6-793c-8a3b7b2c3b29}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Trigger Get Veteran Update On interaction" languagecode="1033" />
+                      </labels>
+                      <control id="udo_triggergetveteranupdateoninteraction" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_triggergetveteranupdateoninteraction" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1e87c0ab-fe4c-4165-8d11-fc13244805ba}" labelid="{fc54d3f8-a596-4987-a867-b227f6a28521}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                    <cell id="{35aade95-01a6-ec00-4b6b-591004e41ac6}" showlabel="false" labelid="{77d73b2a-2714-404a-b6ac-3cf6771bad69}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bdb31dd2-9311-6b7d-d307-e99c816b8555}" showlabel="true" locklevel="0" labelid="{f3e1b0a0-3858-44f9-971d-c5d47520a8cc}">
+                      <labels>
+                        <label description="contact" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contact" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_contact" disabled="false" />
+                    </cell>
+                    <cell id="{3354bec8-be17-9d97-3454-650e83d179c9}" showlabel="false" labelid="{a8826008-6a0f-4fa4-9312-8affe7ad2cc3}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{dc4e90b2-7038-46be-7cce-ae1439e4ce4d}" showlabel="true" locklevel="0" labelid="{bb92e891-89e9-4f87-b3f3-954ff236cd44}">
+                      <labels>
+                        <label description="Contact Log Soap" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contactlogsoap" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_contactlogsoap" disabled="false" />
+                    </cell>
+                    <cell id="{477b203a-0bb1-5d59-1a42-e736a0d8075e}" showlabel="false" labelid="{8bc145fa-5f5a-40aa-a327-83e80afc564c}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{71d14a71-eb34-c288-4d4d-95dabb59aed9}" showlabel="true" locklevel="0" labelid="{38c73fef-44a0-45e9-9007-cd634e593b33}">
+                      <labels>
+                        <label description="Contact Log Timer" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contactlogtimer" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_contactlogtimer" disabled="false" />
+                    </cell>
+                    <cell id="{a3d483ae-5117-918c-9b30-c661038d3bb6}" showlabel="false" labelid="{83ddfbf7-cfb9-4af3-b03d-2d54a6881d43}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_2" id="{b396c200-91dd-41e3-5621-2865c03ac391}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{2654c0b7-fdae-46f4-9a5b-edb84a2c1aba}">
+        <labels>
+          <label description="Plugin Debug Settings" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_2_section_2" showlabel="false" showbar="false" locklevel="0" id="{d9b17e8e-1a61-55a7-c023-d9c3aedaa487}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" labelid="{92228f8e-ef17-4113-8919-905a50d224f3}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{7746ad5b-e51d-7a6e-3472-cd66c85d90c9}" showlabel="true" locklevel="0" labelid="{2b22c6c3-e382-4c43-bc9e-adbc769b4ef9}">
+                      <labels>
+                        <label description="Dependent Maintenance" languagecode="1033" />
+                      </labels>
+                      <control id="crme_dependentmaintenance" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_dependentmaintenance" disabled="false" />
+                    </cell>
+                    <cell id="{69948a3a-62c4-68cd-ae22-40694586d296}" showlabel="true" locklevel="0" labelid="{eaac8e7e-e9a5-4e27-a2ce-7b06c708b6cb}">
+                      <labels>
+                        <label description="Dependent" languagecode="1033" />
+                      </labels>
+                      <control id="crme_dependent" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_dependent" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2474e807-3c64-7716-9a8b-8bb799deb119}" showlabel="true" locklevel="0" labelid="{74cf6060-e98a-40be-9db5-c96ffb961ab1}">
+                      <labels>
+                        <label description="Marital History" languagecode="1033" />
+                      </labels>
+                      <control id="crme_maritalhistory" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_maritalhistory" disabled="false" />
+                    </cell>
+                    <cell id="{084d7c6c-e469-0369-3351-b17511867d16}" showlabel="true" locklevel="0" labelid="{41fd86ea-b002-4820-a033-9c25fa90b34d}">
+                      <labels>
+                        <label description="Spouse Marital History" languagecode="1033" />
+                      </labels>
+                      <control id="crme_spousemaritalhistory" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_spousemaritalhistory" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_3" id="{e62141c7-19da-1e6d-8a8e-e40394cc4222}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{101860b2-2f42-4b6a-b572-6a5288f2053e}">
+        <labels>
+          <label description="Integration" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_3_section_1" showlabel="false" showbar="false" locklevel="0" id="{2798836e-bba5-6da4-4242-915b8d8e6756}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" labelid="{d6e5f17c-5ee1-4559-8281-8aaf26795e66}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{58726d1b-3c27-4ecd-deb1-e45c8738c79c}" showlabel="true" locklevel="0" labelid="{014533d1-ea00-41f2-90bd-b070b450bcc8}">
+                      <labels>
+                        <label description="Fetch Orchestration" languagecode="1033" />
+                      </labels>
+                      <control id="crme_fetchorchestration" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="crme_fetchorchestration" disabled="false" />
+                    </cell>
+                    <cell id="{9406d831-4808-03cb-30dc-28caec8d31ce}" showlabel="true" locklevel="0" labelid="{85b0e14f-296a-41a1-b43a-981bce17701f}">
+                      <labels>
+                        <label description="Transaction Orchestration" languagecode="1033" />
+                      </labels>
+                      <control id="crme_transactionorchestration" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="crme_transactionorchestration" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_4" id="{ecd4ad03-0388-0844-8d9a-c37d750bd1d0}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{0104a4d3-4a8e-491d-ab31-35db58ba255e}">
+        <labels>
+          <label description="Add Dependent Settings - General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_4_section_1" showlabel="false" showbar="false" locklevel="0" id="{8b151641-9092-8719-0794-510d2c1d94dc}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" labelid="{d9a31b86-3e1f-481f-8a95-e8e34d29d703}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{21715b3d-5b0c-e70a-032a-2396d82d0e83}" showlabel="true" locklevel="0" labelid="{4865f4b3-f0bb-4db5-ba7e-d56d360bcea0}">
+                      <labels>
+                        <label description="VVA Caller Application Name" languagecode="1033" />
+                      </labels>
+                      <control id="crme_vvacallerapplicationname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="crme_vvacallerapplicationname" disabled="false" />
+                    </cell>
+                    <cell id="{12e8b2a4-080d-30c6-c2d4-757ad3181b13}" showlabel="true" locklevel="0" labelid="{ebc14789-4f9f-4a05-9c51-483ab1a9beaf}">
+                      <labels>
+                        <label description="Orchestration Set Ready State" languagecode="1033" />
+                      </labels>
+                      <control id="crme_orchestrationsetreadystate" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_orchestrationsetreadystate" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e5cae613-22a3-92ce-8571-43e7e62c8ae2}" showlabel="true" locklevel="0" labelid="{4a7f32c7-2e42-4406-951e-05113d50f991}">
+                      <labels>
+                        <label description="SubmtrApplcnTypeCd" languagecode="1033" />
+                      </labels>
+                      <control id="crme_submtrapplcntypecd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="crme_submtrapplcntypecd" disabled="false" />
+                    </cell>
+                    <cell id="{700b399b-4173-898b-8c1e-6b6b910a3610}" showlabel="true" locklevel="0" labelid="{3bd2eda0-f93b-4784-94d3-10d740755294}">
+                      <labels>
+                        <label description="SubmtrRoleTypeCd" languagecode="1033" />
+                      </labels>
+                      <control id="crme_submtrroletypecd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="crme_submtrroletypecd" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_5" id="{41976ebd-20d0-4de6-d44c-e953d9092c82}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{5cd1129b-3ef2-4bc2-819e-8ab4536b97da}">
+        <labels>
+          <label description="Add Dependent Settings - No Orchestration Error" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_5_section_1" showlabel="false" showbar="false" locklevel="0" id="{85649a07-3014-918c-61a7-cc9b7e636492}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" labelid="{5208b277-cbc1-4e68-b141-bba579ae04a7}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{0ee3c59e-1021-3cc3-81ad-5798ddbb1870}" showlabel="true" locklevel="0" labelid="{9c28fb6c-8a88-494a-9212-8c9cedd9dc94}">
+                      <labels>
+                        <label description="Attach 686C MSWord to Add Dependent Transaction" languagecode="1033" />
+                      </labels>
+                      <control id="crme_attach686cmswordtoadddependenttransaction" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_attach686cmswordtoadddependenttransaction" disabled="false" />
+                    </cell>
+                    <cell id="{eb9e39d8-c7ac-d895-93b4-a2ec98d1a30c}" showlabel="true" locklevel="0" labelid="{e3ea8b0a-4d12-4f2b-a384-2c404f886acb}">
+                      <labels>
+                        <label description="Load 686C PDF to VVA" languagecode="1033" />
+                      </labels>
+                      <control id="crme_load686cpdftovva" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_load686cpdftovva" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1ae856b4-e0c2-e940-d64a-67d11587c1d1}" showlabel="true" locklevel="0" labelid="{11b1b992-4e9b-4662-be8f-d7619c2d6617}">
+                      <labels>
+                        <label description="Attach 686C PDF to Add Dependent Transaction" languagecode="1033" />
+                      </labels>
+                      <control id="crme_attach686cpdftoadddependenttransaction" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_attach686cpdftoadddependenttransaction" disabled="false" />
+                    </cell>
+                    <cell id="{bcc19e3e-7621-1b94-98db-b6cda8197757}" showlabel="true" locklevel="0" labelid="{f41e4c64-1846-41f2-8b0a-4767f8796462}">
+                      <labels>
+                        <label description="Load 686C PDF to VBMS" languagecode="1033" />
+                      </labels>
+                      <control id="udo_load686cpdftovbms" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="udo_load686cpdftovbms" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab name="tab_6" id="{c4e160c0-b67c-b7c5-e828-0215c4846bcd}" IsUserDefined="0" locklevel="0" showlabel="true" expanded="true" labelid="{76271744-92fd-43fc-89d6-cd847785ee60}">
+        <labels>
+          <label description="Add Dependent Settings - Orchestration Error" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_6_section_1" showlabel="false" showbar="false" locklevel="0" id="{e721d298-52e9-3049-8d30-89e1c7a859bb}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115" labelid="{008de185-f134-43a5-beb8-9ef7fd8ec9e1}">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{126a361b-99c6-b9c0-ce42-bc864931d861}" showlabel="true" locklevel="0" labelid="{e26066ae-704d-4773-8ddc-e5561fe2dfc5}">
+                      <labels>
+                        <label description="Attach 686C MSWord to Add Dependent Transaction Er" languagecode="1033" />
+                      </labels>
+                      <control id="crme_attach686cmswordtoadddependenttranserror" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_attach686cmswordtoadddependenttranserror" disabled="false" />
+                    </cell>
+                    <cell id="{80cca2d1-2b94-c6a6-9c55-47dee64b2d76}" showlabel="true" locklevel="0" labelid="{342ae6c3-be4a-4bba-a9e2-cadf4f862cbc}">
+                      <labels>
+                        <label description="Load 686C PDF to VVA Error" languagecode="1033" />
+                      </labels>
+                      <control id="crme_load686cpdftovvaerror" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_load686cpdftovvaerror" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{62aa9bc8-1c4b-7649-6676-7137d588583b}" showlabel="true" locklevel="0" labelid="{c7fcbbd1-c4d8-4a03-91f1-e38addbf6718}">
+                      <labels>
+                        <label description="Attach 686C PDF to Add Dependent Transaction Er" languagecode="1033" />
+                      </labels>
+                      <control id="crme_attach686cpdftoadddependenttranserror" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" datafieldname="crme_attach686cpdftoadddependenttranserror" disabled="false" />
+                    </cell>
+                    <cell id="{8661b939-bd0b-c071-da72-0b6c51a3d746}" showlabel="false" labelid="{dcc0789a-0172-411f-946b-25e6419bb3ba}">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <footer id="{1cc90178-e969-4660-81df-aa879e4447ae}">
+      <rows>
+        <row>
+          <cell id="{35e7188d-d404-4fcb-9028-b93d2e0e0861}" labelid="{06ab2dd7-7656-4322-9b9b-ea031abc96fc}">
+            <labels>
+              <label description="Status" languagecode="1033" />
+            </labels>
+            <control id="footer_statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="statecode" />
+          </cell>
+        </row>
+      </rows>
+    </footer>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Processes" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <DisplayConditions Order="7" FallbackForm="true">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="MHEO" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

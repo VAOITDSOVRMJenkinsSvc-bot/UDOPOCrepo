@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DataCollectors>
+	<DataCollector Category ="ServerConfiguration" Class="CRMDataCollector"/>
+	<DataCollector Category ="InternetExplorer" Class="IESettingsDataCollector"/>
+	<DataCollector Category ="Machine" Class="MachineDataCollector"/>
+</DataCollectors>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ptcpntRlnshpService.services.vonapp.vba.va.gov/" name="VnpPtcpntRlnshpService" targetNamespace="http://ptcpntRlnshpService.services.vonapp.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VnpPtcpntRlnshpWebServiceBean/VnpPtcpntRlnshpService?xsd=1" namespace="http://ptcpntRlnshpService.services.vonapp.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="vnpPtcpntRlnshpUpdate">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpUpdate" />
+  </message>
+  <message name="vnpPtcpntRlnshpUpdateResponse">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpUpdateResponse" />
+  </message>
+  <message name="MessageFaultException">
+    <part name="fault" element="tns:MessageFaultException" />
+  </message>
+  <message name="vnpPtcpntRlnshpCreate">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpCreate" />
+  </message>
+  <message name="vnpPtcpntRlnshpCreateResponse">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpCreateResponse" />
+  </message>
+  <message name="vnpPtcpntRlnshpRemove">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpRemove" />
+  </message>
+  <message name="vnpPtcpntRlnshpRemoveResponse">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpRemoveResponse" />
+  </message>
+  <message name="findAllAsArray">
+    <part name="parameters" element="tns:findAllAsArray" />
+  </message>
+  <message name="findAllAsArrayResponse">
+    <part name="parameters" element="tns:findAllAsArrayResponse" />
+  </message>
+  <message name="vnpPtcpntRlnshpFindByPrimaryKey">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpFindByPrimaryKey" />
+  </message>
+  <message name="vnpPtcpntRlnshpFindByPrimaryKeyResponse">
+    <part name="parameters" element="tns:vnpPtcpntRlnshpFindByPrimaryKeyResponse" />
+  </message>
+  <portType name="VnpPtcpntRlnshpService">
+    <operation name="vnpPtcpntRlnshpUpdate">
+      <input message="tns:vnpPtcpntRlnshpUpdate" />
+      <output message="tns:vnpPtcpntRlnshpUpdateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPtcpntRlnshpCreate">
+      <input message="tns:vnpPtcpntRlnshpCreate" />
+      <output message="tns:vnpPtcpntRlnshpCreateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPtcpntRlnshpRemove">
+      <input message="tns:vnpPtcpntRlnshpRemove" />
+      <output message="tns:vnpPtcpntRlnshpRemoveResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="findAllAsArray">
+      <input message="tns:findAllAsArray" />
+      <output message="tns:findAllAsArrayResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPtcpntRlnshpFindByPrimaryKey">
+      <input message="tns:vnpPtcpntRlnshpFindByPrimaryKey" />
+      <output message="tns:vnpPtcpntRlnshpFindByPrimaryKeyResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+  </portType>
+  <binding name="VnpPtcpntRlnshpServicePortBinding" type="tns:VnpPtcpntRlnshpService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vnpPtcpntRlnshpUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPtcpntRlnshpCreate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPtcpntRlnshpRemove">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllAsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPtcpntRlnshpFindByPrimaryKey">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VnpPtcpntRlnshpService">
+    <port name="VnpPtcpntRlnshpServicePort" binding="tns:VnpPtcpntRlnshpServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VnpPtcpntRlnshpWebServiceBean/VnpPtcpntRlnshpService" />
+    </port>
+  </service>
+</definitions>

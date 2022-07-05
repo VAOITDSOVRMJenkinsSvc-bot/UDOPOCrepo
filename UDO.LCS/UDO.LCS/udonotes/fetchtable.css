@@ -1,0 +1,378 @@
+div#tmpDialog {
+    background: #fff;
+    border: 1px solid #000;
+    height: 50px;
+
+    left: 50%;
+    margin: -101px 0 0 -251px;
+    position: fixed;
+    top: 50%;
+    width: 250px;
+    z-index: 500;
+}
+div#tmpDialog img {
+    float: left;
+    height: 45px;
+    padding: 5px 10px 5px 5px;
+    text-align: left;
+    width: 45px;
+}
+div#tmpDialog p {
+    font-size: 11px;
+    margin: 15px 5px 5px;
+    padding: 5px;
+    text-align: left;
+}
+body {
+    color: WindowText;
+    font-family: Segoe UI, Tahoma, Arial;
+    font-size: 11px;
+    margin: 0;
+    padding: 0;
+	overflow:hidden;
+}
+div.fetchHead,
+div.fetchFooter {
+	position:absolute;
+	z-index:500;
+}
+div.fetchHead {
+	top:0px;
+	border-bottom: 2px solid WindowText;
+}
+div.fetchFooter {
+	border-top: 2px solid WindowText;
+	bottom:0px;
+}
+div.fetchContent {
+	overflow-y:scroll;
+	z-index:1;
+	overflow-x:hidden;
+	width:100%;
+}
+/*
+div.fetchContent tr {
+	padding-right:30px;
+}
+*/
+table.fetchTable {
+    background-color: Window;
+    border-collapse: collapse;
+    border-top: 1px solid GrayText;
+    font-family: Segoe UI, Tahoma, Arial;
+    font-size: 11px;
+    /*overflow-y: scroll;*/
+    width: 100%;
+    word-wrap: normal;
+}
+table.fetchTable > tbody > tr.odd {
+    background-color: Menu;
+    color: MenuText;
+}
+table.fetchTable > tbody > tr.even {
+    background-color: Window;
+    color: WindowText;
+}
+table.fetchTable > tbody > tr.details > td {
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+table.fetchTable > thead > tr,
+table.fetchTable > tfoot > tr {
+    border-bottom: 2px solid GrayText;
+    border-top: 2px solid GrayText;
+    color: #444;
+}
+table.fetchTable > thead > tr {
+    background-color: Menu;
+    color: WindowText;
+    height: 24px;
+}
+table.fetchTable > thead > tr > th {
+    font-size: 1.1em;
+    font-weight: 700;
+    overflow: hidden;
+    text-align: left;
+}
+table.fetchTable > thead > tr.headerrow > th {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+tr.bordertop,
+tr.bordertop td {
+    border-top: 1px solid GrayText;
+}
+table.fetchTable > thead > tr > th {
+    text-align:left;
+}
+table.fetchTable > tbody > tr > td.expand,
+table.fetchTable > thead > tr > th.expand,
+table.fetchTable > thead > tr > th.filter,
+table.fetchTable > thead > tr > td.filter {
+    width: 24px;
+    vertical-align:top;
+}
+table.fetchTable > thead > tr > td.filter {
+    text-align:right;
+}
+table.fetchTable > thead > tr.filterrow,
+table.fetchTable > thead > tr.filterdetailrow {
+    background-color: InfoBackground;
+	word-wrap: wrap;
+}
+table.fetchTable > tfoot > tr {
+    background-color: ActiveCaption;
+    color: CaptionText;
+    text-align: right;
+}
+table.fetchTable > tfoot > tr > td {
+    font-weight: 700;
+    padding: 15px 20px 15px 15px;
+}
+table.fetchTable > thead > tr.headerfilter {
+    background-color: ActiveCaption;
+    color: CaptionText;
+}
+span.ctrl {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-image: url(grid_ctrl_imgs.png);
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 14px;
+    margin-left: 4px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 10px;
+}
+span.button {
+    background-color: ButtonFace;
+    border: 1px solid ButtonText;
+    color: ButtonText;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Segoe UI, Tahoma, Arial;
+    font-size: 11px;
+    font-weight: 600;
+    height: 16px;
+    margin: 3px 6px 2px;
+    padding: 1px 5px;
+    text-align: center;
+}
+span.button > span.ctrl {
+    margin-left: 0;
+    margin-right: 4px;
+}
+span.down {
+    background-position-x: -165px;
+    background-position-y: -37px;
+}
+span.up {
+    background-position-x: -175px;
+    background-position-y: -19px;
+}
+span.expand {
+    background-position-x: -157px;
+    background-position-y: -55px;
+    width: 16px;
+    height: 8px;
+}
+span.contract {
+    background-position-x: -60px;
+    background-position-y: -166px;
+    height: 8px;
+    width: 13px;
+}
+span.resetfilter {
+    background-position-x: -102px;
+    background-position-y: -141px;
+    height: 16px;
+    width: 16px;
+}
+span.edit {
+    background-position-x: -121px;
+    background-position-y: -80px;
+    height: 16px;
+    width: 16px;
+}
+span.refresh {
+    background-position-x: -138px;
+    background-position-y: -149px;
+    height: 16px;
+    width: 16px;
+}
+span.sortatoz {
+    background-position-x: -134px;
+    background-position-y: 0;
+    height: 16px;
+    width: 16px;
+}
+span.sortztoa {
+    background-position-x: -134px;
+    background-position-y: -18px;
+    height: 16px;
+    width: 16px;
+}
+span.resetfilter-disabled {
+    background-position-x: -129px;
+    background-position-y: -40px;
+    height: 16px;
+    width: 16px;
+}
+span.pageselector {
+    cursor: hand;
+    padding-left: 20px;
+    text-decoration: underline;
+}
+span.currentpage {
+    padding-left: 20px;
+}
+span.info {
+    background-color: InfoBackground;
+    border: 1px solid InfoText;
+    color: InfoText;
+    display: inline-block;
+    font-family: Segoe UI, Tahoma, Arial;
+    font-size: 11px;
+    font-weight: 600;
+    height: 16px;
+    margin: 3px 6px 2px;
+    padding: 1px 5px;
+    text-align: center;
+    font-style: italic;
+}
+span.refreshedon {
+    clear:left;
+    float:left;
+    vertical-align:bottom;
+}
+div.filter-popup {
+    background: Window;
+    border: 1px solid GrayText;
+    display: block;
+    height: auto;
+    min-width: 50px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    width: 300px;
+    z-index: 2019;
+}
+ul.clean {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 1px 0;
+}
+ul.clean > li {
+    float: none;
+    height: 22px;
+    padding: 0;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+ul.clean > li > span.label,
+ul.clean > li > span.label-disabled {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+ul.clean > li > span.label-disabled {
+    color: #888;
+}
+ul.clean > li > span.img {
+    cursor: pointer;
+    margin-right: 5px;
+    vertical-align: bottom;
+    width: 24px;
+}
+ul.clean > li > span > input.option {
+    height: 10px;
+    margin-left: 6px;
+    width: 10px;
+}
+ul.clean > li > span > input.contains {
+    font-family: Segoe UI, Tahoma, Arial;
+    font-size: 11px;
+    height: 16px;
+    margin-top: 3px;
+    padding: 1px;
+    width: 220px;
+}
+ul.clean > li.item:hover {
+    background-color: Highlight;
+    color: HighlightText;
+}
+ul.clean > li > span.button {
+    width: 260px;
+}
+ul.clean > li.separator {
+    background-color: Menu;
+    font-size: 0;
+    height: 2px;
+    line-height: 2px;
+    margin: 1px 2%;
+    vertical-align: top;
+    width: 96%;
+}
+.floatright {
+    float: right;
+}
+table.fetchTable > thead > tr.headerfilter > th > .floatright {
+    margin-left: 25px;
+}
+table.fetchTable > thead > tr.headerfilter > th > span.button,
+table.fetchTable > thead > tr.headerfilter > th > span.info,
+table.fetchTable > thead > tr.headerfilter > th > div > span.button,
+table.fetchTable > thead > tr.headerfilter > th > div > span.info, {
+    margin-bottom: 0px;
+}
+table.fetchTable > thead > tr.headerfilter > th > div > input {
+    padding:1px;
+    height: 16px;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: normal;
+}
+table.fetchTable > thead > tr.headerfilter > th > div > select {
+    padding:1px;
+    height: 20px;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: normal;
+}
+span.recordcount,
+span.statusarea {
+    float: left;
+}
+span.loaded {
+    background-color: #90F500;
+    border: 1px solid ButtonText;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Segoe UI, Tahoma, Arial;
+    font-size: 11px;
+    font-weight: 600;
+    height: 16px;
+    margin: 3px 6px 2px;
+    padding: 1px 10px;
+    text-align: center;
+}
+ul.appliedfilters {
+    font-size: .95em;
+    font-style: italic;
+    font-weight: 500;
+    white-space:wrap;
+}
+table.fetchInnerContents {
+    width: auto;
+}
+table.fetchInnerContents > tr > td:last-child {
+    padding-right:30px;
+}

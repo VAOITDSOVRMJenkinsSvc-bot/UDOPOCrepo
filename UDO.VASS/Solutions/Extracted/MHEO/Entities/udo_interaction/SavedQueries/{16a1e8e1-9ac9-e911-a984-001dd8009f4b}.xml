@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{16a1e8e1-9ac9-e911-a984-001dd8009f4b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" icon="1" preview="1" select="1" jump="udo_title">
+      <row id="udo_interactionid" name="result">
+        <cell name="udo_title" width="150" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
+      <entity name="udo_interaction">
+        <attribute name="udo_title" />
+        <order descending="false" attribute="udo_title" />
+        <filter type="and">
+          <condition value="4" attribute="createdon" operator="last-x-months" />
+          <condition value="752280004" attribute="udo_channel" operator="eq" />
+        </filter>
+        <attribute name="udo_interactionid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Interactions Created in the last 4 months" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Used on VASS dashboard" languagecode="1033" />
+  </Descriptions>
+</savedquery>

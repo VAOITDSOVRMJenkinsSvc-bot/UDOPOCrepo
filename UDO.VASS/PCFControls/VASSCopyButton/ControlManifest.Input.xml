@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control
+      namespace="Mcs.Controls"
+      constructor="ClipboardTextbox"
+      version="0.0.9"
+      display-name-key="ClipboardTextbox"
+      description-key="ClipboardTextbox description"
+      control-type="standard">
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <property name="Attribute" display-name-key="Attribute" description-key="Attribute associated with this control" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="RegularExpresion" display-name-key="RegEx" description-key="Regular expression to identify sub strings." of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="ReplaceWith" display-name-key="Replace With" description-key="String which will replace the matches identified by the regular expression" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="TextboxAriaLabel" display-name-key="Textbox Aria Label" description-key="Label read by a screen reader for the textbox" of-type="SingleLine.Text" usage="input" required="true" />
+    <property name="ButtonAriaLabel" display-name-key="Button Aria Label" description-key="Label ready by a screen reader for the copy button" of-type="SingleLine.Text" usage="input" required="true" />
+
+    <!-- 
+      Property node's of-type attribute can be of-type-group attribute. 
+      Example:
+      <type-group name="numbers">
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+      </type-group>
+      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
+    -->
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="css/ClipboardButton.css" order="1" />
+
+
+      <!-- UNCOMMENT TO ADD MORE RESOURCES      
+      <resx path="strings/ClipboardTextbox.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>

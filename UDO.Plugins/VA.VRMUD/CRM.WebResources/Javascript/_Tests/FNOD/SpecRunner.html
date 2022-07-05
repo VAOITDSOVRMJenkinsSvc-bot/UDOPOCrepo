@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+    
+    <!-- Jasmine Framework -->
+    <link rel="shortcut icon" type="image/png" href="../_content/jasmine/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="../_content/jasmine/jasmine.css">
+    <script type="text/javascript" src="../_scripts/jasmine/jasmine.js"></script>
+    <script type="text/javascript" src="../_scripts/jasmine/jasmine-html.js"></script>
+    
+    <!-- Utilities -->
+    <script type="text/javascript" src="PageData.js"></script>
+    <script type="text/javascript" src="../_scripts/XrmPageTemplate.js"></script>
+    <script src="../_scripts/xmlutils.js" type="text/javascript"></script>
+    
+    <!-- Runs -->
+    <script src="../../js/actions/context.js" type="text/javascript"></script>
+    <script src="../../js/XmlUtilities.js" type="text/javascript"></script>
+    <script src="../../js/CommonFunctions.js" type="text/javascript"></script>
+    <script src="/VA.VRMUD.JavaScript/js/fnod.js" type="text/javascript"></script>
+    
+    <!-- Specs -->
+    <!--<script src="AddressModuleSpec.js" type="text/javascript"></script>
+    <script src="fnodAwardsSectionModuleSpec.js" type="text/javascript"></script>
+    <script src="modValidateModuleSpec.js" type="text/javascript"></script>-->
+    
+     <script src="namesSpec.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>

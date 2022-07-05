@@ -1,0 +1,149 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    ﻿
+
+
+
+    <title>Apportionments</title>
+    <link href="udo_template.css" rel="stylesheet" type="text/css">
+    <script src="udo_Xrm.min.js" type="text/jscript"></script>
+    <script src="udo_jquery1.10.2.min.js" type="text/javascript"></script>
+    <script language="javascript" src="udo_pcrScripts.js"></script>
+    <script src="udo_CrmRestKit2011.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+
+        $(window).load(SetLogo);
+        function SetLogo() {
+            var imageSrc = Xrm.Utility.getGlobalContext().getClientUrl() + '/WebResources/udo_/images/logo.jpg';
+            //var imageSrc = Xrm.Page.context.getClientUrl() + '/WebResources/udo_/images/logo.jpg';
+            document.getElementById("VRMLOGO").src = imageSrc;
+            GetSOJ();
+        }
+
+        function getUrlParams() {
+
+            try {
+                var sPageUrl = location.search.substring(1);
+                var regex = new RegExp("[\\?&]?data=([^&#]*)");
+                sPageUrl = decodeURIComponent(regex.exec(sPageUrl)[1]);
+                var params = sPageUrl.split('&');
+                var UrlParams = {};
+
+                for (var index = 0; index < params.length; index++) {
+                    param = params[index].split('=');
+                    UrlParams[param[0]] = decodeURIComponent(param[1].split("#")[0]);
+                }
+
+                return UrlParams;
+            }
+            catch (err) {
+                return null;
+            }
+        }
+
+        function GetSOJ() {
+            var UrlParams = this.getUrlParams();
+            if (UrlParams == null || UrlParams.id == null) return null; //nothing to do
+            var idStr = UrlParams.id;
+            var udo_claimstation = null;
+            var filter = "udo_claimId eq guid'" + idStr + "'";
+            debugger;
+            var columns = ['udo_ClaimStation'];
+            var me = this; //save this pointer through REST call
+            //TODO: needs to be convereted to webapi
+            //TODO: replace fail and done with callbacks
+            WebApi.prototype.RetrieveMultiple('udo_claims', columns, filter, false)
+            //CrmRestKit2011.ByQuery('udo_claim', columns, filter, false)
+            .fail(
+                function (err) { })
+            .done(
+            function (data) {
+                if (data && data.d.results.length > 0) {
+                    udo_claimstation = data.d.results[0].udo_ClaimStation;
+                }
+                if (udo_claimstation && udo_claimstation.length > 0) {
+                    document.getElementById('soj').value = udo_claimstation;
+                    UpdateSOJAddress();
+                }
+            });
+        }
+        function UpdateSOJAddress() {
+            var soj = document.getElementById('soj').value;
+            if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+            var columns = ['va_name', 'va_Alias', 'va_Address1', 'va_Address2', 'va_Address3', 'va_City', 'va_State', 'va_ZipCode', 'va_FaxNumber',
+                    'va_SpecialIssueJurisdiction'];
+            var sojCode = soj;
+            if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+            //TODO: needs to be convereted to webapi
+            //TODO: replace fail and done with callbacks
+            WebApi.prototype.RetrieveMultiple('va_regionaloffices', columns, "va_Code eq '" + sojCode + "'")
+            //CrmRestKit2011.ByQueryAll('va_regionaloffice', columns, "va_Code eq '" + sojCode + "'")
+           .fail(
+               function (err) {
+                   //UTIL.restKitError(err, 'Failed to retrieve SOJ information from table:');
+               })
+               .done(function (data) {
+                   // if there's more than one result, try to find one that has claim type for current claim
+                   if ((data) && (data.length > 0)) {
+                       var res = data[0];
+                       var addr = '<br/>';
+
+                       if (res.va_Alias && res.va_Alias.length > 0) addr += res.va_Alias + '<br/>';
+                       if (res.va_Address1 && res.va_Address1.length > 0) addr += res.va_Address1 + '<br/>';
+                       if (res.va_Address2 && res.va_Address2.length > 0) addr += ' ' + res.va_Address2 + '<br/>';
+                       if (res.va_Address3 && res.va_Address3.length > 0) addr += ' ' + res.va_Address3 + '<br/>';
+                       if (res.va_City && res.va_City.length > 0) addr += res.va_City;
+                       if (res.va_State && res.va_State.length > 0) addr += ', ' + res.va_State;
+                       if (res.va_ZipCode && res.va_ZipCode.length > 0) addr += ' ' + res.va_ZipCode;
+                       if (res.va_FaxNumber && res.va_FaxNumber.length > 0) addr += '<br/>Fax: ' + res.va_FaxNumber;
+                       if (res.va_SpecialIssueJurisdiction && res.va_SpecialIssueJurisdiction.length > 0) addr += '<br/>Special Issue Jurisdiction: ' + res.va_SpecialIssueJurisdiction;
+
+                       document.getElementById('sojaddress').innerHTML = addr;
+                   }
+                   else {
+                       alert('SOJ lookup table does not have an entry for ROJ Code ' + soj);
+                   }
+               });
+        }
+    </script>
+    <div class="container">
+
+        <div id="sidenav">
+            <img align="center" id="VRMLOGO" style="padding-top: 10px; padding-left: 25px;" alt="VRM Logo">
+            <h1 align="center">Reference</h1>
+            <ul>
+                <li><a href="https://vaww.ppd.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&amp;articleid=554400000009749">Ready Reference Sheet</a></li>
+                <li><a href="https://vaww.ppd.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&amp;articleid=554400000003165">Due Process Ready Reference Sheet</a></li>
+                <li><a href="http://www.va.gov/vaforms/va/pdf/VA5655blank.pdf">How to apply (VA Form 5655)</a></li>
+            </ul>
+
+        </div>
+
+        <div id="content">
+            <h1>Apportionments</h1>
+            <h2>Apportionments (Call from claimant/claimant's POA)</h2>
+            <ul class="one">
+                <li>
+                    <b>If the veteran/beneficiary is in receipt of VA benefits:</b><br>An apportionment is part of a VA benefit that can be paid to eligible dependents not living in the veteran's/beneficiary's household, or if the veteran/beneficiary is incarcerated.  Apportionments are need based and must be submitted in writing.  You may either send a letter, or I can mail you VA Form 21-4138, Statement in Support of Claim, to make your request.  You can also access the form at www.va.gov.  Be sure to put the veteran's full name, Social Security or file number along with your full name, address, and phone number on your request.  The Regional Office will contact you for any additional information needed to support your claim (provide ROJ address to send the claim.)<br>
+                    ROJ: &nbsp;<input id="soj" style="width: 40px;" type="text"> &nbsp;<a title="Click to Update SOJ Address" id="acpt" style="color: rgb(0, 0, 255); font-weight: bold; text-decoration: underline; cursor: pointer;" onclick="UpdateSOJAddress()">Update Address</a><br>
+                    <label id="sojaddress"></label>
+                </li>
+            </ul>
+            <ul><b><i>Reminder:</i></b>Do not provide any of the veteran's/beneficiary's personal information to the claimant/claimant's POA.  </ul>
+            <ul><b>Note:</b>An apportionment can be made from any beneficiary's award (i.e., veteran or surviving spouse).  The claimant does not have to be on the veteran's award at the time of the apportionment request.</ul>
+            <ul class="one"><li><b>If the veteran/beneficiary is <u>NOT</u> in receipt of VA benefits:</b><br>At this time our records show the veteran is not receiving VA benefits; therefore, no apportionment can be paid.</li></ul>
+            <h2>Apportionments (Call from veteran/beneficiary/veteran's POA)</h2>
+            <ul>The law allows VA benefits to be apportioned as long as the claimant shows financial need and it does not create a financial hardship for you.  Both you and the claimant will receive (may have already received) a letter requesting specific information.  You should read the letter completely and return VA Form 21-0788, Information Regarding Apportionment of Beneficiary's Award, with any additional evidence to support your contentions.  Your letter will explain the date and proposed amount we are withholding.  After we receive responses from you and the claimant, we will review the information and make our final decision.  If either you or the claimant does not respond, we will make our decision based on the evidence of record.  If the claimant's request is denied, the money we previously withheld will be returned to you.</ul>
+            <ul><b><i>Reminder:</i></b>Do not disclose any of the claimant's information to the veteran/beneficiary/veteran's POA.    </ul>
+            <ul><b>Note:</b>An apportionment can be made from any beneficiary's award (i.e., veteran or surviving spouse).  </ul>
+        </div>
+    </div>
+
+</body>
+</html>

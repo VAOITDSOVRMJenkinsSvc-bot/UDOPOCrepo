@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{670b5bbc-36d9-e911-a98b-001dd800a749}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" preview="1" icon="1">
+      <row name="result" id="udo_outboundcallattemptid">
+        <cell name="udo_interactionid" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="udo_callnotes" width="150" disableSorting="1" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="createdon" width="150" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="udo_disposition" width="100" />
+        <cell name="udo_direction" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+      <entity name="udo_outboundcallattempt">
+        <attribute name="udo_interactionid" />
+        <attribute name="createdon" />
+        <attribute name="udo_callnotes" />
+        <attribute name="udo_disposition" />
+        <order attribute="createdon" descending="false" />
+        <filter type="and">
+          <condition attribute="createdon" operator="today" />
+        </filter>
+        <link-entity name="systemuser" from="systemuserid" to="createdby" alias="aa">
+          <link-entity name="teammembership" from="systemuserid" to="systemuserid" visible="false" intersect="true">
+            <link-entity name="team" from="teamid" to="teamid" alias="ab">
+              <filter type="and">
+                <condition attribute="name" operator="like" value="VASS%" />
+                <condition attribute="name" operator="ne" value="VASS National" />
+              </filter>
+              <link-entity name="teammembership" from="teamid" to="teamid" visible="false" intersect="true">
+                <link-entity name="systemuser" from="systemuserid" to="systemuserid" alias="ac">
+                  <filter type="and">
+                    <condition attribute="systemuserid" operator="eq-userid" />
+                  </filter>
+                </link-entity>
+              </link-entity>
+            </link-entity>
+          </link-entity>
+        </link-entity>
+        <attribute name="udo_direction" />
+        <attribute name="udo_outboundcallattemptid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Call Attempts Today for your Call Center" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

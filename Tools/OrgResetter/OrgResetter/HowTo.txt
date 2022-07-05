@@ -1,0 +1,43 @@
+﻿Steps to execute.
+1) Change App.Config ConnectionSetting to be your own user name - no other changes required
+2) launch CMD
+3) "cd" to directory where executable lives
+4) pass in name of program and add param of name of org you want to connect to.  (e.g. )
+	a) dev
+	b) hotfixdev
+	c) int
+	d) qa
+	e) pre
+	f) training
+	g) devpoc2
+5) confirm "that data import"
+
+console output looks like this:
+=================================================================================================================
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\vhaisbdutyj>cd "C:\Users\vhaisbdutyj\Documents\Visual Studio 2015\Proje
+cts\OrgResetter\OrgResetter\bin\Debug"
+
+C:\Users\vhaisbdutyj\Documents\Visual Studio 2015\Projects\OrgResetter\OrgResett
+er\bin\Debug>OrgResetter.exe dev
+Getting Configuration Settings: 17ms
+Getting Login: 32ms
+Got Login: 16387ms
+Beginning Import: 16388ms
+Completed Import, Publishing: 29914ms
+Published All Customizations: 46942ms
+Completed Import Step: 46942ms
+Beginning Import Data: 46943ms
+Retrieved All Data, beginning Data Updates: 56098ms
+Finished Settings: 56194ms
+Finished KVPs: 57703ms
+Finished USD Options: 58091ms
+Successfully Completed Import of Site Map (True) and Data(True).: 58091ms
+Exiting Org Resetter.  Please Press Enter to Close...
+
+
+C:\Users\vhaisbdutyj\Documents\Visual Studio 2015\Projects\OrgResetter\OrgResett
+er\bin\Debug>
+=================================================================================================================

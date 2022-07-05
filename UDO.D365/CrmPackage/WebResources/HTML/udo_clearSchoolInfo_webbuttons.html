@@ -1,0 +1,39 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta></head>
+<body style="overflow-wrap: break-word;">
+    <script src="udo_Xrm.min.js" type="text/javascript"></script>
+    <script src="va_jquery_1.10.2.min.js" type="text/javascript"></script>
+    <script src="udo_utility.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var clickEvent = null;
+        var btnConfig = null;
+        var formContext = null;
+
+        function setContext(context) {
+            formContext = context;
+        }
+        $(document).ready(function () {
+            console.log("Clear School Info Clicked");
+
+            var btn = $("#embeddedbutton");
+            var win = document.defaultView || document.parentWindow;
+            var control = win.frameElement.id;
+            var btnTxt = "";
+            console.log("Clear School Button");
+            console.log(control);
+            switch (control) {
+                case "WebResource_udo_Dependent_Clear_School":
+                    btnTxt = "Clear School Info";
+                    $(btn).click({ action: "clearschool", formatType: "" }, parent.clearschoolinfo);
+                    break;
+                case "WebResource_udo_Dependent_Clear_Prev_School":
+                    btnTxt = "Clear School Info";
+                    $(btn).click({ action: "clearschool", formatType: "" }, parent.clearprevschoolinfo);
+                    break;
+            }
+            btn.text(btnTxt);
+        });
+    </script>
+    <button tabindex="1" id="embeddedbutton" aria-label="Button Label">Button Name</button>
+</body></html>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <savedqueryid>{ed9b7388-ddfa-4419-8f44-a0064a36cca0}</savedqueryid>
+  <layoutxml>
+    <grid name="udo_vadircontactstagings" jump="udo_name" select="1" icon="1" preview="1">
+      <row name="udo_vadircontactstaging" id="udo_vadircontactstagingid">
+        <cell name="udo_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>2</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="udo_vadircontactstaging">
+        <attribute name="udo_vadircontactstagingid" />
+        <attribute name="udo_name" />
+        <attribute name="createdon" />
+        <order attribute="udo_name" descending="false" />
+        <filter type="and">
+          <condition attribute="statecode" operator="eq" value="0" />
+        </filter>
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VADIR Contact Staging Associated View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

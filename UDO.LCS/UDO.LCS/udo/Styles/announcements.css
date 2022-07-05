@@ -1,0 +1,22 @@
+﻿body
+{
+
+}
+
+td {
+    vertical-align: top;
+}
+
+div.header {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid black
+}
+
+div.body {
+    font-size: 12px;
+    /*color: WindowText;
+    Background: Window;*/
+    padding-top: 4px;
+    padding-bottom: 5px;
+}

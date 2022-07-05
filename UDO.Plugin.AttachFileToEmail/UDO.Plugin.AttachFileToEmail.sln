@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDO.Plugin.AttachFileToEmail", "UDO.Plugin.AttachFileToEmail\UDO.Plugin.AttachFileToEmail.csproj", "{D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttachFileToEmailPackage", "AttachFileToEmailPackage\AttachFileToEmailPackage.csproj", "{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D} = {D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E18D66-5FD6-4AE8-A2CF-8AC4A02AD96D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED778B70-85BF-4D0C-BB1E-B6C0BF401819}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {929C4307-F5A5-4DD8-AA76-176F05EC2693}
+	EndGlobalSection
+	GlobalSection(CRMSolutionProperties) = preSolution
+		SolutionIsBoundToCRM = True
+	EndGlobalSection
+EndGlobal

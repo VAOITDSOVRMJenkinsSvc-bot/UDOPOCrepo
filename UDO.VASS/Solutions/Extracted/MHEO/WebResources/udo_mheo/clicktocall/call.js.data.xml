@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{076afadf-fdde-e911-a98d-001dd800a749}</WebResourceId>
+  <Name>udo_mheo/clicktocall/call.js</Name>
+  <DisplayName>udo_mheo/clicktocall/call.js</DisplayName>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>09.19.19</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/udo_mheoclicktocallcalljs076AFADF-FDDE-E911-A98D-001DD800A749</FileName>
+</WebResource>

@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{7f0a5d45-032c-4280-a69f-5fae9652e320}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{e7fc4cdd-8ca2-4700-9d43-ef68cbe2f6e7}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{4081cd3f-a43e-401b-8f73-f632cf43029e}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{1ee80d70-cc1a-312d-c1c9-ce58ac13538d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Contact" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="udo_contactid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4d59e609-676c-03d5-ed5a-de820b2e04ea}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="EDIPI" languagecode="1033" />
+                      </labels>
+                      <control id="udo_edipi" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_edipi" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5cbb2c2c-b19c-a44b-9cac-4a91d6707620}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SSN" languagecode="1033" />
+                      </labels>
+                      <control id="udo_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_ssn" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{71788cfa-54ad-4517-963a-46deb2f35aad}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{99d6c1b9-6c7f-4ee6-aa41-81d0415ed66f}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d3b121dc-414d-a48a-7ea9-1590b988851c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                      </labels>
+                      <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section name="{e7fc4cdd-8ca2-4700-9d43-ef68cbe2f6e7}_section_3" showlabel="false" showbar="false" locklevel="0" id="{4324aece-77c2-6d88-7254-39580410a3d0}" IsUserDefined="0" layout="varwidth" columns="11" labelwidth="115">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{b4161ee9-a2e0-9e59-343e-600e5d6a6ba3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PNL_TERM_DT" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pnl_term_dt" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_pnl_term_dt" disabled="false" />
+                    </cell>
+                    <cell id="{483d8285-85b0-8b2e-3564-3ce06e3ea2a8}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_EDU_LVL_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_edu_lvl_cd" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="udo_tap_edu_lvl_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{96780182-d400-d0dc-9e9d-473e71b49a6b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="CHAR_SVC_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_char_svc_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_char_svc_cd" disabled="false" />
+                    </cell>
+                    <cell id="{19638809-8d10-3451-1ace-db929bd32d21}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="POST_911_DPLY_IND_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_post_911_dply_ind_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_post_911_dply_ind_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{54cc7dcb-ea58-7937-1a5e-150410b8a0e7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="COMBAT_IND_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_combat_ind_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_combat_ind_cd" disabled="false" />
+                    </cell>
+                    <cell id="{b2178674-087e-1b89-1575-2dd97ad78bbd}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SVC_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_svc_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_svc_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{94107565-ad89-5c4a-c991-9aa9933e276e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="MOH_IND_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_moh_ind_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_moh_ind_cd" disabled="false" />
+                    </cell>
+                    <cell id="{133855cb-eb72-42b7-6486-353bbac967e2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SVC_CD_OptionSet" languagecode="1033" />
+                      </labels>
+                      <control id="udo_svc_cd_optionset" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" datafieldname="udo_svc_cd_optionset" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3342a495-689d-0d55-7cdd-ac622e2b0929}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="NARR_RSN_SEP_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_narr_rsn_sep_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_narr_rsn_sep_cd" disabled="false" />
+                    </cell>
+                    <cell id="{4a70c175-aa60-5168-87ab-c2c30dcacc53}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_DEP_QY" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_dep_qy" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_tap_dep_qy" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bd4747bd-3c18-cc72-4398-bd18d7ec6eda}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PH_IND_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_ph_ind_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_ph_ind_cd" disabled="false" />
+                    </cell>
+                    <cell id="{816c3ae3-6384-e821-5178-bb481b562689}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_EMA_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_ema_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_tap_ema_tx" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{341e13c5-a835-8e8d-5e87-c3e8a38b1773}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PN_1ST_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pn_1st_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pn_1st_nm" disabled="false" />
+                    </cell>
+                    <cell id="{9a7602c0-1cdb-e939-190e-b3654db9c5de}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_INSTALLATION_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_installation_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_tap_installation_nm" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bb12cd29-b741-5c81-0eda-379b4c96e827}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PN_BRTH_DT" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pn_brth_dt" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_pn_brth_dt" disabled="false" />
+                    </cell>
+                    <cell id="{13496649-1333-e743-8852-538c8a4cad05}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_MRTL_STAT_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_mrtl_stat_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_tap_mrtl_stat_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{65027a89-b402-1524-104a-9116d06bdd7d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PN_CDNCY_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pn_cdncy_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pn_cdncy_nm" disabled="false" />
+                    </cell>
+                    <cell id="{000a706b-479d-e61a-a57d-330d951c731b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_PRESEP_CMPLT_DT" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_presep_cmplt_dt" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_tap_presep_cmplt_dt" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{432768ad-10bb-358a-315c-61156a644136}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PN_LST_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pn_lst_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pn_lst_nm" disabled="false" />
+                    </cell>
+                    <cell id="{8e64764a-4ac3-5c8c-5416-1c124c115ecb}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP_TNUM_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_tap_tnum_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_tap_tnum_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ba716a10-02d0-7059-73c7-c717704c2404}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PN_MID_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pn_mid_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pn_mid_nm" disabled="false" />
+                    </cell>
+                    <cell id="{07e83e50-d9b6-24b3-caa5-c85b85423261}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_1_EMA_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_1_ema_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_1_ema_tx" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7e415789-6dd5-5d27-77d9-73951c38a27e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PN_SEX_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pn_sex_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pn_sex_cd" disabled="false" />
+                    </cell>
+                    <cell id="{87c40588-2a2a-9541-96a9-949bc2ab8ad4}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_2_EMA_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_2_ema_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_2_ema_tx" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{56bd7c2c-eedb-378c-4374-aa03336114bc}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PNL_BGN_DT" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pnl_bgn_dt" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_pnl_bgn_dt" disabled="false" />
+                    </cell>
+                    <cell id="{d5e0688a-475b-78c2-31c2-4c0a81069893}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_HM_TNUM_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_hm_tnum_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_hm_tnum_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{2177cb21-899e-39b9-4364-ad27873e9d57}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PNLST_CHNG_TYP_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pnlst_chng_typ_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pnlst_chng_typ_cd" disabled="false" />
+                    </cell>
+                    <cell id="{85ac46e0-9741-12eb-465d-8019d296491d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MLNG_MA_CITY_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mlng_ma_city_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mlng_ma_city_nm" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{141ec570-0a78-ce4a-76aa-7a57b6d3c102}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PNL_CAT_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_pnl_cat_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_pnl_cat_cd" disabled="false" />
+                    </cell>
+                    <cell id="{5be5d125-8216-55ec-5940-6969349032e3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MLNG_MA_CTRY_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mlng_ma_ctry_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mlng_ma_ctry_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0e367937-929e-2adb-4ea3-e42488792513}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_RES_MA_ST_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_res_ma_st_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_res_ma_st_cd" disabled="false" />
+                    </cell>
+                    <cell id="{b73340e3-c238-e595-0e0a-9c2448bcde87}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MLNG_MA_LN1_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mlng_ma_ln1_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mlng_ma_ln1_tx" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{dc4b086a-8993-22b1-9007-ae1d5ed98c7a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_RES_MA_PR_ZIP_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_res_ma_pr_zip_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_res_ma_pr_zip_cd" disabled="false" />
+                    </cell>
+                    <cell id="{9a557e00-d030-33aa-85a1-514591b5c30a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MLNG_MA_LN2_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mlng_ma_ln2_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mlng_ma_ln2_tx" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{1c3556cb-92ab-1208-5366-7b4414d4b55a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_RES_MA_LN2_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_res_ma_ln2_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_res_ma_ln2_tx" disabled="false" />
+                    </cell>
+                    <cell id="{85953ba0-6969-74d9-e0ad-449c3526aa1d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MLNG_MA_PR_ZIP_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mlng_ma_pr_zip_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mlng_ma_pr_zip_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4b26180e-0bd1-8118-009c-ababdcad9d2c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_RES_MA_LN1_TX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_res_ma_ln1_tx" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_res_ma_ln1_tx" disabled="false" />
+                    </cell>
+                    <cell id="{0874b648-7646-25e1-6398-a8068d873208}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MLNG_MA_ST_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mlng_ma_st_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mlng_ma_st_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{70887716-731b-4e0c-409d-303bc383d755}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_RES_MA_CTRY_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_res_ma_ctry_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_res_ma_ctry_cd" disabled="false" />
+                    </cell>
+                    <cell id="{57569d0a-861b-b5d5-9511-c4ca4d268333}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_MOB_TNUM_CD" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_mob_tnum_cd" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_mob_tnum_cd" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{991ed078-598b-01b5-c324-4d29b4493434}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{0e217140-0aca-cedc-c040-99c3d5785522}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VDR_RES_MA_CITY_NM" languagecode="1033" />
+                      </labels>
+                      <control id="udo_vdr_res_ma_city_nm" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_vdr_res_ma_city_nm" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

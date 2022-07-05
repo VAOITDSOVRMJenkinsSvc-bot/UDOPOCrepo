@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Cache Connection Manager"
+  DTS:DTSID="{CA7F2F3B-4903-473E-B50C-8B42534B56E5}"
+  DTS:CreationName="CACHE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager>
+      <DTS:CacheColumns>
+        <DTS:CacheColumn
+          DTS:DataType="72"
+          DTS:IndexPosition="1"
+          DTS:ObjectName="systemuserid"
+          DTS:DTSID="{C436B9C8-1733-40FC-BFCD-9D917A2219DB}"
+          DTS:CreationName="" />
+        <DTS:CacheColumn
+          DTS:DataType="130"
+          DTS:Length="1024"
+          DTS:ObjectName="domainname"
+          DTS:DTSID="{AF05FC14-3E92-4B89-9486-C34877B7E1FF}"
+          DTS:CreationName="" />
+        <DTS:CacheColumn
+          DTS:DataType="11"
+          DTS:ObjectName="isdisabled"
+          DTS:DTSID="{898E25BE-9AF5-418D-B3EC-C98B6552FFFD}"
+          DTS:CreationName="" />
+        <DTS:CacheColumn
+          DTS:DataType="130"
+          DTS:Length="64"
+          DTS:ObjectName="firstname"
+          DTS:DTSID="{4B253065-ED01-4DE0-A585-A4605AEEFF69}"
+          DTS:CreationName="" />
+        <DTS:CacheColumn
+          DTS:DataType="130"
+          DTS:Length="64"
+          DTS:ObjectName="lastname"
+          DTS:DTSID="{814D9457-04D0-42D4-91C3-4743DC7409E0}"
+          DTS:CreationName="" />
+      </DTS:CacheColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

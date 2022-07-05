@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{5d837b67-fce9-e911-a989-001dd8009f4b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="subject" select="1" icon="1" preview="1">
+      <row name="result" id="activityid">
+        <cell name="subject" width="300" />
+        <cell name="crme_txnstatus" width="100" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="crme_dependentmaintenance">
+        <attribute name="subject" />
+        <attribute name="createdon" />
+        <attribute name="crme_txnstatus" />
+        <order attribute="createdon" descending="true" />
+        <filter type="and">
+          <condition attribute="statecode" operator="ne" value="1" />
+          <condition attribute="crme_txnstatus" operator="ne" value="935950004" />
+        </filter>
+        <attribute name="activityid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="MHEO: AD &gt; 2/1/2016" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

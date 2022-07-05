@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{e81265be-1d1a-45ad-861e-4c7e3883dc47}</formid>
+  <IntroducedVersion>0.0.0.1</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="1900" showImage="false" shownavigationbar="true">
+    <tabs>
+      <tab id="{d9ad1a77-ce36-843a-e33e-798c9a9151cb}" name="detailsTab" expanded="true" showlabel="true" locklevel="0" IsUserDefined="0">
+        <labels>
+          <label description="Details" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{3dbe01e3-5171-91a1-8461-e8071d5debb4}" name="calldetailsSection" showlabel="true" locklevel="0" IsUserDefined="0" celllabelposition="Left" celllabelalignment="Left" labelwidth="160" columns="111" layout="varwidth" showbar="true">
+                <labels>
+                  <label description="Interaction Details" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{eca6a008-bda6-6e11-66e8-67e8d9092a46}" showlabel="true" locklevel="0" colspan="1">
+                      <labels>
+                        <label description="Caller First Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_firstname" datafieldname="udo_firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{0680ab26-ae39-a807-c0e1-9ea39331d5e0}" showlabel="true" locklevel="1" colspan="1">
+                      <labels>
+                        <label description="Caller Last Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_lastname" datafieldname="udo_lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{3d55b722-81b9-359e-362b-4b83256bed91}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Relationship" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_relationship" datafieldname="udo_relationship" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{36362d40-6317-5364-4a17-c1cd8bd96d7b}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="No Phone # Avail." languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_nophonenumberavailable" datafieldname="udo_nophonenumberavailable" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" />
+                    </cell>
+                    <cell id="{aa1b14dc-589e-8338-dec3-5664294ad360}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Phone Number" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_phonenumber" datafieldname="udo_phonenumber" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{a195a78e-3abb-c788-7655-77d0850b6a0d}" />
+                    </cell>
+                    <cell id="{0c97d68d-5aa9-2242-e5b1-6690e8ea0220}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{150db688-655b-515d-44e0-08c2e4a88968}" showlabel="true" locklevel="0" colspan="3">
+                      <labels>
+                        <label description="White House Veteran Hotline" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_whitehouseveteranhotline" datafieldname="udo_whitehouseveteranhotline" classid="{B0C6723A-8503-4fd7-BB28-C8A06AC933C2}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5e1183e4-d7a0-273c-b54c-69c99a43e191}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Veteran First Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_veteranfirstname" datafieldname="udo_veteranfirstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{06dc8b09-ac85-c88a-3b8d-96e79a42130d}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Veteran Middle Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_veteranmiddlename" datafieldname="udo_veteranmiddlename" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{1ece07e1-a4d5-5574-86ba-b770cb0ce728}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Veteran Last Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_veteranlastname" datafieldname="udo_veteranlastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{b63996ea-a604-9793-35b5-78eb76ba0303}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Veteran SSN" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_veteranssn" datafieldname="udo_veteranssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{14d61a33-42db-e257-3626-520c7b58ed6a}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Veteran DOB" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_veterandob" datafieldname="udo_veterandob" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{b29cabba-2a72-c7b7-80c6-c5d495d8c525}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9e12e9d6-dc38-2e4e-7bb1-e3a2765ba06a}" showlabel="true" locklevel="0" colspan="3" visible="false">
+                      <labels>
+                        <label description="Purpose of the Visit" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_purposeofthevisit" datafieldname="udo_purposeofthevisit" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{9cc92ac1-ab09-8136-369b-11d63895c00d}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Special Situations" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_specialsituationstring" datafieldname="udo_specialsituationstring" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                    <cell id="{7de04cc5-59b2-7d28-4b71-2434798be34d}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{ec4e2512-3857-513a-2e95-1458037e199c}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{315dc39d-e96e-86cb-0a10-2ca8c61d2a63}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Has Special Situations" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_hasspecialsituations" datafieldname="udo_hasspecialsituations" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{2b1d804c-4792-b30e-4420-1818dcd53e22}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{43bb42b1-1c86-09c1-cc13-199d22417ac8}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section id="{931e3c18-dd26-6430-a6dc-ed6acbd46539}" name="udo_special_situations" showlabel="true" locklevel="0" IsUserDefined="0" celllabelposition="Left" celllabelalignment="Left" labelwidth="115" columns="1" layout="varwidth" showbar="false" visible="false">
+                <labels>
+                  <label description="Special Situations" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{ab64952e-899e-6ebc-ca8a-65e575bb10d2}" showlabel="false" colspan="1" rowspan="6" auto="false">
+                      <labels>
+                        <label description="Interaction Special Situations (Interaction)" languagecode="1033" />
+                      </labels>
+                      <control id="Interaction_Special_Situation_Grid" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}">
+                        <parameters>
+                          <ViewId>{2092D291-F669-4751-9E41-8D88D87D5FD0}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>udo_udo_interaction_udo_interactionspecialsit</RelationshipName>
+                          <TargetEntityType>udo_interactionspecialsituation</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{2092D291-F669-4751-9E41-8D88D87D5FD0}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <VisualizationId />
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>4</RecordsPerPage>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{6ac6ae5c-a088-3701-a579-54a9048a448c}" name="AdditionalDetailsTab" expanded="false" showlabel="true" locklevel="0" IsUserDefined="0">
+        <labels>
+          <label description="Additional Details" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{66cc5b51-415b-2531-b7c9-8c7b2314b011}" name="AdditionalDetailsSection" showlabel="false" locklevel="0" IsUserDefined="0" celllabelposition="Left" celllabelalignment="Left" labelwidth="115" columns="1111" layout="varwidth" showbar="false">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{d86483a5-3653-34ee-276c-6a3e611213de}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Virtual Call" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_virtualcall" datafieldname="udo_virtualcall" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{5ab0d880-818c-9991-71e4-201b54d53652}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Caller Disconnected" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_callerdisconnected" datafieldname="udo_callerdisconnected" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{1b5d12ab-543c-de6e-1066-544c7ba29282}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Media Inquiry Call" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_mediainquirycall" datafieldname="udo_mediainquirycall" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{1d27a7c6-1182-d9d6-a8ad-68b3a7335031}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Duration" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_duration" datafieldname="udo_duration" classid="{0D2C745A-E5A8-4c8f-BA63-C6D3BB604660}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{07bd8edc-a42a-7599-31d2-2c1c65351005}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Is Abusive Caller" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_isabusivecaller" datafieldname="udo_isabusivecaller" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{7904aaaa-e4e7-c08e-4ee2-093beb971768}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PCR Disconnected" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_pcrdisconnectedcall" datafieldname="udo_pcrdisconnectedcall" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{687843ba-ce65-4ce8-2aeb-ac45a81229ac}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="NOA Statement" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_noastatement" datafieldname="udo_noastatement" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{ce7a073a-e79d-b056-7c85-611e0c5cb964}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{89e47d81-7e05-4e49-4bb2-984d9c96d65e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Ghost Call" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_ghostcall" datafieldname="udo_ghostcall" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{10d950b1-56a2-bc00-dce7-5908897e89c1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="General Information Call" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_generalinformationcall" datafieldname="udo_generalinformationcall" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{76900a66-2167-13b1-6207-c8eb2d071e8b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="NOA Disagree" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_noadisagree" datafieldname="udo_noadisagree" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                    <cell id="{9c914225-c2b2-ad93-e5c2-a97dc17e9567}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d8c77272-7ada-a0b4-bca4-e339595a4246}" showlabel="true" locklevel="0" colspan="4" rowspan="2">
+                      <labels>
+                        <label description="Call Description" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_calldescription" datafieldname="udo_calldescription" classid="{E0DECE4B-6FC8-4a8f-A065-082708572369}" />
+                    </cell>
+                  </row>
+                  <row />
+                  <row>
+                    <cell id="{851035d0-42eb-d86d-d132-22de635754a5}" showlabel="true" locklevel="0" colspan="1" visible="false">
+                      <labels>
+                        <label description="Recipient" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="createdby" datafieldname="createdby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{69cd61ac-57ac-236e-74bb-85b81204cb27}" showlabel="true" locklevel="0" colspan="1" visible="false">
+                      <labels>
+                        <label description="Recipient (UD)" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_udcreatedby" datafieldname="udo_udcreatedby" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>true</DisableMru>
+                          <DisableQuickFind>true</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{E88CA999-0B16-4AE9-B6A9-9EDC840D42D8}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                    <cell id="{e4c7a719-e496-75dc-9116-1171653040e3}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{41ccc113-e2e4-1dab-5d09-db59b31197d7}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{d1fd0dfb-ed47-437e-8e2e-3f287adbc84e}" name="General" expanded="false" showlabel="true" locklevel="0" IsUserDefined="1" verticallayout="true">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{3cb1117a-b4dd-48e7-b3f7-1caa98240ac7}" name="{3cb1117a-b4dd-48e7-b3f7-1caa98240ac7}" showlabel="false" locklevel="0" IsUserDefined="0" celllabelposition="Left" celllabelalignment="Left" labelwidth="75" columns="1111" showbar="false">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{dd681b81-57aa-91a9-91b7-185dee93905a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Channel" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_channel" datafieldname="udo_channel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
+                    </cell>
+                    <cell id="{3d9d6a1c-077d-b3ee-0632-108a070ebb24}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{716cab94-ca9a-d23b-1524-2aacede664c0}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Interaction Type" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_interactiontype" datafieldname="udo_interactiontype" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" />
+                    </cell>
+                    <cell id="{24e43657-c599-6623-5642-26c7deae84e8}" showlabel="false" userspacer="true">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c5d06a76-fc7d-42b5-8fb7-d024ab579256}" showlabel="true" locklevel="0" colspan="4">
+                      <labels>
+                        <label description="Title" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_title" datafieldname="udo_title" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{756970d9-534e-c2db-4d13-27ea8305a659}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="statecode" datafieldname="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{a886de11-0831-95cc-7912-2752ba375d55}" />
+                    </cell>
+                    <cell id="{4235ed78-3514-9473-7226-b343b463db0e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="statuscode" datafieldname="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" />
+                    </cell>
+                    <cell id="{4e017e85-a7dd-cbbd-cc01-63a5db869b29}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                    <cell id="{c0cc2a32-e917-c881-c483-e33634c5827b}" showlabel="false">
+                      <labels>
+                        <label description="" languagecode="1033" />
+                      </labels>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+      <tab id="{5421ac41-8ce6-5ce3-36e1-ad8265462221}" name="Hidden" expanded="false" showlabel="true" locklevel="0" IsUserDefined="0" visible="false">
+        <labels>
+          <label description="Hidden" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{337bd404-5d9c-b575-58dd-6ad6ebb6d39c}" name="tab_3_section_1" showlabel="false" locklevel="0" IsUserDefined="0" celllabelposition="Left" celllabelalignment="Left" labelwidth="115" columns="1111" layout="varwidth" showbar="false">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{64c20a32-7380-1cdc-4e38-795ec19aa9b1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="End Time" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_endtime" datafieldname="udo_endtime" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" uniqueid="{b81c1437-1089-2524-292c-9cd8ac9b356d}" />
+                    </cell>
+                    <cell id="{c4215104-0747-5510-3a60-4ca8603276c4}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PCR Sensitivity Level" languagecode="1033" />
+                      </labels>
+                      <control disabled="true" id="udo_pcrsensitivitylevel" datafieldname="udo_pcrsensitivitylevel" classid="{C6D124CA-7EDA-4a60-AEA9-7FB8D318B68F}" />
+                    </cell>
+                    <cell id="{7e72ede6-0c82-d1d9-8abe-8422ddd255bd}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status Reason" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="statuscode" datafieldname="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" />
+                    </cell>
+                    <cell id="{aecd48e3-cde7-bd90-1030-541985cc9ded}" showlabel="true" locklevel="0" visible="false">
+                      <labels>
+                        <label description="Is Caller Authorized" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_iscallerauthorized" datafieldname="udo_iscallerauthorized" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e1a45d5b-66b0-0a2d-1d86-94ca225605c7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Start Time" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="createdon" datafieldname="createdon" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" />
+                    </cell>
+                    <cell id="{caa642e0-15de-3c9e-e564-cec791c3b109}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_status" datafieldname="udo_status" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" uniqueid="{da8ae2be-5657-28ab-aa4a-4ba7598a46b7}" />
+                    </cell>
+                    <cell id="{1de8e469-1238-545b-da41-5965709c607c}" showlabel="true" locklevel="1">
+                      <labels>
+                        <label description="Status" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="statecode" datafieldname="statecode" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{261d5783-133c-93c7-2953-7388c762ed7c}" />
+                    </cell>
+                    <cell id="{0d4b6082-9048-94ac-73b3-72ac0b2be330}" showlabel="true" locklevel="1" colspan="1">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="ownerid" datafieldname="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{36cd3536-8d0b-7244-048d-9ec0ac455aa2}" showlabel="true" locklevel="0" colspan="4">
+                      <labels>
+                        <label description="Correspondence" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_correspondenceid" datafieldname="udo_correspondenceid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}">
+                        <parameters>
+                          <AutoResolve>true</AutoResolve>
+                          <DisableMru>false</DisableMru>
+                          <DisableQuickFind>false</DisableQuickFind>
+                          <DisableViewPicker>false</DisableViewPicker>
+                          <DefaultViewId>{CE379C43-3BA3-4EEA-A415-050BAC18F45F}</DefaultViewId>
+                          <AllowFilterOff>false</AllowFilterOff>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title Text="Common" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title Text="Sales" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title Text="Service" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title Text="Marketing" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title Text="Process Sessions" LCID="1033" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+    <externaldependencies>
+      <dependency id="udo_nophonenumberavailable" />
+      <dependency id="udo_phonenumber" />
+      <dependency id="udo_lastname" />
+    </externaldependencies>
+    <formLibraries>
+      <Library name="udo_CrmRestKit2011.js" libraryUniqueId="{daa563ad-6a11-3971-de66-1334029dede3}" />
+      <Library name="udo_CRMCommonJS.js" libraryUniqueId="{a6544fe0-7373-4c38-8587-4bd2fdea1dca}" />
+      <Library name="udo_Interaction.js" libraryUniqueId="{256dff75-1cec-4fc8-b5eb-a311d833bd17}" />
+      <Library name="udo_Utility.js" libraryUniqueId="{f604091d-22dc-485a-bc2e-eb7a5471182b}" />
+      <Library name="udo_popup.js" libraryUniqueId="{025a31b0-3596-453f-98c7-3e4148a12bbd}" />
+      <Library name="udo_script_control.js" libraryUniqueId="{043db1da-5757-6b1a-216d-310c4a521986}" />
+    </formLibraries>
+    <events>
+      <event name="onload" active="false" application="false">
+        <Handlers>
+          <Handler passExecutionContext="true" parameters="" enabled="true" handlerUniqueId="{a3b206e3-bd29-dd52-aa5d-8d7165b15751}" libraryName="udo_Interaction.js" functionName="Va.Udo.Crm.Scripts.Interaction.onLoad" />
+          <Handler passExecutionContext="false" parameters="" enabled="false" handlerUniqueId="{6435134c-3541-86a1-5d35-4e60ebdc629a}" libraryName="udo_Interaction.js" functionName="Va.Udo.Crm.Scripts.Interaction.onSave" />
+        </Handlers>
+      </event>
+      <event name="onchange" active="false" application="false" attribute="udo_phonenumber">
+        <Handlers>
+          <Handler passExecutionContext="false" parameters="" enabled="true" handlerUniqueId="{d5222a12-784b-1c81-e5dc-aed55d8423b3}" libraryName="udo_Interaction.js" functionName="Va.Udo.Crm.Scripts.Interaction.PhoneNumberonChange" />
+        </Handlers>
+      </event>
+      <event name="onsave" active="false" application="false">
+        <Handlers>
+          <Handler passExecutionContext="true" parameters="" enabled="true" handlerUniqueId="{6031cb0c-582b-0265-b200-ce6de387bbc2}" libraryName="udo_Interaction.js" functionName="Va.Udo.Crm.Scripts.Interaction.onSave" />
+        </Handlers>
+      </event>
+    </events>
+    <controlDescriptions />
+    <DisplayConditions FallbackForm="true" Order="1">
+      <Everyone />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

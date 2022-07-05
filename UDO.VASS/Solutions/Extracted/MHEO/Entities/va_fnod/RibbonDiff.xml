@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <HideCustomAction HideActionId="udo.Mscrm.SubGrid.va_fnod.AddExistingAssoc.Hide" Location="Mscrm.SubGrid.va_fnod.AddExistingAssoc" />
+    <HideCustomAction HideActionId="udo.Mscrm.SubGrid.va_fnod.AddExistingStandard.Hide" Location="Mscrm.SubGrid.va_fnod.AddExistingStandard" />
+    <HideCustomAction HideActionId="udo.Mscrm.SubGrid.va_fnod.AddNewStandard.Hide" Location="Mscrm.SubGrid.va_fnod.AddNewStandard" />
+    <HideCustomAction HideActionId="udo.Mscrm.SubGrid.va_fnod.NewRecord.Hide" Location="Mscrm.SubGrid.va_fnod.NewRecord" />
+    <HideCustomAction HideActionId="udo.Mscrm.SubGrid.va_fnod.OpenAssociatedGridViewStandard.Hide" Location="Mscrm.SubGrid.va_fnod.OpenAssociatedGridViewStandard" />
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions />
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules />
+    <EnableRules />
+  </RuleDefinitions>
+  <LocLabels />
+</RibbonDiffXml>

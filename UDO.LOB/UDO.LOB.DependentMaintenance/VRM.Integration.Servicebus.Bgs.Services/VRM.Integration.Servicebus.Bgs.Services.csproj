@@ -1,0 +1,1100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF637EB9-1288-4A81-8310-9D6929862F5A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VRM.Integration.Servicebus.Bgs.Services</RootNamespace>
+    <AssemblyName>VRM.Integration.Servicebus.Bgs.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>vmit.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'INT|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\INT\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\QA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TRAIN|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TRAIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PROD|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\PROD\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PERF|AnyCPU'">
+    <OutputPath>bin\PERF\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PREPROD|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\PREPROD\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.32\lib\net462\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.32\lib\net462\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="VEIS.Core">
+      <HintPath>..\..\Global\Assemblies\VEIS.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\BgsSecurityConfiguration.cs" />
+    <Compile Include="Configuration\VvaSecurityConfiguration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.cs" />
+    <Compile Include="Proxys\BenefitClaimWebService.cs" />
+    <Compile Include="Service References\AddressWebServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\AwardWebServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ClaimantWebServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DocOperationsReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PdfServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PersonWebServiceReference\Reference.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Service References\PhoneWebServiceReference\Reference.cs" />
+    <Compile Include="Service References\StandardDataWebServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VetRecordWebServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpBnftClaimServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpChildSchoolServiceReference\Reference.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Service References\VnpChildStudentServiceReference\Reference.cs" />
+    <Compile Include="Service References\VnpPersonServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpProcFormServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpProcServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpPtcpntAddrsServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpPtcpntPhoneServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpPtcpntRlnshpServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\VnpPtcpntServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ReadFile.cs" />
+    <Compile Include="WcfHeaders\BgsHeaderInfo.cs" />
+    <Compile Include="WcfHeaders\BGS\AddWseSecurityHeaderEndpointBehavior.cs" />
+    <Compile Include="WcfHeaders\BGS\AddWseSecurityHeaderMessageInspector.cs" />
+    <Compile Include="WcfHeaders\BGS\CustomWseSecurityHeader.cs" />
+    <Compile Include="WcfHeaders\ClientBaseExtensions.cs" />
+    <Compile Include="WcfHeaders\VVA\AddVvaSecurityHeaderEndpointBehavior.cs" />
+    <Compile Include="WcfHeaders\VVA\AddVvaSecurityHeaderMessageInspector.cs" />
+    <Compile Include="WcfHeaders\VVA\CustomVvaSecurityHeader.cs" />
+    <Compile Include="Wcf\BgsCustomClientChannel.cs" />
+    <Compile Include="Wcf\BgsServiceFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Deploy.bat" />
+    <None Include="packages.config" />
+    <None Include="Proxys\BenefitClaimWebService.wsdl" />
+    <None Include="Proxys\BenefitClaimWebService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Proxys\ProxyBuildCommand.bat" />
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findAllPtcpntAddrsByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findAllPtcpntAddrsByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findCityStateByPostalCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findPostalCodeByCityStateCountryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findPtcpntAddrsByPtcpntAddrsIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findPtcpntAddrsByTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.findPtcpntAddrsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.group1Address.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.group1CityState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.group1PostalCode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.insertForwardingAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.ptcpntAddrsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.updateEmailAddrResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.updateForwardingAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.validateAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.vnAddressValidatorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AddressWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AddressWebServiceReference.vnValidateAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.awardBeneDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.awardCmpsitDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findAwardBeneByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findAwardBeneByPtcpntBeneIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findAwardBeneByPtcpntRecipIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findAwardBeneByPtcpntVetIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findAwardBeneResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findStationOfJurisdictionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findVeteranAwardCmpsitByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findVeteranAwardCmpsitByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AwardWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.AwardWebServiceReference.findVeteranAwardCmpsitBySSNResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.addFlashResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.denialsInquiryRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findAllFiduciaryPoaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findAllRelationshipsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findAssignedFlashesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findAwardAddressesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findAwardMailingAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findBenefitClaimAddressesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findDenialsByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findDependentsByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findDependentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findDepositAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findFiduciaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findFlashesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findGeneralInformationByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findGeneralInformationByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findGeneralInformationByPtcpntIdsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findIncomeExpenseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findMailingAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findMilitaryRecordByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findMonthOfDeathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findOtherAwardInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findPaymentAddressResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findPOAByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findPOAResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findReasonsByRbaIssueIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.findVBMSFlashResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.flash.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.flashInquiryRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.generalInfoRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.incomeExpenseRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.militaryRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.monthOfDeathRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.otherAwardInfoRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.removeFlashResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinq3Record.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinq6Record.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinqaAddress.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinqaAwardRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinqaBenefitClaimAddressRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinqaDepositAccount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinqfPersonOrg.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.shrinqfRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.updateFlashesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ClaimantWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.ClaimantWebServiceReference.updateMonthOfDeathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocOperationsReference\VRM.Integration.Servicebus.Bgs.Services.DocOperationsReference.AddDocumentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocOperationsReference\VRM.Integration.Servicebus.Bgs.Services.DocOperationsReference.dcmntRecordCollection.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocOperationsReference\VRM.Integration.Servicebus.Bgs.Services.DocOperationsReference.GetDocumentContentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocOperationsReference\VRM.Integration.Servicebus.Bgs.Services.DocOperationsReference.GetDocumentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DocOperationsReference\VRM.Integration.Servicebus.Bgs.Services.DocOperationsReference.vaDocumentContent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PdfServiceReference\PdfService.wsdl" />
+    <None Include="Service References\PdfServiceReference\PdfService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PdfServiceReference\PdfService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PdfServiceReference\PdfService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PdfServiceReference\VRM.Integration.Servicebus.Bgs.Services.PdfServiceReference.PdfServiceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\StandardDataWebService.wsdl" />
+    <None Include="Service References\StandardDataWebServiceReference\StandardDataWebService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.bddIntakeSiteDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.cemetery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.claimSuspnsReasonDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.cntryTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findAllBddIntakeSitesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findAllBenefitClaimTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findBenefitClaimLifeCycleStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findBenefitClaimTypeIncrementResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findBenefitClaimTypeIncrementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findBenefitClaimTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findCemeteriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findClaimSuspnsReasonsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findCountriesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findEndProductTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findFlashesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findForeignStatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findItfCanctnReasonTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findMilitaryBranchesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findOrganizationTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findOtherMilitaryBranchesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPayeeCdByPgmTypeCdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPayeeCdsByBnftClaimTypeCdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPayeeTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPhoneTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPOAsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPreDischargeTypeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPrefByPoaCdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findPrefByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findRegionalOfficesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findSignaturesByStationNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findSpecialIssuesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findStatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findStationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findSubmtrApplcnTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findSubmtrRoleTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findUSStatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.findVreFormTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.listTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.orgType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.payeeTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.powerOfAttorneyDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.pref.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.stateDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.stnDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.stnPrfilDetailDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.typeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.typeRlnshpDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.updatePrefResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\StandardDataWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.StandardDataWebServiceReference.vreFormTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VetRecordWebService.wsdl" />
+    <None Include="Service References\VetRecordWebServiceReference\VetRecordWebService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.birlsClaimant.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.birlsRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.ch33Record.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.dateOfDeath.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findBirlsRecordByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findBirlsRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findCh33RecordByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findCorporateRecordByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findCorporateRecordByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findCorporateRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findIndexResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findVeteranByFileNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findVeteranByPtcpntIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.findVeteranResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.insertBirlsClaimantResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.insertBirlsRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.ptcpntSearchPersonRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.shrinq2Person.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.syncCorporateBirlsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.updateBirlsClaimantResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.updateBirlsRecordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.updateDateOfDeathResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\VRM.Integration.Servicebus.Bgs.Services.VetRecordWebServiceReference.veteranRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VnpBnftClaimService.wsdl" />
+    <None Include="Service References\VnpBnftClaimServiceReference\VnpBnftClaimService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.findAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.vnpBnftClaim.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.vnpBnftClaimCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.VnpBnftClaimDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.vnpBnftClaimFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.vnpBnftClaimRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpBnftClaimServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpBnftClaimServiceReference.vnpBnftClaimUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VnpPersonService.wsdl" />
+    <None Include="Service References\VnpPersonServiceReference\VnpPersonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.findAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.vnpPerson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.vnpPersonCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.VnpPersonDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.vnpPersonFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.vnpPersonRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPersonServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPersonServiceReference.vnpPersonUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VnpProcFormService.wsdl" />
+    <None Include="Service References\VnpProcFormServiceReference\VnpProcFormService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcFormServiceReference.findAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcFormServiceReference.vnpProcForm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcFormServiceReference.vnpProcFormCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcFormServiceReference.VnpProcFormDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcFormServiceReference.vnpProcFormFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcFormServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcFormServiceReference.vnpProcFormRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VnpProcService.wsdl" />
+    <None Include="Service References\VnpProcServiceReference\VnpProcService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.findAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.vnpProc.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.vnpProcCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.VnpProcDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.vnpProcFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.vnpProcRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpProcServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpProcServiceReference.vnpProcUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VnpPtcpntPhoneService.wsdl" />
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VnpPtcpntPhoneService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.findPhoneAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.vnpPtcpntPhone.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.vnpPtcpntPhoneCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.VnpPtcpntPhoneDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.vnpPtcpntPhoneFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.vnpPtcpntPhoneRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntPhoneServiceReference.vnpPtcpntPhoneUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VnpPtcpntRlnshpService.wsdl" />
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VnpPtcpntRlnshpService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.findAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.vnpPtcpntRlnshp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.vnpPtcpntRlnshpCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.VnpPtcpntRlnshpDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.vnpPtcpntRlnshpFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.vnpPtcpntRlnshpRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntRlnshpServiceReference.vnpPtcpntRlnshpUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VnpPtcpntService.wsdl" />
+    <None Include="Service References\VnpPtcpntServiceReference\VnpPtcpntService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.findAllAsArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.vnpPtcpnt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.vnpPtcpntCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.VnpPtcpntDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.vnpPtcpntFindByPrimaryKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.vnpPtcpntRemoveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\VnpPtcpntServiceReference\VRM.Integration.Servicebus.Bgs.Services.VnpPtcpntServiceReference.vnpPtcpntUpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PdfServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\PdfServiceReference\configuration.svcinfo" />
+    <None Include="Service References\PdfServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\VetRecordWebServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\VetRecordWebServiceReference\configuration.svcinfo" />
+    <None Include="Service References\VetRecordWebServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="VEIS.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VEIS.dvagov-udo-dev.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="VEIS.dvagov-udo-int4.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VEIS.dvagov-udo-perf2.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VEIS.dvagov-udo-qa2.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VEIS.dvagov-udo-preprod2.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VEIS.dvagov-udo-prod4.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="vmit.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AddressWebServiceReference\" />
+    <WCFMetadataStorage Include="Service References\AwardWebServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ClaimantWebServiceReference\" />
+    <WCFMetadataStorage Include="Service References\DocOperationsReference\" />
+    <WCFMetadataStorage Include="Service References\PdfServiceReference\" />
+    <WCFMetadataStorage Include="Service References\PersonWebServiceReference\" />
+    <WCFMetadataStorage Include="Service References\StandardDataWebServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VetRecordWebServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpBnftClaimServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpPersonServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpProcFormServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpProcServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpPtcpntAddrsServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpPtcpntPhoneServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpPtcpntRlnshpServiceReference\" />
+    <WCFMetadataStorage Include="Service References\VnpPtcpntServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocOperationsReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocOperationsReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DocOperationsReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AddressWebServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AddressWebServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AddressWebServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntAddrsServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntAddrsServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntAddrsServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AwardWebServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AwardWebServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AwardWebServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClaimantWebServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClaimantWebServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ClaimantWebServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StandardDataWebServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StandardDataWebServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\StandardDataWebServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpBnftClaimServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpBnftClaimServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpBnftClaimServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPersonServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPersonServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPersonServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpProcFormServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpProcFormServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpProcFormServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpProcServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpProcServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpProcServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntPhoneServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntRlnshpServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\VnpPtcpntServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

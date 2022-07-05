@@ -1,0 +1,10 @@
+# Turn logging on.
+log verbose
+# Remove the newer file prompt
+option confirm:no-to-all
+# Compare criteria binary
+compare binary 
+# Load the base folders.
+Load "%1" "%2"
+# Copy different files left to right, delete orphans on right.
+sync mirror:left->right

@@ -1,0 +1,2610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="CRM">
+      <ConnectionProperties>
+        <DataProvider>MSCRMFETCH</DataProvider>
+        <ConnectString>https://disco.crm9.dynamics.com/;dvagov-udo-dev</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>a4912572-cb9b-4d1e-ac58-dedb2927fde2</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="LetterDataSet">
+      <Query>
+        <DataSourceName>CRM</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@LetterGenerationGUID">
+            <Value>=Parameters!LetterGenerationGUID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>&lt;fetch no-lock="true"&gt;
+  &lt;entity name="udo_lettergeneration"&gt;
+    &lt;attribute name="udo_reqnumber" /&gt;
+    &lt;attribute name="udo_filenumber" /&gt;
+    &lt;attribute name="udo_dateofdeath" alias="DOD"/&gt;
+    &lt;attribute name="udo_injurydiseasedisableddate"  /&gt;
+    &lt;attribute name="udo_blindnesseffectivedate"  /&gt;
+    &lt;attribute name="udo_limblosseffectivedate"  /&gt;
+    &lt;attribute name="udo_evaluationconsideredpermanent" alias="Evaluation" /&gt;
+    &lt;attribute name="udo_ssn" alias="VetSSN" /&gt;
+    &lt;attribute name="udo_claimnumber" alias="ClaimNumber" /&gt;
+    &lt;attribute name="udo_mailing_address1" /&gt;
+    &lt;attribute name="udo_mailing_address2" /&gt;
+    &lt;attribute name="udo_mailing_address3" /&gt;
+    &lt;attribute name="udo_mailing_city" /&gt;
+    &lt;attribute name="udo_mailing_state" /&gt;
+    &lt;attribute name="udo_mailing_zip" /&gt;
+    &lt;attribute name="udo_mailingcountry" /&gt;
+    &lt;attribute name="udo_branchofservice" alias="VetBranch" /&gt;
+    &lt;attribute name="udo_description" alias="SRdescription" /&gt;
+    &lt;attribute name="udo_militaryservicebranch" alias="SRbranch" /&gt;
+    &lt;attribute name="udo_militaryserviceeoddate" alias="SReoddate" /&gt;
+    &lt;attribute name="udo_militaryserviceraddate" alias="SRraddate" /&gt;
+    &lt;attribute name="udo_ratingdegree" alias="SRratingdegree" /&gt;
+    &lt;attribute name="udo_ratingeffectivedate" alias="SRratingeffectivedate" /&gt;
+    &lt;attribute name="udo_dependentamount" alias="DependentAmount" /&gt;
+    &lt;attribute name="udo_netamountpaid" alias="NetAmount" /&gt;
+    &lt;attribute name="udo_paymentamount" alias="PaymentAmount" /&gt;
+    &lt;attribute name="udo_aaamount" alias="AAAmount" /&gt;
+    &lt;attribute name="udo_pensionbenefitamount" alias="PensionBenefit" /&gt;
+    &lt;attribute name="udo_futureexamdate" alias="FutureExamDate" /&gt;
+    &lt;attribute name="udo_letteraddressing" /&gt;
+    &lt;attribute name="udo_enclosures" alias="Enclosures" /&gt;
+    &lt;attribute name="udo_effectivedate" alias="EffectiveDate" /&gt;
+    &lt;attribute name="udo_srfirstname" /&gt;
+    &lt;attribute name="udo_depfirstname"/&gt;
+    &lt;attribute name="udo_deplastname"/&gt;
+    &lt;attribute name="udo_dateofbirth" /&gt;
+    &lt;attribute name="udo_srlastname" /&gt;
+    &lt;attribute name="udo_currentmonthlyrate" alias="CurrentMonthlyRate" /&gt;
+    &lt;attribute name="udo_contactprefix" alias="Prefix" /&gt;
+    &lt;attribute name="udo_address1"  /&gt;
+    &lt;attribute name="udo_address2"  /&gt;
+    &lt;attribute name="udo_address3"  /&gt;
+    &lt;attribute name="udo_city"  /&gt;
+    &lt;attribute name="udo_state"  /&gt;
+    &lt;attribute name="udo_zipcode"  /&gt;
+    &lt;attribute name="udo_country" /&gt;
+    &lt;attribute name="udo_characterofdischarge" alias="DischargeTypes" /&gt;
+    &lt;attribute name="udo_disabilitylist" alias="Disabilities" /&gt;
+    &lt;attribute name="udo_disabilitypercentages" alias="DisabilityPercent" /&gt;
+    &lt;attribute name="udo_lostalimborblind" alias="LostLimbOrBlind" /&gt;
+    &lt;attribute name="udo_discharge" alias="Discharge" /&gt;
+    &lt;attribute name="udo_servicedates" alias="ServiceDates" /&gt;
+    &lt;attribute name="udo_diedinactiveduty" alias="DiedInActiveDuty" /&gt;
+    &lt;attribute name="udo_diedduetoserviceconnecteddisability" alias="DiedToDisability" /&gt;
+    &lt;attribute name="udo_serviceconnecteddisability" alias="DisabilityInd" /&gt;
+    &lt;attribute name="udo_receivedsahorshagrant" alias="ReceivedGrant" /&gt;
+    &lt;attribute name="udo_entitledtohigherlevelofdisability" alias="EntitledToHigherDisability" /&gt;
+    &lt;attribute name="udo_benefittype" alias="BenefitType" /&gt;
+    &lt;attribute name="udo_awardbenefittype" alias="AwardBenefitType" /&gt;
+    &lt;attribute name="udo_faxdescription" alias="FaxDescription" /&gt;
+    &lt;attribute name="udo_faxnumberofpages" alias="FaxPages" /&gt;
+    &lt;attribute name="udo_paydate" alias="PayDate" /&gt;
+    &lt;attribute name="udo_faxnumber" alias="FaxNum" /&gt;
+    &lt;filter&gt;
+      &lt;condition attribute="udo_lettergenerationid" operator="eq" value="@LetterGenerationGUID" /&gt;
+    &lt;/filter&gt;
+    &lt;link-entity name="systemuser" from="systemuserid" to="udo_pcrofrecordid" link-type="inner" alias="u"&gt;
+      &lt;attribute name="va_replyreferto" /&gt;
+      &lt;attribute name="va_filenumber" alias="OwnerFileNum" /&gt;
+      &lt;link-entity name="site" from="siteid" to="siteid" link-type="inner" alias="s"&gt;
+        &lt;attribute name="address1_line1" alias="CCaddress1" /&gt;
+        &lt;attribute name="address1_line2" alias="CCaddress2" /&gt;
+        &lt;attribute name="address1_line3" alias="CCaddress3" /&gt;
+        &lt;attribute name="address1_city" alias="CCcity" /&gt;
+        &lt;attribute name="address1_stateorprovince" alias="CCstate" /&gt;
+        &lt;attribute name="address1_postalcode" alias="CCzip" /&gt;
+      &lt;/link-entity&gt;
+      &lt;link-entity name="systemuser" from="systemuserid" to="parentsystemuserid" link-type="outer" alias="manager"&gt;
+        &lt;attribute name="fullname" alias="OwnerManager" /&gt;
+        &lt;attribute name="firstname" alias="ManagerFirst"/&gt;
+        &lt;attribute name="lastname" alias="ManagerLast"/&gt;
+        &lt;attribute name="title" alias="ManagerTitle"/&gt;
+      &lt;/link-entity&gt;
+    &lt;/link-entity&gt;
+    &lt;link-entity name="va_regionaloffice" from="va_regionalofficeid" to="udo_regionalofficeid" link-type="outer" alias="soj"&gt;
+      &lt;link-entity name="va_intakecenter" from="va_intakecenterid" to="va_intakecenterid" link-type="outer" alias="ic"&gt;
+        &lt;attribute name="va_address2" alias="ic_va_address2" /&gt;
+        &lt;attribute name="va_address3" alias="ic_va_address3" /&gt;
+        &lt;attribute name="va_address1" alias="ic_va_address1" /&gt;
+        &lt;attribute name="va_state" 	  alias="ic_va_state" /&gt;
+        &lt;attribute name="va_city"  	  alias="ic_va_city" /&gt;
+        &lt;attribute name="va_zipcode"  alias="ic_va_zipcode" /&gt;
+        &lt;attribute name="va_localfax" alias="ic_va_localfax" /&gt;
+        &lt;attribute name="va_alias"    alias="ic_va_alias" /&gt;
+        &lt;attribute name="va_faxnumber" alias="ic_va_faxnumber" /&gt;
+        &lt;attribute name="udo_returnmailingaddress" alias="ic_udo_returnmailingaddress"/&gt;
+		&lt;attribute name="udo_telephoneinfo" alias="ic_udo_telephoneinfo" /&gt;
+&lt;attribute name="udo_irisurl" alias="ic_udo_irisurl" /&gt;
+&lt;attribute name="udo_benefitswebsiteurl" alias="ic_udo_benefitswebsiteurl" /&gt;
+&lt;attribute name="udo_benefitsname" alias="ic_udo_benefitsname" /&gt;
+&lt;attribute name="udo_vaphonenumber" alias="ic_udo_vaphonenumber" /&gt;
+&lt;attribute name="udo_departmentname" alias="ic_udo_departmentname" /&gt;
+&lt;attribute name="udo_internettext" alias="ic_udo_internettext" /&gt;
+&lt;attribute name="udo_writetext" alias="ic_udo_writetext" /&gt;
+&lt;attribute name="udo_knowledgetext" alias="ic_udo_knowledgetext" /&gt;
+&lt;attribute name="udo_questiontext" alias="ic_udo_questiontext" /&gt;
+      &lt;/link-entity&gt;
+      &lt;link-entity name="va_pensioncenter" from="va_pensioncenterid" to="va_pensioncenterid" link-type="outer" alias="pc"&gt;
+        &lt;attribute name="va_address2" alias="pc_va_address2" /&gt;
+        &lt;attribute name="va_address3" alias="pc_va_address3" /&gt;
+        &lt;attribute name="va_address1" alias="pc_va_address1" /&gt;
+        &lt;attribute name="va_state" alias="pc_va_state" /&gt;
+        &lt;attribute name="va_city" alias="pc_va_city" /&gt;
+        &lt;attribute name="va_zipcode" alias="pc_va_zipcode" /&gt;
+        &lt;attribute name="va_localfax" alias="pc_va_localfax" /&gt;
+        &lt;attribute name="va_alias" alias="pc_va_alias" /&gt;
+        &lt;attribute name="va_faxnumber" alias="pc_va_faxnumber" /&gt;
+        &lt;attribute name="udo_returnmailingaddress" alias="pc_udo_returnmailingaddress"/&gt;
+		&lt;attribute name="udo_telephoneinfo" alias="pc_udo_telephoneinfo" /&gt;
+&lt;attribute name="udo_irisurl" alias="pc_udo_irisurl" /&gt;
+&lt;attribute name="udo_benefitswebsiteurl" alias="pc_udo_benefitswebsiteurl" /&gt;
+&lt;attribute name="udo_benefitsname" alias="pc_udo_benefitsname" /&gt;
+&lt;attribute name="udo_vaphonenumber" alias="pc_udo_vaphonenumber" /&gt;
+&lt;attribute name="udo_departmentname" alias="pc_udo_departmentname" /&gt;
+&lt;attribute name="udo_internettext" alias="pc_udo_internettext" /&gt;
+&lt;attribute name="udo_writetext" alias="pc_udo_writetext" /&gt;
+&lt;attribute name="udo_knowledgetext" alias="pc_udo_knowledgetext" /&gt;
+&lt;attribute name="udo_questiontext" alias="pc_udo_questiontext" /&gt;
+      &lt;/link-entity&gt;
+    &lt;/link-entity&gt;
+    &lt;link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer" alias="vet"&gt;
+      &lt;attribute name="lastname" alias="vet_lastname"/&gt;
+      &lt;attribute name="middlename" alias="vet_middlename" /&gt;
+      &lt;attribute name="firstname" alias="vet_firstname" /&gt;
+    &lt;/link-entity&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="c_fullname">
+          <Value>=StrConv(Fields!firstname.Value &amp; " " &amp; IIf(Not IsNothing(Fields!middlename.Value), Left(Fields!middlename.Value, 1) &amp; " ", "") &amp; Fields!lastname.Value, 3)</Value>
+        </Field>
+        <Field Name="udo_reqnumber">
+          <DataField>udo_reqnumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DOD">
+          <DataField>DOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IDprefix">
+          <Value>=IIf(Len(Fields!udo_filenumber.Value) = 9 And Not IsNothing(Fields!DOD.Value), "XSS", "")
+            + IIf(Len(Fields!udo_filenumber.Value) &lt; 9 And Not IsNothing(Fields!DOD.Value), "XC", "")
+            + IIf(Len(Fields!udo_filenumber.Value) &lt; 9 And IsNothing(Fields!DOD.Value), "C", "")
+            + IIf(Len(Fields!udo_filenumber.Value) = 9 And IsNothing(Fields!DOD.Value), "CSS","")</Value>
+        </Field>
+        <Field Name="DODValue">
+          <DataField>DODValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="PensionBenefitValue">
+          <DataField>PensionBenefitValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="udo_filenumber">
+          <DataField>udo_filenumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InjuryDate">
+          <Value>=FormatDateTime(Fields!udo_injurydiseasedisableddate.Value, 2)</Value>
+        </Field>
+        <Field Name="FutureExamDateValue">
+          <DataField>FutureExamDateValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="BlindDate">
+          <Value>=FormatDateTime(Fields!udo_blindnesseffectivedate.Value, 2)</Value>
+        </Field>
+        <Field Name="udo_depfirstname">
+          <DataField>udo_depfirstname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailing_address1">
+          <DataField>udo_mailing_address1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_deplastname">
+          <DataField>udo_deplastname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailing_address2">
+          <DataField>udo_mailing_address2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NetAmountValue">
+          <DataField>NetAmountValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailing_address3">
+          <DataField>udo_mailing_address3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailing_city">
+          <DataField>udo_mailing_city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailing_state">
+          <DataField>udo_mailing_state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailingcountry">
+          <DataField>udo_mailingcountry</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_mailing_zip">
+          <DataField>udo_mailing_zip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_blindnesseffectivedate">
+          <DataField>udo_blindnesseffectivedate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_blindnesseffectivedateValue">
+          <DataField>udo_blindnesseffectivedateValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AAAmountValue">
+          <DataField>AAAmountValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VetAddress1">
+          <Value>=IIF(IsNothing(Fields!udo_mailing_address1.Value), Nothing, UCase(Fields!udo_mailing_address1.Value))</Value>
+        </Field>
+        <Field Name="VetAddress2">
+          <Value>=IIF(IsNothing(Fields!udo_mailing_address2.Value), Nothing, UCase(Fields!udo_mailing_address2.Value))</Value>
+        </Field>
+        <Field Name="VetAddress3">
+          <Value>=IIF(IsNothing(Fields!udo_mailing_address3.Value), Nothing, UCase(Fields!udo_mailing_address3.Value))</Value>
+        </Field>
+        <Field Name="VetCity">
+          <Value>=IIF(IsNothing(Fields!udo_mailing_city.Value), Nothing, UCase(Fields!udo_mailing_city.Value))</Value>
+        </Field>
+        <Field Name="VetState">
+          <Value>=IIF(IsNothing(Fields!udo_mailing_state.Value), Nothing, UCase(Fields!udo_mailing_state.Value))</Value>
+        </Field>
+        <Field Name="udo_dateofbirth">
+          <DataField>udo_dateofbirth</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VetCountry">
+          <Value>=IIF(IsNothing(Fields!udo_mailingcountry.Value), Nothing, 
+   IIf(UCase(Fields!udo_mailingcountry.Value) = "US"
+            Or UCase(Fields!udo_mailingcountry.Value) = "USA"
+            Or UCase(Fields!udo_mailingcountry.Value) = "U.S."
+            Or UCase(Fields!udo_mailingcountry.Value) = "U.S.A."
+            Or UCase(Fields!udo_mailingcountry.Value) = "UNITED STATES"
+            Or UCase(Fields!udo_mailingcountry.Value) = "UNITED STATES OF AMERICA", "",
+            UCase(Fields!udo_mailingcountry.Value)))</Value>
+        </Field>
+        <Field Name="udo_injurydiseasedisableddate">
+          <DataField>udo_injurydiseasedisableddate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_dateofbirthValue">
+          <DataField>udo_dateofbirthValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="udo_injurydiseasedisableddateValue">
+          <DataField>udo_injurydiseasedisableddateValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="VetSSN">
+          <DataField>VetSSN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EffectiveDateValue">
+          <DataField>EffectiveDateValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="LimbLossDate">
+          <Value>=FormatDateTime(Fields!udo_limblosseffectivedate.Value,2)</Value>
+        </Field>
+        <Field Name="Evaluation">
+          <DataField>Evaluation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PaymentAmountValue">
+          <DataField>PaymentAmountValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SRdescription">
+          <DataField>SRdescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ClaimNumber">
+          <DataField>ClaimNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VetFileNum">
+          <Value>
+            =Switch(
+            Len(Fields!udo_filenumber.Value) = 9, Left(Fields!udo_filenumber.Value, 3) + " " + Mid(Fields!udo_filenumber.Value, 4, 2) + " " + Right(Fields!udo_filenumber.Value, 4),
+            Len(Fields!udo_filenumber.Value) = 8, Left(Fields!udo_filenumber.Value, 2) + " " + Mid(Fields!udo_filenumber.Value, 3, 3) + " " + Mid(Fields!udo_filenumber.Value, 6, 3),
+            Len(Fields!udo_filenumber.Value) = 7, Left(Fields!udo_filenumber.Value, 1) + " " + MId(Fields!udo_filenumber.Value, 2, 3) + " " + Mid(Fields!udo_filenumber.Value, 5, 3),
+            Len(Fields!udo_filenumber.Value) = 6, Left(Fields!udo_filenumber.Value, 3) + " " + Mid(Fields!udo_filenumber.Value, 4, 3)
+            )
+          </Value>
+        </Field>
+        <Field Name="CurrentDate">
+          <Value>=MonthName(Month(Now)) &amp; " " &amp; Format(Now, "dd, yyyy")</Value>
+        </Field>
+        <Field Name="DependentAmountValue">
+          <DataField>DependentAmountValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="VetBranch">
+          <DataField>VetBranch</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerFileNum">
+          <DataField>OwnerFileNum</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SRbranch">
+          <DataField>SRbranch</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SReoddate">
+          <DataField>SReoddate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_limblosseffectivedate">
+          <DataField>udo_limblosseffectivedate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_limblosseffectivedateValue">
+          <DataField>udo_limblosseffectivedateValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="OwnerManager">
+          <DataField>OwnerManager</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SRraddate">
+          <DataField>SRraddate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReplyName">
+          <Value>=StrConv(Fields!lastname.Value &amp; " " &amp; Left(Fields!firstname.Value,1) &amp; IIf(Not IsNothing(Fields!middlename.Value), " " &amp; Left(Fields!middlename.Value, 1), ""), 3)</Value>
+        </Field>
+        <Field Name="DependentAmount">
+          <DataField>DependentAmount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EvaluationValue">
+          <DataField>EvaluationValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PaymentAmount">
+          <DataField>PaymentAmount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NetAmount">
+          <DataField>NetAmount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SRratingdegree">
+          <DataField>SRratingdegree</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CurrentMonthlyRate">
+          <DataField>CurrentMonthlyRate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CurrentMonthlyRateValue">
+          <DataField>CurrentMonthlyRateValue</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AAAmount">
+          <DataField>AAAmount</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_faxnumber">
+          <DataField>ic_va_faxnumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PrefixValue">
+          <DataField>PrefixValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_returnmailingaddress">
+          <DataField>ic_udo_returnmailingaddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_faxnumber">
+          <DataField>pc_va_faxnumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_returnmailingaddress">
+          <DataField>pc_udo_returnmailingaddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SOJname">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_alias.Value, Fields!ic_va_alias.Value)</Value>
+        </Field>
+        <Field Name="LostLimbOrBlindValue">
+          <DataField>LostLimbOrBlindValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SOJaddress1">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_address1.Value, Fields!ic_va_address1.Value)</Value>
+        </Field>
+        <Field Name="SOJaddress2">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_address2.Value, Fields!ic_va_address2.Value)</Value>
+        </Field>
+        <Field Name="SOJaddress3">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_address3.Value, Fields!ic_va_address3.Value)</Value>
+        </Field>
+        <Field Name="SOJcity">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_city.Value, Fields!ic_va_city.Value)</Value>
+        </Field>
+        <Field Name="DiedInActiveDutyValue">
+          <DataField>DiedInActiveDutyValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SOJstate">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_state.Value, Fields!ic_va_state.Value)</Value>
+        </Field>
+        <Field Name="SOJzip">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_zipcode.Value, Fields!ic_va_zipcode.Value)</Value>
+        </Field>
+        <Field Name="DiedToDisabilityValue">
+          <DataField>DiedToDisabilityValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SOJfax">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_faxnumber.Value, Fields!ic_va_faxnumber.Value)</Value>
+        </Field>
+        <Field Name="SOJlocalfax">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_va_localfax.Value, Fields!ic_va_localfax.Value)</Value>
+        </Field>
+        <Field Name="DisabilityIndValue">
+          <DataField>DisabilityIndValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="SOJreturnmailingaddress">
+          <Value>=IIf(Fields!udo_letteraddressingValue.Value = 953850001, Fields!pc_udo_returnmailingaddress.Value, Fields!ic_udo_returnmailingaddress.Value)</Value>
+        </Field>
+        <Field Name="ReceivedGrantValue">
+          <DataField>ReceivedGrantValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="FutureExamDate">
+          <DataField>FutureExamDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EffectiveDate">
+          <DataField>EffectiveDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EntitledToHigherDisabilityValue">
+          <DataField>EntitledToHigherDisabilityValue</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PensionBenefit">
+          <DataField>PensionBenefit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SRratingeffectivedate">
+          <DataField>SRratingeffectivedate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CCaddress1">
+          <DataField>CCaddress1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CCaddress2">
+          <DataField>CCaddress2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_letteraddressing">
+          <DataField>udo_letteraddressing</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CCcity">
+          <DataField>CCcity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PayDateValue">
+          <DataField>PayDateValue</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="CCstate">
+          <DataField>CCstate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CCzip">
+          <DataField>CCzip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManagerFirst">
+          <DataField>ManagerFirst</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManagerLast">
+          <DataField>ManagerLast</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_letteraddressingValue">
+          <DataField>udo_letteraddressingValue</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ManagerTitle">
+          <DataField>ManagerTitle</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="va_replyreferto">
+          <DataField>u_va_replyreferto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManagerTitleLine1">
+          <Value>="RO Director"</Value>
+        </Field>
+        <Field Name="Enclosures">
+          <DataField>Enclosures</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ManagerTitleLine2">
+          <Value>="VA Regional Office"</Value>
+        </Field>
+        <Field Name="CCaddress3">
+          <DataField>CCaddress3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_srfirstname">
+          <DataField>udo_srfirstname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_srlastname">
+          <DataField>udo_srlastname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Prefix">
+          <DataField>Prefix</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DepName">
+          <Value>=StrConv(Fields!udo_srfirstname.Value &amp; " " &amp; Fields!udo_srlastname.Value, 3)</Value>
+        </Field>
+        <Field Name="DischargeTypes">
+          <DataField>DischargeTypes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Disabilities">
+          <DataField>Disabilities</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_address1">
+          <DataField>ic_va_address1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_telephoneinfo">
+          <DataField>ic_udo_telephoneinfo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_address2">
+          <DataField>ic_va_address2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_address3">
+          <DataField>ic_va_address3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_benefitswebsiteurl">
+          <DataField>ic_udo_benefitswebsiteurl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_benefitsname">
+          <DataField>ic_udo_benefitsname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_irisurl">
+          <DataField>ic_udo_irisurl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_internettext">
+          <DataField>ic_udo_internettext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_vaphonenumber">
+          <DataField>ic_udo_vaphonenumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_writetext">
+          <DataField>ic_udo_writetext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_knowledgetext">
+          <DataField>ic_udo_knowledgetext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactFirstName">
+          <Value>=StrConv(Fields!udo_srfirstname.Value, 3)</Value>
+        </Field>
+        <Field Name="ic_udo_departmentname">
+          <DataField>ic_udo_departmentname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_udo_questiontext">
+          <DataField>ic_udo_questiontext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactLastName">
+          <Value>=StrConv(Fields!udo_srlastname.Value, 3)</Value>
+        </Field>
+        <Field Name="ContactCity">
+          <Value>=IIF(IsNothing(Fields!udo_city.Value), Nothing, UCase(Fields!udo_city.Value))</Value>
+        </Field>
+        <Field Name="ContactAddress1">
+          <Value>=IIF(IsNothing(Fields!udo_address1.Value), Nothing, UCase(Fields!udo_address1.Value))</Value>
+        </Field>
+        <Field Name="ContactAddress2">
+          <Value>=IIF(IsNothing(Fields!udo_address2.Value), Nothing, UCase(Fields!udo_address2.Value))</Value>
+        </Field>
+        <Field Name="ContactAddress3">
+          <Value>=IIF(IsNothing(Fields!udo_address3.Value), Nothing, UCase(Fields!udo_address3.Value))</Value>
+        </Field>
+        <Field Name="ContactCountry">
+          <Value>=IIF(IsNothing(Fields!udo_country.Value), Nothing, 
+   IIf(UCase(Fields!udo_country.Value) = "US"
+            Or UCase(Fields!udo_country.Value) = "USA"
+            Or UCase(Fields!udo_country.Value) = "U.S."
+            Or UCase(Fields!udo_country.Value) = "U.S.A."
+            Or UCase(Fields!udo_country.Value) = "UNITED STATES"
+            Or UCase(Fields!udo_country.Value) = "UNITED STATES OF AMERICA", "",
+            UCase(Fields!udo_country.Value)))</Value>
+        </Field>
+        <Field Name="ic_va_state">
+          <DataField>ic_va_state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DisabilityPercent">
+          <DataField>DisabilityPercent</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_city">
+          <DataField>ic_va_city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_zipcode">
+          <DataField>ic_va_zipcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_telephoneinfo">
+          <DataField>pc_udo_telephoneinfo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_irisurl">
+          <DataField>pc_udo_irisurl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_localfax">
+          <DataField>ic_va_localfax</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LostLimbOrBlind">
+          <DataField>LostLimbOrBlind</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_benefitswebsiteurl">
+          <DataField>pc_udo_benefitswebsiteurl</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_internettext">
+          <DataField>pc_udo_internettext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_benefitsname">
+          <DataField>pc_udo_benefitsname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ic_va_alias">
+          <DataField>ic_va_alias</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_writetext">
+          <DataField>pc_udo_writetext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Discharge">
+          <DataField>Discharge</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_knowledgetext">
+          <DataField>pc_udo_knowledgetext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_questiontext">
+          <DataField>pc_udo_questiontext</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_vaphonenumber">
+          <DataField>pc_udo_vaphonenumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_udo_departmentname">
+          <DataField>pc_udo_departmentname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_address2">
+          <DataField>pc_va_address2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ServiceDates">
+          <DataField>ServiceDates</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_address3">
+          <DataField>pc_va_address3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DiedInActiveDuty">
+          <DataField>DiedInActiveDuty</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_address1">
+          <DataField>pc_va_address1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DiedToDisability">
+          <DataField>DiedToDisability</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DisabilityInd">
+          <DataField>DisabilityInd</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_state">
+          <DataField>pc_va_state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReceivedGrant">
+          <DataField>ReceivedGrant</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_city">
+          <DataField>pc_va_city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_zipcode">
+          <DataField>pc_va_zipcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EntitledToHigherDisability">
+          <DataField>EntitledToHigherDisability</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_localfax">
+          <DataField>pc_va_localfax</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BenefitType">
+          <DataField>BenefitType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="pc_va_alias">
+          <DataField>pc_va_alias</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxNum">
+          <DataField>FaxNum</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxDescription">
+          <DataField>FaxDescription</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FaxPages">
+          <DataField>FaxPages</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AwardBenefitType">
+          <DataField>AwardBenefitType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="lastname">
+          <DataField>vet_lastname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PayDate">
+          <DataField>PayDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="middlename">
+          <DataField>vet_middlename</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="firstname">
+          <DataField>vet_firstname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_address1">
+          <DataField>udo_address1</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="udo_address2">
+          <DataField>udo_address2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_address3">
+          <DataField>udo_address3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_city">
+          <DataField>udo_city</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_state">
+          <DataField>udo_state</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_zipcode">
+          <DataField>udo_zipcode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="udo_country">
+          <DataField>udo_country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="VetZip">
+          <Value>=IIF(IsNothing(Fields!udo_mailing_zip.Value), Nothing, UCase(Fields!udo_mailing_zip.Value))</Value>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Textbox21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=UCASE(Fields!ContactFirstName.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=UCASE(Fields!ContactLastName.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ContactAddress1.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!ContactAddress2.Value), "", Constants.vbCrLf &amp; Fields!ContactAddress2.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!ContactAddress3.Value), "", Constants.vbCrLf &amp; Fields!ContactAddress3.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ContactCity.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!udo_state.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!udo_zipcode.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!ContactCountry.Value), "", Constants.vbCrLf &amp; Fields!ContactCountry.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>1.67221in</Top>
+            <Left>0.65897in</Left>
+            <Height>0.66097in</Height>
+            <Width>3.42958in</Width>
+            <Visibility>
+              <Hidden>=IIF(IsNothing(Fields!ContactAddress1.Value) Or (Fields!ContactAddress1.Value = ""), True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="va_logo">
+            <Source>Embedded</Source>
+            <Value>VA_mailmerge</Value>
+            <Sizing>FitProportional</Sizing>
+            <Top>0.06944in</Top>
+            <Left>0.63815in</Left>
+            <Height>1.03125in</Height>
+            <Width>1.15625in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!pc_udo_departmentname.Value), "", Fields!ic_udo_departmentname.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!CCaddress1.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!CCaddress2.Value), "", vbCrLf &amp; Fields!CCaddress2.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!CCcity.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!CCstate.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!CCzip.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>0.06944in</Top>
+            <Left>2.46354in</Left>
+            <Height>1.03125in</Height>
+            <Width>3.54166in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Dear </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=StrConv(Fields!ContactFirstName.Value, vbProperCase)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=StrConv(Fields!ContactLastName.Value, vbProperCase)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>,</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>We are sorry to learn of </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=StrConv(Fields!c_fullname.Value, vbProperCase)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>'s death. We greatly appreciate the Veteran's service to this country. Please accept our sincere condolences on behalf of a grateful nation.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Based on our telephone conversation today, we have put together a packet of information that contains fact sheets and applications for death benefits and included it with this letter.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Do You Have Questions or Need Assistance?</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!pc_udo_questiontext.Value), "", Fields!ic_udo_questiontext.Value)</Value>
+                    <MarkupType>HTML</MarkupType>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>2.40057in</Top>
+            <Left>0.63814in</Left>
+            <Height>2.09375in</Height>
+            <Width>7.04117in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.2527in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>4.85887in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.26042in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>If you</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Here is what to do.</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.86459in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Telephone</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(IsNothing(Fields!pc_udo_telephoneinfo.Value), "", Fields!ic_udo_telephoneinfo.Value)</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.30208in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox10">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Use the Internet</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox10</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox11">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(IsNothing(Fields!pc_udo_internettext.Value), "", Fields!ic_udo_internettext.Value)</Value>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>1.46875in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox12">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Write</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox13">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(IsNothing(Fields!udo_letteraddressing.Value), "", IIF(Fields!udo_letteraddressing.Value = "Compensation" , Fields!ic_udo_writetext.Value, Fields!pc_udo_writetext.Value))</Value>
+                                  <MarkupType>HTML</MarkupType>
+                                  <Style>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#000000</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <rd:Selected>true</rd:Selected>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>LetterDataSet</DataSetName>
+            <Top>4.54988in</Top>
+            <Left>1.1094in</Left>
+            <Height>2.89584in</Height>
+            <Width>6.11157in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>1pt</Width>
+              </RightBorder>
+            </Style>
+          </Tablix>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=UCase(Fields!ContactFirstName.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=UCASE(Fields!ContactLastName.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!VetAddress1.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!VetAddress2.Value), "", Constants.vbCrLf &amp; Fields!VetAddress2.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!VetAddress3.Value), "", Constants.vbCrLf &amp; Fields!VetAddress3.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!VetCity.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!VetState.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Fields!VetZip.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!VetCountry.Value), "", Constants.vbCrLf &amp; Fields!VetCountry.Value)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>1.67221in</Top>
+            <Left>0.65897in</Left>
+            <Height>0.62972in</Height>
+            <Width>3.2525in</Width>
+            <ZIndex>5</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(IsNothing(Fields!ContactAddress1.Value) Or (Fields!ContactAddress1.Value = ""), False, True)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox14">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Sincerely yours, </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ManagerTitleLine1.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ManagerTitleLine2.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=IIF(IsNothing(Fields!pc_udo_irisurl.Value), "", Fields!ic_udo_irisurl.Value)</Value>
+                    <MarkupType>HTML</MarkupType>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox14</rd:DefaultName>
+            <Top>7.50127in</Top>
+            <Left>0.63818in</Left>
+            <Height>1.21874in</Height>
+            <Width>7.04116in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox27">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Enclosures: </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!Enclosures.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox27</rd:DefaultName>
+            <Top>8.77557in</Top>
+            <Left>0.63818in</Left>
+            <Height>0.4541in</Height>
+            <Width>7.04119in</Width>
+            <ZIndex>7</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(IsNothing(Fields!Enclosures.Value) = "True", True, False)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox16">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!va_replyreferto.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!IDprefix.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>="XXXXX" + IIf(CStr(Len(Replace(Fields!VetFileNum.Value, " ", "")))=9, Right(Fields!VetFileNum.Value, 4), Right(Fields!VetFileNum.Value, 3))</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Fields!ReplyName.Value</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox3</rd:DefaultName>
+            <Top>1.45958in</Top>
+            <Left>5.89459in</Left>
+            <Height>0.82292in</Height>
+            <Width>1.78472in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>In Reply Refer To:</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>1.45958in</Top>
+            <Left>4.13717in</Left>
+            <Height>0.3125in</Height>
+            <Width>1.68798in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!CurrentDate.Value</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>12pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox3</rd:DefaultName>
+            <Top>1.23471in</Top>
+            <Left>0.63814in</Left>
+            <Height>0.25in</Height>
+            <Width>1.63145in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>9.48662in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>7.71355in</Width>
+      <Page>
+        <PageHeader>
+          <Height>0.5in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox18">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIF(Globals!PageNumber = 1, "", "Page " &amp; Globals!PageNumber)</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=IIF(Globals!PageNumber = 1 Or Globals!PageNumber = Globals!OverallTotalPages, "", "File Number: " &amp; Fields!VetFileNum.Value)</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox8</rd:DefaultName>
+              <Top>0.15847in</Top>
+              <Left>0.63814in</Left>
+              <Height>0.32764in</Height>
+              <Width>1.57292in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Bottom</VerticalAlign>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="LetterGenerationGUID">
+      <DataType>String</DataType>
+      <Prompt>Letter Generation GUID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LocalTime">
+      <DataType>DateTime</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=DateAdd(Dateinterval.Hour, -8, Now)</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+    <ReportParameter Name="CurrentDate">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>=MonthName(Month(Parameters!LocalTime.Value)) &amp; " " &amp; Format(Parameters!LocalTime.Value, "dd, yyyy")</Value>
+        </Values>
+      </DefaultValue>
+      <Hidden>true</Hidden>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>1</NumberOfColumns>
+      <NumberOfRows>3</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>LetterGenerationGUID</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>LocalTime</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>CurrentDate</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <CustomProperties>
+    <CustomProperty>
+      <Name>Custom</Name>
+      <Value>&lt;MSCRM xmlns="mscrm"&gt;&lt;/MSCRM&gt;</Value>
+    </CustomProperty>
+  </CustomProperties>
+  <EmbeddedImages>
+    <EmbeddedImage Name="VA_mailmerge">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>7b5b0d8d-0f27-4ac9-9a96-367c88344777</rd:ReportID>
+</Report>

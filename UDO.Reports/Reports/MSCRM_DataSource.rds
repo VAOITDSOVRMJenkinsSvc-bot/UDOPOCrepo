@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MSCRM_DataSource">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=vac21sqdverd01.database.usgovcloudapi.net;Initial Catalog=UDO_QA</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>c24be4ca-384b-4cff-a783-bb9408760dcd</DataSourceID>
+</RptDataSource>

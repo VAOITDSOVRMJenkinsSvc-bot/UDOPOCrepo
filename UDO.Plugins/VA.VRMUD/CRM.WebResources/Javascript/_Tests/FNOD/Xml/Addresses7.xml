@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <findAllPtcpntAddrsByPtcpntIdResponse xmlns:ns2="http://address.services.vetsnet.vba.va.gov/">
+      <return>
+        <addrsOneTxt>TestforMarlene</addrsOneTxt>
+        <cityNm>Tampa</cityNm>
+        <cntryNm>USA</cntryNm>
+        <efctvDt>2005-03-02T07:29:43-06:00</efctvDt>
+        <jrnDt>2005-03-02T07:29:43-06:00</jrnDt>
+        <jrnLctnId>317</jrnLctnId>
+        <jrnObjId>cestcorp</jrnObjId>
+        <jrnStatusTypeCd>I</jrnStatusTypeCd>
+        <jrnUserId>VETDHAPP</jrnUserId>
+        <postalCd>FL</postalCd>
+        <ptcpntAddrsId>204781</ptcpntAddrsId>
+        <ptcpntAddrsTypeNm>CP Payment</ptcpntAddrsTypeNm>
+        <ptcpntId>12903672</ptcpntId>
+        <sharedAddrsInd>N</sharedAddrsInd>
+        <trsurySeqNbr>8</trsurySeqNbr>
+        <zipPrefixNbr>33708</zipPrefixNbr>
+      </return>
+      <return>
+        <addrsOneTxt>21521 EASY STREET</addrsOneTxt>
+        <cityNm>TAMPA</cityNm>
+        <cntryNm>USA</cntryNm>
+        <efctvDt>2012-12-31T06:52:17-06:00</efctvDt>
+        <jrnDt>2012-12-31T06:52:17-06:00</jrnDt>
+        <jrnLctnId>317</jrnLctnId>
+        <jrnObjId>SHARE  - CADD</jrnObjId>
+        <jrnStatusTypeCd>I</jrnStatusTypeCd>
+        <jrnUserId>AVLMZURA</jrnUserId>
+        <postalCd>FL</postalCd>
+        <ptcpntAddrsId>14774623</ptcpntAddrsId>
+        <ptcpntAddrsTypeNm>Mailing</ptcpntAddrsTypeNm>
+        <ptcpntId>12903672</ptcpntId>
+        <sharedAddrsInd>N</sharedAddrsInd>
+        <trsuryAddrsFourTxt>TAMPA FL</trsuryAddrsFourTxt>
+        <trsuryAddrsOneTxt>FELIX T CAT</trsuryAddrsOneTxt>
+        <trsuryAddrsThreeTxt>APT 204</trsuryAddrsThreeTxt>
+        <trsuryAddrsTwoTxt>21521 EASY STREET</trsuryAddrsTwoTxt>
+        <trsurySeqNbr>45</trsurySeqNbr>
+        <zipPrefixNbr>33626</zipPrefixNbr>
+      </return>
+      <return>
+        <addrsOneTxt>21521 EASY STREET</addrsOneTxt>
+        <addrsTwoTxt>APT 204</addrsTwoTxt>
+        <cityNm>TAMPA</cityNm>
+        <cntryNm>USA</cntryNm>
+        <efctvDt>2012-12-31T06:52:17-06:00</efctvDt>
+        <jrnDt>2012-12-31T06:52:17-06:00</jrnDt>
+        <jrnLctnId>317</jrnLctnId>
+        <jrnObjId>SHARE  - CADD</jrnObjId>
+        <jrnStatusTypeCd>I</jrnStatusTypeCd>
+        <jrnUserId>AVLMZURA</jrnUserId>
+        <postalCd>FL</postalCd>
+        <ptcpntAddrsId>14774624</ptcpntAddrsId>
+        <ptcpntAddrsTypeNm>CP Payment</ptcpntAddrsTypeNm>
+        <ptcpntId>12903672</ptcpntId>
+        <sharedAddrsInd>N</sharedAddrsInd>
+        <trsuryAddrsFourTxt>TAMPA FL</trsuryAddrsFourTxt>
+        <trsuryAddrsOneTxt>FELIX T CAT</trsuryAddrsOneTxt>
+        <trsuryAddrsThreeTxt>APT 204</trsuryAddrsThreeTxt>
+        <trsuryAddrsTwoTxt>21521 EASY STREET</trsuryAddrsTwoTxt>
+        <trsurySeqNbr>27</trsurySeqNbr>
+        <zipPrefixNbr>33626</zipPrefixNbr>
+      </return>
+      <return>
+        <efctvDt>2012-12-31T06:52:17-06:00</efctvDt>
+        <emailAddrsTxt>fatcat@gmail.com</emailAddrsTxt>
+        <jrnDt>2012-12-31T06:52:17-06:00</jrnDt>
+        <jrnLctnId>317</jrnLctnId>
+        <jrnObjId>SHARE  - CADD</jrnObjId>
+        <jrnStatusTypeCd>I</jrnStatusTypeCd>
+        <jrnUserId>AVLMZURA</jrnUserId>
+        <ptcpntAddrsId>14774625</ptcpntAddrsId>
+        <ptcpntAddrsTypeNm>Email</ptcpntAddrsTypeNm>
+        <ptcpntId>12903672</ptcpntId>
+        <sharedAddrsInd>N</sharedAddrsInd>
+        <trsurySeqNbr>1</trsurySeqNbr>
+      </return>
+    </findAllPtcpntAddrsByPtcpntIdResponse>
+  </Body>
+</Envelope>

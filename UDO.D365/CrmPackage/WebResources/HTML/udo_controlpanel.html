@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>Contrtol Panel</title>
+    <script src="ClientGlobalContext.js.aspx" type="text/jscript"></script>
+    <script src="udo_jquery_1.9.1.min.js" type="text/jscript"></script>
+    <!--<script src="udo_SDK.JQuery.js" type="text/jscript"></script>-->
+    <!--<script src="udo_utility.js" type="text/jscript"></script>-->
+    <script src="udo_CRMCommonJS.js" type="text/javascript"></script>
+    <!--<script src="udo_notes/XrmSvcToolkit.js" type="text/jscript"></script>-->
+    <script src="udo_controlpanel.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            try {
+                var globalContext = Xrm.Utility.getGlobalContext();
+            } catch (err) {
+                console.log("Control Panel - " + err.message);
+            }
+        });
+
+    </script>
+</body>
+</html>

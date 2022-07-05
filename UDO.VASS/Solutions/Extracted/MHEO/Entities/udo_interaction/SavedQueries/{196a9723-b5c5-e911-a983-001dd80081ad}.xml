@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{196a9723-b5c5-e911-a983-001dd80081ad}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_title" select="1" preview="1" icon="1">
+      <row id="udo_interactionid" name="result">
+        <cell name="udo_veteranfirstname" width="100" />
+        <cell name="udo_veteranlastname" width="100" />
+        <cell name="udo_interactionmheointerval" width="75" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+        <cell name="udo_daysremainingininterval" width="75" imageproviderwebresource="$webresource:udo_displayiconingrid.js" imageproviderfunctionname="displayIconTooltip_DaysRemaining" disableSorting="1" />
+        <cell name="udo_numberofattempts" width="75" imageproviderwebresource="$webresource:" imageproviderfunctionname="" />
+        <cell name="udo_intervalstart" width="100" />
+        <cell name="udo_intervalend" width="100" />
+        <cell name="udo_lastcallattemptdate" width="100" />
+        <cell name="udo_vasspriorityindicator" width="100" />
+        <cell name="udo_releasedfromactivedutydate" width="100" />
+        <cell name="a_6bd1ed2041e5e911a993001dd800b582.udo_characterofdischarge" width="100" disableSorting="1" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
+      <entity name="udo_interaction">
+        <attribute name="udo_veteranlastname" />
+        <attribute name="udo_veteranfirstname" />
+        <attribute name="udo_numberofattempts" />
+        <attribute name="udo_intervalstart" />
+        <attribute name="udo_intervalend" />
+        <attribute name="udo_interactionmheointerval" />
+        <attribute name="udo_daysremainingininterval" />
+        <order attribute="udo_intervalstart" descending="false" />
+        <order attribute="udo_releasedfromactivedutydate" descending="false" />
+        <filter type="and">
+          <condition value="752280004" attribute="udo_channel" operator="eq" />
+          <condition value="0" attribute="statecode" operator="eq" />
+          <condition attribute="ownerid" operator="eq-userid" />
+          <filter type="or">
+            <condition value="5" attribute="udo_intervalstart" operator="last-x-years" />
+            <condition attribute="udo_intervalstart" operator="today" />
+          </filter>
+          <condition attribute="udo_mheocallbackdatetime" operator="null" />
+        </filter>
+        <attribute name="udo_releasedfromactivedutydate" />
+        <link-entity alias="a_6bd1ed2041e5e911a993001dd800b582" name="udo_mheointeractionassignment" from="udo_mheointeractionassignmentid" to="udo_mheointeractionassignmentid" link-type="outer" visible="false">
+          <attribute name="udo_characterofdischarge" />
+        </link-entity>
+        <attribute name="udo_lastcallattemptdate" />
+        <attribute name="udo_vasspriorityindicator" />
+        <attribute name="udo_interactionid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS My Current Interactions" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

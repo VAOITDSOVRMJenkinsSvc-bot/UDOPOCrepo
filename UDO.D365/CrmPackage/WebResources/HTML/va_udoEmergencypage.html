@@ -1,0 +1,109 @@
+<html><head>
+    <title>Emergency Call</title><style type="text/css">
+            body
+            {
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: #FFFFFF;
+                font-family: Tahoma;
+                width: 420px;
+            }
+    
+            table
+            {
+                font-family: Tahoma;
+                font-size: smaller;
+            }
+    
+            .main
+            {
+                width: 100%;
+            }
+    
+            .childtables
+            {
+                width: 100%;
+            }
+    
+            .main-header
+            {
+                color: #CC0000;
+            }
+    
+            #startEmergency, #close
+            {
+                width: 166px;
+            }
+    
+            #cancelEmergency
+            {
+                width: 166px;
+                display: none;
+            }
+    
+            #addrecipients
+            {
+                width: 390px;
+            }
+    
+            .add-recipients, .link-heades
+            {
+                border-bottom: 1px solid gray;
+                font-weight: bolder;
+            }
+    
+            #silverlightControlHost
+            {
+                background-color: #F1F3F5;
+                height: 0px;
+                width: 0px;
+            }
+    
+            h3
+            {
+                font-family: Tahoma;
+                padding-left: 5px;
+            }
+    
+            .right
+            {
+                text-align: right;
+            }
+    
+            .td-radios
+            {
+                width: 100px;
+            }
+    
+            .td-title
+            {
+                width: 300px;
+            }
+        </style><meta><meta></head>    
+        <body onload="emergOnLoad()" style="overflow-wrap: break-word;">
+            <form id="main" runat="server">    
+                <table class="main">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table class="childtables">
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: left;">
+                                                <input disabled="" id="startEmergency" type="button" value="Loading...">
+                                            </td>
+                                            <td class="right"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <script src="udo_Xrm.min.js" type="text/javascript"></script>
+                <script src="udo_jquery_1.9.1.min.js" type="text/javascript"></script>
+                <script src="udo_crmcommonjs.js" type="text/javascript"></script>
+                <script src="va_udoemergency.js" type="text/javascript"></script>    
+            </form>
+    </body></html>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SQL-Log"
+  DTS:DTSID="{39D6D28B-2E98-4690-8DB9-56FFF8894FEC}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="UserName">@[$Project::Username]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=vac21sqdverd01.database.usgovcloudapi.net;User ID=UDOSSISsvc;Initial Catalog=UDO_QA;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZsvYnSlvhk2D3cNdNQ1/pgAAAAACAAAAAAADZgAAwAAAABAAAAA0WUsnrAd55UTWivTtglAOAAAAAASAAACgAAAAEAAAAOJPqe0litBJhwXuRr3w+kWAAAAA9UrfBGNavQ6bdk0yfg9/VL5dlSpK1Cg71nEtI1+kbtTP7emaYGBIkU5Wa+2ea1W3C4Mx1jrGvAYX9JryleUG8Hfm0cKPkvdP1nt+OwuYIFNw0skjuukCF0bzJ5sa+7Uiux0rBWUKXPruklPiY8+7fCCjptg7NzXx85H6zEIzhMcUAAAAz3h8Nbk1xBfowwmz39/ozGOYcDU=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

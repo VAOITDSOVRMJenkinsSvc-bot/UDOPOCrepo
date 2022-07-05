@@ -1,0 +1,41 @@
+<fetch distinct="true" >
+  <entity name="udo_interaction" >
+    <attribute name="createdon" alias="i_createdOn" />
+    <attribute name="udo_phonenumber" alias="Phone_Number" />
+    <attribute name="udo_virtualcall" />
+    <attribute name="udo_lastname" alias="Caller_Last_Name" />
+    <attribute name="udo_firstname" alias="Caller_First_Name" />
+    <attribute name="udo_relationship" />
+    <filter type="and" >
+      <condition attribute="udo_ismigrated" operator="eq" value="0" />
+      <condition attribute="udo_channel" operator="eq" value="752280000" />
+      <condition attribute="createdon" operator="gt" value="@report_startdate"/>
+      <condition attribute="createdon" operator="lt" value="@report_enddate"/>
+    </filter>
+    <order attribute="createdon" />
+    <link-entity name="udo_request" from="udo_interaction" to="udo_interactionid" link-type="outer" alias="r" >
+      <filter type="and" >
+        <condition attribute="udo_ismigrated" operator="eq" value="0" />
+      </filter>
+      <link-entity name="contact" from="contactid" to="udo_veteran" link-type="outer" alias="c" >
+        <attribute name="udo_hasebenefitsaccount" />
+         <attribute name="udo_ebenefitstatus" alias="credLevel"/>
+      </link-entity>
+      <link-entity name="udo_requesttype" from="udo_requesttypeid" to="udo_type" link-type="outer" alias="t" >
+        <attribute name="udo_name" alias="Type" />
+      </link-entity>
+      <link-entity name="udo_requestsubtype" from="udo_requestsubtypeid" to="udo_subtype" link-type="outer" alias="st" >
+        <attribute name="udo_name" alias="SubType" />
+      </link-entity>
+    </link-entity>
+    <link-entity name="udo_servicerequest" from="udo_originatinginteractionid" to="udo_interactionid" link-type="outer" alias="sr" >
+      <attribute name="udo_action" />
+    </link-entity>
+    <link-entity name="systemuser" from="systemuserid" to="createdby" link-type="outer" alias="su" >
+      <attribute name="fullname" alias="Created_By" />
+      <link-entity name="site" from="siteid" to="siteid" alias="site" >
+        <attribute name="name" alias="site_name" />
+      </link-entity>
+    </link-entity>
+  </entity>
+</fetch>

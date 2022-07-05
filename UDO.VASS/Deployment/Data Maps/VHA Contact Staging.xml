@@ -1,0 +1,260 @@
+<Map Name="VHA Contact Staging" Source="Import">
+  <Description>Data map created automatically using the map settings specified during an import.</Description>
+  <EntitiesPerFile>Single</EntitiesPerFile>
+  <EntityMaps>
+    <EntityMap TargetEntityName="udo_vhacontactstaging" SourceEntityName="VHA Dev Format" Dedupe="Ignore" ProcessCode="Process">
+      <AttributeMaps>
+        <AttributeMap>
+          <SourceAttributeName>d_updt</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_name1</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_city</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_updt</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_hmfon</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_addr2</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>spon_bos</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_city</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_state</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>patsex</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_wkfon</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_zip</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_zip</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_state</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_city</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>sud</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_addr3</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_name2</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>risks</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_addr3</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>sep_dem</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>b_date</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_addr1</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>v_date</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>compont</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_state</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_name1</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_name2</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_hmfon</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_addr1</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_cntry</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_addr1</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>sa_sh</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_updt</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>edipn</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>anxiety</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_hmfon</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_addr2</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_wkfon</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>c_name1</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_cntry</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>ssn</SourceAttributeName>
+          <TargetAttributeName>udo_ssn</TargetAttributeName>
+          <ProcessCode>Process</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>inpat_psych</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_zip4</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_name2</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>mood</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>g_zip</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>adjust</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>d_addr2</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+        <AttributeMap>
+          <SourceAttributeName>s_date</SourceAttributeName>
+          <TargetAttributeName />
+          <ProcessCode>Ignore</ProcessCode>
+        </AttributeMap>
+      </AttributeMaps>
+    </EntityMap>
+  </EntityMaps>
+</Map>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ptcpntRlnshpService.services.vonapp.vba.va.gov/" targetNamespace="http://ptcpntRlnshpService.services.vonapp.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FaultException" nillable="true" type="xs:anyType" />
+  <xs:element name="MessageFaultException" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="100" name="faultExceptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="100" name="variables" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findAllAsArray" type="tns:findAllAsArray" />
+  <xs:element name="findAllAsArrayResponse" type="tns:findAllAsArrayResponse" />
+  <xs:element name="vnpPtcpntRlnshpCreate" type="tns:vnpPtcpntRlnshpCreate" />
+  <xs:element name="vnpPtcpntRlnshpCreateResponse" type="tns:vnpPtcpntRlnshpCreateResponse" />
+  <xs:element name="vnpPtcpntRlnshpFindByPrimaryKey" type="tns:vnpPtcpntRlnshpFindByPrimaryKey" />
+  <xs:element name="vnpPtcpntRlnshpFindByPrimaryKeyResponse" type="tns:vnpPtcpntRlnshpFindByPrimaryKeyResponse" />
+  <xs:element name="vnpPtcpntRlnshpRemove" type="tns:vnpPtcpntRlnshpRemove" />
+  <xs:element name="vnpPtcpntRlnshpRemoveResponse" type="tns:vnpPtcpntRlnshpRemoveResponse" />
+  <xs:element name="vnpPtcpntRlnshpUpdate" type="tns:vnpPtcpntRlnshpUpdate" />
+  <xs:element name="vnpPtcpntRlnshpUpdateResponse" type="tns:vnpPtcpntRlnshpUpdateResponse" />
+  <xs:complexType name="findAllAsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:vnpPtcpntRlnshp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="beginDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="childPrevlyMarriedInd" type="xs:string" />
+      <xs:element minOccurs="0" name="endDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="eventDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="familyRlnshpTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="fidAttntnTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="hlthcrPrvdrRlseInd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="livesWithRelatdPersonInd" type="xs:string" />
+      <xs:element minOccurs="0" name="marageCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="mthlySupportFromVetAmt" type="xs:double" />
+      <xs:element minOccurs="0" name="poaAgencyNm" type="xs:string" />
+      <xs:element minOccurs="0" name="poaRepNm" type="xs:string" />
+      <xs:element minOccurs="0" name="poaRepTitleTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="poaRepTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="poaSigntrVrfctnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="proofDepncyInd" type="xs:string" />
+      <xs:element minOccurs="0" name="prptnlPhraseTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntRlnshpTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="rateTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="reviewDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="statusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="tempCustdnInd" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpProcId" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpPtcpntIdA" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpPtcpntIdB" type="xs:long" />
+      <xs:element name="vnpPtcpntRlnshpId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPtcpntRlnshpDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpPtcpntRlnshpDTO">
+    <xs:sequence>
+      <xs:element name="vnpPtcpntRlnshpId" type="xs:long" />
+      <xs:element minOccurs="0" name="beginDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="childPrevlyMarriedInd" type="xs:string" />
+      <xs:element minOccurs="0" name="endDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="eventDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="familyRlnshpTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="fidAttntnTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="hlthcrPrvdrRlseInd" type="xs:string" />
+      <xs:element name="jrnDt" type="xs:dateTime" />
+      <xs:element name="jrnLctnId" type="xs:string" />
+      <xs:element name="jrnObjId" type="xs:string" />
+      <xs:element name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="livesWithRelatdPersonInd" type="xs:string" />
+      <xs:element minOccurs="0" name="marageCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="marageTrmntnTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="mthlySupportFromVetAmt" type="xs:double" />
+      <xs:element minOccurs="0" name="proofDepncyInd" type="xs:string" />
+      <xs:element minOccurs="0" name="prptnlPhraseTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntRlnshpTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="rateTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="reviewDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="statusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="tempCustdnInd" type="xs:string" />
+      <xs:element minOccurs="0" name="poaRepNm" type="xs:string" />
+      <xs:element minOccurs="0" name="poaRepTitleTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="poaSigntrVrfctnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="poaRepTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="poaAgencyNm" type="xs:string" />
+      <xs:element name="vnpProcId" type="xs:long" />
+      <xs:element name="vnpPtcpntIdA" type="xs:long" />
+      <xs:element name="vnpPtcpntIdB" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpCreateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntRlnshpDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpFindByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntRlnshpId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpFindByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntRlnshpDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPtcpntRlnshpDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPtcpntRlnshpDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpRemove">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntRlnshpId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPtcpntRlnshpRemoveResponse">
+    <xs:sequence />
+  </xs:complexType>
+</xs:schema>

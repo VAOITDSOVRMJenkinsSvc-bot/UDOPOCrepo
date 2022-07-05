@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8EA572B-F37F-432F-A06E-3F9CD7E0D83E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VRM.Integration.Servicebus.Egain.UnitTest</RootNamespace>
+    <AssemblyName>VRM.Integration.Servicebus.Egain.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>True</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\Solution Files\VRM.Integration.Servicebus.eGain.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' Or '$(VisualStudioVersion)' == '11.0'">
+      <ItemGroup>
+        <Reference Include="UIAutomationTypes" />
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="CRM007.CRM.SDK.Core, Version=2.8.0.0, Culture=neutral, PublicKeyToken=1a73bc104879edcb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\developer resources\2011pro\CRM007.CRM.SDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.xrm.sdk, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Amalgam\RTC\Developer Resources\2011\microsoft.xrm.sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+    <Reference Include="VRM.Integration.Servicebus.Bgs, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LOB Resources\BGS\VRM.Integration.Servicebus.Bgs.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Bgs.CrmModel, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LOB Resources\BGS\VRM.Integration.Servicebus.Bgs.CrmModel.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Bgs.Messages, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LOB Resources\BGS\VRM.Integration.Servicebus.Bgs.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Bgs.Services, Version=1.1.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LOB Resources\BGS\VRM.Integration.Servicebus.Bgs.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Core, Version=2.8.0.0, Culture=neutral, PublicKeyToken=1a73bc104879edcb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\developer resources\2011\VRM.Integration.Servicebus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.CRM.SDK, Version=2.8.0.0, Culture=neutral, PublicKeyToken=1a73bc104879edcb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\developer resources\2011\VRM.Integration.Servicebus.CRM.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Egain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5c2efbcd3004de98, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Egain.CrmModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5c2efbcd3004de98, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.CrmModel.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Egain.Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5c2efbcd3004de98, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Logging.CRM.Core, Version=2.8.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\developer resources\2011\VRM.Integration.Servicebus.Logging.CRM.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Logging.CRM.Messages, Version=2.8.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\developer resources\2011\VRM.Integration.Servicebus.Logging.CRM.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="VRM.Integration.Servicebus.Logging.CRM.Util, Version=2.8.0.0, Culture=neutral, PublicKeyToken=f386e260b5e92a65, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\developer resources\2011\VRM.Integration.Servicebus.Logging.CRM.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="EgainUnitTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Core.dll.config">
+      <Link>Dependencies\VRM.Integration.Servicebus.Core.dll.config</Link>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\vimt.config">
+      <Link>vimt.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.EC.config">
+      <Link>VIMT.EC.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.QACRMUDO.config">
+      <Link>VIMT.QACRMUDO.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.UDOCONFIG2015.config">
+      <Link>VIMT.UDOCONFIG2015.config</Link>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.UDODEV.config">
+      <Link>VIMT.UDODEV.config</Link>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.UDOINT.config">
+      <Link>VIMT.UDOINT.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.VRMUDOCONFIG.config">
+      <Link>VIMT.VRMUDOCONFIG.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.VRMUDOCONFIG2015.config">
+      <Link>VIMT.VRMUDOCONFIG2015.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.vrmudodev.config">
+      <Link>VIMT.vrmudodev.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\..\..\Solution Files\VimtConfigs\VIMT.vrmudodev2015.config">
+      <Link>VIMT.vrmudodev2015.config</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\CRM007.CRM.SDK.Core.dll">
+      <Link>Dependencies\CRM007.CRM.SDK.Core.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\CRM007.CRM.SDK.Core.pdb">
+      <Link>Dependencies\CRM007.CRM.SDK.Core.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.CrmModel.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.CrmModel.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.CrmModel.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.CrmModel.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.Messages.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.Messages.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.Messages.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.Messages.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.Services.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.Services.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Bgs.Services.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Bgs.Services.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Core.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Core.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Core.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Core.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.CRM.SDK.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.CRM.SDK.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.CRM.SDK.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.CRM.SDK.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.CrmModel.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Egain.CrmModel.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.CrmModel.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Egain.CrmModel.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Egain.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.Messages.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Egain.Messages.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.Messages.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Egain.Messages.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Egain.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Egain.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Logging.CRM.Core.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Logging.CRM.Core.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Logging.CRM.Core.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Logging.CRM.Core.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Logging.CRM.Messages.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Logging.CRM.Messages.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Logging.CRM.Messages.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Logging.CRM.Messages.pdb</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Logging.CRM.Util.dll">
+      <Link>Dependencies\VRM.Integration.Servicebus.Logging.CRM.Util.dll</Link>
+    </Content>
+    <Content Include="..\..\..\..\..\Solution Files\VimtAssemblies\VRM.Integration.Servicebus.Logging.CRM.Util.pdb">
+      <Link>Dependencies\VRM.Integration.Servicebus.Logging.CRM.Util.pdb</Link>
+    </Content>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

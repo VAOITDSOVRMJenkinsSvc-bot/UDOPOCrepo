@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{98aad7ec-b8c5-e911-a983-001dd80081ad}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" preview="1" icon="1">
+      <row id="udo_outboundcallattemptid" name="result">
+        <cell name="createdon" width="100" imageproviderfunctionname="" imageproviderwebresource="$webresource:" />
+        <cell name="udo_disposition" width="100" />
+        <cell name="udo_callnotes" width="300" imageproviderwebresource="$webresource:" imageproviderfunctionname="" disableSorting="1" />
+        <cell name="udo_direction" width="100" />
+        <cell name="createdby" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical">
+      <entity name="udo_outboundcallattempt">
+        <order attribute="createdon" descending="false" />
+        <attribute name="createdon" />
+        <attribute name="createdby" />
+        <attribute name="udo_callnotes" />
+        <attribute name="udo_disposition" />
+        <attribute name="udo_direction" />
+        <attribute name="udo_outboundcallattemptid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Interaction Subgrid" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

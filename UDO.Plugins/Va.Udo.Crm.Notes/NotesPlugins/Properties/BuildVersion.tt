@@ -1,0 +1,30 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+<#
+	// The two numbers below are to be updated every sprint:
+	int tMajor = 7;
+	int tSprint = 65;
+	string tUSDVersion = "2.2.1.806";
+	string tTestVersion = "1.0.0.0";
+
+	// This generates the build versions
+	int tVersion = (int)(DateTime.UtcNow-new DateTime(2016,9,1)).TotalDays;
+	string tPluginVersion = String.Format("1.0.{0}{1:000}.{2}",tMajor,tSprint,tVersion);
+	string tLOBVersion = String.Format("{0}.{1}.*",tMajor,tSprint);
+#>
+namespace AssemblyInfo {
+    internal class BuildVersion
+    {
+        internal const int Major = <#= tMajor #>;
+        internal const int Sprint = <#= tSprint #>;
+		internal const int Version = <#= tVersion #>;
+		internal const string PluginVersion = "<#= tPluginVersion #>";
+		internal const string LOBVersion = "<#= tLOBVersion #>";
+		internal const string USDVersion = "<#= tUSDVersion #>";
+		internal const string TestVersion = "<#= tTestVersion #>";
+    }
+}

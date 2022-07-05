@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.share.benefits.vba.va.gov/" name="VetRecordWebService" targetNamespace="http://services.share.benefits.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VetRecordServiceBean/VetRecordWebService?xsd=1" namespace="http://services.share.benefits.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="findBirlsRecord">
+    <part name="parameters" element="tns:findBirlsRecord" />
+  </message>
+  <message name="findBirlsRecordResponse">
+    <part name="parameters" element="tns:findBirlsRecordResponse" />
+  </message>
+  <message name="ShareException">
+    <part name="fault" element="tns:ShareException" />
+  </message>
+  <message name="insertBirlsRecord">
+    <part name="parameters" element="tns:insertBirlsRecord" />
+  </message>
+  <message name="insertBirlsRecordResponse">
+    <part name="parameters" element="tns:insertBirlsRecordResponse" />
+  </message>
+  <message name="findVeteranByFileNumber">
+    <part name="parameters" element="tns:findVeteranByFileNumber" />
+  </message>
+  <message name="findVeteranByFileNumberResponse">
+    <part name="parameters" element="tns:findVeteranByFileNumberResponse" />
+  </message>
+  <message name="findBirlsRecordByFileNumber">
+    <part name="parameters" element="tns:findBirlsRecordByFileNumber" />
+  </message>
+  <message name="findBirlsRecordByFileNumberResponse">
+    <part name="parameters" element="tns:findBirlsRecordByFileNumberResponse" />
+  </message>
+  <message name="findCorporateRecordByPtcpntId">
+    <part name="parameters" element="tns:findCorporateRecordByPtcpntId" />
+  </message>
+  <message name="findCorporateRecordByPtcpntIdResponse">
+    <part name="parameters" element="tns:findCorporateRecordByPtcpntIdResponse" />
+  </message>
+  <message name="findCorporateRecordByFileNumber">
+    <part name="parameters" element="tns:findCorporateRecordByFileNumber" />
+  </message>
+  <message name="findCorporateRecordByFileNumberResponse">
+    <part name="parameters" element="tns:findCorporateRecordByFileNumberResponse" />
+  </message>
+  <message name="findCh33RecordByFileNumber">
+    <part name="parameters" element="tns:findCh33RecordByFileNumber" />
+  </message>
+  <message name="findCh33RecordByFileNumberResponse">
+    <part name="parameters" element="tns:findCh33RecordByFileNumberResponse" />
+  </message>
+  <message name="updateBirlsRecord">
+    <part name="parameters" element="tns:updateBirlsRecord" />
+  </message>
+  <message name="updateBirlsRecordResponse">
+    <part name="parameters" element="tns:updateBirlsRecordResponse" />
+  </message>
+  <message name="syncCorporateBirls">
+    <part name="parameters" element="tns:syncCorporateBirls" />
+  </message>
+  <message name="syncCorporateBirlsResponse">
+    <part name="parameters" element="tns:syncCorporateBirlsResponse" />
+  </message>
+  <message name="findVeteranByPtcpntId">
+    <part name="parameters" element="tns:findVeteranByPtcpntId" />
+  </message>
+  <message name="findVeteranByPtcpntIdResponse">
+    <part name="parameters" element="tns:findVeteranByPtcpntIdResponse" />
+  </message>
+  <message name="findCorporateRecord">
+    <part name="parameters" element="tns:findCorporateRecord" />
+  </message>
+  <message name="findCorporateRecordResponse">
+    <part name="parameters" element="tns:findCorporateRecordResponse" />
+  </message>
+  <message name="updateDateOfDeath">
+    <part name="parameters" element="tns:updateDateOfDeath" />
+  </message>
+  <message name="updateDateOfDeathResponse">
+    <part name="parameters" element="tns:updateDateOfDeathResponse" />
+  </message>
+  <message name="insertBirlsClaimant">
+    <part name="parameters" element="tns:insertBirlsClaimant" />
+  </message>
+  <message name="insertBirlsClaimantResponse">
+    <part name="parameters" element="tns:insertBirlsClaimantResponse" />
+  </message>
+  <message name="updateBirlsClaimant">
+    <part name="parameters" element="tns:updateBirlsClaimant" />
+  </message>
+  <message name="updateBirlsClaimantResponse">
+    <part name="parameters" element="tns:updateBirlsClaimantResponse" />
+  </message>
+  <message name="findVeteran">
+    <part name="parameters" element="tns:findVeteran" />
+  </message>
+  <message name="findVeteranResponse">
+    <part name="parameters" element="tns:findVeteranResponse" />
+  </message>
+  <message name="findIndex">
+    <part name="parameters" element="tns:findIndex" />
+  </message>
+  <message name="findIndexResponse">
+    <part name="parameters" element="tns:findIndexResponse" />
+  </message>
+  <portType name="VetRecordService">
+    <operation name="findBirlsRecord">
+      <input message="tns:findBirlsRecord" />
+      <output message="tns:findBirlsRecordResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="insertBirlsRecord">
+      <input message="tns:insertBirlsRecord" />
+      <output message="tns:insertBirlsRecordResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findVeteranByFileNumber">
+      <input message="tns:findVeteranByFileNumber" />
+      <output message="tns:findVeteranByFileNumberResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findBirlsRecordByFileNumber">
+      <input message="tns:findBirlsRecordByFileNumber" />
+      <output message="tns:findBirlsRecordByFileNumberResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findCorporateRecordByPtcpntId">
+      <input message="tns:findCorporateRecordByPtcpntId" />
+      <output message="tns:findCorporateRecordByPtcpntIdResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findCorporateRecordByFileNumber">
+      <input message="tns:findCorporateRecordByFileNumber" />
+      <output message="tns:findCorporateRecordByFileNumberResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findCh33RecordByFileNumber">
+      <input message="tns:findCh33RecordByFileNumber" />
+      <output message="tns:findCh33RecordByFileNumberResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="updateBirlsRecord">
+      <input message="tns:updateBirlsRecord" />
+      <output message="tns:updateBirlsRecordResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="syncCorporateBirls">
+      <input message="tns:syncCorporateBirls" />
+      <output message="tns:syncCorporateBirlsResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findVeteranByPtcpntId">
+      <input message="tns:findVeteranByPtcpntId" />
+      <output message="tns:findVeteranByPtcpntIdResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findCorporateRecord">
+      <input message="tns:findCorporateRecord" />
+      <output message="tns:findCorporateRecordResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="updateDateOfDeath">
+      <input message="tns:updateDateOfDeath" />
+      <output message="tns:updateDateOfDeathResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="insertBirlsClaimant">
+      <input message="tns:insertBirlsClaimant" />
+      <output message="tns:insertBirlsClaimantResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="updateBirlsClaimant">
+      <input message="tns:updateBirlsClaimant" />
+      <output message="tns:updateBirlsClaimantResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findVeteran">
+      <input message="tns:findVeteran" />
+      <output message="tns:findVeteranResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+    <operation name="findIndex">
+      <input message="tns:findIndex" />
+      <output message="tns:findIndexResponse" />
+      <fault name="ShareException" message="tns:ShareException" />
+    </operation>
+  </portType>
+  <binding name="VetRecordWebServicePortBinding" type="tns:VetRecordService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findBirlsRecord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertBirlsRecord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVeteranByFileNumber">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findBirlsRecordByFileNumber">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCorporateRecordByPtcpntId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCorporateRecordByFileNumber">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCh33RecordByFileNumber">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateBirlsRecord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="syncCorporateBirls">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVeteranByPtcpntId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCorporateRecord">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateDateOfDeath">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="insertBirlsClaimant">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateBirlsClaimant">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVeteran">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findIndex">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ShareException">
+        <soap:fault use="literal" name="ShareException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VetRecordWebService">
+    <port name="VetRecordWebServicePort" binding="tns:VetRecordWebServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VetRecordServiceBean/VetRecordWebService" />
+    </port>
+  </service>
+</definitions>

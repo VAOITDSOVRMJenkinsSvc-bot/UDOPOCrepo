@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{8a05a854-45e5-e911-a993-001dd800b582}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" preview="1" icon="1">
+      <row id="udo_mheointeractionassignmentid" name="result">
+        <cell name="a_fd73b66841e5e911a993001dd800b582.firstname" width="100" disableSorting="1" />
+        <cell name="a_fd73b66841e5e911a993001dd800b582.middlename" width="100" disableSorting="1" />
+        <cell name="a_fd73b66841e5e911a993001dd800b582.lastname" width="100" disableSorting="1" />
+        <cell name="a_fd73b66841e5e911a993001dd800b582.udo_phonenumber1" width="100" disableSorting="1" />
+        <cell name="a_fd73b66841e5e911a993001dd800b582.udo_phonenumber2" width="100" disableSorting="1" />
+        <cell name="udo_city" width="100" />
+        <cell name="udo_state" width="100" />
+        <cell name="udo_releasedfromactivedutydate" width="100" />
+        <cell name="udo_characterofdischarge" width="100" />
+        <cell name="a_fd73b66841e5e911a993001dd800b582.udo_ssn" width="100" disableSorting="1" />
+        <cell name="udo_vasspriorityindicator" width="100" />
+        <cell name="ownerid" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="udo_mheointeractionassignment">
+        <attribute name="udo_state" />
+        <attribute name="udo_city" />
+        <attribute name="ownerid" />
+        <order attribute="udo_city" descending="false" />
+        <link-entity name="team" from="teamid" to="owningteam" alias="aa">
+          <filter type="and">
+            <condition value="VASS National" attribute="name" operator="eq" />
+          </filter>
+        </link-entity>
+        <link-entity name="contact" from="contactid" to="udo_contactid" alias="a_fd73b66841e5e911a993001dd800b582" visible="false" link-type="outer">
+          <attribute name="udo_ssn" />
+          <attribute name="udo_phonenumber2" />
+          <attribute name="udo_phonenumber1" />
+          <attribute name="middlename" />
+          <attribute name="lastname" />
+          <attribute name="firstname" />
+        </link-entity>
+        <attribute name="udo_releasedfromactivedutydate" />
+        <attribute name="udo_characterofdischarge" />
+        <attribute name="udo_vasspriorityindicator" />
+        <attribute name="udo_mheointeractionassignmentid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>10.01.19</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="National View - Not Yet Routed" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,5 @@
+The following changes have been made for this version.
+
+1. All LOBs combined into a single Visual Studio solution
+2. POI enhancements
+3. Technical debt changes

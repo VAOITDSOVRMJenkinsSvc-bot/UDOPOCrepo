@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{5f634d31-62fa-e911-a996-001dd800b582}" name="VASS Email Template">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendEmailTemplate" level="Global" />
+    <RolePrivilege name="prvAppendToEmailTemplate" level="Global" />
+    <RolePrivilege name="prvAssignEmailTemplate" level="Global" />
+    <RolePrivilege name="prvCreateEmailTemplate" level="Global" />
+    <RolePrivilege name="prvCreateOrgEmailTemplates" level="Global" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvDeleteEmailTemplate" level="Global" />
+    <RolePrivilege name="prvReadEmailTemplate" level="Global" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvShareEmailTemplate" level="Global" />
+    <RolePrivilege name="prvWriteEmailTemplate" level="Global" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+  </RolePrivileges>
+</Role>

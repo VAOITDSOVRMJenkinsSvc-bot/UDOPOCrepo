@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator">
+            <summary>
+            Interaction logic for ChatIndicator.xaml
+            </summary>
+            <summary>
+            ChatIndicator
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator.ChatIndicatorValues">
+            <summary>
+            set the xml values
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator.WaitCustomer">
+            <summary>
+            Set status to waiting on Customer
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator.WaitAgent">
+            <summary>
+            Set status to waiting on Agent
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator.GetExtensionXML(Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicatorExtensions)">
+            <summary>
+            Get the extension XML from the sessiontabs
+            </summary>
+            <param name="chatIndicatorExtensions">ChatIndicatorExtensions</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicator.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicatorExtensions">
+            <summary>
+            Class to hold the xaml extesions values
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicatorExtensions.Timespan">
+            <summary>
+            holds the timespan values with start time,end time and hex color code
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicatorExtensions.Blink">
+            <summary>
+            holds the blink value
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.TimespanXML">
+            <summary>
+            holds the timespan values with start time,end time and hex color code
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.TimespanXML.Start">
+            <summary>
+            reads the start attribute
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.TimespanXML.End">
+            <summary>
+            Reads the End attribute
+            </summary>
+        </member>
+        <member name="P:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.TimespanXML.Color">
+            <summary>
+            Reads the color attribute
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl">
+            <summary>
+            Interaction logic for MainControl.xaml
+            </summary>
+            <summary>
+            MainControl
+            </summary>
+        </member>
+        <member name="F:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl.IsBlink">
+            <summary>
+            Set the blink value
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl.ResetIndicator(Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.ChatIndicatorExtensions)">
+            <summary>
+            Interaction logic for ResetIndicator
+            </summary>
+            <param name="xmlValues">ChatIndicatorExtensions</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl.CreateColorAnimation(System.Windows.Media.Color,System.Int32,System.Int32)">
+            <summary>
+            Dynamic creation of coloranimation
+            </summary>
+            <param name="color"></param>
+            <param name="start"></param>     
+            <param name="duration"></param>    
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl.onCompleted(System.Object,System.EventArgs)">
+            <summary>
+            On complete of storyboard starts blink effect
+            </summary>
+            <param name="sender">Storyboard</param>
+            <param name="e">Storyboard Completed</param>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.MainControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.OutlookNotification">
+            <summary>
+            Interaction logic for OutlookNotification.xaml
+            </summary>
+            <summary>
+            OutlookNotification
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.OutlookNotification.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Microsoft.Crm.UnifiedServiceDesk.RoundProgressIndicator.OutlookNotification.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

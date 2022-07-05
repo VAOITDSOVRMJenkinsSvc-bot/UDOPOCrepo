@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="PropertyTaxExemption">
+    <Query>
+      <DataSourceReference>MSCRM_DataSource</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@LetterGenerationGUID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT *
+FROM LetterGeneration
+WHERE udo_lettergenerationid = @LetterGenerationGUID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="udo_lettergenerationid">
+        <DataField>udo_lettergenerationid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_reqnumber">
+        <DataField>udo_reqnumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_dateofdeath">
+        <DataField>udo_dateofdeath</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="transactioncurrencyid">
+        <DataField>transactioncurrencyid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="IDprefix">
+        <Value>
+            =IIf(Len(Fields!udo_filenumber.Value) = 9 And Not IsNothing(Fields!udo_dateofdeath.Value), "XSS", "")
+            + IIf(Len(Fields!udo_filenumber.Value) &lt; 9 And Not IsNothing(Fields!udo_dateofdeath.Value), "XC", "")
+            + IIf(Len(Fields!udo_filenumber.Value) &lt; 9 And IsNothing(Fields!udo_dateofdeath.Value), "C", "")
+            + IIf(Len(Fields!udo_filenumber.Value) = 9 And IsNothing(Fields!udo_dateofdeath.Value), "CSS","")
+          </Value>
+      </Field>
+      <Field Name="udo_filenumber">
+        <DataField>udo_filenumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="VetFileNum">
+        <Value>
+            =Switch(
+            Len(Fields!udo_filenumber.Value) = 9, Left(Fields!udo_filenumber.Value, 3) + " " + Mid(Fields!udo_filenumber.Value, 4, 2) + " " + Right(Fields!udo_filenumber.Value, 4),
+            Len(Fields!udo_filenumber.Value) = 8, Left(Fields!udo_filenumber.Value, 2) + " " + Mid(Fields!udo_filenumber.Value, 3, 3) + " " + Mid(Fields!udo_filenumber.Value, 6, 3),
+            Len(Fields!udo_filenumber.Value) = 7, Left(Fields!udo_filenumber.Value, 1) + " " + MId(Fields!udo_filenumber.Value, 2, 3) + " " + Mid(Fields!udo_filenumber.Value, 5, 3),
+            Len(Fields!udo_filenumber.Value) = 6, Left(Fields!udo_filenumber.Value, 3) + " " + Mid(Fields!udo_filenumber.Value, 4, 3)
+            )
+          </Value>
+      </Field>
+      <Field Name="udo_injurydiseasedisableddate">
+        <DataField>udo_injurydiseasedisableddate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="InjuryDate">
+        <Value>=FormatDateTime(CDate(Fields!udo_injurydiseasedisableddate.Value), 2)</Value>
+      </Field>
+      <Field Name="udo_blindnesseffectivedate">
+        <DataField>udo_blindnesseffectivedate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="BlindDate">
+        <Value>=FormatDateTime(CDate(Fields!udo_blindnesseffectivedate.Value),2)</Value>
+      </Field>
+      <Field Name="udo_limblosseffectivedate">
+        <DataField>udo_limblosseffectivedate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="LimbLossDate">
+        <Value>=FormatDateTime(CDate(Fields!udo_limblosseffectivedate.Value),2)</Value>
+      </Field>
+      <Field Name="Evaluation">
+        <DataField>Evaluation</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="c_fullname">
+        <Value>=StrConv(Fields!vet_firstname.Value + " " + IIf(Not IsNothing(Fields!vet_middlename.Value), Left(Fields!vet_middlename.Value,1) + " ", "") + Fields!vet_lastname.Value, 3)</Value>
+      </Field>
+      <Field Name="VetSSN">
+        <DataField>VetSSN</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ClaimNumber">
+        <DataField>ClaimNumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_mailing_address1">
+        <DataField>udo_mailing_address1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_mailing_address2">
+        <DataField>udo_mailing_address2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_mailing_address3">
+        <DataField>udo_mailing_address3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_mailing_city">
+        <DataField>udo_mailing_city</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="VetAddress1">
+        <Value>=UCase(Fields!udo_mailing_address1.Value)</Value>
+      </Field>
+      <Field Name="VetAddress2">
+        <Value>=UCase(Fields!udo_mailing_address2.Value)</Value>
+      </Field>
+      <Field Name="VetAddress3">
+        <Value>=UCase(Fields!udo_mailing_address3.Value)</Value>
+      </Field>
+      <Field Name="VetCity">
+        <Value>=UCase(Fields!udo_mailing_city.Value)</Value>
+      </Field>
+      <Field Name="VetState">
+        <Value>=UCase(Fields!udo_mailing_state.Value)</Value>
+      </Field>
+      <Field Name="VetZip">
+        <Value>=UCase(Fields!udo_mailing_zip.Value)</Value>
+      </Field>
+      <Field Name="VetCountry">
+        <Value>
+            =IIf(UCase(Fields!udo_mailingcountry.Value) = "US"
+            Or UCase(Fields!udo_mailingcountry.Value) = "USA"
+            Or UCase(Fields!udo_mailingcountry.Value) = "U.S."
+            Or UCase(Fields!udo_mailingcountry.Value) = "U.S.A."
+            Or UCase(Fields!udo_mailingcountry.Value) = "UNITED STATES"
+            Or UCase(Fields!udo_mailingcountry.Value) = "UNITED STATES OF AMERICA", "",
+            UCase(Fields!udo_mailingcountry.Value))
+          </Value>
+      </Field>
+      <Field Name="udo_mailing_state">
+        <DataField>udo_mailing_state</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_mailing_zip">
+        <DataField>udo_mailing_zip</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_mailingcountry">
+        <DataField>udo_mailingcountry</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="VetBranch">
+        <DataField>VetBranch</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="VetDOD">
+        <Value>=Format(CDate(Fields!udo_dateofdeath.Value), "MMM dd, yyyy") </Value>
+      </Field>
+      <Field Name="SRdescription">
+        <DataField>SRdescription</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SRbranch">
+        <DataField>SRbranch</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SReoddate">
+        <DataField>SReoddate</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SRraddate">
+        <DataField>SRraddate</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SRratingdegree">
+        <DataField>SRratingdegree</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SRratingeffectivedate">
+        <DataField>SRratingeffectivedate</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CurrentDate">
+        <Value>=MonthName(Month(Now())) &amp; Format(Now(), "MM, yyyy")</Value>
+      </Field>
+      <Field Name="DependentAmount">
+        <DataField>DependentAmount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="NetAmount">
+        <DataField>NetAmount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="PaymentAmount">
+        <DataField>PaymentAmount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="AAAmount">
+        <DataField>AAAmount</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="udo_letteraddressing">
+        <DataField>udo_letteraddressing</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PensionBenefit">
+        <DataField>PensionBenefit</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="CurrentMonthlyRate">
+        <DataField>CurrentMonthlyRate</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="udo_letteraddressingValue">
+        <DataField>udo_letteraddressingValue</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EffectiveDate">
+        <DataField>EffectiveDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="udo_srfirstname">
+        <DataField>udo_srfirstname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FutureExamDate">
+        <DataField>FutureExamDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="OwnerFileNum">
+        <DataField>OwnerFileNum</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_dateofbirth">
+        <DataField>udo_dateofbirth</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="udo_evaluationconsideredpermanent">
+        <DataField>udo_evaluationconsideredpermanent</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="ReplyName">
+        <Value>=StrConv(Fields!vet_lastname.Value &amp; " " &amp; Left(Fields!vet_firstname.Value,1) &amp; " " &amp; IIf(IsNothing(Fields!vet_middlename.Value),"", Left(Fields!vet_middlename.Value,1)), 3)</Value>
+      </Field>
+      <Field Name="OwnerManager">
+        <DataField>OwnerManager</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="va_replyreferto">
+        <DataField>va_replyreferto</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_srlastname">
+        <DataField>udo_srlastname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_firstname">
+        <DataField>udo_firstname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_lastname">
+        <DataField>udo_lastname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_address1">
+        <DataField>udo_address1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_address2">
+        <DataField>udo_address2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_address3">
+        <DataField>udo_address3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_faxnumber">
+        <DataField>ic_va_faxnumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_city">
+        <DataField>udo_city</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_udo_returnmailingaddress">
+        <DataField>ic_udo_returnmailingaddress</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_state">
+        <DataField>udo_state</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_zipcode">
+        <DataField>udo_zipcode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_country">
+        <DataField>udo_country</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_faxnumber">
+        <DataField>pc_va_faxnumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pc_udo_returnmailingaddress">
+        <DataField>pc_udo_returnmailingaddress</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="SOJname">
+        <Value>=IIf(IsNothing(Fields!soj_intakecenterid.Value), Fields!soj_alias.Value, Fields!ic_va_alias.Value)</Value>
+      </Field>
+      <Field Name="SOJaddress1">
+        <Value>=IIf(IsNothing(Fields!soj_intakecenterid.Value), Fields!soj_address1.Value, Fields!ic_va_address1.Value)</Value>
+      </Field>
+      <Field Name="SOJaddress2">
+        <Value>=IIf(IsNothing(Fields!soj_intakecenterid.Value), Fields!soj_address2.Value, Fields!ic_va_address2.Value)</Value>
+      </Field>
+      <Field Name="SOJcity">
+        <Value>=IIf(IsNothing(Fields!soj_intakecenterid.Value), Fields!soj_city.Value, Fields!ic_va_city.Value)</Value>
+      </Field>
+      <Field Name="SOJstate">
+        <Value>=IIf(IsNothing(Fields!soj_intakecenterid.Value ), Fields!soj_state.Value, Fields!ic_va_state.Value)</Value>
+      </Field>
+      <Field Name="SOJzip">
+        <Value>=IIf(IsNothing(Fields!soj_intakecenterid.Value), Fields!soj_zipcode.Value, Fields!ic_va_zipcode.Value)</Value>
+      </Field>
+      <Field Name="CCaddress1">
+        <DataField>CCaddress1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CCaddress2">
+        <DataField>CCaddress2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CCaddress3">
+        <DataField>CCaddress3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CCcity">
+        <DataField>CCcity</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_moderrorvalue">
+        <DataField>udo_moderrorvalue</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="soj_va_name">
+        <DataField>soj_va_name</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_faxdescription">
+        <DataField>udo_faxdescription</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CCstate">
+        <DataField>CCstate</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_faxnumber">
+        <DataField>udo_faxnumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_faxnumberofpages">
+        <DataField>udo_faxnumberofpages</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="MPList">
+        <DataField>MPList</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CCzip">
+        <DataField>CCzip</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ManagerFirst">
+        <DataField>ManagerFirst</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ManagerLast">
+        <DataField>ManagerLast</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ManagerTitle">
+        <DataField>ManagerTitle</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ManagerTitleLine1">
+        <Value>RO Director</Value>
+      </Field>
+      <Field Name="Enclosures">
+        <DataField>Enclosures</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ManagerTitleLine2">
+        <Value>VA Regional Office</Value>
+      </Field>
+      <Field Name="Prefix">
+        <DataField>Prefix</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_address2">
+        <DataField>ic_va_address2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_address3">
+        <DataField>ic_va_address3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_address1">
+        <DataField>ic_va_address1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_state">
+        <DataField>ic_va_state</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_city">
+        <DataField>ic_va_city</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_depfirstname">
+        <DataField>udo_depfirstname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_zipcode">
+        <DataField>ic_va_zipcode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="udo_deplastname">
+        <DataField>udo_deplastname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DepName">
+        <Value>=StrConv(Fields!udo_depfirstname.Value + " " + Fields!udo_deplastname.Value, 3)</Value>
+      </Field>
+      <Field Name="ic_va_localfax">
+        <DataField>ic_va_localfax</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ic_va_alias">
+        <DataField>ic_va_alias</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DischargeTypes">
+        <DataField>DischargeTypes</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Disabilities">
+        <DataField>Disabilities</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DisabilityPercent">
+        <DataField>DisabilityPercent</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_address2">
+        <DataField>pc_va_address2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_alias">
+        <DataField>soj_alias</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_address1">
+        <DataField>soj_address1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="LostLimbOrBlind">
+        <DataField>LostLimbOrBlind</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="Discharge">
+        <DataField>Discharge</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_address2">
+        <DataField>soj_address2</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_address3">
+        <DataField>pc_va_address3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_address3">
+        <DataField>soj_address3</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_state">
+        <DataField>soj_state</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_address1">
+        <DataField>pc_va_address1</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_city">
+        <DataField>soj_city</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ServiceDates">
+        <DataField>ServiceDates</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_zipcode">
+        <DataField>soj_zipcode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_state">
+        <DataField>pc_va_state</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="soj_intakecenterid">
+        <DataField>soj_intakecenterid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DiedInActiveDuty">
+        <DataField>DiedInActiveDuty</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_city">
+        <DataField>pc_va_city</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DiedToDisability">
+        <DataField>DiedToDisability</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_zipcode">
+        <DataField>pc_va_zipcode</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DisabilityInd">
+        <DataField>DisabilityInd</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_localfax">
+        <DataField>pc_va_localfax</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ReceivedGrant">
+        <DataField>ReceivedGrant</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="pc_va_alias">
+        <DataField>pc_va_alias</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="EntitledToHigherDisability">
+        <DataField>EntitledToHigherDisability</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="BenefitType">
+        <DataField>BenefitType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="AwardBenefitType">
+        <DataField>AwardBenefitType</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="PayDate">
+        <DataField>PayDate</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="vet_lastname">
+        <DataField>vet_lastname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="vet_middlename">
+        <DataField>vet_middlename</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FaxNum">
+        <DataField>FaxNum</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FaxDescription">
+        <DataField>FaxDescription</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ContactFirstName">
+        <Value>=StrConv(Fields!udo_firstname.Value, vbProperCase)</Value>
+      </Field>
+      <Field Name="ContactLastName">
+        <Value>=StrConv(Fields!udo_lastname.Value, vbProperCase)</Value>
+      </Field>
+      <Field Name="ContactAddress1">
+        <Value>=UCase(Fields!udo_address1.Value)</Value>
+      </Field>
+      <Field Name="ContactAddress2">
+        <Value>=UCase(Fields!udo_address2.Value)</Value>
+      </Field>
+      <Field Name="ContactAddress3">
+        <Value>=UCase(Fields!udo_address3.Value)</Value>
+      </Field>
+      <Field Name="ContactCity">
+        <Value>=UCase(Fields!udo_city.Value)</Value>
+      </Field>
+      <Field Name="ContactState">
+        <Value>=UCase(Fields!udo_state.Value)</Value>
+      </Field>
+      <Field Name="ContactCountry">
+        <Value>
+            =IIf(UCase(Fields!udo_country.Value) = "US"
+            Or UCase(Fields!udo_country.Value) = "USA"
+            Or UCase(Fields!udo_country.Value) = "U.S."
+            Or UCase(Fields!udo_country.Value) = "U.S.A."
+            Or UCase(Fields!udo_country.Value) = "UNITED STATES"
+            Or UCase(Fields!udo_country.Value) = "UNITED STATES OF AMERICA", "",
+            UCase(Fields!udo_country.Value))
+          </Value>
+      </Field>
+      <Field Name="vet_firstname">
+        <DataField>vet_firstname</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="FaxPages">
+        <DataField>FaxPages</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ContactZip">
+        <Value>=UCase(Fields!udo_zipcode.Value)</Value>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{2b505b36-5232-4e9b-9bee-d7591ac9fb1d}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="400">
+    <tabs>
+      <tab id="{9bd06f2c-e5b7-4863-8d6d-dc6806ec4900}" name="tab_1" showlabel="false">
+        <labels>
+          <label description="Tab" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{8eee0de4-61b5-a93b-a733-aa2163b5d077}" name="tab_1_section_2" showlabel="false" celllabelposition="Left" celllabelalignment="Left" labelwidth="115" locklevel="0" columns="1" showbar="false" IsUserDefined="0" layout="varwidth">
+                <labels>
+                  <label description="Contact Info from Veteran Profile" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{33bdedc3-d20c-9e84-5ad2-00e1a4ddc70b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SSN" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_ssn" datafieldname="udo_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{325cec9e-06c2-c167-87e5-4698716a2080}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Gender" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_gender" datafieldname="udo_gender" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c48e57ea-d788-a022-c798-7435d235a35e}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="DOB" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_birthdatestring" datafieldname="udo_birthdatestring" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{3920391d-ac11-0032-3223-e71d341d73cb}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c95c6157-c620-0470-b0d4-b98ab600a776}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Phone # 1" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_phonenumber1" datafieldname="udo_phonenumber1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5ac65e96-dec3-6d13-8109-45874389b7e7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Phone 1 Type" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_phone1type" datafieldname="udo_phone1type" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3b94b660-2375-0695-30ce-d9bdc92041dc}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Phone # 2" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_phonenumber2" datafieldname="udo_phonenumber2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{140d3241-3377-9e95-61d5-85b955c334be}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Phone 2 Type" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_phone2type" datafieldname="udo_phone2type" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{3c393700-4c64-c7d4-04cd-da5bb0739526}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Email" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="emailaddress1" datafieldname="emailaddress1" classid="{ADA2203E-B4CD-49be-9DDF-234642B43B52}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0b37906a-5a93-9ed1-cc82-6c7931959d48}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Record Source" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_recordsource" datafieldname="udo_recordsource" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions Order="5">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="VASS Veteran Profile Quick View" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

@@ -1,0 +1,195 @@
+﻿<shared:BaseHostedControlCommon x:Class=" Va.Udo.Usd.CustomControls.VeteranSnapShot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:USD="clr-namespace:Microsoft.Crm.UnifiedServiceDesk.Dynamics;assembly=Microsoft.Crm.UnifiedServiceDesk.Dynamics"
+             xmlns:shared="clr-namespace:Va.Udo.Usd.CustomControls.Shared"
+             mc:Ignorable="d">
+    <Grid Margin="1" Width="350">
+        <Grid.Resources>
+            <Style x:Key="Odd" TargetType="{x:Type Rectangle}">
+                <!--<Setter Property="Fill" Value="WhiteSmoke"/>-->
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="true">
+                        <Setter Property="Fill" Value="#333333"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="false">
+                        <Setter Property="Fill" Value="WhiteSmoke"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="Even" TargetType="{x:Type Rectangle}">
+                <!--<Setter Property="Fill" Value="White"/>-->
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="true">
+                        <Setter Property="Fill" Value="#000000"/>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="false">
+                        <Setter Property="Fill" Value="White"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="{x:Type Button}">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Source={x:Static SystemParameters.HighContrast}}" Value="true">
+                        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Style.Triggers>
+                    <Trigger Property="IsFocused" Value="true">
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="Background" Value="WhiteSmoke"/>
+                    </Trigger>
+                    <Trigger Property="IsFocused" Value="false">
+                        <Setter Property="BorderThickness" Value="0" />
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="135" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource Even}" />
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Odd}" />
+        <Rectangle Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="7" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="9" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="10" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="11" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="12" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="13" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="14" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="15" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="16" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="17" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="18" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="19" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="20" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="21" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="22" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="23" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="24" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+        <Rectangle Grid.Row="25" Grid.ColumnSpan="2" Style="{StaticResource Odd}"/>
+        <Rectangle Grid.Row="26" Grid.ColumnSpan="2" Style="{StaticResource Even}"/>
+
+        <Label x:Name="lblName" FontSize="12" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtName}" AutomationProperties.IsRowHeader="True" Padding="0">Name:</Label>
+        <Label x:Name="lblSSN" FontSize="12" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtSSN}" AutomationProperties.IsRowHeader="True" Padding="0">SSN / File Number:</Label>
+        <Label x:Name="lblBOS" FontSize="12" Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtBOS}" AutomationProperties.IsRowHeader="True" Padding="0">Branch Of Service:</Label>
+        <Label x:Name="lblSOJ" FontSize="12" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtSOJ}" AutomationProperties.IsRowHeader="True" Padding="0">Station of Jurisdiction:</Label>
+        <Label x:Name="lblCOD" FontSize="12" Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtCOD}" AutomationProperties.IsRowHeader="True" Padding="0">Character of Discharge:</Label>
+        <Label x:Name="lblRank" FontSize="12" Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtRank}" AutomationProperties.IsRowHeader="True" Padding="0">Rank:</Label>
+        <Label x:Name="lblPOA" FontSize="12" Grid.Row="6" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtPOA}" AutomationProperties.IsRowHeader="True" Padding="0">POA:</Label>
+        <Label x:Name="lblDOB" FontSize="12" Grid.Row="7" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtDOB}" AutomationProperties.IsRowHeader="True" Padding="0">DOB:</Label>
+        <Label x:Name="lblGender" FontSize="12" Grid.Row="8" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtGender}" AutomationProperties.IsRowHeader="True" Padding="0">Gender:</Label>
+        <Label x:Name="lblDOD" FontSize="12" Grid.Row="9" Grid.Column="0" VerticalAlignment="Top" Target="{Binding ElementName=txtDOD}" AutomationProperties.IsRowHeader="True" Padding="0">DOD:</Label>
+        <Label x:Name="lblOGCLink" FontSize="12" Grid.Row="10" Grid.Column="0" Target="{Binding ElementName=btnOGCLink}" AutomationProperties.IsRowHeader="True" Padding="0">OGC Database Link:</Label>
+        <Label x:Name="lblFidicuary" FontSize="12" Grid.Row="11" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtFidicuary}" AutomationProperties.IsRowHeader="True" Padding="0">Fiduciary Info:</Label>
+        <Label x:Name="lblPersonOrgName" FontSize="12" Grid.Row="12" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtPersonOrgName}" AutomationProperties.IsRowHeader="True" Padding="0" HorizontalAlignment="Right">Person/Org Name:</Label>
+        <Label x:Name="lblSCCombinedRating" FontSize="12" Grid.Row="13" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtSCCombinedRating}" AutomationProperties.IsRowHeader="True" Padding="0">S/C Combined Rating:</Label>
+        <Label x:Name="lblSCCombinedDegree" FontSize="12" Grid.Row="14" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtSCCombinedDegree}" AutomationProperties.IsRowHeader="True" Padding="0">NSC Combined Degree:</Label>
+        <Label x:Name="lblAwardType" FontSize="12" Grid.Row="15" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtAwardType}" AutomationProperties.IsRowHeader="True" Padding="0">Award Type:</Label>
+        <Label x:Name="lblPayStatus" FontSize="12" Grid.Row="16" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtPayStatus}" AutomationProperties.IsRowHeader="True" Padding="0">Pay Status:</Label>
+        <Label x:Name="lblLastPaidDate" FontSize="12" Grid.Row="17" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtLastPaidDate}" AutomationProperties.IsRowHeader="True" Padding="0">Last Paid Date:</Label>
+        <Label x:Name="lblAmount" FontSize="12" Grid.Row="18" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtAmount}" AutomationProperties.IsRowHeader="True" Padding="0">Amount:</Label>
+        <Label x:Name="lblNextScheduledPayDate" FontSize="12" Grid.Row="19" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtNextScheduledPayDate}" AutomationProperties.IsRowHeader="True" Padding="0">Next Scheduled Pay Date:</Label>
+        <Label x:Name="lblNextAmount" FontSize="12" Grid.Row="20" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtNextAmount}" AutomationProperties.IsRowHeader="True" Padding="0">Next Amount:</Label>
+        <Label x:Name="lblPendingClaims" FontSize="12" Grid.Row="21" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtPendingClaims}" AutomationProperties.IsRowHeader="True" Padding="0">Pending Claims:</Label>
+        <Label x:Name="lblPendingAppeals" FontSize="12" Grid.Row="22" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtPendingAppeals}" AutomationProperties.IsRowHeader="True" Padding="0">Pending Appeals:</Label>
+        <Label x:Name="lblMailingAddress" FontSize="12" Grid.Row="23" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtMailingAddress}" AutomationProperties.IsRowHeader="True" Padding="0" HorizontalAlignment="Right" Width="135">Mailing Address:</Label>
+        <Label x:Name="lblLastPhoneCallHistory" FontSize="12" Grid.Row="24" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtLastPhoneCallHistory}" AutomationProperties.IsRowHeader="True" Padding="0">Last Phone Call History:</Label>
+        <Label x:Name="lblStatus" FontSize="12" Grid.Row="25" Grid.Column="0" VerticalAlignment="Top"  Target="{Binding ElementName=txtStatus}" AutomationProperties.IsRowHeader="True" Padding="0">Status:</Label>
+
+        <TextBox x:Name="txtName" FontSize="12" Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Full Name"  AutomationProperties.LabeledBy="{Binding ElementName=lblName}" />
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="100" />
+                <ColumnDefinition Width="14"/>
+                <ColumnDefinition  Width="100" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="txtSSN" FontSize="12" Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" Background="Transparent" IsReadOnly="True" Text="" Width="90" HorizontalAlignment="Left" AutomationProperties.Name="Veteran Social Security Number" AutomationProperties.LabeledBy="{Binding ElementName=lblSSN}" />
+            <TextBlock FontSize="12" Margin="5,0,0,0" Grid.Row="1" Grid.Column="1" Text="/" TextWrapping="Wrap" Width="14" />
+            <TextBox x:Name="txtFileNumber" FontSize="12" Margin="5,0,0,0" Grid.Row="0" Grid.Column="2" Background="Transparent" IsReadOnly="True" Text="" Width="90" AutomationProperties.Name="Veteran File Number" />
+        </Grid>
+        <TextBox x:Name="txtBOS" FontSize="12" Margin="5,0,0,0" Grid.Row="2" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Branch of Service" AutomationProperties.LabeledBy="{Binding ElementName=lblBOS}" />
+        <TextBox x:Name="txtSOJ" FontSize="12" Margin="5,0,0,0" Grid.Row="3" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Station of Jurisdiction" AutomationProperties.LabeledBy="{Binding ElementName=lblSOJ}" />
+        <TextBox x:Name="txtCOD" FontSize="12" Margin="5,0,0,0" Grid.Row="4" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Character of Discharge" AutomationProperties.LabeledBy="{Binding ElementName=lblCOD}" />
+        <TextBox x:Name="txtRank" FontSize="12" Margin="5,0,0,0" Grid.Row="5" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Rank" AutomationProperties.LabeledBy="{Binding ElementName=lblRank}" />
+        <TextBox x:Name="txtPOA" FontSize="12" Margin="5,0,0,0" Grid.Row="6" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran POA" AutomationProperties.LabeledBy="{Binding ElementName=lblPOA}" />
+        <TextBox x:Name="txtDOB" FontSize="12" Margin="5,0,0,0" Grid.Row="7" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Date of Birth" AutomationProperties.LabeledBy="{Binding ElementName=lblDOB}" />
+        <TextBox x:Name="txtGender" FontSize="12" Margin="5,0,0,0" Grid.Row="8" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Veteran Gender" AutomationProperties.LabeledBy="{Binding ElementName=lblGender}" />
+        <TextBox x:Name="txtDOD" FontSize="22" Margin="5,0,0,0" Grid.Row="9" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Foreground="Red" Width="210" AutomationProperties.Name="Veteran Date of Death" AutomationProperties.LabeledBy="{Binding ElementName=lblDOD}" />
+        <Button x:Name="btnOGCLink" FontSize="12" Margin="5,0,0,0" Grid.Row="10" Grid.Column="1" Width="100"  Command="USD:ActionCommands.DoActionCommand" HorizontalAlignment="Left"
+          CommandParameter="http://uii/Global%20Manager/LaunchURL?http%3A%2F%2Fwww.va.gov%2Fogc%2Fapps%2Faccreditation%2Findex.asp" AutomationProperties.Name="OGC Database Link" AutomationProperties.LabeledBy="{Binding ElementName=lblOGCLink}" >OPEN LINK</Button>
+        <TextBox x:Name="txtFidicuary" FontSize="22" Margin="5,0,0,0" Grid.Row="11" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Foreground="Red" Width="210" AutomationProperties.Name="Fiduciary Info" AutomationProperties.LabeledBy="{Binding ElementName=lblFidicuary}" />
+        <TextBox x:Name="txtPersonOrgName" FontSize="22" Margin="5,0,0,0" Grid.Row="12" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Foreground="Red" Width="210" AutomationProperties.Name="Person / Org Name" AutomationProperties.LabeledBy="{Binding ElementName=lblPersonOrgName}" />
+        <TextBox x:Name="txtSCCombinedRating" FontSize="12" Margin="5,0,0,0" Grid.Row="13" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="S/C Combined Rating" AutomationProperties.LabeledBy="{Binding ElementName=lblSCCombinedRating}" />
+        <TextBox x:Name="txtSCCombinedDegree" FontSize="12" Margin="5,0,0,0" Grid.Row="14" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="NSC Combined Degree" AutomationProperties.LabeledBy="{Binding ElementName=lblSCCombinedDegree}" />
+        <TextBox x:Name="txtAwardType" FontSize="12" Margin="5,0,0,0" Grid.Row="15" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Award Type" AutomationProperties.LabeledBy="{Binding ElementName=lblAwardType}" />
+        <TextBox x:Name="txtPayStatus" FontSize="12" Margin="5,0,0,0" Grid.Row="16" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Pay Status" AutomationProperties.LabeledBy="{Binding ElementName=lblPayStatus}" />
+        <TextBox x:Name="txtLastPaidDate" FontSize="12" Margin="5,0,0,0" Grid.Row="17" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Last Paid Date" AutomationProperties.LabeledBy="{Binding ElementName=lblLastPaidDate}" />
+        <TextBox x:Name="txtAmount" FontSize="12" Margin="5,0,0,0" Grid.Row="18" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Amount" AutomationProperties.LabeledBy="{Binding ElementName=lblAmount}" />
+        <TextBox x:Name="txtNextScheduledPayDate" FontSize="12" Margin="5,0,0,0" Grid.Row="19" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Next Scheduled Pay Date" AutomationProperties.LabeledBy="{Binding ElementName=lblNextScheduledPayDate}" />
+        <TextBox x:Name="txtNextAmount" FontSize="12" Margin="5,0,0,0" Grid.Row="20" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Next Amount" AutomationProperties.LabeledBy="{Binding ElementName=lblNextAmount}" />
+        <TextBox x:Name="txtPendingClaims" FontSize="12" Margin="5,0,0,0" Grid.Row="21" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Pending Claims" AutomationProperties.LabeledBy="{Binding ElementName=lblPendingClaims}" />
+        <TextBox x:Name="txtPendingAppeals" FontSize="12" Margin="5,0,0,0" Grid.Row="22" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Pending Appeals" AutomationProperties.LabeledBy="{Binding ElementName=lblPendingAppeals}" />
+        <TextBox x:Name="txtMailingAddress" FontSize="12" Margin="5,0,0,0" Grid.Row="23" Grid.Column="1" IsReadOnly="True" Text="" TextWrapping="Wrap" Width="210" AutomationProperties.Name="Mailing Address" AutomationProperties.LabeledBy="{Binding ElementName=lblMailingAddress}" />
+        <TextBox x:Name="txtLastPhoneCallHistory" FontSize="12" Margin="5,0,0,0" Grid.Row="24" Grid.Column="1" IsReadOnly="True" Text=""  TextWrapping="Wrap" Width="210" AutomationProperties.Name="Last Phone Call History" AutomationProperties.LabeledBy="{Binding ElementName=lblLastPhoneCallHistory}" />
+        <Grid Grid.Row="25" Grid.Column="1" Height="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition  Width="84"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="txtStatus" FontSize="12" Margin="5,0,0,0" Grid.Row="0" Grid.Column="0" IsReadOnly="True" Text="" TextWrapping="Wrap" AutomationProperties.Name="Veteran Snapshot Status" AutomationProperties.LabeledBy="{Binding ElementName=lblStatus}" />
+            <Button x:Name="btnRefresh" FontSize="12" Margin="0,0,0,0" Grid.Row="0" Grid.Column="1" Width="80" Height="25"  HorizontalAlignment="Left" Click="BtnRefresh_OnClick"
+         AutomationProperties.Name="Veteran Snapshot Refresh">REFRESH</Button>
+        </Grid>
+        <ProgressBar Name="SearchProgress" Grid.Row="26" Grid.Column="1" Height="10" Margin="2" />
+    </Grid>
+</shared:BaseHostedControlCommon>

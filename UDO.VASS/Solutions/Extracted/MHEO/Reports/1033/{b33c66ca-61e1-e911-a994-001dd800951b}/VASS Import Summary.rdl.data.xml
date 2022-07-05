@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report>
+  <name>VASS Import Summary</name>
+  <defaultfilter></defaultfilter>
+  <iscustomreport>0</iscustomreport>
+  <filename>VASS Import Summary.rdl</filename>
+  <languagecode>1033</languagecode>
+  <reportid>{b33c66ca-61e1-e911-a994-001dd800951b}</reportid>
+  <reporttypecode>1</reporttypecode>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <createdinmajorversion>9</createdinmajorversion>
+  <iscustomizable>1</iscustomizable>
+  <ExportedFileName>/Reports/VASSImportSummaryrdlb33c66ca-61e1-e911-a994-001dd800951b</ExportedFileName>
+  <ReportCategories>
+    <ReportCategory name="Administrative Reports">4</ReportCategory>
+  </ReportCategories>
+  <ReportVisibilities>
+    <ReportVisbility>1</ReportVisbility>
+  </ReportVisibilities>
+  <ReportEntities />
+</Report>

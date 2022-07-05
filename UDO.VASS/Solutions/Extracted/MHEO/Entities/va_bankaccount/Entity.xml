@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Entity>
+  <Name LocalizedName="Change of Address &amp; Bank Account" OriginalName="Change of Address &amp; Bank Account">va_bankaccount</Name>
+  <EntityInfo>
+    <entity Name="va_bankaccount" unmodified="1">
+      <attributes />
+    </entity>
+  </EntityInfo>
+  <SavedQueries />
+  <RibbonDiffXml />
+</Entity>

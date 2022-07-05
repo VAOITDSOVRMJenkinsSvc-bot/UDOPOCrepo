@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{684a67cb-01d6-47d3-b6bd-754362a57a50}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="400">
+    <tabs>
+      <tab id="{9bd06f2c-e5b7-4863-8d6d-dc6806ec4900}" name="tab_1" labelid="{d3fe30ed-ab9f-42da-b270-8801728dce95}" showlabel="false">
+        <labels>
+          <label description="Tab" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section name="tab_1_section_1" showlabel="false" showbar="false" locklevel="0" id="{2272a531-422c-0a1d-1e11-76a2e27e340c}" IsUserDefined="0" layout="varwidth" columns="1" labelwidth="115">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{220ea186-3647-8145-d06e-549dd23823b6}" showlabel="false" colspan="1" auto="false" rowspan="7">
+                      <labels>
+                        <label description="Email Messages (Regarding)" languagecode="1033" />
+                      </labels>
+                      <control id="EmailHistory" classid="{E7A81278-8635-4d9e-8D4D-59480B391C5B}" indicationOfSubgrid="true">
+                        <parameters>
+                          <ViewId>{7CABB017-CBE9-E911-A98D-001DD800A749}</ViewId>
+                          <IsUserView>false</IsUserView>
+                          <RelationshipName>Contact_Emails</RelationshipName>
+                          <TargetEntityType>email</TargetEntityType>
+                          <AutoExpand>Fixed</AutoExpand>
+                          <EnableQuickFind>false</EnableQuickFind>
+                          <EnableViewPicker>false</EnableViewPicker>
+                          <ViewIds>{7CABB017-CBE9-E911-A98D-001DD800A749},{7AFF64B0-5B8C-4AD7-89F8-976777EEE178}</ViewIds>
+                          <EnableJumpBar>false</EnableJumpBar>
+                          <ChartGridMode>All</ChartGridMode>
+                          <VisualizationId>{1EC1872A-23DE-4294-9D7F-1B76272A5FD5}</VisualizationId>
+                          <IsUserChart>false</IsUserChart>
+                          <EnableChartPicker>true</EnableChartPicker>
+                          <RecordsPerPage>5</RecordsPerPage>
+                          <HeaderColorCode>#F3F3F3</HeaderColorCode>
+                        </parameters>
+                      </control>
+                    </cell>
+                  </row>
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                  <row />
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions Order="6">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Email History" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

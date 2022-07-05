@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Register xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/crm/2011/tools/pluginregistration">
+  <Solutions>
+    <Solution Assembly="UDO.Plugin.AttachFileToEmail.dll" Id="00000000-0000-0000-0000-000000000000" IsolationMode="Sandbox" SourceType="Database">
+      <PluginTypes>
+        <clear />
+        <Plugin Description="Plug-in to dcg_AttachPDFtoEmail of incident" FriendlyName="dcg_AttachPDFtoEmail of incident" Name="UDO.Plugin.AttachFileToEmail.PreOperationincidentdcg_AttachPDFtoEmail" Id="00000000-0000-0000-0000-000000000000" TypeName="UDO.Plugin.AttachFileToEmail.PreOperationincidentdcg_AttachPDFtoEmail">
+          <Steps>
+            <clear />
+            <Step AsyncAutoDelete="false" Name="dcg_AttachPDFtoEmail of incident" Description="dcg_AttachPDFtoEmail of incident" Id="00000000-0000-0000-0000-000000000000" ImpersonatingUserId="00000000-0000-0000-0000-000000000000" MessageName="dcg_AttachPDFtoEmail" Mode="Synchronous" PrimaryEntityName="incident" Rank="1" Stage="PreInsideTransaction" SupportedDeployment="ServerOnly" MessageEntityId="00000000-0000-0000-0000-000000000000">
+              <Images />
+            </Step>
+          </Steps>
+        </Plugin>
+      </PluginTypes>
+    </Solution>
+  </Solutions>
+  <XamlWorkflows />
+</Register>

@@ -1,0 +1,375 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="expires" content="-1"/>
+<title>Payments/Debts</title>
+<link rel="stylesheet" type="text/css" href="css/template.css" />
+<link rel="stylesheet" type="text/css" href="tcal.css" />
+<script type="text/javascript" src="tcal.js"></script> 
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" language="javascript" src="js/pcrScripts.js"></script> 
+<script type="text/javascript" src="js/va_CrmRestKit_2011.js"></script> 
+
+</head>
+<body onload="LoadScriptData()">
+<script type="text/javascript" >
+    //Declare VIP and CRM from a page level
+    var VIP = null;
+    var CRM = null;
+    var Xrm = null;
+
+    if (parent.opener.Xrm) {
+        CRM = parent.opener;
+        Xrm = parent.opener.Xrm;
+    }
+    else if (parent.opener.parent.Xrm) {
+        CRM = parent.opener.parent;
+        VIP = parent.opener;
+        Xrm = parent.opener.parent.Xrm;
+    }
+
+	function LoadScriptData() {
+		if (!parent || !parent.opener) {
+			alert('Cannot update Payment Script window with the selected data because parent window with cached Veteran information is not available.');
+			return null;
+		}
+
+		if (!VIP) {
+		    alert("Cannot update Payment Script because script wasn't opened from the Payment Information tab in the veteran search.");
+		    // get address from BIRLS Folder Location
+		    try {
+		        var xml = CRM.Xrm.Page.getAttribute("va_findbirlsresponse").getValue();
+		        var xmlObj = null;
+		        if (xml && xml.length > 0) {
+		            xmlObj = CRM._XML_UTIL.parseXmlObject(xml);
+		            if (xmlObj && xmlObj.selectSingleNode('//CLAIM_FOLDER_LOCATION') && xmlObj.selectSingleNode('//CLAIM_FOLDER_LOCATION').text) {
+		                var soj = xmlObj.selectSingleNode('//CLAIM_FOLDER_LOCATION').text;
+		                document.getElementById('soj').value = soj;
+		                if (soj && soj.length > 0) { UpdateSOJAddress(); }
+		            }
+		        }
+		    }
+		    catch (xpe) { }
+		    return null;
+		}
+	    // to proceed, need to have general info about person and birls info and selected Financials record
+		var finRecord = null, corpRecord = null, genInfo = null, claims = null, status = '', rad = null, claimDate = null;
+
+		if ((VIP._selectedRecForPayScript != undefined) && (VIP._selectedRecForPayScript)) {
+			finRecord = VIP._selectedRecForPayScript;
+
+			if (finRecord.programType != undefined && finRecord.programType) { status = '<br/>' + finRecord.programType; }
+			if (finRecord.paymentType != undefined && finRecord.paymentType) { status += ', ' + finRecord.paymentType; }
+			if (finRecord.paymentStatus != undefined && finRecord.paymentStatus) { status += ', ' + finRecord.paymentStatus; }
+			if (finRecord.paymentAmount != undefined && finRecord.paymentAmount) { status += ' - $' + finRecord.paymentAmount; }
+			if (finRecord.paymentDate != undefined && finRecord.paymentDate) { status += '; ' + finRecord.paymentDate; }
+			if (finRecord.paymentStatus == undefined && finRecord.payCheckType != undefined) {
+				// could be no selection of Payment History record
+				status = '<br/>' + finRecord.payCheckType;
+				if (finRecord.payCheckAmount != undefined && finRecord.payCheckAmount) { status += ': ' + finRecord.payCheckAmount; }
+				if (finRecord.payCheckDate != undefined && finRecord.payCheckDate) { status += '; ' + finRecord.payCheckDate; }
+			}
+		}
+
+		var RO = null;
+		if ((VIP._claimFolderLocation != undefined) && (VIP._claimFolderLocation)) {
+			RO = VIP._claimFolderLocation;
+			document.getElementById('soj').value = RO;
+		}
+
+		var ln = document.getElementById('ln');
+		var clStatus = document.getElementById('clStatus');
+
+		clStatus.innerHTML = status;
+
+		// get rad date
+		if ((VIP._corpData != undefined) && (VIP._corpData) && (VIP._corpData.length > 0)) {
+			corpRecord = VIP._corpData[0];
+			ln.innerHTML = corpRecord.get('fullName');
+			if (VIP._corpData.length > 2) {
+				genInfo = VIP._corpData[2];
+				rad = new Date(genInfo.get('releasedActiveDutyDate_F'));
+				ln.innerHTML = corpRecord.get('fullName') + ', RAD ' + genInfo.get('releasedActiveDutyDate_F');
+				document.getElementById('rad').innerHTML = genInfo.get('releasedActiveDutyDate_F');
+				document.getElementById('radLbl2').innerHTML = genInfo.get('releasedActiveDutyDate_F');
+				document.getElementById('rad3').innerHTML = genInfo.get('releasedActiveDutyDate_F');
+				document.getElementById('rad4').innerHTML = genInfo.get('releasedActiveDutyDate_F');
+
+				var effMonth = rad.getMonth() + 1, effYear = rad.getFullYear();
+				if (effMonth == 12) { effMonth = 1; effYear++; }
+				else { effMonth++; }
+				var effDate = effMonth + '/01/' + effYear;
+				document.getElementById('effectiveDate').innerHTML = effDate;
+				document.getElementById('effectiveDate2').innerHTML = effDate;
+
+				// Payment Entitlement Date is one month after effective
+				var peMonth = effMonth + 1, peYear = effYear; if (peMonth == 13) { peMonth = 1; peYear++; }
+				var peDate = peMonth + '/01/' + peYear;
+				document.getElementById('peDate').innerHTML = peDate;
+
+				// actual pay date is 1 month after pe date
+				var apMonth = peMonth + 1, apYear = peYear; if (apMonth == 13) { apMonth = 1; apYear++; }
+				var apDate = apMonth + '/01/' + apYear;
+				document.getElementById('apDate').innerHTML = apDate;
+			}
+		}
+
+		// get claim date
+		var gotClaimDate = false;
+		var claimCount = 0, openClaimCount = 0;
+		if ((VIP._claims != undefined) && (VIP._claims) && (VIP._claims.getCount() > 0)) {
+			claims = VIP._claims.data;
+			var claimOpenIndex = -1, claimAnyIndex = -1, claimObj = null, curOpenClaimDate = null, curAnyClaimDate = null;
+			if (claims.items != undefined) { claimCount = claims.items.length; claimObj = claims.items; }
+			else { claimCount = claims.length; claimObj = claims; }
+
+			for (var i = 0; i < claimCount; i++) {
+				var claimStatus = claimObj[i].get('statusTypeCode');
+				var claimDate = new Date(claimObj[i].get('claimReceiveDate_f'));
+				if (claimStatus != 'CLR' && claimStatus != 'CAN') {
+					if (!curOpenClaimDate || claimDate > curOpenClaimDate) {
+						claimOpenIndex = i;
+						curOpenClaimDate = claimDate;
+						openClaimCount++;
+					}
+				}
+
+				if (!curAnyClaimDate || claimDate > curAnyClaimDate) {
+					claimAnyIndex = i;
+					curAnyClaimDate = claimDate;
+				}
+
+			}
+
+			if (claimAnyIndex == -1) { claimAnyIndex = 0; }
+			if (claimOpenIndex == -1) { claimOpenIndex = claimAnyIndex; }
+
+			var selectedClaim = claimObj[claimOpenIndex];
+			var claimDate = new Date(selectedClaim.get('claimReceiveDate_f'));
+			document.getElementById('claimDate').innerHTML = selectedClaim.get('claimReceiveDate_f');
+			document.getElementById('claimDate2').innerHTML = selectedClaim.get('claimReceiveDate_f');
+			document.getElementById('effectiveDate3').innerHTML = selectedClaim.get('claimReceiveDate_f');
+			gotClaimDate = true;
+
+			var effMonth = claimDate.getMonth() + 1, effYear = claimDate.getFullYear();
+
+			var peMonth = effMonth + 1, peYear = effYear; if (peMonth == 13) { peMonth = 1; peYear++; }
+			var peDate = peMonth + '/01/' + peYear;
+			document.getElementById('peDate2').innerHTML = peDate;
+
+			var apMonth = peMonth + 1, apYear = peYear; if (apMonth == 13) { apMonth = 1; apYear++; }
+			var apDate = apMonth + '/01/' + apYear;
+			document.getElementById('apDate2').innerHTML = apDate;
+		}
+
+		if (!gotClaimDate) {
+			document.getElementById('rad1').style.display = 'none';
+			document.getElementById('rad2').style.display = 'none';
+		}
+		if (gotClaimDate && rad) {
+			// calculate effective date
+			//Get 1 day in milliseconds
+			var one_day = 1000 * 60 * 60 * 24;
+			var daysDiff = Math.abs(Math.ceil((rad.getTime() - claimDate.getTime()) / one_day));
+
+			if (daysDiff > 365) { document.getElementById('rad1').style.display = 'none'; document.getElementById('rad2').style.display = 'block'; }
+			else { document.getElementById('rad1').style.display = 'block'; document.getElementById('rad2').style.display = 'none'; }
+		}
+
+		// generate notes
+		var notes = '';
+		if (claimCount == 0) {
+			notes = 'NOTE: no claims found.';
+		}
+		else if (openClaimCount == 0) {
+			notes = 'NOTE: no open claims found. Using claim date from the newest claim.';
+		}
+		else {
+			notes = 'NOTE: ' + openClaimCount.toString() + ' open claim(s) found.';
+		}
+		document.getElementById('pcrnote').innerHTML = notes;
+	}
+
+	function AverageClaimProcTimes() {
+	    var soj = document.getElementById('soj').value;
+	    if (!soj || soj.length == 0) { alert('Please enter SOJ'); return; }
+	    if (!parent || !parent.opener && !parent.opener.parent) {
+	        alert('Phone Call screen is not available. Average Claim Processing Times cannot be retrieved.');
+	        return;
+	    }
+
+	    var columns = ['va_name', 'va_AvgControlTime', 'va_AvgDaysAwaitingAuthorization', 'va_AvgDaysAwaitingAward', 'va_AvgDaysAwaitingDecision', 'va_AvgDaysAwaitingDevelopment', 'va_AvgDaysAwaitingEvidence', 'va_ROJName', 'va_RelatedClaimCodes', 'va_DevelopmentPhase', 'va_DecisionPhase', 'va_NotificationPhase', 'va_EPC', 'va_Form9', 'va_NOD'];
+	    var sojCode = soj;
+	    var s = '';
+
+	    if (sojCode.length > 3) sojCode = sojCode.substring(0, 3);
+	    //var processingTime = parent.opener.parent.CrmRestKit.RetrieveMultiple('va_claimprocessingtimes', columns, "va_name eq '" + sojCode + "'");
+	    CrmRestKit2011.ByQueryAll('va_claimprocessingtimes', columns, "va_name eq '" + sojCode + "'")
+	    .fail(
+            function (err) {
+                UTIL.restKitError(err, 'Failed to retrieve Claim Times information from table:');
+            })
+            .done(function (data) {
+                // if there's more than one result, try to find one that has claim type for current claim
+                if ((data) && (data.length > 0)) {
+
+                    // get current claim type code
+                    var recordIndex = 0;
+
+                    // grab first empty record
+                    for (var i = 0; i < data.length; i++) {
+                        var curResult = data[i],
+                            curCodes = curResult.va_EPC;
+
+                        if (!curCodes || curCodes.length == 0) {
+                            // found our entry
+                            recordIndex = i;
+
+                            var ROJName = (curResult.va_ROJName != null) ? curResult.va_ROJName : 'n/a';
+                            var DevelopmentPhase = (curResult.va_DevelopmentPhase != null) ? curResult.va_DevelopmentPhase : 'n/a';
+                            var DecisionPhase = (curResult.va_DecisionPhase != null) ? curResult.va_DecisionPhase : 'n/a';
+                            var NotificationPhase = (curResult.va_NotificationPhase != null) ? curResult.va_NotificationPhase : 'n/a';
+                            var Form9 = (curResult.va_Form9 != null) ? curResult.va_Form9 : 'n/a';
+                            var NOD = (curResult.va_NOD != null) ? curResult.va_NOD : 'n/a';
+
+                            s += 'ROJ Name: ' + ROJName + '\n' +
+                                        'Development Phase: ' + DevelopmentPhase + '\n' +
+                                        'Decision Phase: ' + DecisionPhase + '\n' +
+                                        'Notification Phase: ' + NotificationPhase + '\n' +
+                                        'Form 9: ' + Form9 + '\n' +
+                                        'NOD: ' + NOD + '\n\n';
+                        }
+                    }
+
+                    if (s) {
+                        alert(s);
+                    }
+                    else {
+                        alert('The Claim processing times lookup table does not have an entry for ROJ Code ' + soj);
+                    }
+                }
+            });
+
+	}
+	function toggleDiv(divid) {
+		if (document.getElementById(divid).style.display == 'none') {
+			document.getElementById(divid).style.display = 'block';
+		} else {
+			document.getElementById(divid).style.display = 'none';
+		}
+
+		var divs = ['rad1', 'rad2'];
+		for (var i in divs) {
+			if (divs[i] != divid) {
+				var curDiv = document.getElementById(divs[i]);
+				if (curDiv.style.display != 'none') { curDiv.style.display = 'none'; }
+			}
+		}
+	}
+	</script>
+	<form action="#">
+<div class="container">
+
+	<div id="sidenav">
+		<img src="images/logo.bmp" alt="VRM Logo" align="center"; style="padding-left:25px; padding-top:10px" />
+		<h1 align="center">Reference</h1>
+		<ul>
+			<li style="color:white; font-size:larger">DMC Links</li>
+			<li><a href="http://vbrs.vba.va.gov/vbrs/doLink.do?path=Federal%20Benefits%20to%20Veterans%20and%20Dependents.Debt%20Management">Debt Management Center website </a></li>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000003628">Information on DMC</a></li>
+			<li><a href="http://vbrs.vba.va.gov/vbrs/doLink.do?path=Federal%20Benefits%20to%20Veterans%20and%20Dependents.Debt%20Management.If%20You%20Cannot%20Afford%20to%20Pay%20the%20Debt%20Back">If You Can't Afford to Pay Back a Debt? (Waivers and Compromises)</a></li>
+			<li><a href="http://vbrs.vba.va.gov/vbrs/doLink.do?path=Federal%20Benefits%20to%20Veterans%20and%20Dependents.Debt%20Management.How%20to%20Pay%20a%20Debt%20Back">If you Owe VA</a></li>
+			<li><a href="http://vbrs.vba.va.gov/vbrs/doLink.do?path=Federal%20Benefits%20to%20Veterans%20and%20Dependents.Debt%20Management.If%20You%20Cannot%20Afford%20to%20Pay%20the%20Debt%20Back">Payment Options</a></li>
+			<li><a href="https://www.pay.va.gov/">Pay Online</a></li>
+			<li><a href="http://vbrs.vba.va.gov/vbrs/doLink.do?path=Federal%20Benefits%20to%20Veterans%20and%20Dependents.Debt%20Management.If%20You%20Cannot%20Afford%20to%20Pay%20the%20Debt%20Back">Waiver Requests</a></li>
+			<li><a href="http://www.va.gov/vaforms/va/pdf/VA5655blank.pdf/">VA Form 5655, Financial Status Report</a></li>						
+			<p align="center" style="color:white;">U.S. Department of Veterans Affairs <br/> 
+			Debt Management Center <br/> 
+			P.O. Box 11930  <br/> 
+			St. Paul, MN 55111 <br/> 
+			Phone:(800)827-0648, TNT: 232 <br/>
+			Fax:(612) 970-5688 <br/> <br/>
+			</p>			
+			<li style="color:white; font-size:larger">Non Receipt Check Tracer Links</li>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000003321">Bring up the Checklist</a></li>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000003412">How and where to return payment</a></li>
+			<li><a href="https://vaww.vrm.km.va.gov/system/templates/selfservice/va_ka/portal.html?portalid=554400000001001&articleid=554400000008829">PMC Information and Map</a></li>
+			<p align="center" style="color:white;">Address for opened paper checks:<br/> 
+			Treasury Department<br/> 
+			Financial Management Services<br/> 
+			PO Box 51320<br/> 
+			Philadelphia, PA 19115-8320<br/>
+			</p>
+		</ul>
+	</div>
+
+	<div id="content">
+
+	<div id="header" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: bold; margin-top: 5px; margin-bottom: 5px; display: none;" align="left">
+		<label id="ln"></label><label id="clStatus"></label>&nbsp;<br/><br/>
+		<a id="acpt" onclick="AverageClaimProcTimes()"  
+		style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF;" 
+		title="Click to view Average Processing Times">Av. Proc Times for</a>&nbsp;<input 
+		id="soj" type="text" style="width: 40px" />&nbsp;<label id="apcCom" style="font-size:9px; font-weight:normal">based on BIRLS Claim Folder Location</label>
+		<br />
+	</div>  
+
+	<h1>Pay Date / Effective Date</h1>
+	<a  href="javascript:;" onmousedown="toggleDiv('rad1');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Veteran's claim received &lt; 1 year from RAD</a><br/>
+	<div id="rad1">
+	<table style="margin-left:20px; width:inherit" border="1">
+		<tr>
+			<th style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold">Veteran's claim received &lt; 1 year from RAD</th>
+		</tr>
+		<tr>
+			<td><ul>Because we received your claim within one year of your release from active duty (RAD), the effective date of your claim is the day following your RAD. Your RAD is <label id="rad"></label>, so your effective date is the first of the month following your discharge date, which is <label id="effectiveDate">UNKNOWN</label>. Your payment entitlement date is the first of the following month. You will actually receive this money the first of the next month (because VA pays one month behind).</ul>
+				<ul>Example:</ul>
+				<ul>RAD: <label id="radLbl2"></label><br>
+				Effective date: <label id="effectiveDate2"></label><br>
+				Payment entitlement date: <label id="peDate"></label><br>
+				Actual pay date: <label id="apDate"></label></ul>
+			</td>
+		</tr>
+	</table>
+	</div>
+	<br />
+	<a  href="javascript:;" onmousedown="toggleDiv('rad2');" 
+			style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Veteran's claim received &gt; 1 year from RAD</a><br/>
+	<div id="rad2">
+	<table style="margin-left:20px; width:inherit" border="1">
+		<tr>
+			<th style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold">Veteran's claim received &gt; 1 year from RAD</th>
+		</tr>
+		<tr>
+			<td><ul>Because we received your claim more than one year after your date of discharge (<label id="rad4"></label>), your date of claim (DOC), <label id="claimDate"></label>, is your effective date. Your payment entitlement date is the first of the following month. You will actually receive this money the first of the next month (because VA pays one month behind).</ul>
+				<ul>Example:</ul>
+				<ul>RAD: <label id="rad3"></label><br>
+				DOC: <label id="claimDate2"></label> (more than 1 yr. after RAD)<br>
+				Effective date: <label id="effectiveDate3"></label><br>
+				Payment entitlement date: <label id="peDate2"></label><br>
+				Actual pay date: <label id="apDate2"></label></ul>
+			</td>
+		</tr>
+	</table>
+	</div>
+	
+	<h1>Pay Date on Weekend/Holiday</h1>
+		<ul>VA pays benefits on the first of each month for the previous month. But if the first falls on a weekend or holiday, payment is the last business day of the previous month. </ul>
+		<ul>Example: In 2008, March 1 is a Saturday, so benefits would be paid on Feb. 29 (Friday). </ul>
+	</div>
+ 
+	<label id="pcrnote" style="font-size:11px; font-weight:normal"></label>
+	
+	<br/>
+	<table><tr><td>Calendar</td>
+	<td><input type="text" name="date" class="tcal" value="" /></td>
+	</tr></table>
+</div>
+
+	</form>
+</body>
+</html>

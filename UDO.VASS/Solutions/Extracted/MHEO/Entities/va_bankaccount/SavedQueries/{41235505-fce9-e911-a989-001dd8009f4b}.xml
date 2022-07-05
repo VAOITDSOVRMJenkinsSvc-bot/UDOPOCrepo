@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{41235505-fce9-e911-a989-001dd8009f4b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="va_name" select="1" icon="1" preview="1">
+      <row name="result" id="va_bankaccountid">
+        <cell name="va_name" width="200" />
+        <cell name="createdon" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="va_awardtypecode" width="200" />
+        <cell name="va_bankaccountpaymenttype" width="200" />
+        <cell name="va_depositaccountnumber" width="200" />
+        <cell name="va_depositaccounttype" width="150" />
+        <cell name="va_depositbegindate" width="150" />
+        <cell name="va_depositenddate" width="150" />
+        <cell name="va_directdepositexistsindicator" width="150" />
+        <cell name="va_filenumber" width="100" />
+        <cell name="va_firstname" width="100" />
+        <cell name="va_lastname" width="100" />
+        <cell name="va_mailingaddress1" width="150" />
+        <cell name="va_mailingcity" width="100" />
+        <cell name="va_mailingstate" width="100" />
+        <cell name="va_mailingcountry" width="150" />
+        <cell name="va_mailingaddresszipcode" width="200" />
+        <cell name="va_netrateamount" width="100" />
+        <cell name="va_participantbeneid" width="150" />
+        <cell name="va_participantrecipid" width="150" />
+        <cell name="va_participantvetid" width="150" />
+        <cell name="va_payeetypecode" width="150" />
+        <cell name="va_paymentaddress1" width="200" />
+        <cell name="va_paymentcity" width="100" />
+        <cell name="va_paymentstate" width="100" />
+        <cell name="va_paymentcountry" width="150" />
+        <cell name="va_paymentzipcode" width="150" />
+        <cell name="va_routingnumber" width="150" />
+        <cell name="va_treasurysequencenumber" width="200" />
+        <cell name="va_type" width="100" />
+        <cell name="va_accountownerid" width="100" />
+        <cell name="va_email" width="100" />
+        <cell name="va_mailingaddressexistsindicator" width="100" />
+        <cell name="va_payment" width="100" />
+        <cell name="va_recepient" width="100" />
+        <cell name="va_recurringpayableeffectivedate" width="100" />
+        <cell name="va_originalfirstname" width="100" />
+        <cell name="va_originallastname" width="100" />
+        <cell name="va_originalmiddlename" width="100" />
+        <cell name="va_originalsuffix" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="udo_caddstatus" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="va_bankaccount">
+        <attribute name="va_name" />
+        <attribute name="createdon" />
+        <attribute name="va_accountownerid" />
+        <attribute name="va_type" />
+        <attribute name="va_treasurysequencenumber" />
+        <attribute name="va_routingnumber" />
+        <attribute name="va_paymentzipcode" />
+        <attribute name="va_paymentstate" />
+        <attribute name="va_paymentcountry" />
+        <attribute name="va_paymentcity" />
+        <attribute name="va_paymentaddress1" />
+        <attribute name="va_payeetypecode" />
+        <attribute name="va_participantvetid" />
+        <attribute name="va_participantrecipid" />
+        <attribute name="va_participantbeneid" />
+        <attribute name="va_netrateamount" />
+        <attribute name="va_mailingstate" />
+        <attribute name="va_mailingcountry" />
+        <attribute name="va_mailingcity" />
+        <attribute name="va_mailingaddresszipcode" />
+        <attribute name="va_mailingaddress1" />
+        <attribute name="va_lastname" />
+        <attribute name="va_firstname" />
+        <attribute name="va_filenumber" />
+        <attribute name="va_directdepositexistsindicator" />
+        <attribute name="va_depositenddate" />
+        <attribute name="va_depositbegindate" />
+        <attribute name="va_depositaccounttype" />
+        <attribute name="va_depositaccountnumber" />
+        <attribute name="va_bankaccountpaymenttype" />
+        <attribute name="va_awardtypecode" />
+        <attribute name="va_recurringpayableeffectivedate" />
+        <attribute name="va_recepient" />
+        <attribute name="va_payment" />
+        <attribute name="va_mailingaddressexistsindicator" />
+        <attribute name="va_email" />
+        <attribute name="va_originalsuffix" />
+        <attribute name="va_originalmiddlename" />
+        <attribute name="va_originallastname" />
+        <attribute name="va_originalfirstname" />
+        <attribute name="ownerid" />
+        <attribute name="udo_caddstatus" />
+        <attribute name="createdby" />
+        <order attribute="createdon" descending="true" />
+        <attribute name="va_bankaccountid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="MHEO: CADD &gt; 2/1/2016" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

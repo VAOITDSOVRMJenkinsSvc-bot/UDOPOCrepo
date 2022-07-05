@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{269e3be6-34c0-e911-a98c-001dd800951b}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_title" select="1" preview="1" icon="1">
+      <row id="udo_interactionid" name="result">
+        <cell name="udo_title" width="150" />
+        <cell name="udo_veteranfirstname" width="100" />
+        <cell name="udo_veteranlastname" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="udo_numberofattempts" width="100" />
+        <cell name="udo_veteranssn" width="100" />
+        <cell name="udo_intervalstart" width="100" />
+        <cell name="udo_intervalend" width="100" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch distinct="false" mapping="logical" output-format="xml-platform" version="1.0">
+      <entity name="udo_interaction">
+        <attribute name="udo_title" />
+        <attribute name="udo_veteranssn" />
+        <attribute name="udo_veteranlastname" />
+        <attribute name="udo_veteranfirstname" />
+        <attribute name="ownerid" />
+        <attribute name="udo_numberofattempts" />
+        <attribute name="udo_intervalstart" />
+        <attribute name="udo_intervalend" />
+        <order attribute="udo_title" descending="false" />
+        <filter type="and">
+          <condition value="752280004" attribute="udo_channel" operator="eq" />
+          <condition value="0" attribute="statecode" operator="eq" />
+          <condition value="30" attribute="udo_intervalend" operator="next-x-days" />
+        </filter>
+        <attribute name="udo_interactionid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VASS Interactions Due within 30 Days" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://bnftClaimService.services.vonapp.vba.va.gov/" targetNamespace="http://bnftClaimService.services.vonapp.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FaultException" nillable="true" type="xs:anyType" />
+  <xs:element name="MessageFaultException" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="100" name="faultExceptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="100" name="variables" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findAllAsArray" type="tns:findAllAsArray" />
+  <xs:element name="findAllAsArrayResponse" type="tns:findAllAsArrayResponse" />
+  <xs:element name="vnpBnftClaimCreate" type="tns:vnpBnftClaimCreate" />
+  <xs:element name="vnpBnftClaimCreateResponse" type="tns:vnpBnftClaimCreateResponse" />
+  <xs:element name="vnpBnftClaimFindByPrimaryKey" type="tns:vnpBnftClaimFindByPrimaryKey" />
+  <xs:element name="vnpBnftClaimFindByPrimaryKeyResponse" type="tns:vnpBnftClaimFindByPrimaryKeyResponse" />
+  <xs:element name="vnpBnftClaimRemove" type="tns:vnpBnftClaimRemove" />
+  <xs:element name="vnpBnftClaimRemoveResponse" type="tns:vnpBnftClaimRemoveResponse" />
+  <xs:element name="vnpBnftClaimUpdate" type="tns:vnpBnftClaimUpdate" />
+  <xs:element name="vnpBnftClaimUpdateResponse" type="tns:vnpBnftClaimUpdateResponse" />
+  <xs:complexType name="vnpBnftClaimFindByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bnftClaimId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimFindByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpBnftClaimDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpBnftClaimDTO">
+    <xs:sequence>
+      <xs:element name="vnpBnftClaimId" type="xs:long" />
+      <xs:element minOccurs="0" name="applcnId" type="xs:string" />
+      <xs:element minOccurs="0" name="atchmsInd" type="xs:string" />
+      <xs:element name="bnftClaimTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="claimJrsdtnLctnId" type="xs:long" />
+      <xs:element name="claimRcvdDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="claimSuspnsDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="endPrdctTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="infrmlInd" type="xs:string" />
+      <xs:element minOccurs="0" name="intakeJrsdtnLctnId" type="xs:long" />
+      <xs:element name="jrnDt" type="xs:dateTime" />
+      <xs:element name="jrnLctnId" type="xs:string" />
+      <xs:element name="jrnObjId" type="xs:string" />
+      <xs:element name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="lastPaidDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="payeeTypeCd" type="xs:string" />
+      <xs:element name="pgmTypeCd" type="xs:string" />
+      <xs:element name="ptcpntClmantId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntDpositAcntId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntVsrId" type="xs:long" />
+      <xs:element minOccurs="0" name="rmksTxt" type="xs:string" />
+      <xs:element name="statusTypeCd" type="xs:string" />
+      <xs:element name="svcTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntMailAddrsId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntPymtAddrsId" type="xs:long" />
+      <xs:element minOccurs="0" name="termnlDigitNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpPtcpntVetId" type="xs:long" />
+      <xs:element name="vnpProcID" type="xs:long" />
+      <xs:element minOccurs="0" name="bnftClaimId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpBnftClaimDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpBnftClaimDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimRemove">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bnftClaimId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimRemoveResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:vnpBnftClaim" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaim">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applcnId" type="xs:string" />
+      <xs:element minOccurs="0" name="atchmsInd" type="xs:string" />
+      <xs:element minOccurs="0" name="bnftClaimId" type="xs:long" />
+      <xs:element minOccurs="0" name="bnftClaimTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="claimJrsdtnLctnId" type="xs:long" />
+      <xs:element minOccurs="0" name="claimRcvdDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="claimSuspnsDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="endPrdctTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="infrmlInd" type="xs:string" />
+      <xs:element minOccurs="0" name="intakeJrsdtnLctnId" type="xs:long" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="lastPaidDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="payeeTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="pgmTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ptcpntClmantId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntDpositAcntId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntMailAddrsId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntPymtAddrsId" type="xs:long" />
+      <xs:element minOccurs="0" name="ptcpntVsrId" type="xs:long" />
+      <xs:element minOccurs="0" name="rmksTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="statusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="svcTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="termnlDigitNbr" type="xs:string" />
+      <xs:element name="vnpBnftClaimId" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpProcID" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpPtcpntVetId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpBnftClaimDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpBnftClaimCreateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpBnftClaimDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

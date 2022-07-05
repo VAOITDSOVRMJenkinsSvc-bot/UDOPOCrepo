@@ -1,0 +1,393 @@
+{
+  "webresources": [
+    {
+      "profile": "default,debug",
+      "root": "Webresources/",
+      "solution": null,
+      "files": [
+        {
+          "uniquename": "new_/js/somefile.js",
+          "file": "new_\\js\\somefile.js",
+          "description": "",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_customaction_onload",
+          "file": "/WebResources/Script (JScript)/udo_customaction_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "new_udo_Utility.js",
+          "file": "/WebResources/Script (JScript)/udo_Utility.js",
+          "description": "",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_udo_Utility.js",
+          "file": "/WebResources/Script (JScript)/udo_Utility.js",
+          "description": "",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Utility.js",
+          "file": "/WebResources/Script (JScript)/udo_Utility.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_PersonSearch.html",
+          "file": "/WebResources/Web Page (HTML)/udo_personsearch.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CRMCommonJS.js",
+          "file": "/WebResources/Script (JScript)/udo_CRMCommonJS.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_Interaction.js",
+          "file": "/WebResources/Script (JScript)/udo_Interaction.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_CommonFunctions",
+          "file": "/WebResources/Script (JScript)/va_CommonFunctions.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VBMSeFolder.js",
+          "file": "/WebResources/Script (JScript)/udo_VBMSeFolder.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CommonFunctions",
+          "file": "/WebResources/Script (JScript)/udo_CommonFunctions.js",
+          "description": "This js file will contain the common functions which may be used by multiple entities",
+          "ts": null
+        },
+        {
+          "uniquename": "va_Context.js",
+          "file": "/WebResources/Script (JScript)/va_Context.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_EnvironmentConfiguration.js",
+          "file": "/WebResources/Script (JScript)/va_EnvironmentConfiguration.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_FNOD_OnLoad",
+          "file": "/WebResources/Script (JScript)/va_FNOD_OnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_FNOD_OnSave",
+          "file": "/WebResources/Script (JScript)/va_FNOD_OnSave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_GetSystemUserProperties",
+          "file": "/WebResources/Script (JScript)/va_GetSystemUserProperties.js",
+          "description": "Get System User Properties using crmRestKit",
+          "ts": null
+        },
+        {
+          "uniquename": "va_IntentToFile",
+          "file": "/WebResources/Script (JScript)/va_IntentToFile.js",
+          "description": "Intent To File page filled with JavaScript utitlity functions",
+          "ts": null
+        },
+        {
+          "uniquename": "va_IntentToFileWebService.js",
+          "file": "/WebResources/Script (JScript)/va_IntentToFileWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_BenefitClaimWebService.js",
+          "file": "/WebResources/Script (JScript)/va_BenefitClaimWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_ClaimantWebService.js",
+          "file": "/WebResources/Script (JScript)/va_ClaimantWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_ShareStandardDataService.js",
+          "file": "/WebResources/Script (JScript)/va_ShareStandardDataService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_WebServices.js",
+          "file": "/WebResources/Script (JScript)/va_WebServices.js",
+          "description": "Contains all instances of web services for retrieving veteran information",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_download.js",
+          "file": "/WebResources/Script (JScript)/udo_download.js",
+          "description": "Script to download base64 string files using javascript.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CreateNoteProcess.js",
+          "file": "/WebResources/Script (JScript)/udo_CreateNoteProcess.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_VBMS",
+          "file": "/WebResources/Script (JScript)/udo_VBMS.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/fetchtable.js",
+          "file": "/WebResources/Script (JScript)/fetchtable.js",
+          "description": "fetchtable.js is generates a filterable table using fetchxml and a set of configuration options.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/fetchtable.css",
+          "file": "/WebResources/Cascading Stylesheet (CSS)/fetchtable.css",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_getVVAURL.js",
+          "file": "/WebResources/Script (JScript)/udo_getVVAURL.js",
+          "description": "return the URL or an error based on the VVA ID provided.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_letter_onload.js",
+          "file": "/WebResources/Script (JScript)/udo_letter_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_letter_onsave.js",
+          "file": "/WebResources/Script (JScript)/udo_letter_onsave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_VetRecordWebService.js",
+          "file": "/WebResources/Script (JScript)/va_VetRecordWebService.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Message.js",
+          "file": "/WebResources/Script (JScript)/va_Message.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_Utilities",
+          "file": "/WebResources/Script (JScript)/Common/va_Utilities.js",
+          "description": "New Utilities js that might replace Common Functions",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_peoplelauncher.html",
+          "file": "/WebResources/Web Page (HTML)/udo_peoplelauncher.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_notes/viewnotes.html",
+          "file": "/WebResources/Web Page (HTML)/udo_viewnotes.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_embeddedbutton.html",
+          "file": "/WebResources/Web Page (HTML)/udo_embeddedbutton.html",
+          "description": "The HTML web resource for a support on form button that binds using udo_embeddedbutton.js",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_embeddedbutton.js",
+          "file": "/WebResources/Script (JScript)/udo_embeddedbutton.js",
+          "description": "This should be used with udo_embeddedbutton.html as the html webresource button.  It is not a placeholder for html replacement, but instead a button that gets embedded.",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_LettersButtonSR",
+          "file": "/WebResources/Script (JScript)/udo_LettersButtonSR.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_servicerequestonload",
+          "file": "/WebResources/Script (JScript)/udo_servicerequestonload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_servicerequestonsave",
+          "file": "/WebResources/Script (JScript)/udo_servicerequestonsave.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_emergencyOnLoad.js",
+          "file": "/WebResources/Script (JScript)/va_emergencyOnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_claimestablishment_onload.js",
+          "file": "/WebResources/Script (JScript)/udo_claimestablishment_onload.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_namespaceTest.js",
+          "file": "/WebResources/Script (JScript)/udo_namespaceTest.js",
+          "description": "",
+          "ts": null
+        },
+        {
+          "uniquename": "udo_CADD_OnLoad.js",
+          "file": "/WebResources/Script (JScript)/udo_CADD_OnLoad.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_countrylist.html",
+          "file": "/WebResources/Web Page (HTML)/udo_countrylist.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "va_udoemergency.js",
+          "file": "/WebResources/Script (JScript)/va_udoemergency.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/queues.js",
+          "file": "/WebResources/Script (JScript)/Walkin/queues.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/walkinform.js",
+          "file": "/WebResources/Script (JScript)/Walkin/walkinform.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/walkin.html",
+          "file": "/WebResources/Web Page (HTML)/Walkin/walkin.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/vetsearch.js",
+          "file": "/WebResources/Script (JScript)/Walkin/vetsearch.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Columns.js",
+          "file": "/WebResources/Script (JScript)/Walkin/XrmTable.Columns.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Column.js",
+          "file": "/WebResources/Script (JScript)/Walkin/XrmTable.Column.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_SelectRequest.html",
+          "file": "/WebResources/Web Page (HTML)/udo_SelectRequest.html",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "udo_/walkin/js/XrmTable.Table.js",
+          "file": "/WebResources/Script (JScript)/Walkin/XrmTable.Table.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "crme_dependentmaintenanceRibbon.js",
+          "file": "/WebResources/Script (JScript)/crme_dependentmaintenanceRibbon.js",
+          "description": null,
+          "ts": null
+        },
+        {
+          "uniquename": "crme_DependentMaintenanceCheckRequiredFields",
+          "file": "/WebResources/Script (JScript)/crme_DependentMaintenanceCheckRequiredFields.js",
+          "description": null,
+          "ts": null
+        }
+      ]
+    }
+  ],
+  "plugins": [
+    {
+      "profile": "default,debug",
+      "assemblypath": "bin\\Debug",
+      "classRegex": null
+    }
+  ],
+  "earlyboundtypes": [
+    {
+      "entities": "account,contact,quote",
+      "actions": "dev1_simpleaction",
+      "generateOptionsetEnums": true,
+      "generateGlobalOptionsets": false,
+      "generateStateEnums": true,
+      "filename": "EarlyBoundTypes.cs",
+      "classNamespace": "UDO.D365.CrmPackage",
+      "serviceContextName": "XrmSvc"
+    }
+  ],
+  "solutions": [
+    {
+      "profile": "default,debug",
+      "solution_uniquename": "spkltestsolution",
+      "packagepath": "package",
+      "solutionpath": "solution_{0}_{1}_{2}_{3}.zip",
+      "packagetype": "unmanaged",
+      "increment_on_import": false,
+      "map": [
+        {
+          "map": "path",
+          "from": "PluginAssemblies\\**\\*.*",
+          "to": "..\\..\\Plugins\\bin\\**"
+        },
+        {
+          "map": "path",
+          "from": "WebResources\\*.*",
+          "to": "..\\..\\Webresources\\Webresources\\**"
+        },
+        {
+          "map": "path",
+          "from": "WebResources\\**\\*.*",
+          "to": "..\\..\\Webresources\\Webresources\\**"
+        }
+      ]
+    }
+  ]
+}

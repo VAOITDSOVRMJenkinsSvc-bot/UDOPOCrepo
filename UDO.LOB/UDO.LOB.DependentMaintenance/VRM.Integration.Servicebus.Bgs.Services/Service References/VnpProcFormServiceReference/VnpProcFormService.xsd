@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://procFormService.services.vonapp.vba.va.gov/" targetNamespace="http://procFormService.services.vonapp.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FaultException" nillable="true" type="xs:anyType" />
+  <xs:element name="MessageFaultException" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="100" name="faultExceptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="100" name="variables" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findAllAsArray" type="tns:findAllAsArray" />
+  <xs:element name="findAllAsArrayResponse" type="tns:findAllAsArrayResponse" />
+  <xs:element name="vnpProcFormCreate" type="tns:vnpProcFormCreate" />
+  <xs:element name="vnpProcFormCreateResponse" type="tns:vnpProcFormCreateResponse" />
+  <xs:element name="vnpProcFormFindByPrimaryKey" type="tns:vnpProcFormFindByPrimaryKey" />
+  <xs:element name="vnpProcFormFindByPrimaryKeyResponse" type="tns:vnpProcFormFindByPrimaryKeyResponse" />
+  <xs:element name="vnpProcFormRemove" type="tns:vnpProcFormRemove" />
+  <xs:element name="vnpProcFormRemoveResponse" type="tns:vnpProcFormRemoveResponse" />
+  <xs:complexType name="vnpProcFormCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpProcFormDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpProcFormDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="compId" type="tns:VnpProcFormPKDTO" />
+      <xs:element name="jrnDt" type="xs:dateTime" />
+      <xs:element name="jrnLctnId" type="xs:string" />
+      <xs:element name="jrnObjId" type="xs:string" />
+      <xs:element name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element name="jrnUserId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpProcFormPKDTO">
+    <xs:sequence>
+      <xs:element name="vnpProcId" type="xs:long" />
+      <xs:element name="formTypeCd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcFormCreateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpProcFormDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcFormRemove">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:vnpProcFormInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcFormInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpProcId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcFormRemoveResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:vnpProcForm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="formTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element name="vnpProcId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcFormFindByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:vnpProcFormInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpProcFormFindByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpProcFormDTO" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource>
+  <WebResourceId>{dae9c16d-3be1-e911-a9a7-001dd8308025}</WebResourceId>
+  <Name>udo_/ESR/HTML/EligibilitySubgrid.html</Name>
+  <DisplayName>Interaction Eligibility Subgrid</DisplayName>
+  <LanguageCode>1033</LanguageCode>
+  <WebResourceType>1</WebResourceType>
+  <IntroducedVersion>09.26.19</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <DependencyXml>&lt;Dependencies&gt;&lt;Dependency componentType="WebResource"/&gt;&lt;/Dependencies&gt;</DependencyXml>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/udo_ESRHTMLEligibilitySubgridhtmlDAE9C16D-3BE1-E911-A9A7-001DD8308025</FileName>
+</WebResource>

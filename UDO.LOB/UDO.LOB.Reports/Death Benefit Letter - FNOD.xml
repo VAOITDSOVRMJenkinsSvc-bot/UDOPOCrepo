@@ -1,0 +1,85 @@
+<fetch mapping='logical' output-format='xml-platform' version='1.0' distinct='false' >
+  <entity name='va_fnod' >
+    <attribute name='va_poa' alias='udo_haspoa' />
+    <attribute name='va_filenumber' alias='udo_filenumber' />
+    <attribute name='va_filenumber' alias='VetSSN' />
+    <attribute name='va_dateofdeath' alias='DOD' />
+    <attribute name='udo_letteraddressing' alias='udo_letteraddressing' />
+    <attribute name='udo_enclosures' alias='Enclosures' />
+    <attribute name='udo_dblfirstname' alias='udo_depfirstname' />
+    <attribute name='udo_dbllastname' alias='udo_deplastname' />
+    <attribute name='va_dateofbirth' alias='udo_dateofbirth' />
+    <attribute name='udo_dbladdress1' alias='udo_address1' />
+    <attribute name='udo_dbladdress2' alias='udo_address2' />
+    <attribute name='udo_dbladdress3' alias='udo_address3' />
+    <attribute name='udo_dblcity' alias='udo_city' />
+    <attribute name='udo_dblstate' alias='udo_state' />
+    <attribute name='udo_dblzipcode' alias='udo_zipcode' />
+    <attribute name='udo_dblcountry' alias='udo_country' />
+    <attribute name='va_corpmilitarydischargetype' alias='DischargeTypes' />
+    <attribute name='udo_dbllastname' alias='udo_srlastname' />
+    <attribute name='udo_dblfirstname' alias='udo_srfirstname' />
+    <filter type='and' >
+      <condition value='{0}' attribute='va_fnodid' operator='eq' uitype='va_fnod' />
+    </filter>
+    <link-entity name='systemuser' from='systemuserid' to='modifiedby' visible='false' link-type='outer' alias='user' >
+      <attribute name='va_replyreferto' />
+      <attribute name='va_filenumber' alias='OwnerFileNum' />
+      <attribute name='fullname' alias='OwnerManager' />
+      <attribute name='firstname' alias='ManagerFirst' />
+      <attribute name='lastname' alias='ManagerLast' />
+      <attribute name='title' alias='ManagerTitle' />
+      <link-entity name='site' from='siteid' to='siteid' link-type='inner' alias='s' >
+        <attribute name='address1_line1' alias='CCaddress1' />
+        <attribute name='address1_line2' alias='CCaddress2' />
+        <attribute name='address1_line3' alias='CCaddress3' />
+        <attribute name='address1_city' alias='CCcity' />
+        <attribute name='address1_stateorprovince' alias='CCstate' />
+        <attribute name='address1_postalcode' alias='CCzip' />
+      </link-entity>
+    </link-entity>
+    <link-entity name='va_regionaloffice' from='va_regionalofficeid' to='udo_regionalofficeid' visible='false' link-type='outer' alias='soj' >
+      <link-entity name='va_intakecenter' from='va_intakecenterid' to='va_intakecenterid' visible='false' link-type='outer' alias='intake' >
+        <attribute name='va_address2' alias='ic_va_address2' />
+        <attribute name='va_address3' alias='ic_va_address3' />
+        <attribute name='va_address1' alias='ic_va_address1' />
+        <attribute name='va_state' alias='ic_va_state' />
+        <attribute name='va_city' alias='ic_va_city' />
+        <attribute name='va_zipcode' alias='ic_va_zipcode' />
+        <attribute name='va_localfax' alias='ic_va_localfax' />
+        <attribute name='va_alias' alias='ic_va_alias' />
+        <attribute name='va_faxnumber' alias='ic_va_faxnumber' />
+        <attribute name='udo_returnmailingaddress' alias='ic_udo_returnmailingaddress' />
+        <attribute name='udo_telephoneinfo' alias='ic_udo_telephoneinfo' />
+        <attribute name='udo_irisurl' alias='ic_udo_irisurl' />
+        <attribute name='udo_benefitswebsiteurl' alias='ic_udo_benefitswebsiteurl' />
+        <attribute name='udo_benefitsname' alias='ic_udo_benefitsname' />
+        <attribute name='udo_vaphonenumber' alias='ic_udo_vaphonenumber' />
+        <attribute name='udo_departmentname' alias='ic_udo_departmentname' />
+      </link-entity>
+      <link-entity name='va_pensioncenter' from='va_pensioncenterid' to='va_pensioncenterid' visible='false' link-type='outer' alias='pension' >
+        <attribute name='va_address2' alias='pc_va_address2' />
+        <attribute name='va_address3' alias='pc_va_address3' />
+        <attribute name='va_address1' alias='pc_va_address1' />
+        <attribute name='va_state' alias='pc_va_state' />
+        <attribute name='va_city' alias='pc_va_city' />
+        <attribute name='va_zipcode' alias='pc_va_zipcode' />
+        <attribute name='va_localfax' alias='pc_va_localfax' />
+        <attribute name='va_alias' alias='pc_va_alias' />
+        <attribute name='va_faxnumber' alias='pc_va_faxnumber' />
+        <attribute name='udo_returnmailingaddress' alias='pc_udo_returnmailingaddress' />
+        <attribute name='udo_telephoneinfo' alias='pc_udo_telephoneinfo' />
+        <attribute name='udo_irisurl' alias='pc_udo_irisurl' />
+        <attribute name='udo_benefitswebsiteurl' alias='pc_udo_benefitswebsiteurl' />
+        <attribute name='udo_benefitsname' alias='pc_udo_benefitsname' />
+        <attribute name='udo_vaphonenumber' alias='pc_udo_vaphonenumber' />
+        <attribute name='udo_departmentname' alias='pc_udo_departmentname' />
+      </link-entity>
+    </link-entity>
+    <link-entity name='contact' from='contactid' to='va_veterancontactid' visible='false' link-type='outer' alias='vet' >
+      <attribute name='lastname' alias='vet_lastname' />
+      <attribute name='middlename' alias='vet_middlename' />
+      <attribute name='firstname' alias='vet_firstname' />
+    </link-entity>
+  </entity>
+</fetch>

@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UDO.LOB.Extensions", "UDO.LOB.Extensions.csproj", "{A4E91FC6-6983-4A58-B306-7CC71829484F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		INT|Any CPU = INT|Any CPU
+		NPROD|Any CPU = NPROD|Any CPU
+		PERF|Any CPU = PERF|Any CPU
+		PREPROD|Any CPU = PREPROD|Any CPU
+		PROD|Any CPU = PROD|Any CPU
+		QA|Any CPU = QA|Any CPU
+		Release|Any CPU = Release|Any CPU
+		TRAIN|Any CPU = TRAIN|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.INT|Any CPU.ActiveCfg = INT|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.INT|Any CPU.Build.0 = INT|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.NPROD|Any CPU.ActiveCfg = NPROD|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.NPROD|Any CPU.Build.0 = NPROD|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.PERF|Any CPU.ActiveCfg = PERF|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.PERF|Any CPU.Build.0 = PERF|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.PREPROD|Any CPU.ActiveCfg = PREPROD|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.PREPROD|Any CPU.Build.0 = PREPROD|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.PROD|Any CPU.Build.0 = PROD|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.QA|Any CPU.Build.0 = QA|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.TRAIN|Any CPU.ActiveCfg = TRAIN|Any CPU
+		{A4E91FC6-6983-4A58-B306-7CC71829484F}.TRAIN|Any CPU.Build.0 = TRAIN|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3BBD110-CF3A-4250-A8BA-F3BF834C0605}
+	EndGlobalSection
+EndGlobal

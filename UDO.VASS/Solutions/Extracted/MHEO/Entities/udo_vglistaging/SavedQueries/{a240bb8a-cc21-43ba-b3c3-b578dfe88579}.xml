@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>0</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>1</isdefault>
+  <savedqueryid>{a240bb8a-cc21-43ba-b3c3-b578dfe88579}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" jump="udo_name" select="1" icon="1" preview="1">
+      <row name="result" id="udo_vglistagingid">
+        <cell name="udo_name" width="300" />
+        <cell name="createdon" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>1</querytype>
+  <fetchxml>
+    <fetch version="1.0" mapping="logical">
+      <entity name="udo_vglistaging">
+        <attribute name="udo_vglistagingid" />
+        <attribute name="udo_name" />
+        <attribute name="createdon" />
+        <order attribute="udo_name" descending="false" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="VGLI Staging Advanced Find View" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{908a52d0-d9ba-45e3-a3a7-173e41fac87f}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{36c610ff-dd11-46d3-a5ea-328bab04b378}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{5135c28f-4586-4bfc-8ac1-b323bc6f3d89}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{c4012a2c-b1d9-4187-8e60-1d8c57414eb0}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{da772508-9de6-d67e-e654-357aa7133bed}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Contact" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="udo_contactid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8ed14520-83bb-b85c-69ca-37b5d2b5dcb7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SSN" languagecode="1033" />
+                      </labels>
+                      <control id="udo_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_ssn" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{70be4075-5662-6799-7969-ba3488db1a44}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Member Status Effective Date" languagecode="1033" />
+                      </labels>
+                      <control id="udo_effectivedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_effectivedate" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{28c83701-2925-4e77-9a53-4ccc9d0b939b}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

@@ -1,0 +1,1021 @@
+<html>
+<head>
+    <title>Claim Status Script</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <link rel="stylesheet" type="text/css" href="udo_template.css">
+    <script type="text/javascript" src="udo_Xrm.min.js"></script>
+    <script src="udo_jquery_3.3.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="udo_crmcommonjs.js"></script>
+    <script type="text/javascript" src="udo_Utility.js"></script>
+    <script type="text/javascript" src="udo_claimStatus.js"></script>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+</head>
+<body onload="LoadAll()" style="overflow-wrap: break-word;" onfocusout="parent.setEmailRange();">
+    <div id="main" class="container">
+        <div id="sidenav" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">
+            <img src="udo_/images/logo.jpg" alt="VRM Logo" align="middle" ;="" style="padding-left:25px; padding-top:10px">
+            <h1 align="center" style="color:White">Reference</h1>
+            <br><br>
+            <a id="acpt" onclick="AverageClaimProcTimes()" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: bold; color:White; display:none;" title="Click to view Average Processing Times">Av. Proc Times for</a>&nbsp;<input id="soj" type="text" style="width: 40px; display:none;">&nbsp;<label id="apcCom" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color:White; display:none;"></label>
+            <br>
+            <br>
+            <ul>
+                <li><input type="button" title="Refresh Script" value="Refresh Script" onclick="RefreshScript()" style="width:180px; display:none;"></li>
+                <br>
+            </ul>
+            <br>
+            <ul>
+                <li><a style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; color:White;" href="http://vaww.vrm.km.va.gov">Knowledge Management System</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div id="header" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; margin-top: 5px; margin-bottom: 5px" align="left">
+                <label id="ln"></label>
+            </div>
+
+            <table align="left" border="0" style="border: thin solid #C0C0C0">
+                <tbody>
+                    <tr align="left" valign="top"><td colspan="2" style="font-weight:bold; font-size: 13px"></td></tr>
+
+                    <tr id="lastCallRow" style="display: none">
+                        <td style="font-weight:bold; font-size: 11px">Last Call Regarding Claimant</td>
+                        <td><label id="LastCallReClaimantCell"></label></td>
+                    </tr>
+                    <tr id="rateAwardChangeRow" style="display: none">
+                        <td style="font-weight:bold; font-size: 11px">Last Rating Change, Awards</td>
+                        <td><label id="ratingAwardLastChangeDate"></label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <!--<a href="javascript:;" onmousedown="toggleDiv('trackeditemstable');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold"><h1>Tracked Items Table</h1></a>-->
+                            <div id="trackeditemstable" style="display: none">
+                                <span id="trackedItemsTableValues"></span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><label id="processIMG"></label></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <a href="javascript:;" onmousedown="toggleDiv('vaitable');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold"><h1>Should I initiate a VAI for <label id="vet"></label>?<label id="vaiYN"></label></h1></a>
+
+                            <div id="vaitable" style="display: none">
+                                <table border="0" cellpadding="5">
+                                    <tbody>
+                                        <tr><th>Setup a VAI after the below amount of days</th><th width="50">Days</th><th width="80">Max End Date</th><th width="80">VAI Recommended</th><th width="80">VAI NOT Recommended</th></tr>
+                                        <tr><td>Claims Awaiting Development</td><td align="center"><label id="days1"></label></td><td align="center"><label id="date1"></label></td><td align="center"><label id="recommended1"></label></td><td align="center"><label id="notrecommended1"></label></td></tr>
+                                        <tr><td>Claims Awaiting Evidence</td><td align="center"><label id="days2"></label></td><td align="center"><label id="date2"></label></td><td align="center"><label id="recommended2"></label></td><td align="center"><label id="notrecommended2"></label></td></tr>
+                                        <tr><td>MAP-D Records Not Updated</td><td align="center"><label id="days3"></label></td><td align="center"><label id="date3"></label></td><td align="center"><label id="recommended3"></label></td><td align="center"><label id="notrecommended3"></label></td></tr>
+                                        <tr><td>Claims Awaiting Decision</td><td align="center"><label id="days4"></label></td><td align="center"><label id="date4"></label></td><td align="center"><label id="recommended4"></label></td><td align="center"><label id="notrecommended4"></label></td></tr>
+                                        <tr><td>Claims Awaiting Promulgation</td><td align="center"><label id="days5"></label></td><td align="center"><label id="date5"></label></td><td align="center"><label id="recommended5"></label></td><td align="center"><label id="notrecommended5"></label></td></tr>
+                                        <tr><td>Claims Pending Authorization</td><td align="center"><label id="days6"></label></td><td align="center"><label id="date6"></label></td><td align="center"><label id="recommended6"></label></td><td align="center"><label id="notrecommended6"></label></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr>
+                            <a href="javascript:;" onmousedown="toggleDiv('claimReceived');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <label id="claimReceivedSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+                                <span class="phase_type_cr"></span>; Open, No contentions and no tracked items exist
+                            </a>
+                            <div id="claimReceived" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><label id="claimReceivedSub2" style="display: none;"></label><span class="phase_type_cr"></span>; Open, No contentions and no tracked items exist</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul class="not_past_due">
+                                    <li>Your claim was received on <b><label class="change_date"></label></b></li>
+                                    <li>If we determine we need additional information, we will notify you.</li>
+                                    <!--<li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <!--
+                                <ul class="past_due">
+                                    <li>Your claim was received on <b><label class="change_date"></label></b></li>
+                                </ul>
+                                <a href="#" onclick="return toggleX('.claimReceived_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+                                <div class="claimReceived_col" style="display: none;">
+                                    <ul class="past_due">
+                                        <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                                        <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                        <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                        <p>If the components/script sentences above are eliminated, include:</p>
+                                        <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    </ul>
+                                </div>
+                                -->
+                                <ul class="past_due">
+                                    <li>Your claim was received on <b><label class="change_date"></label></b></li>
+                                    <li>If we determine we need additional information, we will notify you.</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <!--<span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>-->
+                                <!--<ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+                                <ul class="past_due">
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <span class="past_due"><b>(OR)</b></span>
+                                <br />
+                                <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+                                <ul class="past_due">
+                                    <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                    <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                </ul>
+                                -->
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim was received on <b><label class="change_date"></label></b>. If we determine we need additional information, we will notify you.</p>
+                                    <p>
+                                        <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. -->
+                                        We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.
+                                    </p>
+
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims. VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+
+                                    <!--<p class="not_past_due"><i>If caller requests information in reference to phase completion information that is available in eBenefits:</i></p>
+                                    <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>. Please understand that these dates are only estimates.</p>
+                                    -->
+                                </ul>
+                                <!--   <ul class="past_due">
+                                       <p>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</p>
+                                       <p><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                       <p>"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim."</p>
+                                   </ul>-->
+                            </div>
+                            <div id="claimReceived_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_cr"></span>; Open, No contentions and no tracked items exist</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Your claim was received on <b><label class="change_date"></label></b></li>
+                                    <li>If we determine we need additional information, we will notify you.</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim was received on <b><label class="change_date"></label></b>. If we determine we need additional information, we will notify you.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('underReview');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <label id="underReviewSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+                                <span class="phase_type_ur"></span>; Open, One or more contentions exist AND no tracked items exist
+                            </a>
+                            <div id="underReview" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><label id="underReviewSub2" style="display: none;"></label><span class="phase_type_ur"></span>; Open, One or more contentions exist AND no tracked items exist</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul class="not_past_due">
+                                    <!--<li>Your claim was received on <b><label class="change_date"></label></b></li>-->
+                                    <li>Your claim was assigned to a Representative</li>
+                                    <li>Representative will gather all evidence needed to make a decision on your claim</li>
+                                    <li>If we determine we need additional information, we will notify you</li>
+                                    <!--  <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b></li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <!--
+                                <ul class="past_due">
+                                </ul>
+                                <a href="#" onclick="return toggleX('.underReview_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+                                <div class="underReview_col" style="display: none;">
+                                    <ul class="past_due">
+                                        <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                                        <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                        <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                        <p>If the components/script sentences above are eliminated, include:</p>
+                                        <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    </ul>
+                                </div>
+                                -->
+                                <ul class="past_due">
+                                    <!--<li>Your claim was received on <b><label class="change_date"></label></b></li>-->
+                                    <li>Your claim was assigned to a Representative</li>
+                                    <li>Representative will gather all evidence needed to make a decision on your claim</li>
+                                    <li>If we determine we need additional information, we will notify you</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <!--
+                                <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+                                <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+                                <ul class="past_due">
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <br />
+                                <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+                                <span class="past_due"><b>(OR)</b></span>
+                                <ul class="past_due">
+                                <li>We are working to complete your claim as quickly as possible.</li>
+                                <li>Your claim processing may take longer based on the specifics of your claim and VA's pending workload</li>
+
+                                -->
+
+                                <br>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <!--
+                                <ul>
+                                    <p>Your claim was received on <b><label class="change_date"></label></b>&nbsp;and we have assigned a Representative to your claim. The Representative will gather all of the evidence we need in order to make a decision on your claim. We will review your claim and notify you of any additional information that is needed.</p>
+                                    <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+                                    <p class="not_past_due">If caller requests information in reference to phase completion information that is available in eBenefits:</p>
+                                    <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+                                    <p class="not_past_due">If the Veteran sounds frustrated with the timeframes:</p>
+                                    <p class="not_past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+                                </ul>
+                                <ul class="past_due">
+                                    <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+                                    <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+                                </ul>
+                                -->
+                                <ul>
+                                    <p>We have assigned a Representative to your claim. The Representative will gather all of the evidence we need in order to make a decision on your claim. We will review your claim and notify you of any additional information that is needed.</p>
+                                    <p>We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload. </p>
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                    <!-- <p class="past_due"><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                     <p class="past_due">"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim"</p>
+                                        -->
+                                </ul>
+                            </div>
+                            <div id="underReview_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_ur"></span>; Open, One or more contentions exist AND no tracked items exist</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Your claim was assigned to a Representative</li>
+                                    <li>Representative will gather all evidence needed to make a decision on your claim</li>
+                                    <li>If we determine we need additional information, we will notify you</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>We have assigned a Representative to your claim. The Representative will gather all of the evidence we need in order to make a decision on your claim. We will review your claim and notify you of any additional information that is needed.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('gatheringOfEvidence');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <label id="gatheringOfEvidenceSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+                                <span class="phase_type_goe"></span>; Open, One or more tracked items exist
+                            </a>
+                            <div id="gatheringOfEvidence" style="display:none">
+                                <h1><label id="gatheringOfEvidenceSub2" style="display: none;"></label><span class="phase_type_goe"></span>; Open, One or more tracked items exist</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+                                <ul class="not_past_due">
+                                    <li>Claim is in development phase of processing</li>
+                                    <li>We are waiting for (discuss open tracked items)</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                    <!-- <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <ul class="past_due">
+                                    <li>Claim is in development phase of processing</li>
+                                    <li>We are waiting for (discuss open tracked items)</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <!--
+                                <a href="#" onclick="return toggleX('.gatheringOfEvidence_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+                                <div class="gatheringOfEvidence_col" style="display: none;">
+                                    <ul class="past_due">
+                                        <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                                        <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                        <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                        <p>If the components/script sentences above are eliminated, include:</p>
+                                        <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    </ul>
+                                </div>
+                                <ul class="past_due">
+                                    <li>We are waiting for (discuss open tracked items)</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                </ul>
+                                -->
+                                <!--
+                                <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+                                <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+                                <ul class="past_due">
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <span class="past_due"><b>(OR)</b></span>
+                                <br />
+                                <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+                                <ul class="past_due">
+                                    <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                    <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                </ul>
+                                <br />
+                                -->
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <!--
+                                <ul>
+                                    <p>Your claim is currently in the development phase of processing.  During this phase, we will gather the evidence needed to decide your claim.  We are currently waiting for (tracked items).  Your claim will be reviewed and we will contact you if additional information is needed.</p>
+                                    <p class="not_past_due">At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>
+                                    <p class="not_past_due">If caller requests information in reference to phase completion information that is available in eBenefits:</p>
+                                    <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+                                    <p class="not_past_due">If the Veteran sounds frustrated with the timeframes:</p>
+                                    <p class="not_past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+                                </ul>
+                                <ul class="past_due">
+                                    <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+                                    <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+                                </ul>
+                                -->
+                                <ul>
+                                    <p>Your claim is currently in the development phase of processing. During this phase, we will gather the evidence needed to decide your claim. We are currently waiting for (<b>tracked items</b>). Your claim will be reviewed and we will contact you if additional information is needed.</p>
+
+                                    <p>
+                                        <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. -->
+                                        We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.
+                                    </p>
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                    <!-- <p class="past_due"><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                    <p class="past_due">"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim."</p>
+                                    -->
+                                </ul>
+                            </div>
+                            <div id="gatheringOfEvidence_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_goe"></span>; Open, One or more tracked items exist</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Claim is in development phase of processing</li>
+                                    <li>We are waiting for (discuss open tracked items)</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is currently in the development phase of processing. During this phase, we will gather the evidence needed to decide your claim. We are currently waiting for (tracked items).  Your claim will be reviewed and we will contact you if additional information is needed.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('reviewOfEvidence');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <label id="reviewOfEvidenceSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+                                <span class="phase_type_roe"></span>; Open, One or more tracked items exist AND all tracked items are either 'Closed' or 'Received'
+                            </a>
+                            <div id="reviewOfEvidence" style="display:none">
+                                <h1><label id="reviewOfEvidenceSub2" style="display: none;"></label><span class="phase_type_roe"></span>; Open, One or more tracked items exist AND all tracked items are either 'Closed' or 'Received'</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+                                <ul class="not_past_due">
+                                    <li>Claim is in development phase of processing</li>
+                                    <li>We have received all requested evidence</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                    <!-- <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <ul class="past_due">
+                                    <li>Claim is in development phase of processing</li>
+                                    <li>We have received all requested evidence</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is currently in the development phase of processing. During this phase, we gather the evidence needed to decide your claim.  We have received all requested evidence. Your claim will be reviewed and we will contact you if additional information is needed.</p>
+                                    <!--<p class="past_due"><i>If the Veteran sounds frustrated with the timeframes:</i></p>
+                                        <p class="past_due">"I apologize for the length of time it is taking to process your claim; however, we are currently experiencing a backlog of claims and are working to get them decided as quickly as possible."</p>
+
+                                        <p class="past_due"><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                        <p class="past_due">"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim."</p>
+                                    -->
+                                    <p>
+                                        <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>. -->
+                                        We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.
+                                    </p>
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>
+                                        "The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."
+                                    </p>
+                                    <!--
+                                    <p class="not_past_due"><i>If caller requests information in reference to phase completion information that is available in eBenefits:</i></p>
+                                    <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+                                    -->
+                                </ul>
+                            </div>
+                            <div id="reviewOfEvidence_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_roe"></span>; Open, One or more tracked items exist AND all tracked items are either 'Closed' or 'Received'</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Claim is in development phase of processing</li>
+                                    <li>We have received all requested evidence</li>
+                                    <li>We will contact you if additional evidence is needed</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <li>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is currently in the development phase of processing.  During this phase, we gather the evidence needed to decide your claim.  We have received all requested evidence. Your claim will be reviewed and we will contact you if additional information is needed.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('preparationForDecision');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <span class="phase_type_pfd"></span>;
+                                <label id="preparationForDecisionSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px"></label>
+                            </a>
+                            <div id="preparationForDecision" style="display:none">
+                                <h1><span class="phase_type_pfd"></span>; <label id="preparationForDecisionSub2"></label></h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul class="not_past_due">
+                                    <li>Your claim is in the decision phase.</li>
+                                    <li>If no additional information is needed, we will prepare a decision on your claim</li>
+                                    <!--  <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <ul class="past_due">
+                                    <li>Your claim is in the decision phase.</li>
+                                    <li>If no additional information is needed, we will prepare a decision on your claim</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <!--
+                                <a href="#" onclick="return toggleX('.preparationForDecision_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+                                <div class="preparationForDecision_col" style="display: none;">
+                                    <ul class="past_due">
+                                        <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                                        <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                        <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                        <p>If the components/script sentences above are eliminated, include:</p>
+                                        <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    </ul>
+                                </div>
+                                <ul class="past_due">
+                                    <li>If no additional information is needed, we will prepare a decision on your claim</li>
+                                </ul>
+                                <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+                                <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+                                <ul class="past_due">
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <span class="past_due"><b>(OR)</b></span>
+                                <br />
+                                <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+                                <ul class="past_due">
+                                    <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                    <li>Please understand that this date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <br />
+                                -->
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is currently in the decision phase of processing. If no further information or evidence is needed a decision will be made and you will be notified in writing.</p>
+                                    <p>
+                                        <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.  -->
+                                        We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.
+                                    </p>
+                                    <!--<p class="not_past_due">If caller requests information in reference to phase completion information that is available in eBenefits:</p>
+                                    <p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+                                    -->
+                                    <!--
+                                    <p class="not_past_due">If the Veteran sounds frustrated with the timeframes:</p>
+                                    <p class="not_past_due">"I apologize for the length of time it is taking to make a decision on your claim; however, we are currently experiencing a backlog of claims.  The decision phase can sometimes be a lengthy process because we want to make sure every claim has a thorough review, as well as a fair and accurate decision."</p>
+                                    -->
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                    <!--<p class="past_due"><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                    <p class="past_due">"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim."</p>
+                                    -->
+                                </ul>
+                                <!--
+                                <ul class="past_due">
+                                    <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+                                    <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+                                </ul>
+                                -->
+                            </div>
+                            <div id="preparationForDecision_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_pfd"></span>; <label id="Label3"></label></h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Your claim is in the decision phase.</li>
+                                    <li>If no additional information is needed, we will prepare a decision on your claim</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <li>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is currently in the decision phase of processing. If no further information or evidence is needed a decision will be made and you will be notified in writing.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('pendingDecisionApproval');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <span class="phase_type_pda"></span>;
+                                <label id="pendingDecisionApprovalSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px"></label>
+                            </a>
+                            <div id="pendingDecisionApproval" style="display:none">
+                                <h1><span class="phase_type_pda"></span>; <label id="pendingDecisionApprovalSub2"></label></h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+                                <ul class="not_past_due">
+                                    <li>Your claim is pending final review</li>
+                                    <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                    <!--<li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <ul class="past_due">
+                                    <li>Your claim is pending final review</li>
+                                    <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <!--
+                                <a href="#" onclick="return toggleX('.pendingDecisionApproval_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+                                <div class="pendingDecisionApproval_col" style="display: none;">
+                                    <ul class="past_due">
+                                        <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                                        <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                        <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                        <p>If the components/script sentences above are eliminated, include:</p>
+                                        <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    </ul>
+                                </div>
+                                <ul class="past_due">
+                                    <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                </ul>
+                                <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+                                <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+                                <ul class="past_due">
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <span class="past_due"><b>(OR)</b></span>
+                                <br />
+                                <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+                                <ul class="past_due">
+                                    <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <br />
+                                -->
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p class="not_past_due">Your claim is pending final review.  VA will process the decision, review it for accuracy, and notify you by mail. Your claim's status may change if additional information is required.</p>
+                                    <p class="past_due">Your claim is pending final review.  VA will process the decision, review it for accuracy, and notify you by mail. Your claim's status may change if additional information is required. <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.--></p>
+                                    <!--<p>Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>-->
+                                    <p>
+                                        <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.-->
+                                        We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.
+                                    </p>
+                                    <p>May I verify your mailing address?</p>
+                                    <p><strong>If the Veteran asks what the decision is:</strong></p>
+                                    <p>"I'm sorry, but I can't discuss the decision with you because the decision is not final yet. Once the decision is final, an official notification letter will be mailed to you."</p>
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                    <!--<p class="past_due"><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                    <p class="past_due">"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim."</p>
+                                    -->
+                                    <!--<p>If caller requests information in reference to phase completion information that is available in eBenefits:</p>-->
+                                    <!--<p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates .</p>
+                                    <p class="not_past_due">If the Veteran asks what the decision is:</p>
+                                    <p class="not_past_due">"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+                                    -->
+                                </ul>
+                                <!--
+                                <ul class="past_due">
+                                    <p><i>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</i></p>
+                                    <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+                                </ul>
+                                -->
+                            </div>
+                            <div id="pendingDecisionApproval_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_pda"></span>;</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Your claim is pending final review</li>
+                                    <li>We will process the decision and review it for accuracy, and notify you by mail.</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <li>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is pending final review. VA will process the decision, review it for accuracy, and notify you by mail. Your claim's status may change if additional information is required.</p>
+                                    <p>May I verify your mailing address?</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>"At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible."</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran asks what the decision is:</strong></ul>
+                                <ul>
+                                    <p>"I'm sorry, but I can't discuss the decision with you because the decision is not final yet. Once the decision is final, an official notification letter will be mailed to you."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('preparationForNotification');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <span class="phase_type_pfn"></span>;
+                                <label id="preparationForNotificationSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px"></label>
+                            </a>
+                            <div id="preparationForNotification" style="display:none">
+                                <h1><span class="phase_type_pfn"></span>; <label id="preparationForNotificationSub2"></label></h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+                                <ul class="not_past_due">
+                                    <li>Your claim is in the final stages</li>
+                                    <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                    <!--<li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>-->
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <ul class="past_due">
+                                    <li>Your claim is in the final stages</li>
+                                    <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                    <li>We are working to complete your claim as quickly as possible.</li>
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <!--
+                                <a href="#" onclick="return toggleX('.pendingDecisionApproval_col');"><span class="past_due"><b>(If the estimated completion date is past due)</b></span></a>
+                                <div class="pendingDecisionApproval_col" style="display: none;">
+                                    <ul class="past_due">
+                                        <p>The following two components/script sentences may be eliminated if the estimated completion date is past due:</p>
+                                        <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                        <li>This date is an estimate and your claim may take longer based on the specifics of your claim and VA's pending workload</li>
+                                        <p>If the components/script sentences above are eliminated, include:</p>
+                                        <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                    </ul>
+                                </div>
+                                <ul class="past_due">
+                                    <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                </ul>
+                                <span class="past_due"><b>(If the estimated completion date provided by CRM/UD is past due, PCRs may modify the Status of Claim script as follows:)</b></span>
+                                <ul class="past_due"><p>PCR may use the following mandatory statement if the estimated completion date is past due:</p></ul>
+                                <ul class="past_due">
+                                    <li>Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.</li>
+                                </ul>
+                                <span class="past_due"><b>(OR)</b></span>
+                                <br />
+                                <ul class="past_due"><p>If the above statement is used, the following two components/script sentences must be eliminated:</p></ul>
+                                <ul class="past_due">
+                                    <li>At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <br />
+                                -->
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p class="not_past_due">Your claim is currently in the final stages waiting for approval by a VA authorizer. The decision will be reviewed for accuracy and we will notify you by mail. Your claim's status may change if additional information is required.</p>
+                                    <p class="past_due">
+                                        Your claim is currently in the final stages waiting for approval by a VA authorizer. The decision will be reviewed for accuracy and we will notify you by mail. Your claim's status may change if additional information is required. <!--At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.-->
+                                        <!--<p>Please understand that this date is an estimate and that your claim may take longer based on the specifics of your claim and VA's pending workload.</p>-->
+                                    </p>
+                                    <p>
+                                        <!--  At this time, it is estimated that your claim should be completed by <b><label class="completed_by"></label></b>.-->
+                                        We are working to complete your claim as quickly as possible. Please understand that the time your claim takes to complete is based on the specifics of your claim and VA's pending workload.
+                                    </p>
+                                    <p>May I verify your mailing address?</p>
+                                    <p><strong>If the Veteran asks what the decision is:</strong></p>
+                                    <p>"I'm sorry, but I can't discuss the decision with you because the decision is not final yet. Once the decision is final, an official notification letter will be mailed to you."</p>
+                                    <p><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></p>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                    <!--<p class="past_due"><strong>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</strong></p>
+                                    <p class="past_due">"The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim."</p>
+                                        -->
+                                    <!--<p>If caller requests information in reference to phase completion information that is available in eBenefits:</p>-->
+                                    <!--<p class="not_past_due">At this time, it is estimated that this phase of the claims process should be completed between <b><label class="completed_by_fr"></label></b>&nbsp;and <b><label class="completed_by_to"></label></b>.   Please understand that these dates are only estimates.</p>
+                                    <p class="not_past_due">If the Veteran asks what the decision is:</p>
+                                    <p class="not_past_due">"I'm sorry, but I can't discuss the decision with you because the decision is not final yet. Once the decision is final, an official notification letter will be mailed to you."</p>
+                                        -->
+                                </ul>
+                                <!--
+                                <ul class="past_due">
+                                    <p>If the caller requests clarification on a <b>past due</b> estimated completion date (seen in eBenefits or provided by PCR), provide the following mandatory script:</p>
+                                    <p>The estimated completion date is based upon the average for claims of this type at your VA Regional Office/Pension Management Center. Your claim may take longer based on the specifics of your claim.</p>
+                                </ul>
+                                -->
+                            </div>
+                            <div id="preparationForNotification_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_pfn"></span>;</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Your claim is in the final stages</li>
+                                    <li>The decision will be reviewed for accuracy and we will notify you by mail</li>
+                                    <li>Your claim's status may change if additional information is required.</li>
+                                    <li>May I verify your mailing address?</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <li>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</li>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <li>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is currently in the final stages waiting for approval by a VA authorizer. Your claim's status may change if additional information is required.</p>
+                                    <p>May I verify your mailing address?</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran asks what the decision is:</strong></ul>
+                                <ul>
+                                    <p>"I'm sorry but I can't discuss the decision with you until you receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the claimant requests a timeframe or an estimate of when claim will be completed:</strong></ul>
+                                <ul>
+                                    <p>At this time, we do not have an estimated completion date for your claim, but I assure you we will resolve your claim as quickly as possible.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran sounds frustrated with timeframes and/or inquiries about the estimated completion date (suggested):</strong></ul>
+                                <ul>
+                                    <p>"The estimated claim completion date feature has been temporarily removed. COVID-19 has caused a delay in processing claims.VA is coordinating efforts to ensure all exams are scheduled and conducted as soon as it is safe in each area."</p>
+                                </ul>
+                                <!--
+                                <ul style="margin-left: 20px;">If the Veteran asks what the decision is:</ul>
+                                <ul>
+                                    <li>"I'm sorry but I can't discuss the decision with you until your receive your official notification letter in the mail.  Once you receive that letter, please read it thoroughly and call us back if you have any questions."</li>
+                                </ul>
+                                -->
+                            </div>
+                            <br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('complete');" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; font-weight: bold">
+                                <label id="completeSub" style="font-family: Times New Roman, Georgia, serif; font-size: 12px; display: none;"></label>
+                                <span class="phase_type_c"></span>; Closed
+                            </a>
+                            <div id="complete" style="display:none">
+                                <h1><label id="completeSub2" style="display: none;"></label><span class="phase_type_c"></span>; Closed</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory) </div>
+                                <ul>
+                                    <li>Your claim is complete.</li>
+                                    <li>We sent you a decision packet in the mail explaining the decision on (date of letter in VBMS).</li>
+                                    <li>May I verify your mailing address?</li>
+                                    <li>Please allow at least 10 mailing days for the packet to arrive.</li>
+                                </ul>
+                                <br>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is complete.  VA has made a decision on your claim and a packet of detailed information explaining your decision was sent on (date of letter in VBMS).</p>
+                                    <p>May I verify your mailing address?</p>
+                                    <p>Please allow at least 10 mailing days for your notification packet to arrive.</p>
+                                    <p><strong>If the Veteran asks what the decision is:</strong></p>
+                                    <p>
+                                        PCRs may provide:
+                                    </p>
+                                    <li>Combined service-connected and/or non-service-connected rating percentage</li>
+                                    <li>Monthly payment amount</li>
+                                    <li>Retroactive payment amount and payment date</li>
+
+                                    <p>
+                                        PCRs may not provide the basis for the decision or any other details from the decision notice:
+                                        "I'm sorry, but I can"t discuss any additional details with you until you receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."
+                                    </p>
+
+                                    <p>Exception: If requested by a visually impaired claimant, PCRs must explain the substance of the decision notice by providing a general summary and responding to any questions. Visually impaired claimants are identified with a "Blind Veteran" flash in the system. </p>
+                                    <p><strong>If the Veteran wants a copy of the letter faxed/emailed:</strong></p>
+                                    <p>"I'm sorry but we are required to allow time for the notification package to be received through US Mail; however, if you have not received your notification letter after 10 mailing days have passed, please call us back and we can fax, email, or mail you another copy."</p>
+                                </ul>
+                            </div>
+                            <div id="complete_nws" style="font-family: Times New Roman, Georgia, serif; font-size: 14px; display: none">
+                                <h1><span class="phase_type_c"></span>; Closed</h1>
+
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">COMPONENTS (mandatory)</div>
+                                <ul>
+                                    <li>Your claim is complete.</li>
+                                    <li>We sent you a decision packet in the mail explaining the decision on (date of letter in VVA/VBMS).</li>
+                                    <li>May I verify your mailing address?</li>
+                                    <li>Please allow at least 10 mailing days for the packet to arrive</li>
+                                </ul>
+                                <br>
+                                <div style="font-family: Times New Roman, Georgia, serif; font-size: 18px; font-weight: bold; color: black">SCRIPT (optional)</div>
+                                <ul>
+                                    <p>Your claim is complete.  VA has made a decision on your claim and a packet of detailed information explaining your decision was sent on (date of letter in VVA).</p>
+                                    <p>May I verify your mailing address?</p>
+                                    <p>Please allow at least 10 mailing days for your notification packet to arrive.</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran asks what the decision is:</strong></ul>
+                                <ul>
+                                    <p>"I'm sorry but I can't discuss the decision with you until you receive your official notification letter in the mail. Once you receive that letter, please read it thoroughly and call us back if you have any questions."</p>
+                                </ul>
+                                <ul style="margin-left: 20px;"><strong>If the Veteran wants a copy of the letter faxed/emailed:</strong></ul>
+                                <ul>
+                                    <p>"I'm sorry but we are required to allow time for the initial notification package to be received through US Mail; however, if you have not received your notification letter after 10 mailing days have passed, please call us back and we can fax or mail you another copy."</p>
+                                </ul>
+                            </div>
+                            <br>
+
+                            <hr>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('VAIPending');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">VAI Pending</a>
+                            <label id="Label33" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px"></label>
+                            <div id="VAIPending" style="display:none">
+                                <h1>VAI Pending <label id="Label44"></label></h1>
+
+                                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script:</div>
+                                <ul>I apologize for the delay in responding to your inquiry.  The 7-10 business day timeframe we provide when we initiate an inquiry is the goal, but please understand the time it takes to respond depends on the workload of the Regional Office.  I do show that your claim is still in the (Insert Claim Phase) and there have not been any updates to the claim status since the inquiry was submitted.  I will add a note to the inquiry to let your Regional Office know you are still waiting for a response.  May I verify your (telephone, email, address,  - selected method of contact).</ul>
+                                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script Components:</div>
+                                <ul>
+                                    <li>Apologize for delay in responding to inquiry</li>
+                                    <li>Advise 7-10 days for response is the goal; however, it can take longer based upon the workload of the Regional Office</li>
+                                    <li>Advise claim is still in the appropriate phase (development, decision, etc.)</li>
+                                    <li>Advise there have not been any updates</li>
+                                    <li>Advise will add note to inquiry</li>
+                                    <li>Confirm method of contact</li>
+                                </ul>
+
+                            </div><br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('apology');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Apology (generic) Due to Complaints on How Long It's Taking to Process Claim During "any" Stage</a>
+                            <div id="apology" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; display: none">
+                                <ul>
+                                    I'm sorry. I can understand why you may be frustrated. We are currently processing a large volume of claims and we are doing our best to process these as quickly as possible. We generally process claims in the order received. Note: If caller indicates a hardship exists, PCR should advise the caller to send/FAX documentation of the hardship (eviction/foreclosure notice; past due utility bill, etc). See Financial Hardship Claimed or Terminal Illness Hardship Claimed script.
+                                </ul>
+                            </div><br>
+
+
+                            <a href="javascript:;" onmousedown="toggleDiv('repeatCaller');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Repeat Caller</a>
+                            <label id="Label1" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px"></label>
+                            <div id="repeatCaller" style="display:none">
+                                <h1>Repeat Caller <label id="Label2"></label></h1>
+                                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script Notes:</div>
+                                <ul>
+                                    <li>System of record clearly indicates that caller has contacted the VA within the last 30 days requesting information on the same issue.</li>
+                                    <li>There have been no new actions (i.e. - tracked items, diaries, etc.) since last documented call in which a status was provided.</li>
+                                    <li>This is an <b>optional</b> script, but must be read in full if used.</li>
+                                    If script qualifications are met, PCRs can use this script in replacement of the standard Status of Claim/Appeal scripts
+                                    <i>with the exception of the</i>
+                                    <b>NOD Status: SOC Issued script.</b>
+                                </ul>
+
+                                <br>
+
+                                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Components (mandatory):</div>
+                                <ul>
+                                    <li>Date of previous contact</li>
+                                    <li>Confirm case is still in the same status</li>
+                                    <li>Advise there has not been any additional updates since last contact</li>
+                                </ul>
+                                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold; text-decoration: underline; color: red">Script (optional):</div>
+                                <ul>
+                                    At this time, your case is in the same status and there have not been any updates since your last call.
+                                    <br>
+                                    <strong>If the Veteran sounds frustrated with receiving the same information:</strong>
+                                    <li>PCR is required provide the status per the appropriate Status of Claim/Appeal script.</li>
+                                </ul>
+                            </div>
+
+                            <br><br><br>
+
+                            <a href="javascript:;" onmousedown="toggleDiv('hardshipFinClaimed');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Hardship, Financial, Claimed</a>
+                            <div id="hardshipFinClaimed" style="display:none">
+                                <ul>
+                                    I'm sorry you're experiencing financial difficulty. In order for us to expedite your claim, please send us copies of any past due utility bills, eviction/foreclosure notice, or repossession notice - something that we can use to help us help you.
+                                    <br>
+                                    <br>
+                                    <b>Note to PCR:</b> Give ROJ's fax number and/or ROJ's address and ask claimant to annotate the document "Financial Hardship."
+                                    <br>
+                                    <a id="sojad1" onclick="LoadSOJAddress(1)" style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF;" title="Click to load SOJ Address">Load SOJ Address for</a>&nbsp;
+                                    <input id="sojaddress1" type="text" style="width: 40px">&nbsp;
+                                    <label id="soj1" style="font-size:12px; font-weight:normal"></label>
+                                </ul>
+                            </div>
+                            <br>
+                            <a href="javascript:;" onmousedown="toggleDiv('hardshipTermIllClaimed');" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold">Hardship, Terminal Illness, Claimed</a>
+                            <div id="hardshipTermIllClaimed" style="display:none">
+                                <ul>
+                                    I'm sorry to hear that you're going through this difficult time. In order for us to expedite your claim, please send medical evidence or a doctor's statement of your prognosis. Please understand that we need this in order to help you.
+                                    <br>
+                                    <br>
+                                    <b>Note to PCR:</b> Give ROJ's fax number and/or ROJ's address and ask claimant to annotate the document "Terminal Illness Hardship."
+                                    <br>
+                                    <a id="sojad2" onclick="LoadSOJAddress(2)" style="text-decoration: underline; cursor: pointer; font-weight: bold; color: #0000FF;" title="Click to load SOJ Address">Load SOJ Address for</a>&nbsp;
+                                    <input id="sojaddress2" type="text" style="width: 40px">&nbsp;
+                                    <label id="soj2" style="font-size:12px; font-weight:normal"></label>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

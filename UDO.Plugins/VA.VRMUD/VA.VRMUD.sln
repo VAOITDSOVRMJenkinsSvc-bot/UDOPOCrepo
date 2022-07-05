@@ -1,0 +1,418 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL.Scripts", "SQL.Scripts", "{52D0F254-1BCB-4B53-95DE-0AC1B59B76F9}"
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+	ProjectSection(SolutionItems) = preProject
+		SQL.Scripts\Clean XML Script all.sql = SQL.Scripts\Clean XML Script all.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM.Reports", "CRM.Reports", "{3BB9DCBC-EF22-449B-9EA5-79F47630810C}"
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+	ProjectSection(SolutionItems) = preProject
+		CRM.Reports\119 - Report of Contact.rdl = CRM.Reports\119 - Report of Contact.rdl
+		CRM.Reports\21-0820 - Report of General Information.rdl = CRM.Reports\21-0820 - Report of General Information.rdl
+		CRM.Reports\21-0820a - Report of First Notice of Death.rdl = CRM.Reports\21-0820a - Report of First Notice of Death.rdl
+		CRM.Reports\21-0820d - Report of Non-Receipt of Payment.rdl = CRM.Reports\21-0820d - Report of Non-Receipt of Payment.rdl
+		CRM.Reports\21-0820f - Report of Month of Death.rdl = CRM.Reports\21-0820f - Report of Month of Death.rdl
+		CRM.Reports\Amount Letter Gross.rdl = CRM.Reports\Amount Letter Gross.rdl
+		CRM.Reports\Blank Letter.rdl = CRM.Reports\Blank Letter.rdl
+		CRM.Reports\Commissary Letter Surviving Spouse.rdl = CRM.Reports\Commissary Letter Surviving Spouse.rdl
+		CRM.Reports\Commissary Letter with Future Exam.rdl = CRM.Reports\Commissary Letter with Future Exam.rdl
+		CRM.Reports\Commissary Letter.rdl = CRM.Reports\Commissary Letter.rdl
+		CRM.Reports\Death Benefits Letter.rdl = CRM.Reports\Death Benefits Letter.rdl
+		CRM.Reports\Disability Breakdown Letter.rdl = CRM.Reports\Disability Breakdown Letter.rdl
+		CRM.Reports\Fax Cover Sheet.rdl = CRM.Reports\Fax Cover Sheet.rdl
+		CRM.Reports\Income Amount Letter.rdl = CRM.Reports\Income Amount Letter.rdl
+		CRM.Reports\Informal Claims Letter - AB10.rdl = CRM.Reports\Informal Claims Letter - AB10.rdl
+		CRM.Reports\JD Powers Report.rdl = CRM.Reports\JD Powers Report.rdl
+		CRM.Reports\Management Call Log.rdl = CRM.Reports\Management Call Log.rdl
+		CRM.Reports\Management Phone Call Issues Report.rdl = CRM.Reports\Management Phone Call Issues Report.rdl
+		CRM.Reports\Management Service Request Performance Report.rdl = CRM.Reports\Management Service Request Performance Report.rdl
+		CRM.Reports\MOD Memorandum.rdl = CRM.Reports\MOD Memorandum.rdl
+		CRM.Reports\Multiple Payment Letter.rdl = CRM.Reports\Multiple Payment Letter.rdl
+		CRM.Reports\No Benefits Letter.rdl = CRM.Reports\No Benefits Letter.rdl
+		CRM.Reports\NOK Letter.rdl = CRM.Reports\NOK Letter.rdl
+		CRM.Reports\PCR Summary.rdl = CRM.Reports\PCR Summary.rdl
+		CRM.Reports\Phone Call By Issue Chart.rdl = CRM.Reports\Phone Call By Issue Chart.rdl
+		CRM.Reports\Phone Calls by Skill.rdl = CRM.Reports\Phone Calls by Skill.rdl
+		CRM.Reports\Phone Calls Count.rdl = CRM.Reports\Phone Calls Count.rdl
+		CRM.Reports\Preference Letters.rdl = CRM.Reports\Preference Letters.rdl
+		CRM.Reports\Property Tax - Hunting Fishing - OR.rdl = CRM.Reports\Property Tax - Hunting Fishing - OR.rdl
+		CRM.Reports\Property Tax DMV Registration - MT.rdl = CRM.Reports\Property Tax DMV Registration - MT.rdl
+		CRM.Reports\Property Tax Exemption - CA - LA.rdl = CRM.Reports\Property Tax Exemption - CA - LA.rdl
+		CRM.Reports\Real Estate - License Fee Tax Exemption.rdl = CRM.Reports\Real Estate - License Fee Tax Exemption.rdl
+		CRM.Reports\Related Phone History (Contact).rdl = CRM.Reports\Related Phone History (Contact).rdl
+		CRM.Reports\Related Phone History (Phone Call).rdl = CRM.Reports\Related Phone History (Phone Call).rdl
+		CRM.Reports\Repeat Caller Report.rdl = CRM.Reports\Repeat Caller Report.rdl
+		CRM.Reports\Service Verification.rdl = CRM.Reports\Service Verification.rdl
+		CRM.Reports\Summary of Benefits Surviving Spouse Letter.rdl = CRM.Reports\Summary of Benefits Surviving Spouse Letter.rdl
+		CRM.Reports\Summary of Benefits Veterans Letter.rdl = CRM.Reports\Summary of Benefits Veterans Letter.rdl
+		CRM.Reports\Total Completed Calls.rdl = CRM.Reports\Total Completed Calls.rdl
+		CRM.Reports\Unique Caller Count.rdl = CRM.Reports\Unique Caller Count.rdl
+		CRM.Reports\User Summary.rdl = CRM.Reports\User Summary.rdl
+		CRM.Reports\Veteran Percentage Letter.rdl = CRM.Reports\Veteran Percentage Letter.rdl
+		CRM.Reports\Veteran PT Letter.rdl = CRM.Reports\Veteran PT Letter.rdl
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRM.WebResources", "CRM.WebResources\", "{4036A11B-E462-4B16-ADA0-DB19E9A556C7}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "<Project Location In Database>"
+		SccAuxPath = "<Source Control Database>"
+		SccLocalPath = "<Local Binding Root of Project>"
+		SccProvider = "Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CRM.WebResources"
+		Debug.AspNetCompiler.PhysicalPath = "CRM.WebResources\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.WebResources\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CRM.WebResources"
+		Release.AspNetCompiler.PhysicalPath = "CRM.WebResources\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.WebResources\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50013"
+	EndProjectSection
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRM.ISV.scripts_VIP", "CRM.ISV\CRM.ISV.scripts_VIP\", "{43DB2E63-E732-4273-B050-E013A50952D8}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "<Project Location In Database>"
+		SccAuxPath = "<Source Control Database>"
+		SccLocalPath = "<Local Binding Root of Project>"
+		SccProvider = "Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CRM.ISV.scripts_VIP"
+		Debug.AspNetCompiler.PhysicalPath = "CRM.ISV\CRM.ISV.scripts_VIP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ISV.scripts_VIP\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CRM.ISV.scripts_VIP"
+		Release.AspNetCompiler.PhysicalPath = "CRM.ISV\CRM.ISV.scripts_VIP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ISV.scripts_VIP\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50606"
+	EndProjectSection
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRM.ISV.DAC", "CRM.ISV\CRM.ISV.DAC\", "{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "<Project Location In Database>"
+		SccAuxPath = "<Source Control Database>"
+		SccLocalPath = "<Local Binding Root of Project>"
+		SccProvider = "Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CRM.ISV.DAC"
+		Debug.AspNetCompiler.PhysicalPath = "CRM.ISV\CRM.ISV.DAC\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ISV.DAC\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CRM.ISV.DAC"
+		Release.AspNetCompiler.PhysicalPath = "CRM.ISV\CRM.ISV.DAC\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ISV.DAC\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51009"
+	EndProjectSection
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRM.ISV.VIP", "CRM.ISV\CRM.ISV.VIP\", "{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "<Project Location In Database>"
+		SccAuxPath = "<Source Control Database>"
+		SccLocalPath = "<Local Binding Root of Project>"
+		SccProvider = "Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CRM.ISV.VIP"
+		Debug.AspNetCompiler.PhysicalPath = "CRM.ISV\CRM.ISV.VIP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ISV.VIP\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CRM.ISV.VIP"
+		Release.AspNetCompiler.PhysicalPath = "CRM.ISV\CRM.ISV.VIP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ISV.VIP\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51648"
+	EndProjectSection
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRM.ReportGen", "CRM.ReportGen\", "{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "<Project Location In Database>"
+		SccAuxPath = "<Source Control Database>"
+		SccLocalPath = "<Local Binding Root of Project>"
+		SccProvider = "Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/CRM.ReportGen"
+		Debug.AspNetCompiler.PhysicalPath = "CRM.ReportGen\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ReportGen\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/CRM.ReportGen"
+		Release.AspNetCompiler.PhysicalPath = "CRM.ReportGen\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\CRM.ReportGen\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51851"
+	EndProjectSection
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.EmergencyButton", "CRM.EmergencyButton\CRM.EmergencyButton.csproj", "{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.EmergencyButton.Web", "CRM.EmergencyButton.Web\CRM.EmergencyButton.Web.csproj", "{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}"
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRM.Plugins", "CRM.Plugins", "{81FA2150-8037-4D93-AC3C-04AC81677D6D}"
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Plugins.QueueItem", "CRM.Plugins.QueueItem\CRM.Plugins.QueueItem.csproj", "{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Plugins", "CRM.Plugins\CRM.Plugins.csproj", "{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Plugins.Vai", "CRM.Plugins.Vai\CRM.Plugins.Vai.csproj", "{21901459-D030-416C-80EF-579918708596}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRM._static_grid", "http://localhost:52897", "{C7BE6CDA-77CA-42D0-ADB7-445234411D93}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52897"
+		Debug.AspNetCompiler.PhysicalPath = "CRM._static_grid\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52897\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52897"
+		Release.AspNetCompiler.PhysicalPath = "CRM._static_grid\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52897\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "CRM._static_grid\"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRM.Plugins.ChatCoBrowseSessionLog", "CRM.Plugins.ChatCoBrowseSessionLog\CRM.Plugins.ChatCoBrowseSessionLog.csproj", "{F5202D8A-0190-4F6C-8919-4C18DE869AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crm.Plugins.PhoneCall.IntentToFile", "Crm.PhoneCall.IntentToFile\Crm.Plugins.PhoneCall.IntentToFile.csproj", "{00486829-183D-4B01-A912-A8EACB36C149}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crm.Plugins.IntentToFile", "Crm.Plugins.IntentToFile\Crm.Plugins.IntentToFile.csproj", "{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}"
+EndProject
+Global
+	GlobalSection(JazzSourceControlProviderSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4036A11B-E462-4B16-ADA0-DB19E9A556C7}.Release|x86.ActiveCfg = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43DB2E63-E732-4273-B050-E013A50952D8}.Release|x86.ActiveCfg = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{19040BA4-7A01-49CD-9B8D-F78FCFDA2672}.Release|x86.ActiveCfg = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3ECA8DFA-12F4-4CEB-98F2-E8FE76B6BC94}.Release|x86.ActiveCfg = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5AB81126-78E3-4A04-8AF1-6FFDEFACB3DA}.Release|x86.ActiveCfg = Debug|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{84D69E5B-8024-4E5A-B357-16A0CF1E6A95}.Release|x86.ActiveCfg = Release|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0E9CE721-3C1E-4D2E-AA83-491F3EEE7025}.Release|x86.ActiveCfg = Release|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4}.Release|x86.ActiveCfg = Release|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{21901459-D030-416C-80EF-579918708596}.Release|x86.ActiveCfg = Release|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C7BE6CDA-77CA-42D0-ADB7-445234411D93}.Release|x86.ActiveCfg = Debug|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4}.Release|x86.ActiveCfg = Release|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{00486829-183D-4B01-A912-A8EACB36C149}.Release|x86.ActiveCfg = Release|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C14F4D9A-74D7-4F3B-8493-DA409671FBF4} = {81FA2150-8037-4D93-AC3C-04AC81677D6D}
+		{DDBDDB83-CCEC-4589-B352-52C4ED9491AD} = {81FA2150-8037-4D93-AC3C-04AC81677D6D}
+		{21901459-D030-416C-80EF-579918708596} = {81FA2150-8037-4D93-AC3C-04AC81677D6D}
+		{F5202D8A-0190-4F6C-8919-4C18DE869AF4} = {81FA2150-8037-4D93-AC3C-04AC81677D6D}
+		{00486829-183D-4B01-A912-A8EACB36C149} = {81FA2150-8037-4D93-AC3C-04AC81677D6D}
+		{DA0AB57F-66CF-493D-BAF3-7AC13E8FE0C9} = {81FA2150-8037-4D93-AC3C-04AC81677D6D}
+	EndGlobalSection
+EndGlobal

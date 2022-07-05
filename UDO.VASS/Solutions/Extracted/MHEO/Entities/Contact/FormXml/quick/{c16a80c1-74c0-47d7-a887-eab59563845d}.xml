@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{c16a80c1-74c0-47d7-a887-eab59563845d}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form maxWidth="400">
+    <tabs>
+      <tab id="{0345f2e0-1123-4491-b9b5-ca9785b03efb}" name="tab_1" showlabel="false" locklevel="0" expanded="true">
+        <labels>
+          <label description="Veteran Profile" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section id="{289cfab3-7291-4110-8486-7f2f4e964f1c}" name="tab_1_column_1_section_1" showlabel="false" locklevel="0" columns="1" showbar="false" IsUserDefined="0" labelwidth="175" celllabelalignment="Left" celllabelposition="Left">
+                <labels>
+                  <label description="Benefits" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{2ed22d91-6660-e209-a7ba-42d9e5b73ee5}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Using LGY Benefit" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_usinglgybenefit" datafieldname="udo_usinglgybenefit" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{ceb2388d-91e7-d604-986d-a8dd9c7cd8e7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VGLI Enrolled" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_vglienrolled" datafieldname="udo_vglienrolled" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d1609237-9a9b-d175-996a-0e64614b63b6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="VGLI Effective Date" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_vglieffectivedate" datafieldname="udo_vglieffectivedate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{0e95c75c-1bbd-284d-d027-8dac2c5a3cbe}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP Completion Date" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_tapcompletiondate" datafieldname="udo_tapcompletiondate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e1e94700-2762-4726-aebb-a266eca42810}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="TAP Location" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_taplocation" datafieldname="udo_taplocation" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section id="{b1db8805-b581-30ec-9e26-93d8c4927a3a}" name="tab_1_section_4" showlabel="true" locklevel="0" columns="1" showbar="true" IsUserDefined="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" layout="varwidth">
+                <labels>
+                  <label description="Education" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{906bc03e-e694-9ec1-9943-c257ae35c4a1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Education Level" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_educationlevel" datafieldname="udo_educationlevel" classid="{3EF39988-22BB-4f0b-BBBE-64B5A3748AEE}" uniqueid="{4cc74eeb-9abb-bc14-9865-83477d4b897e}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{bd4c3e3a-4975-8416-8e72-d63823905b2d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Applied or Using Education Benefit" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_educationbenefitappliedorusing" datafieldname="udo_educationbenefitappliedorusing" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{6835bd39-d9eb-6665-d522-a4b787d954be}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Education Transferred Entitlement" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_educationtransferredentitlement" datafieldname="udo_educationtransferredentitlement" classid="{67FAC785-CD58-4f9f-ABB3-4B7DDC6ED5ED}" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section id="{664bb81d-0278-270c-8789-8490b6babee3}" name="tab_1_section_3" showlabel="true" locklevel="0" columns="1" showbar="true" IsUserDefined="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" layout="varwidth">
+                <labels>
+                  <label description="Additional Service Details" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{b60e82ce-0a2c-9702-2d8c-369e0e2821c6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Combat Indicator" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_combatindicator" datafieldname="udo_combatindicator" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{923e3444-6371-82aa-c88a-575d20adad41}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Post 911 Deployment" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_post911deployment" datafieldname="udo_post911deployment" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" uniqueid="{2d85ddca-7cd9-ea81-0c0c-b02d32bda30c}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{795d1785-3a90-91e8-3625-8ba000ba44d0}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Medal of Honor" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_medalofhonor" datafieldname="udo_medalofhonor" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{eb5964cc-84a7-0db0-c414-3c3d9e4bb4b1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Purple Heart" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_purpleheart" datafieldname="udo_purpleheart" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8dcd1408-307b-029c-07d9-2d92ca1a7a2b}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Guard Reserve Begin Date" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_guardreservebegindate" datafieldname="udo_guardreservebegindate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{440b59a4-a16a-584e-dd66-1588d574c0c7}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Guard Reserve End Date" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="udo_guardreserveenddate" datafieldname="udo_guardreserveenddate" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+              <section id="{6261b12e-d585-10a2-c88d-d17574d976c7}" name="tab_1_section_2" showlabel="false" locklevel="0" columns="1" showbar="false" IsUserDefined="0" labelwidth="115" celllabelalignment="Left" celllabelposition="Left" layout="varwidth" visible="false">
+                <labels>
+                  <label description="Section" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{0c68825e-2a2d-298c-ce1d-268d59aa6626}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="First Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="firstname" datafieldname="firstname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e4d15329-904e-58b3-dbcb-394cdcd52dcd}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Last Name" languagecode="1033" />
+                      </labels>
+                      <control disabled="false" id="lastname" datafieldname="lastname" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <DisplayConditions Order="3">
+      <Role Id="{627090ff-40a3-4053-8790-584edc5be201}" />
+      <Role Id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    </DisplayConditions>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="VASS Benefits Quick View" languagecode="1033" />
+  </LocalizedNames>
+</systemform>

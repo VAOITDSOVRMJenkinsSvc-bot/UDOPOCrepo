@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<filter>
+  <entities>
+    <!--Core Entities-->
+    <entity>systemuser</entity>
+    <entity>contact</entity>
+    <entity>usersettings</entity>
+    <!--Custom Entities-->
+    <entity>udo_appeal</entity>
+    <entity>udo_idproof</entity>
+    <entity>udo_claim</entity>
+    <entity>udo_veteransnapshot</entity>
+    <entity>udo_getappeals</entity>
+    <entity>udo_payeecode</entity>
+    <entity>udo_person</entity>
+    <entity>udo_payment</entity>
+    <entity>udo_dependant</entity>
+    <entity>udo_legacypaymenthistory</entity>
+    <entity>udo_virtualva</entity>
+    <entity>va_systemsettings</entity>
+    <entity>udo_rating</entity>
+    <entity>udo_birls</entity>
+    <entity>udo_militaryservice</entity>
+    <entity>udo_award</entity>
+    <entity>udo_examandappontment</entity>
+    <entity>va_regionaloffice</entity>
+    <entity>udo_address</entity>
+    <entity>udo_relationships</entity>
+    <entity>crme_person</entity>
+    <entity>va_intenttofile</entity>
+    <entity>udo_note</entity>
+    <entity>crme_chatcobrowsesessionlog</entity>
+    <entity>udo_interaction</entity>
+    <entity>udo_lettergeneration</entity>
+    <entity>udo_interactionspecialsituation</entity>
+    <entity>BusinessUnit</entity>
+    <entity>Team</entity>
+    <entity>QueueItem</entity>
+    <entity>WebResource</entity>
+    <entity>va_bankaccount</entity>
+    
+    <!-- <entity></entity>
+    <entity></entity>
+    <entity></entity>-->
+
+  </entities>
+  <!--Global Optionsets. If none defined it will pull no Global Optionsets-->
+  <optionsets>
+  </optionsets>
+  <!--Local Optionset. If none defined it will pull no Optionsets-->
+  <options>
+  </options>
+</filter>

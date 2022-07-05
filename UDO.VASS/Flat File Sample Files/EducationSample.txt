@@ -1,0 +1,2 @@
+SSN	First Name	Middle Name	Last Name	Applied / Using EDU Benefit	Transferred Entitlement
+000222002	MHEOFirst1	MHEOMiddle1	MHEOLast1	Y	N

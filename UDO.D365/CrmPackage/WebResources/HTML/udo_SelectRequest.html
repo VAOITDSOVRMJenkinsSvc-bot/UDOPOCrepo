@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <title>Select Request</title>
+    <script src="udo_Xrm.min.js" type="text/jscript"></script>
+    <script src="udo_jquery_1.9.1.min.js" type="text/jscript"></script>
+    <script src="udo_SDK.JQuery.js" type="text/jscript"></script>
+    <script src="udo_SelectRequest.js" type="text/jscript"></script>
+    <!--<script src="udo_json2.js" type="text/jscript"></script>-->
+    <script src="udo_utility.js" type="text/jscript"></script>
+    <script src="udo_CrmRestKit2011.js" type="text/jscript"></script>
+    <script src="udo_CRMCommonJS.js" type="text/javascript"></script>
+    <script src="udo_notes/XrmSvcToolkit.js" type="text/jscript"></script>
+    <style type="text/css">
+        body {
+            font-family: Calibri;
+        }
+
+        table {
+            border: 0px solid gray;
+        }
+
+        h1 {
+            margin-left: 35px;
+            color: gray;
+            font-family: Calibri;
+            font-weight: 100;
+            font-size: 15pt;
+        }
+
+        label {
+            margin-left: 25px;
+        }
+
+        select {
+            margin-left: 50px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 80%;
+            border: 1px solid gray;
+        }
+
+        option {
+            color: black;
+            font-family: Calibri;
+            font-size: 12pt;
+        }
+
+            option:hover {
+                background-color: #b1d6f0;
+            }
+
+        input {
+            height: 25px;
+            width: 140px;
+            margin-top: 10px;
+            margin-left: 50px;
+            margin-right: 10px;
+            font-family: Calibri;
+            font-size: 12pt;
+            font-weight: 200;
+            background-color: ghostwhite;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        div#tmpDialog {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            height: 50px;
+            margin: -101px 0 0 -251px;
+            background: rgb(255, 255, 255);
+            border: 1px solid black;
+        }
+
+            div#tmpDialog img {
+                float: left;
+                height: 45px;
+                width: 45px;
+                padding: 5px 10px 5px 5px;
+                text-align: left;
+            }
+
+            div#tmpDialog p {
+                padding: 5px;
+                margin: 15px 5px 5px 5px;
+                text-align: left;
+                font-size: 11px;
+            }
+    </style>
+    <script type="text/jscript">
+        //CRM Ctrl Key Fix for toString Error
+        if (typeof window.LOCID_JUMP_TO_RIBBON == "undefined") window.LOCID_JUMP_TO_RIBBON = "[";
+        if (typeof window.LOCID_JUMP_TO_RIBBON_CONTROL == "undefined") window.top.LOCID_JUMP_TO_RIBBON_CONTROL = "]";
+
+        // Load
+        $(document).ready(function () {
+            Va.Udo.Crm.Scripts.SelectRequest.UI.initiatlize();
+
+            setTimeout(function () {
+
+                $('#requestTypeSelect').focus();
+                $('#requestTypeSelect')[0].selectedIndex = 0;
+                $("#requestTypeSelect").change();
+
+            }, 1000);
+        });
+
+    </script>
+
+    ﻿﻿</head>
+    <body>
+    <table width="100%">
+        <tbody>
+            <tr>
+                <td style="width: 50%;">
+                    <div id="step1Section">
+                        <h1>Select Request Type</h1>
+                        <select tabindex="1" title="Select Request Type (Listbox)" id="requestTypeSelect" role="listbox" aria-label="Select Request Type" size="23">
+                        </select>
+                        <!--                        <div id="loadingMessageRequestType">
+                            <table width="100%" height="100%">
+                                <tr>
+                                    <td align="center">
+                                        <img id="imgLoadingRequestType" align="middle" src="./WebResources/udo_loadingGif.gif" alt="loading" style="height: 200px; width: 200px" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>-->
+                    </div>
+                </td>
+                <td style="width: 50%;">
+                    <div id="step2Section">
+                        <h1>Select Request Sub Type</h1>
+                        <select tabindex="2" title="Select Request Sub Type (Listbox)" id="requestSubTypeSelect" role="listbox" aria-label="Select Request Sub Type" size="23">
+                        </select>
+                        <!--                        <div id="loadingMessageRequestSubType">
+                            <table width="100%" height="100%">
+                                <tr>
+                                    <td align="center">
+                                        <img id="imgLoadingRequestSubType" align="middle" src="./WebResources/udo_loadingGif.gif" alt="loading" style="height: 200px; width: 200px" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="align-content: flex-end;">
+                    <input tabindex="3" title="Create Request (Button)" disabled="disabled" id="createRequestButton" aria-label="Create Request" type="button" value="Create Request">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="tmpDialog">
+        <img alt="Loading Image" src="udo_/images/search/loading.gif">
+        <p>Working on it. Please wait...</p>
+    </div>
+</body></html>

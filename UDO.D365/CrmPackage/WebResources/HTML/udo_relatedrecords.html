@@ -1,0 +1,126 @@
+﻿<html><head></head><body>﻿
+
+	
+		<title>Payments</title>
+        <script src="udo_Xrm.min.js" type="text/jscript"></script>
+    <script src="udo_jquery_1.9.1.min.js" type="text/jscript"></script>
+    <script src="udo_SDK.JQuery.js" type="text/jscript"></script>
+    <script src="udo_Payments.js" type="text/jscript"></script>
+    <script src="udo_json2.js" type="text/jscript"></script>
+    <script src="udo_utility.js" type="text/jscript"></script>
+    <style type="text/css">
+        body {
+            font-family: 'Segoe UI',Tahoma,Arial;
+        }
+
+        table {
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Segoe UI',Tahoma,Arial;
+            font-weight: 100;
+            color: #262626;
+            font-size: 36px;
+            line-height: 24px;
+        }
+
+        label {
+            margin-left:5px;
+            font-size:15px;
+            width:90px
+        }
+
+        select {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 80px
+        }
+
+        option {
+            font-family: 'Segoe UI', Tahoma, Arial;
+            font-size: 11px;
+            height: 28px;
+            overflow: hidden;
+            padding-bottom: 0;
+            padding-left: 10px;
+            padding-top: 0;
+        }
+
+            option:hover {
+                background-color: #b1d6f0;
+            }
+
+        input {
+            background-color: rgb(0,32,80);
+            border-color: rgb(255,255,255);
+            border-style: none;
+            border-width: 0px;
+            color: rgb(255,255,255);
+            direction: ltr;
+            font-family: "Segoe UI Semibold","Segoe UI Web Semibold","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Medium","Helvetica Neue",Arial,sans-serif;
+            font-size: 14.06px;
+            height: 30px;
+            line-height: 20px;
+            min-width: 84.4px;
+            padding-bottom: 10px;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 5px;
+        }
+
+            input:disabled {
+                background-color: gray;
+                color: rgb(255, 255, 255);
+            }
+        #relatedRecordFrame {
+            height: 271px;
+        }
+    </style>
+    <script type="text/jscript">
+        $(document).ready(function () {
+            try {
+                //get type code from url
+                var etc = Xrm.Page.context.getQueryStringParameters().type;
+                //get entity guid from url
+                var guid = Xrm.Page.context.getQueryStringParameters().id;
+                //get relationship name from url
+                var tabSet = Xrm.Page.context.getQueryStringParameters().data;
+                var orgName = Xrm.Page.context.getOrgUniqueName();
+
+                var relatedRecordIframe = document.getElementById("relatedRecordFrame");
+                //construct the related url
+                if (guid != null && guid != "" && etc != null && etc != "" && tabSet != null) {
+                    var url = Xrm.Page.context.getClientUrl() + "/userdefined/areas.aspx?oId=" + guid + "&oType=" + etc
+                        + "&pagemode=iframe&security=852023&tabSet=" + tabSet + "&rof=false";
+                    //set iframe to navigate to url            
+                    relatedRecordIframe.src = url;
+                    messageRow.style.display = "none";
+
+                }
+                else {
+                    relatedRecordIframe.src = "about:blank";
+                    messageRow.style.display = "";
+                }
+            }
+            catch (ex) {
+                messageRow.style.display = "";
+            }
+        });
+    </script>
+	
+	  
+        <table width="100%" height="100%">
+            <tbody><tr height="20" id="messageRow">
+               <td align="center"><label style="width: 100px; font-size: 12px;">No related records.</label></td> 
+            </tr>
+            <tr id="dataRow">
+                <td>
+                    <iframe width="100%" id="relatedRecordFrame"></iframe>
+
+                    </td>
+                </tr>
+            </tbody></table>
+	
+
+</body></html>

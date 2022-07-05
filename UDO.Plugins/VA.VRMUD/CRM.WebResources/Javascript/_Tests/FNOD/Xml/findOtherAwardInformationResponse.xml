@@ -1,0 +1,1157 @@
+<?xml version="1.0"?>
+<Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<Body>
+		<findOtherAwardInformationResponse xmlns:ns2="http://services.share.benefits.vba.va.gov/">
+			<return>
+				<awardInfo>
+					<auditRelatedAr/>
+					<beneCd>PB</beneCd>
+					<beneFirstName>FELIX</beneFirstName>
+					<beneLastName>CAT</beneLastName>
+					<beneMiddleName/>
+					<beneName>Primary Beneficiary</beneName>
+					<bnftCd>CPL</bnftCd>
+					<bnftName>Compensation/Pension Live</bnftName>
+					<fidType/>
+					<frequencyCd>MO</frequencyCd>
+					<frequencyName>Monthly</frequencyName>
+					<igReferenceNbr/>
+					<lastPaidDate>03012012</lastPaidDate>
+					<numberOfAccountBalances>0</numberOfAccountBalances>
+					<numberOfDeductions>0</numberOfDeductions>
+					<numberOfReceivables>1</numberOfReceivables>
+					<payStatusCd>TERM</payStatusCd>
+					<payStatusName>Terminated</payStatusName>
+					<recipName/>
+					<requestedFrequency/>
+					<retroactiveDate>12011992</retroactiveDate>
+					<statusReasonCd/>
+					<statusReasonDate>03012012</statusReasonDate>
+					<statusReasonName/>
+					<vetFirstName>FELIX</vetFirstName>
+					<vetLastName>CAT</vetLastName>
+					<vetMiddleName/>
+					<receivable>
+						<receivables>
+							<balance>1911.00        </balance>
+							<code>30B         </code>
+							<discoveryDate>03082012</discoveryDate>
+							<name>Compensation or Pension Receivable                </name>
+						</receivables>
+					</receivable>
+					<deduction/>
+					<proceeds/>
+				</awardInfo>
+				<awardTypeCd>CPL</awardTypeCd>
+				<numberOfAwardLines>26</numberOfAwardLines>
+				<numberOfRecords>1</numberOfRecords>
+				<ptcpntBeneId>12903672</ptcpntBeneId>
+				<ptcpntRecipId>12903672</ptcpntRecipId>
+				<ptcpntVetId>12903672</ptcpntVetId>
+				<returnCode>SHAR 9999</returnCode>
+				<returnMessage>Records found.</returnMessage>
+				<awardline>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>08012011</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>0              </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>
+						</otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>0              </totalAward>
+						<witholdingAmt>
+						</witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Death of Beneficiary                              </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>01012011</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>273            </netAward>
+						<numberOfReasons>2</numberOfReasons>
+						<otherAdjustments>2400           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2673           </totalAward>
+						<witholdingAmt>2400           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Compensation Rating Adjustment                    </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Workers Compensation Adjustment                   </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>03172010</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>0 </minorChild>
+						<netAward>96             </netAward>
+						<numberOfReasons>2</numberOfReasons>
+						<otherAdjustments>2400           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2673           </totalAward>
+						<witholdingAmt>2577           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Minor Child Adjustment                            </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Workers Compensation Adjustment                   </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>07012009</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>1 </minorChild>
+						<netAward>187            </netAward>
+						<numberOfReasons>2</numberOfReasons>
+						<otherAdjustments>2400           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2774           </totalAward>
+						<witholdingAmt>2587           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Minor Child Adjustment                            </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Workers Compensation Adjustment                   </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>01012009</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>96             </netAward>
+						<numberOfReasons>3</numberOfReasons>
+						<otherAdjustments>2400           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2673           </totalAward>
+						<witholdingAmt>2577           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Compensation Rating Adjustment                    </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Workers Compensation Adjustment                   </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Allotment Adjustment                              </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>65             </altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012008</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>273            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>2400           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2673           </totalAward>
+						<witholdingAmt>2400           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>65             </altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012007</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>127            </netAward>
+						<numberOfReasons>2</numberOfReasons>
+						<otherAdjustments>2400           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2527           </totalAward>
+						<witholdingAmt>2400           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Other Withholding Adjustment                      </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>65             </altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012006</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>271            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>2200           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2471           </totalAward>
+						<witholdingAmt>2200           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>65             </altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>10012006</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>193            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>2200           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2393           </totalAward>
+						<witholdingAmt>2200           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Allotment Adjustment                              </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012005</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>193            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>2200           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2393           </totalAward>
+						<witholdingAmt>2200           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>11012005</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>99             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>2200           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2299           </totalAward>
+						<witholdingAmt>2200           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Compensation Rating Adjustment                    </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>10052005</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>99             </netAward>
+						<numberOfReasons>2</numberOfReasons>
+						<otherAdjustments>2200           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>2299           </totalAward>
+						<witholdingAmt>2200           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Individual Unemployability Adjustment             </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Other Withholding Adjustment                      </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>10012005</effectiveDate>
+						<entitlementCd>01          </entitlementCd>
+						<entitlementNm>Disability Compensation - Persian Gulf War        </entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>56             </netAward>
+						<numberOfReasons>2</numberOfReasons>
+						<otherAdjustments>1000           </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>1056           </totalAward>
+						<witholdingAmt>1000           </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Compensation Rating Adjustment                    </name>
+							</awardReasons>
+							<awardReasons>
+								<name>Other Withholding Adjustment                      </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012004</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>163            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>663            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012003</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>146            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>646            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012002</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>133            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>633            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012001</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>125            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>625            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12012000</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>109            </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>609            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011999</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>89             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>589            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011998</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>76             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>576            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011997</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>69             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>569            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011996</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>58             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>558            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011995</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>42             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>542            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011994</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>29             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>529            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011993</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>15             </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>515            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Cost of Living Adjustment                         </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+					<awardLines>
+						<aaHbInd>
+						</aaHbInd>
+						<altmnt>
+						</altmnt>
+						<crdpAmt>0              </crdpAmt>
+						<crscAmt>0              </crscAmt>
+						<drillWitholding>
+						</drillWitholding>
+						<effectiveDate>12011992</effectiveDate>
+						<entitlementCd>41          </entitlementCd>
+						<entitlementNm>
+						</entitlementNm>
+						<helplessChild>
+						</helplessChild>
+						<income>
+						</income>
+						<instznWthldg>
+						</instznWthldg>
+						<minorChild>
+						</minorChild>
+						<netAward>2              </netAward>
+						<numberOfReasons>1</numberOfReasons>
+						<otherAdjustments>500            </otherAdjustments>
+						<parentNbr>
+						</parentNbr>
+						<recoupDisability>0              </recoupDisability>
+						<recoupSeperation>0              </recoupSeperation>
+						<recoupTort>0              </recoupTort>
+						<recoupTotal>0              </recoupTotal>
+						<schoolChild>
+						</schoolChild>
+						<spouse>
+						</spouse>
+						<totalAward>502            </totalAward>
+						<witholdingAmt>500            </witholdingAmt>
+						<awardreason>
+							<awardReasons>
+								<name>Original Award                                    </name>
+							</awardReasons>
+						</awardreason>
+					</awardLines>
+				</awardline>
+			</return>
+		</findOtherAwardInformationResponse>
+	</Body>
+</Envelope>

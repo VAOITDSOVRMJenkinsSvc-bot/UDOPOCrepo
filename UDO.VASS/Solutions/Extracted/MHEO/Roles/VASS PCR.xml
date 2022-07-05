@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Role id="{de077657-64e0-e911-a994-001dd800951b}" name="VASS PCR">
+  <IsCustomizable>1</IsCustomizable>
+  <RolePrivileges>
+    <RolePrivilege name="prvAppendToudo_outboundcallattempt" level="Deep" />
+    <RolePrivilege name="prvAppendudo_outboundcallattempt" level="Deep" />
+    <RolePrivilege name="prvCreateSharePointData" level="Global" />
+    <RolePrivilege name="prvCreateudo_outboundcallattempt" level="Basic" />
+    <RolePrivilege name="prvReadAppModule" level="Global" />
+    <RolePrivilege name="prvReadContact" level="Deep" />
+    <RolePrivilege name="prvReadPluginAssembly" level="Global" />
+    <RolePrivilege name="prvReadPluginType" level="Global" />
+    <RolePrivilege name="prvReadSdkMessage" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStep" level="Global" />
+    <RolePrivilege name="prvReadSdkMessageProcessingStepImage" level="Global" />
+    <RolePrivilege name="prvReadSharePointData" level="Global" />
+    <RolePrivilege name="prvReadSharePointDocument" level="Global" />
+    <RolePrivilege name="prvReadTeam" level="Deep" />
+    <RolePrivilege name="prvReadudo_interaction" level="Basic" />
+    <RolePrivilege name="prvReadudo_mheointeractionassignment" level="Deep" />
+    <RolePrivilege name="prvReadudo_outboundcallattempt" level="Deep" />
+    <RolePrivilege name="prvReadUser" level="Deep" />
+    <RolePrivilege name="prvWriteSharePointData" level="Global" />
+    <RolePrivilege name="prvWriteudo_outboundcallattempt" level="Basic" />
+  </RolePrivileges>
+</Role>

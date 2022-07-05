@@ -1,0 +1,54 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+    <meta>
+</head>
+<body style="overflow-wrap: break-word;" onfocusout="parent.setEmailRange();">
+    <script src="udo_Xrm.min.js" type="text/javascript"></script>
+    <script src="va_jquery_1.10.2.min.js" type="text/javascript"></script>
+    <script src="udo_utility.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        var clickEvent = null;
+        var btnConfig = null;
+        var formContext = null;
+
+        function setContext(context) {
+            formContext = context;
+        }
+
+        $(document).ready(function () {
+
+            console.log("Find School Button");
+
+            var btn = $("#embeddedbutton");
+            var win = document.defaultView || document.parentWindow;
+            var control = win.frameElement.id;
+            var btnTxt = "";
+            console.log("Find School Button");
+            console.log(control);
+            switch (control) {
+                case "WebResource_udo_Dependent_Find_School":
+                    btnTxt = "Find School";
+                    $(btn).click({ action: "schoolfound", formatType: "" }, parent.findschool);
+                    break;
+                case "WebResource_udo_Dependent_Find_Prev_School":
+                    btnTxt = "Find Prev School";
+                    $(btn).click({ action: "schoolfound", formatType: "" }, parent.findprevschool);
+                    break;
+            }
+
+            btn.text(btnTxt);
+        });
+    </script>
+
+    <button tabindex="1" id="embeddedbutton" aria-label="Button Label">Button Name</button>
+</body>
+</html>

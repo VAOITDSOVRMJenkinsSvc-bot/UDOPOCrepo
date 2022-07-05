@@ -1,0 +1,50 @@
+﻿<fetch>
+  <entity name="udo_servicerequest" >
+    <attribute name="udo_state" />
+    <attribute name="udo_eveningphone" alias="EveningPhone" />
+    <attribute name="udo_description" />
+    <attribute name="udo_address1" />
+    <attribute name="udo_zipcode" />
+    <attribute name="udo_mailing_address1" />
+    <attribute name="udo_firstname" alias="CallerFirstName" />
+    <attribute name="udo_mailing_state" />
+    <attribute name="udo_lastname" alias="CallerLastName" />
+    <attribute name="udo_dayphone" alias="DayPhone" />
+    <attribute name="udo_phone" alias="CallerPhone" />
+    <attribute name="udo_mailing_city" />
+    <attribute name="udo_sremail" alias="VetEmail" />
+    <attribute name="udo_reqnumber" />
+    <attribute name="udo_address2" />
+    <attribute name="udo_poadata" alias="POA" />
+    <attribute name="udo_mailing_address2" />
+    <attribute name="udo_city" />
+    <attribute name="udo_address3" />
+    <attribute name="udo_mailing_address3" />
+    <attribute name="udo_country" />
+    <attribute name="udo_mailingcountry" />
+    <attribute name="udo_readscript" />
+    <attribute name="udo_mailing_zip" />
+    <attribute name="udo_filenumber" />
+    <attribute name="udo_servicerequestsid" />
+    <attribute name="udo_dateofdeath" />
+    <filter type="and" >
+      <condition attribute="udo_servicerequestid" operator="eq" value="@ServiceRequestGUID" />
+    </filter>
+    <link-entity name="udo_interaction" from="udo_interactionid" to="udo_originatinginteractionid" link-type="inner" alias="pc" >
+      <attribute name="udo_interactionid" />
+    </link-entity>
+    <link-entity name="systemuser" from="systemuserid" to="udo_pcrofrecordid" link-type="inner" alias="u" >
+      <attribute name="siteidname" alias="UserOffice" />
+      <attribute name="va_stationnumber" />
+      <attribute name="va_replyreferto" alias="ReplyRefer" />
+      <attribute name="lastname" alias="UserLastName" />
+      <attribute name="title" alias="UserTitle" />
+      <attribute name="firstname" alias="UserFirstName" />
+    </link-entity>
+    <link-entity name="contact" from="contactid" to="udo_relatedveteranid" link-type="outer" alias="vet" >
+      <attribute name="lastname" alias="vet_lastname" />
+      <attribute name="middlename" alias="vet_middlename" />
+      <attribute name="firstname" alias="vet_firstname" />
+    </link-entity>
+  </entity>
+</fetch>

@@ -1,0 +1,1 @@
+UDO.LOB is the source folder for the UDO.Crm.LOB Solution and Projects.

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="MSCRM_DataSource">
+  <ConnectionProperties>
+    <Extension>SQLAZURE</Extension>
+    <ConnectString>Data Source=vac21sqdverd01.database.usgovcloudapi.net;Initial Catalog=VEIS_DEV;Min Pool Size=2;Connect Timeout=150;ApplicationIntent=ReadOnly</ConnectString>
+  </ConnectionProperties>
+  <DataSourceID>11515779-340d-4c58-8d72-394717d121a6</DataSourceID>
+</RptDataSource>

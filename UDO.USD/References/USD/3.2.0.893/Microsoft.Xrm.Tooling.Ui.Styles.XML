@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Xrm.Tooling.Ui.Styles</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager">
+            <summary>
+            HighContrastSettingsEventManager
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.AddHandler(System.EventHandler{System.ComponentModel.PropertyChangedEventArgs})">
+            <summary>
+            Add a handler for the given HighContrastSettingsChanged event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.RemoveHandler(System.EventHandler{System.ComponentModel.PropertyChangedEventArgs})">
+            <summary>
+            Remove a handler for the given HighContrastSettingsChanged event.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.CurrentManager">
+            <summary>
+            Get the event manager for the current thread.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.NewListenerList">
+            <summary>
+            Return a new list to hold listeners to the event.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.StartListening(System.Object)">
+            <summary>
+            Listen to static event StaticPropertyChanged.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.StopListening(System.Object)">
+            <summary>
+            Stop Listening to static event StaticPropertyChanged.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.HighContrastSettingsEventManager.OnStaticPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Event handler for the StaticPropertyChanged event.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Properties.Resources.Close">
+            <summary>
+              Looks up a localized string similar to Close.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Properties.Resources.Maximize">
+            <summary>
+              Looks up a localized string similar to Maximize.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Properties.Resources.Minimize">
+            <summary>
+              Looks up a localized string similar to Minimize.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.SortAdorner">
+            <summary>
+            Creates a Adorner to indicate sort direction. 
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.SortAdorner.SortAdornerFillBrush">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.SortAdorner.Direction">
+            <summary>
+            Gets or Sets Sort Direction.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.SortAdorner.#ctor(System.Windows.UIElement,System.ComponentModel.ListSortDirection)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="element">UI Element type.</param>
+            <param name="dir">Sorting Direction.</param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.SortAdorner.#ctor(System.Windows.UIElement,System.ComponentModel.ListSortDirection,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="element">UI Element type.</param>
+            <param name="dir">Sorting Direction.</param>
+            <param name="sortOrderBrushKey">Sort Brush Key</param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.SortAdorner.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            // Override the OnRender call to change the Drawing visual type.
+            </summary>
+            <param name="drawingContext">visual content drawing type.</param>
+        </member>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.Resources.ThemeResources">
+            <summary>
+            Extends ResourceDictionary class to load theme specific resource dictionary
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Resources.ThemeResources.NormalModeResourcesPath">
+            <summary>
+            Path for resource dictionary containing normal theme solid color brushes
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.Resources.ThemeResources.HCModeResourcesPath">
+            <summary>
+            Path for resource dictionary containing high contrast theme solid color brushes
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.Resources.ThemeResources.#ctor">
+            <summary>
+            Extends ResourceDictionary class to load theme specific resource dictionary
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.Resources.ThemeResources.SystemParameters_StaticPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Handler to dynamically override resources according to current theme
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.Resources.ThemeResources.AddOrOverrideResources">
+            <summary>
+            Adds or override resources to the dictionary according to current theme
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons">
+            <summary>
+            Interaction logic for controlButtons.xaml
+            </summary>
+            <summary>
+            controlButtons
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons._parent">
+            <summary>
+            The parent Window of the control.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.CaptionButtonsLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event when the control is loaded.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.CloseButtonClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Action on the button to close the window.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.RestoreButtonClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Changes the view of the window (maximized or normal).
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.MinimizeButtonClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Minimizes the Window.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.GetTopParent">
+            <summary>
+            Gets the top parent (Window).
+            </summary>
+            <returns>The parent Window.</returns>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.MarginButton">
+            <summary>
+            Gets or sets the margin button.
+            </summary>
+            <value>The margin button.</value>
+        </member>
+        <member name="F:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.MarginButtonProperty">
+            <summary>
+            The dependency property for the Margin between the buttons.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.CaptionType">
+            <summary>
+            Enum of the types of caption buttons
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.CaptionType.Full">
+            <summary>
+            All the buttons
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.CaptionType.Close">
+            <summary>
+            Only the close button
+            </summary>
+        </member>
+        <member name="F:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.CaptionType.ReduceClose">
+            <summary>
+            Reduce and close buttons
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.Type">
+            <summary>
+            Gets or sets the visibility of the buttons.
+            </summary>
+            <value>The visible buttons.</value>
+        </member>
+        <member name="F:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.TypeProperty">
+            <summary>
+            The dependency property for the Margin between the buttons.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.controlButtons.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Microsoft.Xrm.Tooling.Ui.Styles.WindowResourceDictionary">
+            <summary>
+            WindowResourceDictionary
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.WindowResourceDictionary.WindowTopBar_MouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Mouse down event handler for the window top bar
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.WindowResourceDictionary.GetCurrentActiveWindow">
+            <summary>
+            This method can be used to get the handle to the currently active window
+            </summary>
+            <returns>Currently active window.</returns>
+        </member>
+        <member name="M:Microsoft.Xrm.Tooling.Ui.Styles.WindowResourceDictionary.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

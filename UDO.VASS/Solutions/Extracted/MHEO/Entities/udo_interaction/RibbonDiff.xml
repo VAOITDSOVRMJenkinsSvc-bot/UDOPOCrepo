@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RibbonDiffXml>
+  <CustomActions>
+    <CustomAction Id="udo.Mscrm.Form.udo_interaction.RunWorkflow.CustomAction" Location="Mscrm.Form.udo_interaction.MainTab.Workflow.Controls._children" Sequence="20">
+      <CommandUIDefinition>
+        <Button Alt="$Resources:Ribbon.HomepageGrid.Data.Workflow.RunWorkflow" Command="Mscrm.RunWorkflowPrimary" Id="Mscrm.Form.udo_interaction.RunWorkflow" Image32by32="/_imgs/ribbon/runworkflow32.png" Image16by16="/_imgs/ribbon/StartWorkflow_16.png" LabelText="$Resources:Ribbon.HomepageGrid.Data.Workflow.RunWorkflow" Sequence="20" TemplateAlias="o1" ToolTipTitle="$Resources:Ribbon.HomepageGrid.Data.Workflow.RunWorkflow" ToolTipDescription="$Resources(EntityDisplayName):Ribbon.Tooltip.RunWorkflow" />
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="udo.udo_interaction.CallVet.Button.CustomAction" Location="Mscrm.Form.udo_interaction.MainTab.Collaborate.Controls._children" Sequence="1013">
+      <CommandUIDefinition>
+        <FlyoutAnchor Command="udo.udo_interaction.CallVet.Command" Id="udo.udo_interaction.CallVet.Button" LabelText="$LocLabels:udo.udo_interaction.CallVet.Button.LabelText" Sequence="1013" TemplateAlias="o2" ModernImage="$webresource:udo_interaction32.svg">
+          <Menu Id="udo.udo_interaction.CallVet.Button.Menu">
+            <MenuSection Id="udo.udo_interaction.Section3.Section" Sequence="5" DisplayMode="Menu16">
+              <Controls Id="udo.udo_interaction.Section3.Section.Controls">
+                <Button Command="udo.udo_interaction.CallPhone1.Command" Id="udo.udo_interaction.CallPhone1.Button" LabelText="$LocLabels:udo.udo_interaction.CallPhone1.Button.LabelText" Sequence="10" ModernImage="$webresource:udo_interaction32.svg" />
+                <Button Command="udo.udo_interaction.CallPhone2.Command" Id="udo.udo_interaction.CallPhone2.Button" LabelText="$LocLabels:udo.udo_interaction.CallPhone2.Button.LabelText" Sequence="15" ModernImage="$webresource:udo_interaction32.svg" />
+              </Controls>
+            </MenuSection>
+          </Menu>
+        </FlyoutAnchor>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="udo.udo_interaction.Close.Button.CustomAction" Location="Mscrm.Form.udo_interaction.MainTab.Collaborate.Controls._children" Sequence="1015">
+      <CommandUIDefinition>
+        <FlyoutAnchor Command="udo.udo_interaction.Close.Command" Id="udo.udo_interaction.Close.Button" Image16by16="" Image32by32="" LabelText="$LocLabels:udo.udo_interaction.Close.Button.LabelText" Sequence="1015" TemplateAlias="isv" ModernImage="$webresource:udo_close-32.svg">
+          <Menu Id="udo.udo_interaction.Close.Button.Menu">
+            <MenuSection Id="udo.udo_interaction.Close.Section" Sequence="5" DisplayMode="Menu16">
+              <Controls Id="udo.udo_interaction.Close.Section.Controls">
+                <Button Command="udo.udo_interaction.CloseSuccess.Command" Id="udo.udo_interaction.CloseSuccess.Button" LabelText="$LocLabels:udo.udo_interaction.CloseSuccess.Button.LabelText" Sequence="10" ModernImage="$webresource:udo_check-32.svg" />
+                <Button Command="udo.udo_interaction.CloseFailure.Command" Id="udo.udo_interaction.CloseFailure.Button" LabelText="$LocLabels:udo.udo_interaction.CloseFailure.Button.LabelText" Sequence="15" ModernImage="$webresource:udo_wrong-32.svg" />
+              </Controls>
+            </MenuSection>
+          </Menu>
+        </FlyoutAnchor>
+      </CommandUIDefinition>
+    </CustomAction>
+    <CustomAction Id="udo.udo_interaction.TakeOwnership.CustomAction" Location="Mscrm.Form.udo_interaction.MainTab.Collaborate.Controls._children" Sequence="1012">
+      <CommandUIDefinition>
+        <Button Command="udo.udo_interaction.TakeOwnership" Id="udo.udo_interaction.TakeOwnership" LabelText="$LocLabels:udo.udo_interaction.TakeOwnership.LabelText" Sequence="1012" TemplateAlias="o2" ModernImage="Assign" />
+      </CommandUIDefinition>
+    </CustomAction>
+  </CustomActions>
+  <Templates>
+    <RibbonTemplates Id="Mscrm.Templates"></RibbonTemplates>
+  </Templates>
+  <CommandDefinitions>
+    <CommandDefinition Id="Mscrm.AddPrimaryToQueue">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.AppendToPrimary" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.WorksWithQueuePrimary" />
+        <DisplayRule Id="udo.udo_interaction.NotMHEOChannel.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="AppCommon.Commands.Queue.AddRecordToQueue" Library="$webresource:AppCommon/Commands/QueueCommands.js">
+          <CrmParameter Value="PrimaryEntityTypeCode" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AssignPrimaryRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.AssignPrimaryPermission" />
+        <EnableRule Id="Mscrm.NotOffline" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AssignPrimaryPermission" />
+        <DisplayRule Id="Mscrm.NotClosedActivity" />
+        <DisplayRule Id="udo.udo_interaction.HideForVASSPPCR" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Assign.assignObject" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.AssignSelectedRecord">
+      <EnableRules>
+        <EnableRule Id="Mscrm.SelectionCountAtLeastOne" />
+        <EnableRule Id="Mscrm.VisualizationPaneNotMaximized" />
+        <EnableRule Id="Mscrm.NotOffline" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyView" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyPageInUC" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AssignSelectedEntityPermission" />
+        <DisplayRule Id="udo.udo_interaction.HideForVASSPPCR" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Assign.assignSelectedRecords" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedControl" />
+          <CrmParameter Value="SelectedControlSelectedItemReferences" />
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.Form.Deactivate">
+      <EnableRules>
+        <EnableRule Id="Mscrm.CanWritePrimary" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanWritePrimary" />
+        <DisplayRule Id="Mscrm.PrimaryIsActive" />
+        <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode" />
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+        <DisplayRule Id="udo.udo_interaction.HasDeletePrivs.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Deactivate.deactivatePrimaryRecord" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.NewRecordFromForm">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.PrimaryIsNotActivity" />
+        <DisplayRule Id="Mscrm.HideInLegacyRibbon" />
+        <DisplayRule Id="Mscrm.CreatePrimaryEntityPermission" />
+        <DisplayRule Id="Mscrm.PrimaryEntityIsNotBPFEntity" />
+        <DisplayRule Id="udo.udo_interaction.NotMHEOChannel.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Open.openNewRecord" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryEntityTypeName" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.NewRecordFromGrid">
+      <EnableRules>
+        <EnableRule Id="Mscrm.IsValidForHierarchyView" />
+        <EnableRule Id="Mscrm.IsValidForHierarchyPageInUC" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+        <EnableRule Id="Mscrm.PrimaryIsNotActivityHomePageGrid" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CreateSelectedEntityPermission" />
+        <DisplayRule Id="Mscrm.ShowForNonRelationshipBoundGrids" />
+        <DisplayRule Id="Mscrm.HideNewForChildEntities" />
+        <DisplayRule Id="Mscrm.HideAddressEntities" />
+        <DisplayRule Id="Mscrm.SelectedEntityIsNotBPFEntity" />
+        <DisplayRule Id="Mscrm.IsNotActivityPointer" />
+        <DisplayRule Id="udo.udo_interaction.HideForVASSPPCR" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Open.openNewRecord" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="SelectedControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.QueueItemDetail">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.AppendToPrimary" />
+        <DisplayRule Id="Mscrm.AppendToQueue" />
+        <DisplayRule Id="Mscrm.WorksWithQueuePrimary" />
+        <DisplayRule Id="udo.udo_interaction.NotMHEOChannel.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="AppCommon.Commands.Queue.entityQueueItemDetail" Library="$webresource:AppCommon/Commands/QueueCommands.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.ReportMenu.Form">
+      <EnableRules>
+        <EnableRule Id="Mscrm.FormStateNotNew" />
+        <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.ReadReport" />
+        <DisplayRule Id="Mscrm.HideForTabletExperience" />
+        <DisplayRule Id="Mscrm.HybridDialogReportsEnabled" />
+        <DisplayRule Id="udo.udo_interaction.NotMHEOChannel.DisplayRule" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.SaveAndClosePrimary">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.CanSavePrimary" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanSaveAndClosePrimaryEntityType" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Save.saveAndCloseForm" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="Mscrm.SavePrimary">
+      <EnableRules>
+        <EnableRule Id="Mscrm.AvailableOnForm" />
+        <EnableRule Id="Mscrm.CanSavePrimary" />
+        <EnableRule Id="Mscrm.ReadPrimaryPermission" />
+        <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline" />
+      </EnableRules>
+      <DisplayRules>
+        <DisplayRule Id="Mscrm.CanSavePrimaryEntityType" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="XrmCore.Commands.Save.saveForm" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.CallPhone1.Command">
+      <EnableRules>
+        <EnableRule Id="udo.udo_interaction.EnableRule0.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Mheo.CallVeteran" Library="$webresource:udo_mheo/clicktocall/call.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="udo_phonenumber" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.CallPhone2.Command">
+      <EnableRules>
+        <EnableRule Id="udo.udo_interaction.EnableRule1.EnableRule" />
+      </EnableRules>
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="Mheo.CallVeteran" Library="$webresource:udo_mheo/clicktocall/call.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="udo_phonenumber2" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.CallVet.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="udo.udo_interaction.ActiveStatus.DisplayRule" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.ClickToCall.Command">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="MHEOClickToCall" Library="$webresource:udo_mheointeraction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <StringParameter Value="udo" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.Close.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="udo.udo_interaction.ActiveStatus.DisplayRule" />
+      </DisplayRules>
+      <Actions />
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.CloseFailure.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="udo.udo_interaction.MHEOChannel.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="MHEOMarkComplete" Library="$webresource:udo_mheointeraction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <IntParameter Value="752280001" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.CloseSuccess.Command">
+      <EnableRules />
+      <DisplayRules>
+        <DisplayRule Id="udo.udo_interaction.MHEOChannel.DisplayRule" />
+      </DisplayRules>
+      <Actions>
+        <JavaScriptFunction FunctionName="MHEOMarkComplete" Library="$webresource:udo_mheointeraction.js">
+          <CrmParameter Value="PrimaryControl" />
+          <IntParameter Value="752280000" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+    <CommandDefinition Id="udo.udo_interaction.TakeOwnership">
+      <EnableRules />
+      <DisplayRules />
+      <Actions>
+        <JavaScriptFunction FunctionName="VASS.Transfer.updateTransferOwershipFlag" Library="$webresource:udo_callAssignCustomAction.js">
+          <CrmParameter Value="FirstPrimaryItemId" />
+          <CrmParameter Value="PrimaryControl" />
+        </JavaScriptFunction>
+      </Actions>
+    </CommandDefinition>
+  </CommandDefinitions>
+  <RuleDefinitions>
+    <TabDisplayRules />
+    <DisplayRules>
+      <DisplayRule Id="Mscrm.AppendToPrimary">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AppendToQueue">
+        <EntityPrivilegeRule PrivilegeType="AppendTo" PrivilegeDepth="Basic" EntityName="queue" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AssignPrimaryPermission">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.AssignSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanSaveAndClosePrimaryEntityType">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanSavePrimaryEntityType">
+        <OrRule>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+          <Or>
+            <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+          </Or>
+        </OrRule>
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CanWritePrimary">
+        <EntityPrivilegeRule PrivilegeType="Write" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreatePrimaryEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="PrimaryEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.CreateSelectedEntityPermission">
+        <EntityPrivilegeRule PrivilegeType="Create" PrivilegeDepth="Basic" AppliesTo="SelectedEntity" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideAddressEntities">
+        <EntityRule EntityName="customeraddress" AppliesTo="SelectedEntity" Default="false" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideForTabletExperience">
+        <HideForTabletExperienceRule />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideInLegacyRibbon">
+        <CommandClientTypeRule Type="Legacy" InvertResult="true" />
+        <PageRule Address="/userdefined/edit.aspx" InvertResult="true" />
+        <PageRule Address="/advancedfind/advfind.aspx" InvertResult="true" />
+        <PageRule Address="/advancedfind/fetchData.aspx" InvertResult="true" />
+        <PageRule Address="/tools/formeditor/formeditor.aspx" InvertResult="true" />
+        <PageRule Address="/tools/visualizationdesigner/visualizationdesigner.aspx" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HideNewForChildEntities">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsChildEntity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.HybridDialogReportsEnabled">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.IsNotActivityPointer">
+        <EntityRule EntityName="activitypointer" AppliesTo="SelectedEntity" InvertResult="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.NotClosedActivity">
+        <OrRule>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="true" />
+            <ValueRule Field="statecode" Value="Open" />
+          </Or>
+          <Or>
+            <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="true" />
+            <ValueRule Field="statecode" Value="Scheduled" />
+          </Or>
+        </OrRule>
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityHasStatecode">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="HasStateCode" PropertyValue="true" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryEntityIsNotBPFEntity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsBPFEntity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsActive">
+        <FormStateRule State="Existing" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.PrimaryIsNotActivity">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="IsActivity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ReadReport">
+        <EntityPrivilegeRule PrivilegeType="Read" PrivilegeDepth="Basic" EntityName="report" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.SelectedEntityIsNotBPFEntity">
+        <EntityPropertyRule AppliesTo="SelectedEntity" PropertyName="IsBPFEntity" PropertyValue="false" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.ShowForNonRelationshipBoundGrids">
+        <RelationshipTypeRule AppliesTo="SelectedEntity" RelationshipType="NoRelationship" />
+      </DisplayRule>
+      <DisplayRule Id="Mscrm.WorksWithQueuePrimary">
+        <EntityPropertyRule AppliesTo="PrimaryEntity" PropertyName="WorksWithQueue" PropertyValue="true" Default="false" />
+      </DisplayRule>
+      <DisplayRule Id="udo.udo_interaction.ActiveStatus.DisplayRule">
+        <ValueRule Field="statecode" Value="0" />
+      </DisplayRule>
+      <DisplayRule Id="udo.udo_interaction.HasDeletePrivs.DisplayRule">
+        <EntityPrivilegeRule PrivilegeType="Delete" PrivilegeDepth="Global" AppliesTo="PrimaryEntity" EntityName="udo_interaction" />
+      </DisplayRule>
+      <DisplayRule Id="udo.udo_interaction.HideForVASSPPCR">
+        <EntityPrivilegeRule PrivilegeType="Assign" PrivilegeDepth="Deep" EntityName="udo_mheointeractionassignment" Default="false" InvertResult="false" />
+      </DisplayRule>
+      <DisplayRule Id="udo.udo_interaction.MHEOChannel.DisplayRule">
+        <ValueRule Field="udo_channel" Value="752280004" />
+      </DisplayRule>
+      <DisplayRule Id="udo.udo_interaction.NotMHEOChannel.DisplayRule">
+        <ValueRule Field="udo_channel" Value="752280004" InvertResult="true" />
+      </DisplayRule>
+    </DisplayRules>
+    <EnableRules>
+      <EnableRule Id="Mscrm.AppendToPrimary">
+        <RecordPrivilegeRule PrivilegeType="AppendTo" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AssignPrimaryPermission">
+        <RecordPrivilegeRule PrivilegeType="Assign" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.AvailableOnForm">
+        <EntityRule AppliesTo="PrimaryEntity" Context="Form" Default="false" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanSavePrimary">
+        <OrRule>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Create" AppliesTo="PrimaryEntity" />
+            <FormStateRule State="Create" />
+          </Or>
+          <Or>
+            <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+            <FormStateRule State="Existing" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.CanWritePrimary">
+        <RecordPrivilegeRule PrivilegeType="Write" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.FormStateNotNew">
+        <FormStateRule State="Create" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsAutoSaveDisable">
+        <OrRule>
+          <Or>
+            <FormStateRule State="Create" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.Rules.AutoSave.isAutoSaveEnabled" Library="$webresource:Main_system_library.js" InvertResult="true" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.Rules.RefreshForm.isRefreshForm" Library="$webresource:Main_system_library.js" InvertResult="true" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsEntityAvailableForUserInMocaOffline">
+        <CustomRule FunctionName="XrmCore.Rules.Online.IsEntityAvailableForUserInMocaOffline" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsValidForHierarchyPageInUC">
+        <CustomRule FunctionName="XrmCore.Rules.HierarchyView.isValidForHierarchyPageInUC" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.IsValidForHierarchyView">
+        <CustomRule FunctionName="XrmCore.Rules.HierarchyView.isValidForHierarchyView" Library="$webresource:Main_system_library.js" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.NotOffline">
+        <CrmOfflineAccessStateRule State="Offline" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.PrimaryIsNotActivityHomePageGrid">
+        <CustomRule FunctionName="XrmCore.Rules.Enabled.PrimaryIsNotActivityHomePageGrid" Library="$webresource:Main_system_library.js">
+          <CrmParameter Value="SelectedEntityTypeName" />
+          <CrmParameter Value="SelectedControl" />
+        </CustomRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.ReadPrimaryPermission">
+        <RecordPrivilegeRule PrivilegeType="Read" AppliesTo="PrimaryEntity" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.SelectionCountAtLeastOne">
+        <SelectionCountRule AppliesTo="SelectedEntity" Minimum="1" />
+      </EnableRule>
+      <EnableRule Id="Mscrm.ShowOnNonModernAndModernIfAllowed">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" InvertResult="true" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.InternalUtilities.DialogUtilities.isAllowLegacyDialogsEmbedding" Library="$webresource:Main_system_library.js" />
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="Mscrm.VisualizationPaneNotMaximized">
+        <OrRule>
+          <Or>
+            <CommandClientTypeRule Type="Modern" />
+          </Or>
+          <Or>
+            <CustomRule FunctionName="XrmCore.Rules.Charts.disableButtonsWhenChartMaximized" Library="$webresource:Main_system_library.js">
+              <CrmParameter Value="SelectedControl" />
+            </CustomRule>
+          </Or>
+        </OrRule>
+      </EnableRule>
+      <EnableRule Id="udo.udo_interaction.EnableRule0.EnableRule">
+        <ValueRule Field="udo_phonenumber" Value="" Default="false" InvertResult="true" />
+      </EnableRule>
+      <EnableRule Id="udo.udo_interaction.EnableRule1.EnableRule">
+        <ValueRule Field="udo_phonenumber2" Value="" Default="false" InvertResult="true" />
+      </EnableRule>
+    </EnableRules>
+  </RuleDefinitions>
+  <LocLabels>
+    <LocLabel Id="udo.udo_interaction.CallPhone1.Button.LabelText">
+      <Titles>
+        <Title description="Call Phone #1" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udo.udo_interaction.CallPhone2.Button.LabelText">
+      <Titles>
+        <Title description="Call Phone #2" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udo.udo_interaction.CallVet.Button.LabelText">
+      <Titles>
+        <Title description="Call" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udo.udo_interaction.Close.Button.LabelText">
+      <Titles>
+        <Title description="Resolve Interaction" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udo.udo_interaction.CloseFailure.Button.LabelText">
+      <Titles>
+        <Title description="Failed to Make Contact" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udo.udo_interaction.CloseSuccess.Button.LabelText">
+      <Titles>
+        <Title description="Successful Contact Made" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+    <LocLabel Id="udo.udo_interaction.TakeOwnership.LabelText">
+      <Titles>
+        <Title description="Take Ownership" languagecode="1033" />
+      </Titles>
+    </LocLabel>
+  </LocLabels>
+</RibbonDiffXml>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://personService.services.vonapp.vba.va.gov/" name="VnpPersonService" targetNamespace="http://personService.services.vonapp.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VnpPersonWebServiceBean/VnpPersonService?xsd=1" namespace="http://personService.services.vonapp.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="vnpPersonUpdate">
+    <part name="parameters" element="tns:vnpPersonUpdate" />
+  </message>
+  <message name="vnpPersonUpdateResponse">
+    <part name="parameters" element="tns:vnpPersonUpdateResponse" />
+  </message>
+  <message name="MessageFaultException">
+    <part name="fault" element="tns:MessageFaultException" />
+  </message>
+  <message name="vnpPersonCreate">
+    <part name="parameters" element="tns:vnpPersonCreate" />
+  </message>
+  <message name="vnpPersonCreateResponse">
+    <part name="parameters" element="tns:vnpPersonCreateResponse" />
+  </message>
+  <message name="vnpPersonRemove">
+    <part name="parameters" element="tns:vnpPersonRemove" />
+  </message>
+  <message name="vnpPersonRemoveResponse">
+    <part name="parameters" element="tns:vnpPersonRemoveResponse" />
+  </message>
+  <message name="findAllAsArray">
+    <part name="parameters" element="tns:findAllAsArray" />
+  </message>
+  <message name="findAllAsArrayResponse">
+    <part name="parameters" element="tns:findAllAsArrayResponse" />
+  </message>
+  <message name="vnpPersonFindByPrimaryKey">
+    <part name="parameters" element="tns:vnpPersonFindByPrimaryKey" />
+  </message>
+  <message name="vnpPersonFindByPrimaryKeyResponse">
+    <part name="parameters" element="tns:vnpPersonFindByPrimaryKeyResponse" />
+  </message>
+  <portType name="VnpPersonService">
+    <operation name="vnpPersonUpdate">
+      <input message="tns:vnpPersonUpdate" />
+      <output message="tns:vnpPersonUpdateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPersonCreate">
+      <input message="tns:vnpPersonCreate" />
+      <output message="tns:vnpPersonCreateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPersonRemove">
+      <input message="tns:vnpPersonRemove" />
+      <output message="tns:vnpPersonRemoveResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="findAllAsArray">
+      <input message="tns:findAllAsArray" />
+      <output message="tns:findAllAsArrayResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpPersonFindByPrimaryKey">
+      <input message="tns:vnpPersonFindByPrimaryKey" />
+      <output message="tns:vnpPersonFindByPrimaryKeyResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+  </portType>
+  <binding name="VnpPersonServicePortBinding" type="tns:VnpPersonService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vnpPersonUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPersonCreate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPersonRemove">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllAsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpPersonFindByPrimaryKey">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VnpPersonService">
+    <port name="VnpPersonServicePort" binding="tns:VnpPersonServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VnpPersonWebServiceBean/VnpPersonService" />
+    </port>
+  </service>
+</definitions>

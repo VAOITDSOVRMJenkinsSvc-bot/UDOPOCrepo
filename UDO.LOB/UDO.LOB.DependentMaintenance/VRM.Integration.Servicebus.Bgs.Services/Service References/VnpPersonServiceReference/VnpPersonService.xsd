@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://personService.services.vonapp.vba.va.gov/" targetNamespace="http://personService.services.vonapp.vba.va.gov/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FaultException" nillable="true" type="xs:anyType" />
+  <xs:element name="MessageFaultException" nillable="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="100" name="faultExceptions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+              <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+              <xs:element minOccurs="0" maxOccurs="100" name="variables" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="findAllAsArray" type="tns:findAllAsArray" />
+  <xs:element name="findAllAsArrayResponse" type="tns:findAllAsArrayResponse" />
+  <xs:element name="vnpPersonCreate" type="tns:vnpPersonCreate" />
+  <xs:element name="vnpPersonCreateResponse" type="tns:vnpPersonCreateResponse" />
+  <xs:element name="vnpPersonFindByPrimaryKey" type="tns:vnpPersonFindByPrimaryKey" />
+  <xs:element name="vnpPersonFindByPrimaryKeyResponse" type="tns:vnpPersonFindByPrimaryKeyResponse" />
+  <xs:element name="vnpPersonRemove" type="tns:vnpPersonRemove" />
+  <xs:element name="vnpPersonRemoveResponse" type="tns:vnpPersonRemoveResponse" />
+  <xs:element name="vnpPersonUpdate" type="tns:vnpPersonUpdate" />
+  <xs:element name="vnpPersonUpdateResponse" type="tns:vnpPersonUpdateResponse" />
+  <xs:complexType name="vnpPersonRemove">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPersonRemoveResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="vnpPersonUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPersonDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VnpPersonDTO">
+    <xs:sequence>
+      <xs:element name="vnpPtcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="birthCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="birthStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="birthCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="brthdyDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="cmptnyDecnTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="deathDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="depNbr" type="xs:int" />
+      <xs:element minOccurs="0" name="empInd" type="xs:string" />
+      <xs:element minOccurs="0" name="entlmtTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ethnicTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="everMariedInd" type="xs:string" />
+      <xs:element minOccurs="0" name="fidDecnCategyTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="fileNbr" type="xs:string" />
+      <xs:element name="firstNm" type="xs:string" />
+      <xs:element minOccurs="0" name="firstNmKey" type="xs:long" />
+      <xs:element minOccurs="0" name="frgnSvcNbr" type="xs:int" />
+      <xs:element minOccurs="0" name="genderCd" type="xs:string" />
+      <xs:element name="jrnDt" type="xs:dateTime" />
+      <xs:element name="jrnLctnId" type="xs:string" />
+      <xs:element name="jrnObjId" type="xs:string" />
+      <xs:element name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element name="jrnUserId" type="xs:string" />
+      <xs:element name="lastNm" type="xs:string" />
+      <xs:element minOccurs="0" name="lastNmKey" type="xs:long" />
+      <xs:element minOccurs="0" name="lgyEntlmtTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="martlStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="middleNm" type="xs:string" />
+      <xs:element minOccurs="0" name="middleNmKey" type="xs:long" />
+      <xs:element minOccurs="0" name="mltyPersonInd" type="xs:string" />
+      <xs:element minOccurs="0" name="monthsPresntEmplyrNbr" type="xs:int" />
+      <xs:element minOccurs="0" name="netWorthAmt" type="xs:int" />
+      <xs:element minOccurs="0" name="noSsnReasonTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ocptnTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="personDeathCauseTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="personTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="potntlDngrsInd" type="xs:string" />
+      <xs:element minOccurs="0" name="raceTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="sbstncAmt" type="xs:double" />
+      <xs:element minOccurs="0" name="serousEmplmtHndcapInd" type="xs:string" />
+      <xs:element minOccurs="0" name="slttnTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="spinaBifidaInd" type="xs:string" />
+      <xs:element minOccurs="0" name="ssnNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="ssnVrfctnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="suffixNm" type="xs:string" />
+      <xs:element minOccurs="0" name="suffixNmKey" type="xs:long" />
+      <xs:element minOccurs="0" name="taxAbtmntCd" type="xs:string" />
+      <xs:element minOccurs="0" name="termnlDigitNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="titleTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="vetInd" type="xs:string" />
+      <xs:element minOccurs="0" name="vetTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="yearsPresntEmplyrNbr" type="xs:int" />
+      <xs:element name="vnpProcId" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpSruslyDsabldInd" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpSchoolChildInd" type="xs:string" />
+      <xs:element minOccurs="0" name="spouseNum" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPersonUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPersonDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPersonCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:VnpPersonDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPersonCreateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPersonDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPersonFindByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="vnpPtcpntId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPersonFindByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:VnpPersonDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllAsArray">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllAsArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="100" name="return" type="tns:vnpPerson" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vnpPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="birthCityNm" type="xs:string" />
+      <xs:element minOccurs="0" name="birthCntryNm" type="xs:string" />
+      <xs:element minOccurs="0" name="birthStateCd" type="xs:string" />
+      <xs:element minOccurs="0" name="brthdyDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="cmptnyDecnTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="deathDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="depNbr" type="xs:decimal" />
+      <xs:element minOccurs="0" name="empInd" type="xs:string" />
+      <xs:element minOccurs="0" name="entlmtTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ethnicTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="everMariedInd" type="xs:string" />
+      <xs:element minOccurs="0" name="fidDecnCategyTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="fileNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="firstNm" type="xs:string" />
+      <xs:element minOccurs="0" name="firstNmKey" type="xs:decimal" />
+      <xs:element minOccurs="0" name="frgnSvcNbr" type="xs:decimal" />
+      <xs:element minOccurs="0" name="genderCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnDt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="jrnLctnId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnObjId" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="jrnUserId" type="xs:string" />
+      <xs:element minOccurs="0" name="lastNm" type="xs:string" />
+      <xs:element minOccurs="0" name="lastNmKey" type="xs:decimal" />
+      <xs:element minOccurs="0" name="lgyEntlmtTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="martlStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="middleNm" type="xs:string" />
+      <xs:element minOccurs="0" name="middleNmKey" type="xs:decimal" />
+      <xs:element minOccurs="0" name="mltyPersonInd" type="xs:string" />
+      <xs:element minOccurs="0" name="monthsPresntEmplyrNbr" type="xs:decimal" />
+      <xs:element minOccurs="0" name="netWorthAmt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="noSsnReasonTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="ocptnTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="personDeathCauseTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="personTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="potntlDngrsInd" type="xs:string" />
+      <xs:element minOccurs="0" name="raceTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="sbstncAmt" type="xs:decimal" />
+      <xs:element minOccurs="0" name="serousEmplmtHndcapInd" type="xs:string" />
+      <xs:element minOccurs="0" name="slttnTypeNm" type="xs:string" />
+      <xs:element minOccurs="0" name="spinaBifidaInd" type="xs:string" />
+      <xs:element minOccurs="0" name="spouseNum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ssnNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="ssnVrfctnStatusTypeCd" type="xs:string" />
+      <xs:element minOccurs="0" name="suffixNm" type="xs:string" />
+      <xs:element minOccurs="0" name="suffixNmKey" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxAbtmntCd" type="xs:string" />
+      <xs:element minOccurs="0" name="termnlDigitNbr" type="xs:string" />
+      <xs:element minOccurs="0" name="titleTxt" type="xs:string" />
+      <xs:element minOccurs="0" name="vetInd" type="xs:string" />
+      <xs:element minOccurs="0" name="vetTypeNm" type="xs:string" />
+      <xs:element name="vnpProcId" type="xs:long" />
+      <xs:element name="vnpPtcpntId" type="xs:long" />
+      <xs:element minOccurs="0" name="vnpSchoolChildInd" type="xs:string" />
+      <xs:element minOccurs="0" name="vnpSruslyDsabldInd" type="xs:string" />
+      <xs:element minOccurs="0" name="yearsPresntEmplyrNbr" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,132 @@
+<html><head>
+    <link href="../Styles/SubgridStyleSheet.css" rel="stylesheet" type="text/css">
+    <script>
+	
+        var _esrObj = null;
+        var esrEndpoint = "";	
+        var ICN = "";		
+		var subscriptionSouthId = "";
+		var subscriptionEastId = "";
+		var subscriptionId = "";
+		
+	   	   function doPageLoad() {
+		    //fetch ESREndPoint 
+			var queryESREndPointOption = "?$select=va_description&$filter=(va_name eq 'ESREndPoint')";
+			window.parent.Xrm.WebApi.retrieveMultipleRecords("va_systemsettings",queryESREndPointOption).then(
+	
+				function success(result) {
+                                          window.parent.Xrm.Page.ui.setFormNotification("Retrieving Enrollment Info. Please wait.", "INFORMATION","1");	
+					  esrEndpoint= result.entities[0].va_description;
+					  //fetch ICN
+					  var SSN = window.parent.Xrm.Page.getAttribute("udo_veteranssn").getValue();
+					  var firstName = window.parent.Xrm.Page.getAttribute("udo_veteranfirstname").getValue();
+					  var lastName = window.parent.Xrm.Page.getAttribute("udo_veteranlastname").getValue();
+					  var dob = window.parent.Xrm.Page.getAttribute("udo_veterandob").getValue();
+
+					  var queryICNOption = "?$select=*&$filter=crme_firstname eq '" + firstName + "' and crme_lastname eq '"+ lastName + "' and crme_dobstring eq '" + dob+ "' and crme_ssn eq '" + SSN + "' and crme_searchtype eq 'CombinedSearchByIdentifier' and crme_isattended eq true" ; 
+                                          
+					  window.parent.parent.Xrm.WebApi.retrieveMultipleRecords("crme_person", queryICNOption).then( 
+						   function success(result){  
+							   if(result.entities[0].crme_icn != null && result.entities[0].crme_icn != ""){
+								ICN = result.entities[0].crme_icn;  
+							   }
+							   else {
+								window.parent.Xrm.Page.ui.setFormNotification("This veteran does not have a valid ICN.", "INFORMATION","2");	
+				            }
+					   
+						  esrEndpoint = esrEndpoint.replace("{0}", ICN);
+							  
+						  //fetch apim subscriptionkeys 
+						  window.parent.parent.Xrm.WebApi.retrieveMultipleRecords("mcs_setting", "?$select=*").then(
+							  function success(result){ 
+								subscriptionId = result.entities[0].udo_ocpapimsubscriptionkey;
+								subscriptionEastId = result.entities[0].udo_ocpapimsubscriptionkeyeast;
+								subscriptionSouthId = result.entities[0].udo_ocpapimsubscriptionkeysouth;
+										
+								if (esrEndpoint != "") {
+								   var xhr = new XMLHttpRequest();
+								   xhr.open('GET', esrEndpoint);
+								   xhr.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionId);
+								   xhr.setRequestHeader("Ocp-Apim-Subscription-Key-E", subscriptionEastId);
+								   xhr.setRequestHeader("Ocp-Apim-Subscription-Key-S", subscriptionSouthId);
+								   xhr.timeout = 4000;
+								   xhr.responseType = "json";
+								   xhr.onreadystatechange = handler;
+								   xhr.send();
+								}	
+							  }, function (error){console.log(error);});
+					}, function(error){console.log(error);});
+				},function (error){console.log(error);});
+		}
+
+        function handler() {
+            if (this.readyState === this.DONE) {
+                if (this.status === 200) {
+                     window.parent.Xrm.Page.ui.clearFormNotification("1");
+                    _esrObj = JSON.parse(this.response);
+                    outputData();
+                }
+                else {
+                    _esrObj = null;
+                    window.parent.Xrm.Page.ui.setFormNotification("No Enrollment info found. ", "INFORMATION","3");	
+                }
+            }
+        }
+
+        function outputData() {
+            //set display fields
+            if (_esrObj != null) {
+
+                if (!_esrObj.ErrorOccurred) {
+                    if ("EnrollmentDeterminationInfo" in _esrObj.Data) {
+
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EnrollmentCategoryName != null) { document.getElementById("EnrollmentCategory").innerText= _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentCategoryName; }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EnrollmentStatus != null) { document.getElementById("EnrollmentStatus").innerText= _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentStatus; }
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate != null) {
+                            var formattedEnrollmentDate = _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate.substr(5, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate.substr(8, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EnrollmentDate.substr(0, 4);
+                            document.getElementById("EnrollmentDate").innerText = formattedEnrollmentDate;
+                        }
+
+                        if (_esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate != null) {
+                            var formattedEnrollmentEffectiveDate = _esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate.substr(5, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate.substr(8, 2) + "/" + _esrObj.Data.EnrollmentDeterminationInfo.EffectiveDate.substr(0, 4);
+                            document.getElementById("EnrollmentEffectiveDate").innerText = formattedEnrollmentEffectiveDate;
+
+                        }
+
+                    }
+
+                    if ("Demographics" in _esrObj.Data) {
+
+                        if (_esrObj.Data.Demographics.PreferredFacility != null) { document.getElementById("PreferredFacility").innerText = _esrObj.Data.Demographics.PreferredFacility; }
+
+
+
+                    }
+                }
+            }
+        }
+
+        window.onload = doPageLoad();
+    </script>
+
+
+<meta><meta charset="utf-8"><meta><meta><meta></head>
+<body lang="en-US" style="-ms-word-wrap: break-word;" onfocusout="parent.setEmailRange();">
+<div class="panel panel-primary" id="container">
+    <div class="panel-heading">Enrollment</div>
+    <div class="panel-body">
+	<div class="column-left">
+	  <div class="row-div"><span class="attribute-label">Enrollment Category:</span> <span class="attribute-value" id="EnrollmentCategory">--</span></div>
+	  <div class="row-div"><span class="attribute-label">Enrollment Status:</span> <span class="attribute-value" id="EnrollmentStatus">--</span></div>
+	  <div class="row-div"><span class="attribute-label">Preferred Facility:</span> <span class="attribute-value" id="PreferredFacility">--</span></div>
+	</div>
+	<div class="column-right">
+	  <div class="row-div"><span class="attribute-label">Enrollment Date:</span> <span class="attribute-value" id="EnrollmentDate">--</span></div>
+	  <div class="row-div"><span class="attribute-label">Enrollment Effective Date:</span> <span class="attribute-value" id="EnrollmentEffectiveDate">--</span></div>
+	  <div class="row-div">&nbsp;</div>
+	</div>
+    </div>
+</div>
+
+
+</body></html>

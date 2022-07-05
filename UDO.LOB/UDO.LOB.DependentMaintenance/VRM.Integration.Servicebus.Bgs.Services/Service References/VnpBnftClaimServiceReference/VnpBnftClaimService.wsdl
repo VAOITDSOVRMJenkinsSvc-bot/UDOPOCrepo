@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://bnftClaimService.services.vonapp.vba.va.gov/" name="VnpBnftClaimService" targetNamespace="http://bnftClaimService.services.vonapp.vba.va.gov/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://beplinktest.vba.va.gov:80/VnpBnftClaimWebServiceBean/VnpBnftClaimService?xsd=1" namespace="http://bnftClaimService.services.vonapp.vba.va.gov/" />
+    </xsd:schema>
+  </types>
+  <message name="vnpBnftClaimFindByPrimaryKey">
+    <part name="parameters" element="tns:vnpBnftClaimFindByPrimaryKey" />
+  </message>
+  <message name="vnpBnftClaimFindByPrimaryKeyResponse">
+    <part name="parameters" element="tns:vnpBnftClaimFindByPrimaryKeyResponse" />
+  </message>
+  <message name="MessageFaultException">
+    <part name="fault" element="tns:MessageFaultException" />
+  </message>
+  <message name="vnpBnftClaimCreate">
+    <part name="parameters" element="tns:vnpBnftClaimCreate" />
+  </message>
+  <message name="vnpBnftClaimCreateResponse">
+    <part name="parameters" element="tns:vnpBnftClaimCreateResponse" />
+  </message>
+  <message name="vnpBnftClaimRemove">
+    <part name="parameters" element="tns:vnpBnftClaimRemove" />
+  </message>
+  <message name="vnpBnftClaimRemoveResponse">
+    <part name="parameters" element="tns:vnpBnftClaimRemoveResponse" />
+  </message>
+  <message name="findAllAsArray">
+    <part name="parameters" element="tns:findAllAsArray" />
+  </message>
+  <message name="findAllAsArrayResponse">
+    <part name="parameters" element="tns:findAllAsArrayResponse" />
+  </message>
+  <message name="vnpBnftClaimUpdate">
+    <part name="parameters" element="tns:vnpBnftClaimUpdate" />
+  </message>
+  <message name="vnpBnftClaimUpdateResponse">
+    <part name="parameters" element="tns:vnpBnftClaimUpdateResponse" />
+  </message>
+  <portType name="VnpBnftClaimService">
+    <operation name="vnpBnftClaimFindByPrimaryKey">
+      <input message="tns:vnpBnftClaimFindByPrimaryKey" />
+      <output message="tns:vnpBnftClaimFindByPrimaryKeyResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpBnftClaimCreate">
+      <input message="tns:vnpBnftClaimCreate" />
+      <output message="tns:vnpBnftClaimCreateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpBnftClaimRemove">
+      <input message="tns:vnpBnftClaimRemove" />
+      <output message="tns:vnpBnftClaimRemoveResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="findAllAsArray">
+      <input message="tns:findAllAsArray" />
+      <output message="tns:findAllAsArrayResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+    <operation name="vnpBnftClaimUpdate">
+      <input message="tns:vnpBnftClaimUpdate" />
+      <output message="tns:vnpBnftClaimUpdateResponse" />
+      <fault name="MessageFaultException" message="tns:MessageFaultException" />
+    </operation>
+  </portType>
+  <binding name="VnpBnftClaimServicePortBinding" type="tns:VnpBnftClaimService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="vnpBnftClaimFindByPrimaryKey">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpBnftClaimCreate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpBnftClaimRemove">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllAsArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vnpBnftClaimUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="MessageFaultException">
+        <soap:fault use="literal" name="MessageFaultException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="VnpBnftClaimService">
+    <port name="VnpBnftClaimServicePort" binding="tns:VnpBnftClaimServicePortBinding">
+      <soap:address location="http://beplinktest.vba.va.gov:80/VnpBnftClaimWebServiceBean/VnpBnftClaimService" />
+    </port>
+  </service>
+</definitions>

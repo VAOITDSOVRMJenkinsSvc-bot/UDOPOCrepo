@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ToolsVersion="2.0">
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <DataSources />
+  <DataSets />
+  <Reports>
+    <ProjectItem>
+      <Name>21-0820_-_Report_of_General_Information.rdl</Name>
+      <FullPath>21-0820_-_Report_of_General_Information.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>21-0820a - Report of First Notice of Death_fixed.rdl</Name>
+      <FullPath>21-0820a - Report of First Notice of Death_fixed.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>21-0820d - Report of Non-Receipt of Payment.rdl</Name>
+      <FullPath>21-0820d - Report of Non-Receipt of Payment.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>21-0820f - Report of Month of Death.rdl</Name>
+      <FullPath>21-0820f - Report of Month of Death.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Amount Letter Gross.rdl</Name>
+      <FullPath>Amount Letter Gross.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Blank Letter.rdl</Name>
+      <FullPath>Blank Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Commissary Letter Surviving Spouse.rdl</Name>
+      <FullPath>Commissary Letter Surviving Spouse.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Commissary Letter with Future Exam.rdl</Name>
+      <FullPath>Commissary Letter with Future Exam.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Commissary Letter.rdl</Name>
+      <FullPath>Commissary Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Death Benefits Letter.rdl</Name>
+      <FullPath>Death Benefits Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Disability Breakdown Letter.rdl</Name>
+      <FullPath>Disability Breakdown Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Fax Cover Sheet.rdl</Name>
+      <FullPath>Fax Cover Sheet.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Income Amount Letter.rdl</Name>
+      <FullPath>Income Amount Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Informal Claims Letter - AB10.rdl</Name>
+      <FullPath>Informal Claims Letter - AB10.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MOD Memorandum.rdl</Name>
+      <FullPath>MOD Memorandum.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Multiple Payment Letter.rdl</Name>
+      <FullPath>Multiple Payment Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>No Benefits Letter.rdl</Name>
+      <FullPath>No Benefits Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>NOK Letter.rdl</Name>
+      <FullPath>NOK Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Preference Letters.rdl</Name>
+      <FullPath>Preference Letters.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Property Tax DMV Registration - MT.rdl</Name>
+      <FullPath>Property Tax DMV Registration - MT.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Property Tax Exemption - CA - LA.rdl</Name>
+      <FullPath>Property Tax Exemption - CA - LA.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Real Estate - License Fee Tax Exemption.rdl</Name>
+      <FullPath>Real Estate - License Fee Tax Exemption.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Service Verification.rdl</Name>
+      <FullPath>Service Verification.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Summary of Benefits Surviving Spouse Letter.rdl</Name>
+      <FullPath>Summary of Benefits Surviving Spouse Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Summary of Benefits Veterans Letter.rdl</Name>
+      <FullPath>Summary of Benefits Veterans Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Veteran Percentage Letter.rdl</Name>
+      <FullPath>Veteran Percentage Letter.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Veteran PT Letter.rdl</Name>
+      <FullPath>Veteran PT Letter.rdl</FullPath>
+    </ProjectItem>
+  </Reports>
+  <Configurations>
+    <Configuration>
+      <Name>Debug</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\Debug</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>Letters Reports</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>DebugLocal</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\DebugLocal</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>Letters Reports</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Release</Name>
+      <Platform>Win32</Platform>
+      <Options>
+        <OutputPath>bin\Release</OutputPath>
+        <TargetServerVersion>SSRS2008R2</TargetServerVersion>
+        <TargetFolder>Letters Reports</TargetFolder>
+        <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
+        <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+        <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

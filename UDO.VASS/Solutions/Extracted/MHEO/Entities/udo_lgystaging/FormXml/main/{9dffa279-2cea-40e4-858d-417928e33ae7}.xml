@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemform>
+  <formid>{9dffa279-2cea-40e4-858d-417928e33ae7}</formid>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <FormPresentation>1</FormPresentation>
+  <FormActivationState>1</FormActivationState>
+  <form>
+    <tabs>
+      <tab verticallayout="true" id="{36280261-93b4-4821-b641-40114005cabb}" IsUserDefined="1">
+        <labels>
+          <label description="General" languagecode="1033" />
+        </labels>
+        <columns>
+          <column width="100%">
+            <sections>
+              <section showlabel="false" showbar="false" IsUserDefined="0" id="{5a65ef89-3879-43a5-a35f-118423ae3c6a}">
+                <labels>
+                  <label description="General" languagecode="1033" />
+                </labels>
+                <rows>
+                  <row>
+                    <cell id="{8d51aa9c-da3d-469d-bcb6-2dd8c1f089f3}">
+                      <labels>
+                        <label description="Name" languagecode="1033" />
+                      </labels>
+                      <control id="udo_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_name" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{680261ee-02d3-4d5b-b233-8b8a26f43ad3}">
+                      <labels>
+                        <label description="Owner" languagecode="1033" />
+                      </labels>
+                      <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{292db599-bb6b-1e25-7283-44ec1660ccd1}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="Contact" languagecode="1033" />
+                      </labels>
+                      <control id="udo_contactid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="udo_contactid" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{8ca70dd8-11c5-724c-e9bb-1b25ddb3e88a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="SSN" languagecode="1033" />
+                      </labels>
+                      <control id="udo_ssn" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_ssn" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{130a2d72-9492-c2d8-5931-615c245c4ecc}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="LGY_FIRST_NAME" languagecode="1033" />
+                      </labels>
+                      <control id="udo_lgy_first_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_lgy_first_name" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{5701173a-808e-27ed-24c6-8a2d53b85b80}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="LGY_MIDDLE_NAME" languagecode="1033" />
+                      </labels>
+                      <control id="udo_lgy_middle_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_lgy_middle_name" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{7ec0e96d-1b83-5236-03b0-2042ca94ca78}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="LGY_LAST_NAME" languagecode="1033" />
+                      </labels>
+                      <control id="udo_lgy_last_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_lgy_last_name" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e3a255d3-c44e-742b-38e8-12614a719b98}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="BRANCH_OF_SVC" languagecode="1033" />
+                      </labels>
+                      <control id="udo_branch_of_svc" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_branch_of_svc" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{a0389571-deaa-ab82-57e1-993806dd3664}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="PROCESSED_DATE" languagecode="1033" />
+                      </labels>
+                      <control id="udo_processed_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_processed_date" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{02a37a38-3376-c671-6e3e-6ed6b225b2a6}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="EOD_DT" languagecode="1033" />
+                      </labels>
+                      <control id="udo_eod_dt" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_eod_dt" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{275884c4-b277-b63d-b729-d554e9c8d2b3}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="LOAN_CLOSING_DATE" languagecode="1033" />
+                      </labels>
+                      <control id="udo_loan_closing_date" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_loan_closing_date" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{d7ed5d52-0ec2-81d2-6a19-6eda1dc821b2}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="RAD_DT" languagecode="1033" />
+                      </labels>
+                      <control id="udo_rad_dt" classid="{5B773807-9FB2-42db-97C3-7A91EFF8ADFF}" datafieldname="udo_rad_dt" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{373c549b-2d70-3999-63e2-6d4bac270779}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="STREET_NUMBER" languagecode="1033" />
+                      </labels>
+                      <control id="udo_street_number" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_street_number" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{402477e4-197d-6bb7-3344-000933c6cd58}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="ADDRESS_LINE_1" languagecode="1033" />
+                      </labels>
+                      <control id="udo_address_line_1" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_address_line_1" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{97aeb2e4-39d0-e620-36ee-94401e274e8d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="ADDRESS_LINE_2" languagecode="1033" />
+                      </labels>
+                      <control id="udo_address_line_2" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_address_line_2" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{e24ea902-a635-0c8b-51d5-633c639171b8}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="CITY" languagecode="1033" />
+                      </labels>
+                      <control id="udo_city" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_city" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{4d0bed26-3111-3761-6c33-952353a6b30d}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="STATE_CODE" languagecode="1033" />
+                      </labels>
+                      <control id="udo_state_code" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_state_code" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{12a5d8e5-145a-815c-c9cc-c2935c3c314c}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="ZIP_CODE_PREFIX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_zip_code_prefix" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_zip_code_prefix" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{01d490d8-eabe-79c2-71e4-0a7645156d50}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="ZIP_CODE_SUFFIX" languagecode="1033" />
+                      </labels>
+                      <control id="udo_zip_code_suffix" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_zip_code_suffix" disabled="false" />
+                    </cell>
+                  </row>
+                  <row>
+                    <cell id="{c8685930-3605-0e19-a2a1-9055250ec60a}" showlabel="true" locklevel="0">
+                      <labels>
+                        <label description="COUNTY" languagecode="1033" />
+                      </labels>
+                      <control id="udo_county" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="udo_county" disabled="false" />
+                    </cell>
+                  </row>
+                </rows>
+              </section>
+            </sections>
+          </column>
+        </columns>
+      </tab>
+    </tabs>
+    <Navigation>
+      <NavBar></NavBar>
+      <NavBarAreas>
+        <NavBarArea Id="Info">
+          <Titles>
+            <Title LCID="1033" Text="Common" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Sales">
+          <Titles>
+            <Title LCID="1033" Text="Sales" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Service">
+          <Titles>
+            <Title LCID="1033" Text="Service" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="Marketing">
+          <Titles>
+            <Title LCID="1033" Text="Marketing" />
+          </Titles>
+        </NavBarArea>
+        <NavBarArea Id="ProcessCenter">
+          <Titles>
+            <Title LCID="1033" Text="Process Sessions" />
+          </Titles>
+        </NavBarArea>
+      </NavBarAreas>
+    </Navigation>
+  </form>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <LocalizedNames>
+    <LocalizedName description="Information" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="A form for this entity." languagecode="1033" />
+  </Descriptions>
+</systemform>

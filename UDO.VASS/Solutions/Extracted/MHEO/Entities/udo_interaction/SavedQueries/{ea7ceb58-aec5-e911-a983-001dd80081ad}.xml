@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedquery>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <isquickfindquery>0</isquickfindquery>
+  <isprivate>0</isprivate>
+  <isdefault>0</isdefault>
+  <savedqueryid>{ea7ceb58-aec5-e911-a983-001dd80081ad}</savedqueryid>
+  <layoutxml>
+    <grid name="resultset" icon="1" preview="1" select="1" jump="udo_title">
+      <row id="udo_interactionid" name="result">
+        <cell name="createdon" width="100" />
+        <cell name="ownerid" width="100" />
+        <cell name="createdby" width="100" />
+        <cell name="udo_endtime" width="100" />
+        <cell name="udo_duration" width="100" />
+        <cell name="udo_firstname" width="125" />
+        <cell name="udo_lastname" width="125" />
+        <cell name="udo_channel" width="100" />
+        <cell name="udo_intervalend" width="100" />
+        <cell name="udo_interactiontype" width="125" />
+        <cell name="udo_mheocalldisposition" width="100" />
+        <cell name="udo_phonenumber" width="100" />
+        <cell name="udo_relationship" width="100" />
+        <cell name="udo_virtualcall" width="100" />
+        <cell name="udo_callerdisconnected" width="150" />
+        <cell name="udo_callerrequestedsupervisor" width="200" />
+        <cell name="udo_complaint" width="100" />
+        <cell name="udo_generalinformationcall" width="150" />
+        <cell name="udo_ghostcall" width="100" />
+        <cell name="udo_isabusivecaller" width="125" />
+        <cell name="udo_iscallerauthorized" width="150" />
+        <cell name="udo_ismigrated" width="100" />
+        <cell name="udo_nophonenumberavailable" width="200" />
+        <cell name="udo_pcrdisconnectedcall" width="150" />
+        <cell name="udo_mediainquirycall" width="125" />
+        <cell name="udo_trainingrequest" width="125" />
+      </row>
+    </grid>
+  </layoutxml>
+  <querytype>0</querytype>
+  <fetchxml>
+    <fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="false">
+      <entity name="udo_interaction">
+        <attribute name="udo_virtualcall" />
+        <attribute name="udo_relationship" />
+        <attribute name="udo_phonenumber" />
+        <attribute name="udo_interactiontype" />
+        <attribute name="udo_duration" />
+        <attribute name="createdon" />
+        <attribute name="udo_lastname" />
+        <attribute name="udo_firstname" />
+        <attribute name="udo_pcrdisconnectedcall" />
+        <attribute name="udo_nophonenumberavailable" />
+        <attribute name="udo_ismigrated" />
+        <attribute name="udo_iscallerauthorized" />
+        <attribute name="udo_isabusivecaller" />
+        <attribute name="udo_ghostcall" />
+        <attribute name="udo_generalinformationcall" />
+        <attribute name="udo_complaint" />
+        <attribute name="udo_callerrequestedsupervisor" />
+        <attribute name="udo_callerdisconnected" />
+        <attribute name="udo_trainingrequest" />
+        <attribute name="udo_mediainquirycall" />
+        <attribute name="udo_endtime" />
+        <attribute name="createdby" />
+        <attribute name="udo_channel" />
+        <attribute name="udo_mheocalldisposition" />
+        <attribute name="ownerid" />
+        <attribute name="udo_intervalend" />
+        <order descending="false" attribute="udo_intervalend" />
+        <order attribute="createdon" descending="false" />
+        <filter type="and">
+          <condition attribute="udo_channel" operator="eq" value="752280004" />
+        </filter>
+        <attribute name="udo_interactionid" />
+      </entity>
+    </fetch>
+  </fetchxml>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <LocalizedNames>
+    <LocalizedName description="All VASS Interactions" languagecode="1033" />
+  </LocalizedNames>
+</savedquery>
